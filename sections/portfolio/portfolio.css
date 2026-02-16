@@ -1,0 +1,535 @@
+/* =============================================
+   PORTFOLIO SECTION
+   ============================================= */
+.pf-section {
+    position: relative;
+    padding: 120px 0 80px;
+    background: #050505;
+    overflow: hidden;
+}
+
+/* Film-grain noise overlay */
+.pf-noise {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ---- Header ---- */
+.pf-header {
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pf-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pf-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #007c87;
+    margin-bottom: 16px;
+}
+
+.pf-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 16px;
+}
+
+.pf-subline {
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.45);
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+/* ---- Filter pills ---- */
+.pf-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pf-filters.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pf-pill {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 22px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pf-pill:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+.pf-pill.active {
+    color: #fff;
+    background: #007c87;
+    border-color: #007c87;
+    box-shadow: 0 0 20px rgba(0, 124, 135, 0.35);
+}
+
+/* ---- Gallery ---- */
+.pf-gallery {
+    position: relative;
+    z-index: 2;
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    -webkit-user-select: none;
+    user-select: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.pf-gallery::-webkit-scrollbar {
+    display: none;
+}
+.pf-gallery.dragging {
+    cursor: grabbing;
+}
+.pf-gallery.dragging .pf-card {
+    pointer-events: none;
+}
+
+.pf-track {
+    display: flex;
+    gap: 20px;
+    padding: 0 max(40px, calc((100vw - 1200px) / 2));
+    transition: transform 0.05s linear;
+    will-change: transform;
+}
+
+/* ---- Cards ---- */
+.pf-card {
+    flex-shrink: 0;
+    width: 340px;
+    height: 420px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.5s ease;
+    opacity: 0;
+    transform: translateY(40px);
+}
+.pf-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.pf-card:hover {
+    transform: translateY(-6px) scale(1.015);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 124, 135, 0.1);
+}
+.pf-card.hidden {
+    display: none;
+}
+
+/* Card size variants */
+.pf-card--wide {
+    width: 480px;
+}
+.pf-card--tall {
+    width: 300px;
+    height: 480px;
+}
+
+/* ---- Video cards ---- */
+.pf-card--video {
+    background: linear-gradient(135deg, #0a1520 0%, #0d2030 40%, #004d54 100%);
+}
+.pf-card--video:nth-child(4n+1) {
+    background: linear-gradient(160deg, #0a0f18 0%, #0d1b2a 40%, #1b2838 100%);
+}
+.pf-card--video:nth-child(4n+2) {
+    background: linear-gradient(145deg, #0d1117 0%, #161b22 40%, #004d54 100%);
+}
+
+.pf-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: opacity 0.6s ease, transform 0.8s ease;
+    transform: scale(1.05);
+}
+.pf-card--video:hover .pf-video {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Vimeo thumbnail overlay */
+.pf-video-thumb {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+    transition: opacity 0.6s ease, transform 0.8s ease;
+    transform: scale(1.05);
+}
+.pf-card--video:hover .pf-video-thumb {
+    opacity: 1;
+    transform: scale(1);
+}
+.pf-card--video::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.1) 60%, transparent 100%);
+    z-index: 1;
+    transition: opacity 0.4s;
+}
+.pf-card--video:hover::after {
+    opacity: 0.6;
+}
+
+.pf-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(0, 124, 135, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.4s, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(8px);
+}
+.pf-play-icon svg {
+    width: 22px;
+    height: 22px;
+    margin-left: 3px;
+}
+.pf-card--video:hover .pf-play-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.pf-card--video.playing .pf-play-icon {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* ---- Image cards ---- */
+.pf-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pf-card--image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+    z-index: 1;
+}
+.pf-card--image:hover .pf-img {
+    transform: scale(1.06);
+}
+
+/* ---- Card overlay ---- */
+.pf-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 28px 24px;
+    z-index: 2;
+    transform: translateY(8px);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pf-card:hover .pf-card-overlay,
+.pf-card--video .pf-card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pf-card-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #007c87;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.pf-card-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 4px;
+}
+
+.pf-card-sub {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---- Metric cards ---- */
+.pf-card--metric {
+    background: linear-gradient(165deg, #0a0f12 0%, #0d1117 100%);
+    border: 1px solid rgba(0, 124, 135, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pf-card--metric.pf-card--accent {
+    background: linear-gradient(165deg, #002a2e 0%, #0a1215 100%);
+    border-color: rgba(0, 124, 135, 0.25);
+}
+.pf-card--metric:hover {
+    border-color: rgba(0, 124, 135, 0.4);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 124, 135, 0.15);
+}
+
+.pf-metric-inner {
+    text-align: center;
+    padding: 40px 28px;
+}
+
+.pf-metric-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 4.5rem;
+    line-height: 1;
+    color: #fff;
+    display: block;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #ffffff 20%, #007c87 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.pf-metric-label {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.pf-metric-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.pf-metric-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #007c87, #00b4c6);
+    border-radius: 2px;
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pf-card--metric.visible .pf-metric-fill {
+    width: var(--fill);
+}
+
+.pf-metric-detail {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+/* ---- Scroll hint ---- */
+.pf-scroll-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 28px 0 0;
+    position: relative;
+    z-index: 2;
+    color: rgba(255, 255, 255, 0.25);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: hintPulse 2.5s ease-in-out infinite;
+}
+.pf-scroll-hint svg {
+    animation: hintSlide 2s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+}
+@keyframes hintSlide {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(8px); }
+}
+
+/* ---- Section nav button (match team style) ---- */
+.pf-nav-btn {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+    background: transparent !important;
+}
+.pf-nav-btn:hover {
+    border-color: var(--color-accent) !important;
+    background: var(--color-accent) !important;
+    color: #ffffff !important;
+}
+
+/* =============================================
+   LIGHTBOX
+   ============================================= */
+.pf-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+.pf-lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.pf-lightbox-content {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 12px;
+    overflow: hidden;
+    transform: scale(0.92);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+}
+.pf-lightbox.open .pf-lightbox-content {
+    transform: scale(1);
+}
+.pf-lightbox-content video {
+    width: 100%;
+    max-height: 85vh;
+    display: block;
+}
+
+.pf-lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, border-color 0.3s;
+    z-index: 2;
+}
+.pf-lightbox-close:hover {
+    background: rgba(0, 124, 135, 0.4);
+    border-color: rgba(0, 124, 135, 0.6);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 1024px) {
+    .pf-section { padding: 90px 0 60px; }
+    .pf-card { width: 300px; height: 380px; }
+    .pf-card--wide { width: 420px; }
+    .pf-card--tall { width: 260px; height: 440px; }
+    .pf-metric-value { font-size: 3.5rem; }
+    .pf-track { gap: 16px; padding: 0 24px; }
+}
+
+@media (max-width: 768px) {
+    .pf-section { padding: 72px 0 48px; }
+    .pf-header { margin-bottom: 32px; }
+    .pf-filters { margin-bottom: 32px; gap: 8px; }
+    .pf-pill { padding: 8px 16px; font-size: 0.75rem; }
+    .pf-card { width: 280px; height: 350px; }
+    .pf-card--wide { width: 340px; }
+    .pf-card--tall { width: 240px; height: 400px; }
+    .pf-track { gap: 14px; padding: 0 20px; }
+    .pf-metric-value { font-size: 3rem; }
+    .pf-card-overlay {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .pf-section { padding: 56px 0 36px; }
+    .pf-card { width: 260px; height: 320px; }
+    .pf-card--wide { width: 300px; }
+    .pf-card--tall { width: 220px; height: 360px; }
+    .pf-track { gap: 12px; padding: 0 16px; }
+    .pf-metric-value { font-size: 2.6rem; }
+    .pf-headline { font-size: 2rem; }
+}

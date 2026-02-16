@@ -1,0 +1,512 @@
+/* ============================================
+   PRINCIPLES SECTION
+   Data First, Automate Everything, Sweet Spot
+   ============================================ */
+
+/* Gradient text for section title */
+#principles .section-title {
+    background: linear-gradient(135deg, var(--color-text) 30%, #007c87 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* --- Card --- */
+.principle-card {
+    position: relative;
+    text-align: center;
+    padding: 2.5rem 2rem 2rem;
+    background: #ffffff;
+    border: 1px solid rgba(0, 124, 135, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+}
+
+.principle-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.principle-card:hover {
+    box-shadow: 0 20px 56px rgba(0, 124, 135, 0.16),
+                0 0 32px rgba(0, 124, 135, 0.08),
+                0 0 0 1px rgba(0, 124, 135, 0.12);
+    border-color: rgba(0, 124, 135, 0.3);
+    transform: translateY(-6px) scale(1.015);
+    background: linear-gradient(180deg, rgba(0, 124, 135, 0.03) 0%, #ffffff 30%);
+}
+
+/* Large watermark number — gradient treatment */
+.principle-card::before {
+    content: attr(data-number);
+    position: absolute;
+    top: -10px;
+    right: 12px;
+    font-family: var(--font-display);
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 1;
+    background: linear-gradient(135deg, rgba(0, 124, 135, 0.06) 0%, rgba(0, 124, 135, 0.02) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.35s ease;
+}
+
+.principle-card:hover::before {
+    background: linear-gradient(135deg, rgba(0, 124, 135, 0.12) 0%, rgba(0, 124, 135, 0.04) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Accent bar at top of card */
+.principle-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), rgba(0, 124, 135, 0.3));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.principle-card.visible::after {
+    transform: scaleX(1);
+}
+
+/* --- Visual / Animation Area --- */
+.principle-visual {
+    position: relative;
+    width: 100%;
+    height: 160px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.principle-anim {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* === DATA FIRST — Animated bar chart + line === */
+.anim-data {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 1rem 10px;
+}
+
+.data-bar {
+    width: 14px;
+    height: 0;
+    border-radius: 4px 4px 0 0;
+    opacity: 0;
+    transition: none;
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 124, 135, 0.1);
+}
+
+.data-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background: linear-gradient(to top, var(--color-accent), rgba(0, 124, 135, 0.4));
+    border-radius: 4px 4px 0 0;
+    animation: barWave 6s ease-in-out infinite;
+    animation-delay: var(--d);
+    animation-play-state: paused;
+}
+
+.principle-card.visible .data-bar {
+    animation: barGrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--d);
+}
+
+.principle-card.visible .data-bar::after {
+    animation-play-state: running;
+}
+
+@keyframes barGrow {
+    0% { height: 0; opacity: 0; }
+    100% { height: var(--h); opacity: 1; }
+}
+
+@keyframes barWave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(55%); }
+}
+
+.data-line-svg {
+    position: absolute;
+    top: 10px;
+    left: 1rem;
+    right: 1rem;
+    width: calc(100% - 2rem);
+    height: calc(100% - 20px);
+    overflow: visible;
+}
+
+.data-line {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    filter: drop-shadow(0 0 4px rgba(0, 124, 135, 0.3));
+}
+
+.principle-card.visible .data-line {
+    animation: drawDataLine 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+@keyframes drawDataLine {
+    to { stroke-dashoffset: 0; }
+}
+
+/* === AUTOMATE EVERYTHING — Orbital rings === */
+.anim-automate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(0, 124, 135, 0.15);
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.principle-card.visible .orbit {
+    animation: orbitAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.orbit-1 {
+    width: 140px;
+    height: 140px;
+    animation-delay: 0.1s;
+}
+
+.orbit-2 {
+    width: 100px;
+    height: 100px;
+    animation-delay: 0.2s;
+}
+
+.orbit-3 {
+    width: 60px;
+    height: 60px;
+    animation-delay: 0.3s;
+}
+
+.principle-card.visible .orbit-1 { animation-delay: 0.1s; }
+.principle-card.visible .orbit-2 { animation-delay: 0.2s; }
+.principle-card.visible .orbit-3 { animation-delay: 0.3s; }
+
+@keyframes orbitAppear {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Orbit nodes */
+.orbit-node {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    top: -5px;
+    left: 50%;
+    margin-left: -5px;
+    box-shadow: 0 0 10px rgba(0, 124, 135, 0.4);
+}
+
+.orbit-1 {
+    animation: spin 8s linear infinite;
+}
+
+.orbit-2 {
+    animation: spinReverse 6s linear infinite;
+}
+
+.orbit-3 {
+    animation: spin 4s linear infinite;
+}
+
+/* Only apply spin after card is visible */
+.principle-card:not(.visible) .orbit {
+    animation: none !important;
+}
+
+.principle-card.visible .orbit-1 {
+    animation: orbitAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards,
+               orbitCW 6s ease-in-out 0.7s infinite;
+}
+
+.principle-card.visible .orbit-2 {
+    animation: orbitAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards,
+               orbitCCW 6s ease-in-out 0.8s infinite;
+}
+
+.principle-card.visible .orbit-3 {
+    animation: orbitAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards,
+               orbitCW 6s ease-in-out 0.9s infinite;
+}
+
+/* Orbit clockwise, pause at top (0deg), then continue */
+@keyframes orbitCW {
+    0%   { transform: rotate(0deg); }
+    40%  { transform: rotate(360deg); }
+    50%  { transform: rotate(360deg); }   /* hold aligned */
+    90%  { transform: rotate(720deg); }
+    100% { transform: rotate(720deg); }   /* hold aligned */
+}
+
+/* Orbit counter-clockwise, pause at top (0deg), then continue */
+@keyframes orbitCCW {
+    0%   { transform: rotate(0deg); }
+    40%  { transform: rotate(-360deg); }
+    50%  { transform: rotate(-360deg); }  /* hold aligned */
+    90%  { transform: rotate(-720deg); }
+    100% { transform: rotate(-720deg); }  /* hold aligned */
+}
+
+.core-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 20px rgba(0, 124, 135, 0.5), 0 0 40px rgba(0, 124, 135, 0.2);
+    opacity: 0;
+}
+
+.principle-card.visible .core-dot {
+    animation: coreAppear 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards,
+               corePulse 2.5s ease-in-out 0.7s infinite;
+}
+
+@keyframes coreAppear {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes corePulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 124, 135, 0.5), 0 0 40px rgba(0, 124, 135, 0.2);
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 124, 135, 0.7), 0 0 60px rgba(0, 124, 135, 0.3);
+        transform: translate(-50%, -50%) scale(1.15);
+    }
+}
+
+/* === SWEET SPOT — Pulsing concentric rings === */
+.anim-focus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.focus-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0, 124, 135, 0.2);
+    opacity: 0;
+}
+
+.ring-1 {
+    width: 140px;
+    height: 140px;
+}
+
+.ring-2 {
+    width: 100px;
+    height: 100px;
+}
+
+.ring-3 {
+    width: 60px;
+    height: 60px;
+}
+
+.principle-card.visible .focus-ring {
+    animation: ringPulse 3s ease-in-out infinite;
+}
+
+.principle-card.visible .ring-1 {
+    animation: ringAppear 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards,
+               ringPulse 3s ease-in-out 0.6s infinite;
+}
+
+.principle-card.visible .ring-2 {
+    animation: ringAppear 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards,
+               ringPulse 3s ease-in-out 0.7s infinite;
+    animation-direction: normal, reverse;
+}
+
+.principle-card.visible .ring-3 {
+    animation: ringAppear 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards,
+               ringPulse 3s ease-in-out 0.8s infinite;
+}
+
+@keyframes ringAppear {
+    0% { opacity: 0; transform: scale(0.3); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ringPulse {
+    0%, 100% {
+        transform: scale(1);
+        border-color: rgba(0, 124, 135, 0.2);
+    }
+    50% {
+        transform: scale(1.08);
+        border-color: rgba(0, 124, 135, 0.4);
+    }
+}
+
+.focus-center {
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--color-accent) 40%, rgba(0, 124, 135, 0.6) 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    box-shadow: 0 0 20px rgba(0, 124, 135, 0.5), 0 0 50px rgba(0, 124, 135, 0.15);
+}
+
+.principle-card.visible .focus-center {
+    animation: focusCenterAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards,
+               focusCenterGlow 2.5s ease-in-out 0.8s infinite;
+}
+
+@keyframes focusCenterAppear {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes focusCenterGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 124, 135, 0.5), 0 0 50px rgba(0, 124, 135, 0.15);
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(0, 124, 135, 0.7), 0 0 70px rgba(0, 124, 135, 0.25);
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+
+/* --- Text --- */
+.principle-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+    position: relative;
+    z-index: 1;
+}
+
+.principle-description {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    position: relative;
+    z-index: 1;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 968px) {
+    .principles-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 440px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .principles-grid {
+        gap: 1.25rem;
+        margin-top: 2rem;
+    }
+
+    .principle-card {
+        padding: 2rem 1.5rem 1.5rem;
+    }
+
+    .principle-visual {
+        height: 120px;
+        margin-bottom: 1rem;
+    }
+
+    .principle-card::before {
+        font-size: 5rem;
+        top: -6px;
+        right: 8px;
+    }
+
+    .orbit-1, .ring-1 { width: 110px; height: 110px; }
+    .orbit-2, .ring-2 { width: 78px; height: 78px; }
+    .orbit-3, .ring-3 { width: 46px; height: 46px; }
+
+    .data-bar { width: 10px; }
+}
+
+@media (max-width: 480px) {
+    .principle-card {
+        padding: 1.5rem 1.25rem 1.25rem;
+    }
+
+    .principle-visual {
+        height: 100px;
+        margin-bottom: 0.75rem;
+    }
+
+    .principle-title {
+        font-size: 1.25rem;
+    }
+
+    .principle-description {
+        font-size: 0.9375rem;
+    }
+}

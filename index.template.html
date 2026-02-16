@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vantage Method - Marketing Systems That Work</title>
+    <meta name="description" content="Vantage Method designs and operates agentic marketing systems that automate lead generation, measure what matters, and deliver results within your operating margins.">
+    <link rel="canonical" href="https://vantagemethod.com/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vantage Method - Marketing Systems That Work">
+    <meta property="og:description" content="Agentic marketing systems that automate lead generation, measure what matters, and deliver results within your operating margins.">
+    <meta property="og:url" content="https://vantagemethod.com/">
+    <meta property="og:site_name" content="Vantage Method">
+    <meta property="og:image" content="https://vantagemethod.com/assets/images/brand/Vantage-Method-Dark.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Vantage Method - Marketing Systems That Work">
+    <meta name="twitter:description" content="Agentic marketing systems that automate lead generation, measure what matters, and deliver results within your operating margins.">
+    <meta name="twitter:image" content="https://vantagemethod.com/assets/images/brand/Vantage-Method-Dark.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/brand/apple-touch-icon.png">
+
+    <!-- Preload critical above-fold images -->
+    <link rel="preload" href="assets/images/brand/Vantage-Method-Dark.png" as="image">
+    <link rel="preload" href="assets/images/mountains/center-mountain-front.webp" as="image">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Compiled CSS (all sections concatenated and minified by build.js) -->
+    <link rel="stylesheet" href="assets/compiled.css">
+    <!-- Inline splash screen styles (must load before anything else) -->
+    <style>
+        .loading-splash {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loading-splash.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loading-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .loading-logo {
+            width: 60px;
+            height: auto;
+            animation: loadPulse 1.8s ease-in-out infinite;
+        }
+
+        .loading-bar {
+            width: 160px;
+            height: 3px;
+            background: rgba(0, 124, 135, 0.12);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .loading-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #007c87, #00b4c6);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        .loading-pct {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            color: rgba(0, 124, 135, 0.6);
+        }
+
+        @keyframes loadPulse {
+
+            0%,
+            100% {
+                opacity: 0.4;
+                transform: scale(0.96);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Loading Splash Screen -->
+    <div id="loadingSplash" class="loading-splash">
+        <div class="loading-inner">
+            <img src="assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="loading-logo"
+                fetchpriority="high">
+            <div class="loading-bar">
+                <div class="loading-bar-fill"></div>
+            </div>
+            <span class="loading-pct" id="loadingPct">0%</span>
+        </div>
+    </div>
+
+    <!-- Fixed Vanta.js background — persists behind hero + mountains -->
+    <div id="vantaBg"></div>
+
+    <!-- ============================================
+         HEADER
+         ============================================ -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo-link" aria-label="Back to top"><img
+                    src="assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="logo"
+                    fetchpriority="high"></a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="mainNav">
+                <a href="#outcome">Our Approach</a>
+                <a href="#principles">Principles</a>
+                <a href="#how-we-work">How We Work</a>
+                <a href="#what-we-do">What We Do</a>
+                <a href="#team">Team</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#lead-form" class="nav-cta">Let's Talk</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- @include sections/hero/hero.html -->
+
+    <!-- @include sections/mountains/mountains.html -->
+
+    <!-- @include sections/principles/principles.html -->
+
+    <!-- @include sections/how-we-work/how-we-work.html -->
+
+    <!-- @include sections/what-we-do/what-we-do.html -->
+
+    <!-- @include sections/social-proof/social-proof.html -->
+
+    <!-- @include sections/team/team.html -->
+
+    <!-- @include sections/portfolio/portfolio.html -->
+
+    <!-- @include sections/pricing/pricing.html -->
+
+    <!-- @include sections/cta/cta.html -->
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <path d="M9 14V4M4 8l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+    </button>
+
+    <!-- ============================================
+         SCRIPTS
+         Vanta.js loaded dynamically by hero.js after first paint
+         ============================================ -->
+    <!-- Shared Global Scripts -->
+    <script src="shared/global.js"></script>
+
+    <!-- Section Scripts -->
+    <script src="sections/hero/hero.js"></script>
+    <script src="sections/mountains/mountains.js"></script>
+    <script src="sections/principles/principles.js"></script>
+    <script src="sections/how-we-work/how-we-work.js"></script>
+    <script src="sections/what-we-do/what-we-do.js"></script>
+    <script src="sections/team/team.js"></script>
+    <script src="sections/portfolio/portfolio.js"></script>
+    <script src="sections/cta/cta.js"></script>
+
+    <!-- reCAPTCHA v3 for GHL form submission — TODO: replace SITE_KEY with your GHL reCAPTCHA site key -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX"
+        async></script>
+
+    <!-- Dismiss loading splash once ready, or after 3s max -->
+    <script>
+        (function () {
+            var splash = document.getElementById('loadingSplash');
+            var fill = splash ? splash.querySelector('.loading-bar-fill') : null;
+            var pctEl = document.getElementById('loadingPct');
+            if (!splash) return;
+
+            var displayPct = 0;
+            var targetPct = 30;
+            var animFrame;
+            var dismissed = false;
+
+            function animatePct() {
+                if (displayPct < targetPct) {
+                    displayPct = Math.min(displayPct + 1, targetPct);
+                    if (pctEl) pctEl.textContent = displayPct + '%';
+                    if (fill) fill.style.width = displayPct + '%';
+                    animFrame = requestAnimationFrame(animatePct);
+                }
+            }
+
+            function bump(pct) {
+                targetPct = Math.min(pct, 100);
+                cancelAnimationFrame(animFrame);
+                animatePct();
+            }
+
+            bump(30);
+            bump(70);
+
+            function dismiss() {
+                if (dismissed) return;
+                dismissed = true;
+                bump(100);
+                setTimeout(function () {
+                    splash.classList.add('hidden');
+                    setTimeout(function () { splash.remove(); }, 700);
+                }, 400);
+            }
+
+            /* Dismiss on full load if it happens quickly */
+            if (document.readyState === 'complete') {
+                dismiss();
+            } else {
+                window.addEventListener('load', dismiss);
+            }
+
+            /* Hard ceiling: dismiss after 3s no matter what */
+            setTimeout(dismiss, 3000);
+        })();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+/**
+ * Required CSS for Vanta.js TRUNK Animation
+ * Apply these styles to your hero/section element
+ */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Vanta.js creates canvas elements automatically */
+.hero canvas {
+    background: #ffffff !important;
+}
+
+/* Gradient overlay for better text readability (optional but recommended) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 1) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Ensure content stays above the animation */
+.hero .container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero-content {
+    max-width: 900px;
+    position: relative;
+    z-index: 3;
+}
+
+/* For pricing section or other sections using the same effect */
+#pricing {
+    position: relative;
+    background: #ffffff !important;
+    overflow: hidden;
+}
+
+#pricing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 1) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+#pricing .container {
+    position: relative;
+    z-index: 3;
+}

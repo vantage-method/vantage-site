@@ -1,0 +1,100 @@
+.booking-page {
+    min-height: 100vh;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3rem 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.booking-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, var(--color-text) 40%, #007c87 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.booking-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+.booking-calendar-wrapper {
+    width: 100%;
+    min-height: 600px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 124, 135, 0.08);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 32px rgba(0, 124, 135, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.booking-placeholder {
+    text-align: center;
+    color: var(--color-text-muted);
+}
+
+.booking-placeholder p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.booking-placeholder code {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    background: rgba(0, 124, 135, 0.06);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.booking-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    color: var(--color-accent);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    transition: color 0.3s;
+}
+
+.booking-back:hover {
+    color: var(--color-accent-dark);
+}
+
+@media (max-width: 768px) {
+    .booking-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .booking-calendar-wrapper {
+        padding: 1rem;
+        border-radius: 16px;
+        min-height: 400px;
+    }
+}

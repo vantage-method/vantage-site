@@ -1,0 +1,407 @@
+/* ============================================
+   PARTNERSHIPS PAGE
+   ============================================ */
+
+/* Hero */
+.p-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 160px 0 6rem;
+    text-align: center;
+}
+
+.p-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+}
+
+.p-hero-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--color-text) 40%, #007c87 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+}
+
+.p-hero-sub {
+    font-size: clamp(1.0625rem, 2vw, 1.25rem);
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+}
+
+/* The Turn */
+.p-turn {
+    padding: 6rem 0;
+    text-align: center;
+    background: var(--color-bg-alt);
+}
+
+.p-turn-headline {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-accent);
+}
+
+/* Contrast Section */
+.p-contrast {
+    padding: 6rem 0;
+}
+
+.p-contrast-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.p-contrast-card {
+    padding: 2.5rem;
+    border-radius: 20px;
+    position: relative;
+}
+
+.p-contrast-card.old {
+    background: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.p-contrast-card.new {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 124, 135, 0.12);
+    box-shadow: 0 4px 32px rgba(0, 124, 135, 0.06);
+}
+
+.p-contrast-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.p-contrast-card.old .p-contrast-label {
+    color: var(--color-text-muted);
+}
+
+.p-contrast-card.new .p-contrast-label {
+    color: var(--color-accent);
+}
+
+.p-contrast-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.p-contrast-card li {
+    padding: 0.625rem 0;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    padding-left: 1.75rem;
+    position: relative;
+}
+
+.p-contrast-card li:last-child {
+    border-bottom: none;
+}
+
+.p-contrast-card.old li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 12px;
+    height: 2px;
+    background: var(--color-text-muted);
+    opacity: 0.3;
+}
+
+.p-contrast-card.new li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    opacity: 0.6;
+}
+
+/* How It Works */
+.p-how {
+    padding: 6rem 0;
+    background: var(--color-bg-alt);
+}
+
+.p-section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4rem;
+    background: linear-gradient(135deg, var(--color-text) 40%, #007c87 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.p-steps {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.p-step {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.p-step-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-accent);
+    opacity: 0.25;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 60px;
+    text-align: right;
+}
+
+.p-step-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+}
+
+.p-step-body p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+/* Who This Is For */
+.p-who {
+    padding: 6rem 0;
+}
+
+.p-who-intro {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    text-align: center;
+    max-width: 640px;
+    margin: -2rem auto 3rem;
+}
+
+.p-who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.p-who-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 124, 135, 0.08);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 124, 135, 0.04);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.p-who-card:hover {
+    border-color: rgba(0, 124, 135, 0.15);
+    box-shadow: 0 8px 40px rgba(0, 124, 135, 0.1);
+    transform: translateY(-4px);
+}
+
+.p-who-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+}
+
+.p-who-card p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+/* CTA */
+.p-cta {
+    padding: 6rem 0 8rem;
+    text-align: center;
+    background: var(--color-bg-alt);
+}
+
+.p-cta-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.p-cta-sub {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+}
+
+.p-cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.p-cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.p-cta-button.primary {
+    background: var(--color-accent);
+    color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 124, 135, 0.25);
+}
+
+.p-cta-button.primary:hover {
+    background: var(--color-accent-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 124, 135, 0.35);
+}
+
+.p-cta-button.secondary {
+    background: transparent;
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+}
+
+.p-cta-button.secondary:hover {
+    background: rgba(0, 124, 135, 0.06);
+    transform: translateY(-3px);
+}
+
+/* Animations */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll-triggered reveals */
+.p-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.p-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+    .p-hero {
+        min-height: auto;
+        padding: 140px 0 4rem;
+    }
+
+    .p-contrast-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .p-contrast-card {
+        padding: 2rem 1.75rem;
+    }
+
+    .p-step {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .p-step-number {
+        text-align: left;
+        font-size: 2rem;
+    }
+
+    .p-who-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .p-turn, .p-how, .p-contrast, .p-who, .p-cta {
+        padding: 4rem 0;
+    }
+
+    .p-cta {
+        padding-bottom: 5rem;
+    }
+
+    .p-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .p-cta-button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}

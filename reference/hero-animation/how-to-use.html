@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanta.js TRUNK Animation - Example</title>
+    
+    <!-- Include the required CSS -->
+    <link rel="stylesheet" href="required-css.css">
+    
+    <style>
+        /* Basic page styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Hero text styles */
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: #0a0a0a;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .hero button {
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            background: #007c87;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .hero button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section with Vanta.js TRUNK Animation -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Hero Title Here</h1>
+                <p>Your hero subtitle or description text.</p>
+                <button>Call to Action</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other sections below... -->
+    <section id="pricing">
+        <div class="container">
+            <h2>Partnership & Pricing</h2>
+            <p>This section also has the Vanta.js animation!</p>
+        </div>
+    </section>
+
+    <!-- REQUIRED: Include Vanta.js dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.trunk.min.js"></script>
+    
+    <!-- Your Vanta.js initialization -->
+    <script src="vanta-trunk-init.js"></script>
+</body>
+</html>

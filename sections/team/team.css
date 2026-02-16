@@ -263,37 +263,41 @@
     overflow: visible;
 }
 
-/* Position each at 45-degree intervals, 220px from center */
+/* Position each at equal intervals (360/n), 220px from center — 9 members = 40° each */
 .tm-member:nth-child(1) {
     transform: rotate(0deg) translateY(-220px);
 }
 
 .tm-member:nth-child(2) {
-    transform: rotate(45deg) translateY(-220px);
+    transform: rotate(40deg) translateY(-220px);
 }
 
 .tm-member:nth-child(3) {
-    transform: rotate(90deg) translateY(-220px);
+    transform: rotate(80deg) translateY(-220px);
 }
 
 .tm-member:nth-child(4) {
-    transform: rotate(135deg) translateY(-220px);
+    transform: rotate(120deg) translateY(-220px);
 }
 
 .tm-member:nth-child(5) {
-    transform: rotate(180deg) translateY(-220px);
+    transform: rotate(160deg) translateY(-220px);
 }
 
 .tm-member:nth-child(6) {
-    transform: rotate(225deg) translateY(-220px);
+    transform: rotate(200deg) translateY(-220px);
 }
 
 .tm-member:nth-child(7) {
-    transform: rotate(270deg) translateY(-220px);
+    transform: rotate(240deg) translateY(-220px);
 }
 
 .tm-member:nth-child(8) {
-    transform: rotate(315deg) translateY(-220px);
+    transform: rotate(280deg) translateY(-220px);
+}
+
+.tm-member:nth-child(9) {
+    transform: rotate(320deg) translateY(-220px);
 }
 
 /* Inner wrapper — single counter-rotation keeps photo + name locked together
@@ -393,6 +397,10 @@
 
 .tm-orbit-stage.visible .tm-member:nth-child(8) {
     transition-delay: 1.2s;
+}
+
+.tm-orbit-stage.visible .tm-member:nth-child(9) {
+    transition-delay: 1.3s;
 }
 
 /* ============================================
@@ -620,31 +628,35 @@
     }
 
     .tm-member:nth-child(2) {
-        transform: rotate(45deg) translateY(-160px);
+        transform: rotate(40deg) translateY(-160px);
     }
 
     .tm-member:nth-child(3) {
-        transform: rotate(90deg) translateY(-160px);
+        transform: rotate(80deg) translateY(-160px);
     }
 
     .tm-member:nth-child(4) {
-        transform: rotate(135deg) translateY(-160px);
+        transform: rotate(120deg) translateY(-160px);
     }
 
     .tm-member:nth-child(5) {
-        transform: rotate(180deg) translateY(-160px);
+        transform: rotate(160deg) translateY(-160px);
     }
 
     .tm-member:nth-child(6) {
-        transform: rotate(225deg) translateY(-160px);
+        transform: rotate(200deg) translateY(-160px);
     }
 
     .tm-member:nth-child(7) {
-        transform: rotate(270deg) translateY(-160px);
+        transform: rotate(240deg) translateY(-160px);
     }
 
     .tm-member:nth-child(8) {
-        transform: rotate(315deg) translateY(-160px);
+        transform: rotate(280deg) translateY(-160px);
+    }
+
+    .tm-member:nth-child(9) {
+        transform: rotate(320deg) translateY(-160px);
     }
 
     .tm-hub-ring.ring-1 {
@@ -719,31 +731,35 @@
     }
 
     .tm-member:nth-child(2) {
-        transform: rotate(45deg) translateY(-130px);
+        transform: rotate(40deg) translateY(-130px);
     }
 
     .tm-member:nth-child(3) {
-        transform: rotate(90deg) translateY(-130px);
+        transform: rotate(80deg) translateY(-130px);
     }
 
     .tm-member:nth-child(4) {
-        transform: rotate(135deg) translateY(-130px);
+        transform: rotate(120deg) translateY(-130px);
     }
 
     .tm-member:nth-child(5) {
-        transform: rotate(180deg) translateY(-130px);
+        transform: rotate(160deg) translateY(-130px);
     }
 
     .tm-member:nth-child(6) {
-        transform: rotate(225deg) translateY(-130px);
+        transform: rotate(200deg) translateY(-130px);
     }
 
     .tm-member:nth-child(7) {
-        transform: rotate(270deg) translateY(-130px);
+        transform: rotate(240deg) translateY(-130px);
     }
 
     .tm-member:nth-child(8) {
-        transform: rotate(315deg) translateY(-130px);
+        transform: rotate(280deg) translateY(-130px);
+    }
+
+    .tm-member:nth-child(9) {
+        transform: rotate(320deg) translateY(-130px);
     }
 
     .tm-hub-ring.ring-1 {

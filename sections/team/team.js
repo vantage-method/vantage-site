@@ -90,9 +90,10 @@
         /* Apply ring rotation via JS transform */
         ring.style.transform = 'translate(-50%, -50%) rotate(' + ringAngle + 'deg)';
 
-        /* Counter-rotate each member's inner to keep content upright */
+        /* Counter-rotate each member's inner to keep content upright (angle step = 360 / count) */
+        var angleStep = 360 / (members.length || 1);
         for (var i = 0; i < inners.length; i++) {
-            inners[i].style.transform = 'rotate(' + -(ringAngle + i * 45) + 'deg)';
+            inners[i].style.transform = 'rotate(' + -(ringAngle + i * angleStep) + 'deg)';
         }
 
         /* ---- Connection line ---- */

@@ -42,18 +42,3 @@ booking/             Standalone booking page (/booking)
 assets/images/       Brand, team, portfolio, and mountain images
 notes/               Internal reference docs
 ```
-
-## GHL Integration
-
-The contact form in the CTA section posts to GoHighLevel's form submission endpoint. Before deploying, the following values must be set in `sections/cta/cta.html`:
-
-- `TODO_GHL_FORM_ID` — your GHL form ID
-- `TODO_GHL_LOCATION_ID` — your GHL location ID
-- `BUSINESS_NAME_GHL_ID` — custom field ID for Business Name
-- `MESSAGE_GHL_ID` — custom field ID for "How can we help you?"
-
-See `notes/form-submissions.md` for details on the integration approach.
-
-## Booking Page
-
-`booking/index.html` is a standalone page served at `/booking`. It contains a placeholder for a GHL calendar iframe embed — replace the placeholder div with your iframe code.

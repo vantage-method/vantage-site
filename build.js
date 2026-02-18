@@ -7,6 +7,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const TEMPLATE = 'index.template.html';
 const OUTPUT = 'index.html';
@@ -143,8 +144,52 @@ function buildHTML() {
     console.log(`  Comments stripped: ${assembledKB} KB → ${strippedKB} KB`);
 }
 
+/* ── Cache-busting ───────────────────────────────────────── */
+
+/**
+ * Compute a short content hash from compiled CSS + all local JS files.
+ * Appended as ?v=HASH to local asset URLs so browsers fetch fresh copies
+ * whenever any source file changes.
+ */
+function computeBuildHash() {
+    const hash = crypto.createHash('md5');
+    hash.update(fs.readFileSync(path.join(__dirname, COMPILED_CSS), 'utf8'));
+    const jsPattern = /src="((?:shared|sections)\/[^"]+\.js)"/g;
+    const template = fs.readFileSync(path.join(__dirname, TEMPLATE), 'utf8');
+    let m;
+    while ((m = jsPattern.exec(template)) !== null) {
+        const jsPath = path.join(__dirname, m[1]);
+        if (fs.existsSync(jsPath)) {
+            hash.update(fs.readFileSync(jsPath, 'utf8'));
+        }
+    }
+    return hash.digest('hex').slice(0, 8);
+}
+
+function cacheBust(html, hash) {
+    // Bust compiled CSS
+    html = html.replace(
+        'href="assets/compiled.css"',
+        'href="assets/compiled.css?v=' + hash + '"'
+    );
+    // Bust local JS files (shared/ and sections/)
+    html = html.replace(
+        /src="((?:shared|sections)\/[^"]+\.js)"/g,
+        'src="$1?v=' + hash + '"'
+    );
+    return html;
+}
+
 /* ── Run ─────────────────────────────────────────────────── */
 
 buildCSS();
 buildHTML();
+
+const hash = computeBuildHash();
+const outputPath = path.join(__dirname, OUTPUT);
+const html = fs.readFileSync(outputPath, 'utf8');
+const busted = cacheBust(html, hash);
+fs.writeFileSync(outputPath, busted, 'utf8');
+console.log(`Cache-bust: ?v=${hash} appended to local CSS/JS references.`);
+
 console.log('Done.');

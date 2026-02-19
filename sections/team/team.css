@@ -263,41 +263,45 @@
     overflow: visible;
 }
 
-/* Position each at equal intervals (360/n), 220px from center — 9 members = 40° each */
+/* Position each at equal intervals (360/n), 220px from center — 10 members = 36° each */
 .tm-member:nth-child(1) {
     transform: rotate(0deg) translateY(-220px);
 }
 
 .tm-member:nth-child(2) {
-    transform: rotate(40deg) translateY(-220px);
+    transform: rotate(36deg) translateY(-220px);
 }
 
 .tm-member:nth-child(3) {
-    transform: rotate(80deg) translateY(-220px);
+    transform: rotate(72deg) translateY(-220px);
 }
 
 .tm-member:nth-child(4) {
-    transform: rotate(120deg) translateY(-220px);
+    transform: rotate(108deg) translateY(-220px);
 }
 
 .tm-member:nth-child(5) {
-    transform: rotate(160deg) translateY(-220px);
+    transform: rotate(144deg) translateY(-220px);
 }
 
 .tm-member:nth-child(6) {
-    transform: rotate(200deg) translateY(-220px);
+    transform: rotate(180deg) translateY(-220px);
 }
 
 .tm-member:nth-child(7) {
-    transform: rotate(240deg) translateY(-220px);
+    transform: rotate(216deg) translateY(-220px);
 }
 
 .tm-member:nth-child(8) {
-    transform: rotate(280deg) translateY(-220px);
+    transform: rotate(252deg) translateY(-220px);
 }
 
 .tm-member:nth-child(9) {
-    transform: rotate(320deg) translateY(-220px);
+    transform: rotate(288deg) translateY(-220px);
+}
+
+.tm-member:nth-child(10) {
+    transform: rotate(324deg) translateY(-220px);
 }
 
 /* Inner wrapper — single counter-rotation keeps photo + name locked together
@@ -401,6 +405,10 @@
 
 .tm-orbit-stage.visible .tm-member:nth-child(9) {
     transition-delay: 1.3s;
+}
+
+.tm-orbit-stage.visible .tm-member:nth-child(10) {
+    transition-delay: 1.4s;
 }
 
 /* ============================================
@@ -628,35 +636,39 @@
     }
 
     .tm-member:nth-child(2) {
-        transform: rotate(40deg) translateY(-160px);
+        transform: rotate(36deg) translateY(-160px);
     }
 
     .tm-member:nth-child(3) {
-        transform: rotate(80deg) translateY(-160px);
+        transform: rotate(72deg) translateY(-160px);
     }
 
     .tm-member:nth-child(4) {
-        transform: rotate(120deg) translateY(-160px);
+        transform: rotate(108deg) translateY(-160px);
     }
 
     .tm-member:nth-child(5) {
-        transform: rotate(160deg) translateY(-160px);
+        transform: rotate(144deg) translateY(-160px);
     }
 
     .tm-member:nth-child(6) {
-        transform: rotate(200deg) translateY(-160px);
+        transform: rotate(180deg) translateY(-160px);
     }
 
     .tm-member:nth-child(7) {
-        transform: rotate(240deg) translateY(-160px);
+        transform: rotate(216deg) translateY(-160px);
     }
 
     .tm-member:nth-child(8) {
-        transform: rotate(280deg) translateY(-160px);
+        transform: rotate(252deg) translateY(-160px);
     }
 
     .tm-member:nth-child(9) {
-        transform: rotate(320deg) translateY(-160px);
+        transform: rotate(288deg) translateY(-160px);
+    }
+
+    .tm-member:nth-child(10) {
+        transform: rotate(324deg) translateY(-160px);
     }
 
     .tm-hub-ring.ring-1 {
@@ -731,35 +743,39 @@
     }
 
     .tm-member:nth-child(2) {
-        transform: rotate(40deg) translateY(-130px);
+        transform: rotate(36deg) translateY(-130px);
     }
 
     .tm-member:nth-child(3) {
-        transform: rotate(80deg) translateY(-130px);
+        transform: rotate(72deg) translateY(-130px);
     }
 
     .tm-member:nth-child(4) {
-        transform: rotate(120deg) translateY(-130px);
+        transform: rotate(108deg) translateY(-130px);
     }
 
     .tm-member:nth-child(5) {
-        transform: rotate(160deg) translateY(-130px);
+        transform: rotate(144deg) translateY(-130px);
     }
 
     .tm-member:nth-child(6) {
-        transform: rotate(200deg) translateY(-130px);
+        transform: rotate(180deg) translateY(-130px);
     }
 
     .tm-member:nth-child(7) {
-        transform: rotate(240deg) translateY(-130px);
+        transform: rotate(216deg) translateY(-130px);
     }
 
     .tm-member:nth-child(8) {
-        transform: rotate(280deg) translateY(-130px);
+        transform: rotate(252deg) translateY(-130px);
     }
 
     .tm-member:nth-child(9) {
-        transform: rotate(320deg) translateY(-130px);
+        transform: rotate(288deg) translateY(-130px);
+    }
+
+    .tm-member:nth-child(10) {
+        transform: rotate(324deg) translateY(-130px);
     }
 
     .tm-hub-ring.ring-1 {

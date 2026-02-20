@@ -370,8 +370,6 @@
     function renderEvalForm() {
         state = STATES.EVAL;
 
-        var prefill = 'AI Diagnostic: Level ' + quizLevel.level + ' — ' + quizLevel.label + ' (Score: ' + quizScore + '/40)';
-
         render(
             '<div class="ai-quiz-screen ai-quiz-gate">' +
                 '<h3>Complete Your Evaluation Request</h3>' +
@@ -383,16 +381,12 @@
                     '</div>' +
                     '<div>' +
                         '<label>How Can We Help You?</label>' +
-                        '<textarea name="message" rows="3" placeholder="Tell us about your business and what you\'re looking for...">' + prefill + '</textarea>' +
+                        '<textarea name="message" rows="3" placeholder="Tell us about your business and what you\'re looking for..."></textarea>' +
                     '</div>' +
                     '<div class="ai-quiz-consent">' +
                         '<label class="ai-quiz-checkbox">' +
-                            '<input type="checkbox" name="sms_consent">' +
-                            '<span>I consent to receive non-marketing text messages from Vantage Method about my evaluation request. Message frequency varies, message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>' +
-                        '</label>' +
-                        '<label class="ai-quiz-checkbox">' +
-                            '<input type="checkbox" name="marketing_consent">' +
-                            '<span>I consent to receive marketing and promotional messages including special offers and updates from Vantage Method at the phone number provided. Frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>' +
+                            '<input type="checkbox" name="consent">' +
+                            '<span>I consent to receive text messages from Vantage Method, including updates and promotional offers. Message frequency varies, message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>' +
                         '</label>' +
                     '</div>' +
                     '<button type="submit" class="ai-quiz-btn">Submit Evaluation Request</button>' +
@@ -409,8 +403,7 @@
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span class="ai-quiz-spinner"></span> Submitting…';
 
-        var smsConsent = form.sms_consent && form.sms_consent.checked;
-        var mktConsent = form.marketing_consent && form.marketing_consent.checked;
+        var consent = form.consent && form.consent.checked;
 
         var formDataObj = {
             formId: 'WaxOXqW9pgOw73tPypGH',
@@ -422,8 +415,10 @@
             jzxV1vhcWvComXIXHTER: gateData.scoreString || ''
         };
 
-        if (smsConsent) formDataObj.terms_and_conditions_1_g88vo6h46rs = 'terms_and_conditions';
-        if (mktConsent) formDataObj.terms_and_conditions_2_g88vo6h46rs = 'terms_and_conditions';
+        if (consent) {
+            formDataObj.terms_and_conditions_1_g88vo6h46rs = 'terms_and_conditions';
+            formDataObj.terms_and_conditions_2_g88vo6h46rs = 'terms_and_conditions';
+        }
 
         var payload = new FormData();
         payload.set('formData', JSON.stringify(formDataObj));

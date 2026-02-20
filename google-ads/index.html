@@ -108,7 +108,7 @@
                 <form id="service-lead-form" class="s-form s-reveal" novalidate>
                     <input type="hidden" name="formId" value="byDVwHVUFrZnh146iUFS">
                     <input type="hidden" name="location_id" value="1CRkPO5O8TwTWL8msQNK">
-                    <input type="hidden" name="service" value="google-ads">
+                    <input type="text" placeholder="" name="ktpvKytJ9wXqQSJZXJiY" class="form-control" id="ktpvKytJ9wXqQSJZXJiY" data-q="single_line_73y9" data-required="false" value="google-ads" hidden>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="s-first_name">First Name <span class="required">*</span></label>
@@ -128,20 +128,25 @@
                             <span class="field-error"></span>
                         </div>
                         <div class="form-group">
-                            <label for="s-phone">Phone</label>
+                            <label for="s-phone">Phone Number</label>
                             <input type="tel" id="s-phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555">
                             <span class="field-error"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="s-message">How can we help?</label>
-                        <textarea id="s-message" name="O1ZK1afg16NtCpzq4qcr" rows="3" placeholder="Tell us about your project..."></textarea>
+                        <label for="s-business_name">Business Name</label>
+                        <input type="text" id="s-business_name" name="organization" autocomplete="organization" placeholder="Your Company">
+                        <span class="field-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="s-message">How Can We Help You?</label>
+                        <textarea id="s-message" name="O1ZK1afg16NtCpzq4qcr" rows="4" placeholder="Tell us about your business and what you're looking for..."></textarea>
                         <span class="field-error"></span>
                     </div>
                     <div class="form-consent">
-                        <label class="consent-label"><input type="checkbox" name="terms_and_conditions_1_wuby79s3yh"><span>I agree to receive text messages. Message &amp; data rates may apply.</span></label>
-                        <label class="consent-label"><input type="checkbox" name="terms_and_conditions_2_wuby79s3yh"><span>I agree to receive emails about services and updates.</span></label>
-                        <p class="consent-legal">By submitting, you agree to our <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Service</a>.</p>
+                        <label class="consent-label"><input type="checkbox" name="terms_and_conditions_1_wuby79s3yh" id="s-sms_consent"><span>I agree to receive text messages. Message &amp; data rates may apply. Reply STOP to opt out.</span></label>
+                        <label class="consent-label"><input type="checkbox" name="terms_and_conditions_2_wuby79s3yh" id="s-email_consent"><span>I agree to receive emails about services, updates, and offers.</span></label>
+                        <p class="consent-legal">By submitting this form, you agree to our <a href="/privacy/">Privacy Policy</a> and <a href="/terms/">Terms of Service</a>.</p>
                     </div>
                     <button type="submit" class="s-form-submit">
                         <span class="btn-text">Request an Evaluation</span>
@@ -166,7 +171,6 @@
                 <p class="s-cta-sub">We'll evaluate whether Google Ads fits your business — and what it would take to run it well. No pitch. No obligation.</p>
                 <div class="s-cta-buttons">
                     <a href="#form-section" class="s-cta-button primary">Request an Evaluation</a>
-                    <a href="/booking" class="s-cta-button secondary">Book a Call</a>
                 </div>
             </div>
         </section>

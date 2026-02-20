@@ -295,26 +295,37 @@
         var firstName = nameParts[0] || '';
         var lastName = nameParts.slice(1).join(' ') || '';
 
-        gateData = { firstName: firstName, lastName: lastName, fullName: fullName, email: email, company: company };
+        gateData = { firstName: firstName, lastName: lastName, fullName: fullName, email: email, company: company, scoreString: '' };
         quizScore = computeScore();
         quizLevel = getLevel(quizScore);
 
         fireEvent('ai_quiz_lead_captured', { email: email, score: quizScore });
 
-        if (CFG.LEAD_WEBHOOK_URL) {
-            var utms = getUTMs();
-            fetch(CFG.LEAD_WEBHOOK_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    firstName: firstName, lastName: lastName, email: email, company: company,
-                    score: quizScore, level: quizLevel.level, levelLabel: quizLevel.label,
-                    answers: answers.slice(), pageUrl: window.location.href,
-                    timestamp: new Date().toISOString(),
-                    utmSource: utms.utmSource, utmMedium: utms.utmMedium,
-                    utmCampaign: utms.utmCampaign, utmTerm: utms.utmTerm, utmContent: utms.utmContent
+        /* Submit GATE data to GHL */
+        var scoreString = 'Level ' + quizLevel.level + ': ' + quizLevel.label + ' — ' + quizScore + '/40';
+        gateData.scoreString = scoreString;
+        var gateFormData = {
+            formId: 'VKibV9jaWzU6MWDosbXX',
+            location_id: '1CRkPO5O8TwTWL8msQNK',
+            full_name: fullName,
+            email: email,
+            organization: company,
+            jzxV1vhcWvComXIXHTER: scoreString
+        };
+
+        var gatePayload = new FormData();
+        gatePayload.set('formData', JSON.stringify(gateFormData));
+
+        if (window.grecaptcha) {
+            window.grecaptcha.execute('6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX', { action: 'submit' })
+                .then(function (token) {
+                    gatePayload.set('captchaV3', token);
+                    return fetch('https://backend.leadconnectorhq.com/forms/submit', { method: 'POST', body: gatePayload });
                 })
-            }).catch(function () {});
+                .catch(function () {});
+        } else {
+            fetch('https://backend.leadconnectorhq.com/forms/submit', { method: 'POST', body: gatePayload })
+                .catch(function () {});
         }
 
         setSuppression('ai_quiz_submitted');
@@ -374,6 +385,16 @@
                         '<label>How Can We Help You?</label>' +
                         '<textarea name="message" rows="3" placeholder="Tell us about your business and what you\'re looking for...">' + prefill + '</textarea>' +
                     '</div>' +
+                    '<div class="ai-quiz-consent">' +
+                        '<label class="ai-quiz-checkbox">' +
+                            '<input type="checkbox" name="sms_consent">' +
+                            '<span>I consent to receive non-marketing text messages from Vantage Method about my evaluation request. Message frequency varies, message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>' +
+                        '</label>' +
+                        '<label class="ai-quiz-checkbox">' +
+                            '<input type="checkbox" name="marketing_consent">' +
+                            '<span>I consent to receive marketing and promotional messages including special offers and updates from Vantage Method at the phone number provided. Frequency may vary. Message &amp; data rates may apply. Text HELP for assistance, reply STOP to opt out.</span>' +
+                        '</label>' +
+                    '</div>' +
                     '<button type="submit" class="ai-quiz-btn">Submit Evaluation Request</button>' +
                 '</form>' +
             '</div>'
@@ -388,16 +409,21 @@
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span class="ai-quiz-spinner"></span> Submitting…';
 
+        var smsConsent = form.sms_consent && form.sms_consent.checked;
+        var mktConsent = form.marketing_consent && form.marketing_consent.checked;
+
         var formDataObj = {
-            formId: 'byDVwHVUFrZnh146iUFS',
+            formId: 'WaxOXqW9pgOw73tPypGH',
             location_id: '1CRkPO5O8TwTWL8msQNK',
-            first_name: gateData.firstName || '',
-            last_name: gateData.lastName || '',
-            email: gateData.email || '',
+            full_name: gateData.fullName || '',
             phone: form.phone.value.trim(),
-            organization: gateData.company || '',
-            O1ZK1afg16NtCpzq4qcr: form.message.value.trim()
+            email: gateData.email || '',
+            O1ZK1afg16NtCpzq4qcr: form.message.value.trim(),
+            jzxV1vhcWvComXIXHTER: gateData.scoreString || ''
         };
+
+        if (smsConsent) formDataObj.terms_and_conditions_1_g88vo6h46rs = 'terms_and_conditions';
+        if (mktConsent) formDataObj.terms_and_conditions_2_g88vo6h46rs = 'terms_and_conditions';
 
         var payload = new FormData();
         payload.set('formData', JSON.stringify(formDataObj));

@@ -20,11 +20,8 @@ window.AI_QUIZ_CONFIG = {
     SUPPRESS_DAYS_AFTER_CLOSE: 3,
     SUPPRESS_DAYS_AFTER_SUBMIT: 30,
 
-    /* Webhook endpoint for lead capture (Zapier / Make / custom backend) */
-    LEAD_WEBHOOK_URL: '',
-
-    PRIMARY_CTA_URL_BLUEPRINT: '/booking',
-    PRIMARY_CTA_URL_STRATEGY_CALL: '/booking',
+    PRIMARY_CTA_URL_BLUEPRINT: '#contact',
+    PRIMARY_CTA_URL_STRATEGY_CALL: '#contact',
 
     /* Scoring: A=1, B=2, C=3, D=4 — total range 10–40 */
     LEVEL_RANGES: [

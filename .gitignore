@@ -40,5 +40,8 @@ package-lock.json
 # Build artifacts
 assets/compiled.css
 
+# Reference notes
+notes/
+
 # Design source files (large PSDs - optional, uncomment to exclude)
 # design/psd/

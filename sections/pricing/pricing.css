@@ -87,6 +87,23 @@
     margin-top: 2rem;
 }
 
+.pricing-service-links {
+    margin-top: 1.5rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.pricing-service-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.pricing-service-links a:hover {
+    color: var(--color-accent-dark);
+}
+
 .pricing-buttons {
     display: flex;
     gap: 1.5rem;

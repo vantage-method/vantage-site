@@ -321,8 +321,8 @@ section {
     box-shadow: 0 6px 20px rgba(0, 124, 135, 0.4);
 }
 
-/* ---- Responsive ---- */
-@media (max-width: 768px) {
+/* ---- Responsive: mobile menu from 1024px down (avoids nav wrap ~900px) ---- */
+@media (max-width: 1024px) {
     .container {
         padding: 0 1.5rem;
     }
@@ -437,6 +437,7 @@ section {
     nav.open a:nth-child(6) { transition-delay: 0.24s; }
     nav.open a:nth-child(7) { transition-delay: 0.28s; }
     nav.open a:nth-child(8) { transition-delay: 0.32s; }
+    nav.open a:nth-child(9) { transition-delay: 0.36s; }
 
     /* "Book a Call" CTA in mobile menu */
     nav .nav-cta {

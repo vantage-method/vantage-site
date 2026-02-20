@@ -13,6 +13,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://vantagemethod.com/custom-website/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vantagemethod.com/google-ads/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vantagemethod.com/facebook-ads/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vantagemethod.com/google-meta-ads/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vantagemethod.com/starter-pack/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://vantagemethod.com/privacy/</loc>
     <priority>0.3</priority>
   </url>

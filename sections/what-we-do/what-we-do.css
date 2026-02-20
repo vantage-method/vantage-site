@@ -219,6 +219,16 @@
     color: var(--color-text);
 }
 
+.wwd-pillar-list a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.wwd-pillar-list a:hover {
+    color: var(--color-accent-dark);
+}
+
 .wwd-pillar-list li::before {
     content: '';
     position: absolute;
@@ -256,6 +266,24 @@
     padding-top: 1rem;
     border-top: 1px solid var(--color-border);
     margin: 0;
+}
+
+/* --- Service links (Explore by service) --- */
+.wwd-service-links {
+    margin-top: 1.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.wwd-service-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.wwd-service-links a:hover {
+    color: var(--color-accent-dark);
 }
 
 /* ============================================

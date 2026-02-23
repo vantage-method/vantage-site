@@ -292,7 +292,7 @@ body.ai-quiz-open {
     gap: 0.875rem;
 }
 
-.ai-quiz-gate-form label {
+.ai-quiz-gate-form label:not(.ai-quiz-checkbox) {
     display: block;
     font-family: var(--font-body);
     font-size: 0.8125rem;

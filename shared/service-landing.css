@@ -584,6 +584,11 @@
     text-align: center;
 }
 
+/* Hide reCAPTCHA badge — required disclaimer shown in .recaptcha-notice */
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
+
 .s-form-message {
     display: none;
     align-items: flex-start;

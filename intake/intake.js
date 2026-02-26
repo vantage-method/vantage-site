@@ -240,7 +240,6 @@
 
         // Required radio groups
         step.querySelectorAll('.radio-group[data-required="true"]').forEach(function (group) {
-            var name = group.getAttribute('data-name');
             var selected = group.querySelector('input[type="radio"]:checked');
             if (!selected) {
                 showGroupError(group, 'Pick one so we can tailor your plan.');
@@ -471,11 +470,14 @@
                 var json = await res.json();
                 if (!res.ok) throw new Error(json.message || 'Submission failed');
 
-                // Success
+                // Success — clear draft and reset form for reuse
+                sessionStorage.removeItem(SAVE_KEY);
+                form.reset();
+                state.aiStepVisible = false;
                 form.style.display = 'none';
                 document.querySelector('.intake-progress').style.display = 'none';
+                document.querySelector('.intake-intro').style.display = 'none';
                 document.getElementById('intakeSuccess').style.display = 'flex';
-                sessionStorage.removeItem(SAVE_KEY);
                 formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
             } catch (err) {

@@ -91,7 +91,6 @@
     var form = document.getElementById('lead-form');
     if (!form) return;
 
-    // TODO: Replace with your GHL reCAPTCHA v3 site key (must match the key in index.template.html)
     var RECAPTCHA_SITE_KEY = '6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX';
 
     var submitBtn = form.querySelector('button[type="submit"]');

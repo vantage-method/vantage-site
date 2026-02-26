@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Intake — Vantage Method</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/shared/base.css">
+    <link rel="stylesheet" href="/intake/intake.css">
+
+    <!-- reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX" async></script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo-link" aria-label="Back to homepage">
+                <img src="/assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ====== PASSWORD GATE ====== -->
+        <div id="passwordGate" class="intake-gate">
+            <div class="intake-gate-inner">
+                <img src="/assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="intake-gate-logo">
+                <h1 class="intake-gate-title">Partner Intake</h1>
+                <p class="intake-gate-text">Enter the password provided by your Vantage Method contact.</p>
+                <div class="intake-gate-field">
+                    <input type="password" id="gatePassword" placeholder="Password" autocomplete="off">
+                    <span id="gateError" class="intake-gate-error"></span>
+                </div>
+                <button type="button" id="gateSubmit" class="intake-gate-button">Continue</button>
+            </div>
+        </div>
+
+        <!-- ====== FORM CONTAINER ====== -->
+        <div id="intakeFormContainer" class="intake-container" style="display: none;">
+
+            <!-- Intro -->
+            <div class="intake-intro">
+                <h1 class="intake-title">Welcome — Let's Get You Started</h1>
+                <p class="intake-subtitle">We're pumped you're here. Before we dive in, we need to understand what you're working with and what you actually need from us. This isn't a sales pitch — you're already one of us. This is so we can skip the back-and-forth, understand your situation, and come back to you with a clear picture of what it'll take.</p>
+                <p class="intake-time">Takes about 10–15 minutes. Be honest and specific — the better your answers, the faster we move.</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="intake-progress">
+                <div class="intake-progress-track">
+                    <div class="intake-progress-fill" id="progressFill"></div>
+                </div>
+                <span class="intake-progress-label" id="progressLabel">Step 1 of 7</span>
+            </div>
+
+            <!-- The Form -->
+            <form id="intake-form" novalidate>
+                <input type="hidden" name="formId" value="PLACEHOLDER_FORM_ID">
+                <input type="hidden" name="location_id" value="1CRkPO5O8TwTWL8msQNK">
+                <input type="hidden" name="contact_name" id="contact_name_hidden" value="">
+
+                <!-- ==================== STEP 1: The Basics ==================== -->
+                <div class="intake-step active" data-step="1">
+                    <h2 class="intake-step-title">The Basics</h2>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first_name">First Name <span class="required">*</span></label>
+                            <input type="text" id="first_name" name="first_name" required autocomplete="given-name" placeholder="First Name">
+                            <span class="field-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">Last Name <span class="required">*</span></label>
+                            <input type="text" id="last_name" name="last_name" required autocomplete="family-name" placeholder="Last Name">
+                            <span class="field-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="business_name">Business Name <span class="required">*</span></label>
+                        <input type="text" id="business_name" name="business_name" required autocomplete="organization" placeholder="Your Company">
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="website_url">Website URL <span class="optional">(if you have one)</span></label>
+                        <input type="url" id="website_url" name="website_url" autocomplete="url" placeholder="https://yoursite.com">
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="industry">Industry / What You Do <span class="required">*</span></label>
+                        <input type="text" id="industry" name="industry" required placeholder="e.g., Roofing, SaaS, Fitness Studio...">
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How long have you been in business? <span class="required">*</span></label>
+                        <div class="radio-group" data-required="true" data-name="years_in_business">
+                            <label class="radio-option"><input type="radio" name="years_in_business" value="Under 1 year"><span>Under 1 year</span></label>
+                            <label class="radio-option"><input type="radio" name="years_in_business" value="1–3 years"><span>1–3 years</span></label>
+                            <label class="radio-option"><input type="radio" name="years_in_business" value="3–7 years"><span>3–7 years</span></label>
+                            <label class="radio-option"><input type="radio" name="years_in_business" value="7+ years"><span>7+ years</span></label>
+                            <span class="group-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="referral_source">Who referred you or how did you connect with us?</label>
+                        <input type="text" id="referral_source" name="referral_source" placeholder="Name, event, or how you found us">
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="intake-step-nav">
+                        <div></div>
+                        <button type="button" class="intake-btn-next">Next</button>
+                    </div>
+                </div>
+
+                <!-- ==================== STEP 2: What Do You Need? ==================== -->
+                <div class="intake-step" data-step="2">
+                    <h2 class="intake-step-title">What Do You Need?</h2>
+                    <p class="intake-step-desc">Check everything that applies. Don't overthink it — if you're not sure whether you need something, check it and we'll figure it out together.</p>
+
+                    <div class="form-group">
+                        <label>Which services are you interested in? <span class="required">*</span></label>
+                        <div class="checkbox-group" data-required="true" data-name="services_requested">
+
+                            <p class="checkbox-category">Brand & Identity</p>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Logo design / refresh"><span>Logo design / refresh</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Full brand identity (colors, fonts, style guide)"><span>Full brand identity (colors, fonts, style guide)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Brand messaging / positioning"><span>Brand messaging / positioning</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Brand strategy"><span>Brand strategy</span></label>
+
+                            <p class="checkbox-category">Web</p>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="New website (build from scratch)"><span>New website (build from scratch)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Website redesign / refresh"><span>Website redesign / refresh</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Landing pages"><span>Landing pages</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="E-commerce / online store"><span>E-commerce / online store</span></label>
+
+                            <p class="checkbox-category">Paid Advertising</p>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Google Search Ads (PPC)"><span>Google Search Ads (PPC)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Local Google Search Ranking"><span>Local Google Search Ranking</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Google Display / YouTube Ads"><span>Google Display / YouTube Ads</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Meta Ads (Facebook / Instagram)"><span>Meta Ads (Facebook / Instagram)</span></label>
+
+                            <p class="checkbox-category">Organic & Content</p>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="SEO (search engine optimization)"><span>SEO (search engine optimization)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Social media management / content creation"><span>Social media management / content creation</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Blog / article content"><span>Blog / article content</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Video content / production"><span>Video content / production</span></label>
+
+                            <p class="checkbox-category">Email & Automation</p>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Email marketing (campaigns, newsletters)"><span>Email marketing (campaigns, newsletters)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Marketing automation / drip sequences"><span>Marketing automation / drip sequences</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="CRM setup or migration"><span>CRM setup or migration</span></label>
+
+                            <p class="checkbox-category">AI & Custom Software</p>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="AI integration into my business or marketing workflows" data-ai="true"><span>AI integration into my business or marketing workflows</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Custom AI application or tool built for my business" data-ai="true"><span>Custom AI application or tool built for my business</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Data analytics / reporting dashboards" data-ai="true"><span>Data analytics / reporting dashboards</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Custom software (non-AI)" data-ai="true"><span>Custom software (non-AI)</span></label>
+
+                            <p class="checkbox-category">Other</p>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Consulting / strategy only"><span>Consulting / strategy only</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="services_requested" value="Something else (describe below)"><span>Something else (describe below)</span></label>
+
+                            <span class="group-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="services_context">Anything else you want to add about what you need?</label>
+                        <textarea id="services_context" name="services_context" rows="4" placeholder="If you checked 'something else' or want to add context to any of the above, tell us here..."></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="intake-step-nav">
+                        <button type="button" class="intake-btn-back">Back</button>
+                        <button type="button" class="intake-btn-next">Next</button>
+                    </div>
+                </div>
+
+                <!-- ==================== STEP 3: AI Deep-Dive (CONDITIONAL) ==================== -->
+                <div class="intake-step" data-step="3" data-conditional="ai">
+                    <h2 class="intake-step-title">AI & Custom Applications</h2>
+                    <p class="intake-step-desc">AI projects range from simple automation to full custom-built applications — the more detail you give us here, the better we can scope what you actually need (and what it'll cost).</p>
+
+                    <!-- Q9 -->
+                    <div class="form-group">
+                        <label>How would you describe your current experience with AI? <span class="required">*</span></label>
+                        <div class="radio-group" data-required="true" data-name="ai_familiarity">
+                            <label class="radio-option"><input type="radio" name="ai_familiarity" value="I use AI tools regularly (ChatGPT, Copilot, etc.)"><span>I use AI tools regularly (ChatGPT, Copilot, etc.)</span></label>
+                            <label class="radio-option"><input type="radio" name="ai_familiarity" value="I've tried a few things but nothing consistent"><span>I've tried a few things but nothing consistent</span></label>
+                            <label class="radio-option"><input type="radio" name="ai_familiarity" value="I know it's important but haven't really started"><span>I know it's important but haven't really started</span></label>
+                            <label class="radio-option"><input type="radio" name="ai_familiarity" value="I'm brand new to all of it"><span>I'm brand new to all of it</span></label>
+                            <span class="group-error"></span>
+                        </div>
+                    </div>
+
+                    <!-- Q10 -->
+                    <div class="form-group">
+                        <label>Are you currently using any AI tools in your business?</label>
+                        <div class="checkbox-group" data-name="ai_current_tools">
+                            <label class="checkbox-option"><input type="checkbox" name="ai_current_tools" value="ChatGPT / Claude / other chat-based AI"><span>ChatGPT / Claude / other chat-based AI</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_current_tools" value="AI writing tools (Jasper, Copy.ai, etc.)"><span>AI writing tools (Jasper, Copy.ai, etc.)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_current_tools" value="AI image generation (Midjourney, DALL-E, etc.)"><span>AI image generation (Midjourney, DALL-E, etc.)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_current_tools" value="AI-powered CRM or marketing tools"><span>AI-powered CRM or marketing tools</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_current_tools" value="AI chatbot on my website"><span>AI chatbot on my website</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_current_tools" value="Custom-built AI tools or automations"><span>Custom-built AI tools or automations</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_current_tools" value="None"><span>None</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Q11 -->
+                    <div class="form-group">
+                        <label>What kind of AI work are you interested in?</label>
+                        <div class="checkbox-group" data-name="ai_work_requested">
+                            <p class="checkbox-category">Automation & Workflow</p>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="Automate repetitive business tasks"><span>Automate repetitive business tasks (data entry, scheduling, follow-ups)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="AI-powered lead qualification or routing"><span>AI-powered lead qualification or routing</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="Smart email or content generation workflows"><span>Smart email or content generation workflows</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="Internal process automation"><span>Internal process automation (reporting, document handling, etc.)</span></label>
+
+                            <p class="checkbox-category">Customer-Facing</p>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="AI chatbot or virtual assistant"><span>AI chatbot or virtual assistant for my website / app</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="AI-powered customer support or FAQ system"><span>AI-powered customer support or FAQ system</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="Personalized customer experiences"><span>Personalized customer experiences (recommendations, dynamic content)</span></label>
+
+                            <p class="checkbox-category">Custom Applications</p>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="Fully custom AI-powered tool or app"><span>A fully custom AI-powered tool or app for my business</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="AI integration into existing product"><span>AI integration into an existing product or platform I own</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="Internal dashboard or decision-support tool"><span>Internal dashboard or decision-support tool powered by AI</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="ai_work_requested" value="Something I can't describe yet"><span>Something I have in mind but don't know how to describe yet</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Q12 -->
+                    <div class="form-group">
+                        <label for="ai_use_case">If you have a specific idea or use case in mind, describe it here:</label>
+                        <textarea id="ai_use_case" name="ai_use_case" rows="4" placeholder='Don&#39;t worry about technical language. Example: "I want a tool that reads incoming emails from leads and auto-drafts personalized responses for my sales team to review."'></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <!-- Q13 -->
+                    <div class="form-group">
+                        <label>What's your primary goal with AI? <span class="required">*</span></label>
+                        <div class="radio-group" data-required="true" data-name="ai_primary_goal">
+                            <label class="radio-option"><input type="radio" name="ai_primary_goal" value="Save time / reduce manual work"><span>Save time / reduce manual work</span></label>
+                            <label class="radio-option"><input type="radio" name="ai_primary_goal" value="Improve customer experience"><span>Improve customer experience</span></label>
+                            <label class="radio-option"><input type="radio" name="ai_primary_goal" value="Create a competitive advantage"><span>Create a competitive advantage</span></label>
+                            <label class="radio-option"><input type="radio" name="ai_primary_goal" value="Generate revenue with a new product or tool"><span>Generate revenue with a new product or tool</span></label>
+                            <label class="radio-option"><input type="radio" name="ai_primary_goal" value="Not sure yet — just want to explore it"><span>I'm not sure yet — I just know I want to explore it</span></label>
+                            <span class="group-error"></span>
+                        </div>
+                    </div>
+
+                    <!-- Q14 -->
+                    <div class="form-group">
+                        <label for="ai_integration_needs">Do you have an existing system or platform this needs to integrate with?</label>
+                        <textarea id="ai_integration_needs" name="ai_integration_needs" rows="3" placeholder='Example: "It needs to work with our Shopify store" or "We use Salesforce and it would need to plug into that" or "No, starting from scratch."'></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <!-- Q15 -->
+                    <div class="form-group">
+                        <label for="ai_daily_usage">How do you picture this being used day-to-day?</label>
+                        <textarea id="ai_daily_usage" name="ai_daily_usage" rows="3" placeholder='Who uses it? How often? What does success look like? Example: "My team of 5 would use it every morning to process overnight leads."'></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="intake-step-nav">
+                        <button type="button" class="intake-btn-back">Back</button>
+                        <button type="button" class="intake-btn-next">Next</button>
+                    </div>
+                </div>
+
+                <!-- ==================== STEP 4: Where Are You Now? ==================== -->
+                <div class="intake-step" data-step="4">
+                    <h2 class="intake-step-title">Where Are You Now?</h2>
+                    <p class="intake-step-desc">This helps us understand what we're working with — not starting from zero vs. rebuilding vs. building fresh makes a big difference in scope.</p>
+
+                    <!-- Q16 -->
+                    <div class="form-group">
+                        <label>Do you currently have any of the following?</label>
+                        <div class="checkbox-group" data-name="existing_assets">
+                            <label class="checkbox-option"><input type="checkbox" name="existing_assets" value="A logo I'm happy with"><span>A logo I'm happy with</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_assets" value="Brand guidelines / style guide"><span>Brand guidelines / style guide</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_assets" value="An existing website"><span>An existing website</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_assets" value="Active social media accounts"><span>Active social media accounts</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_assets" value="An email list"><span>An email list</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_assets" value="A CRM (e.g., HubSpot, GHL, Salesforce, etc.)"><span>A CRM (e.g., HubSpot, GHL, Salesforce, etc.)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_assets" value="Existing ad accounts (Google, Meta, etc.)"><span>Existing ad accounts (Google, Meta, etc.)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_assets" value="Analytics set up (Google Analytics, etc.)"><span>Analytics set up (Google Analytics, etc.)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_assets" value="None of the above"><span>None of the above</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Q17 -->
+                    <div class="form-group">
+                        <label>Have you worked with a marketing agency or freelancer before? <span class="required">*</span></label>
+                        <div class="radio-group" data-required="true" data-name="previous_agency">
+                            <label class="radio-option"><input type="radio" name="previous_agency" value="Yes — it went well"><span>Yes — it went well</span></label>
+                            <label class="radio-option"><input type="radio" name="previous_agency" value="Yes — it didn't go well"><span>Yes — it didn't go well</span></label>
+                            <label class="radio-option"><input type="radio" name="previous_agency" value="No — this is my first time"><span>No — this is my first time</span></label>
+                            <span class="group-error"></span>
+                        </div>
+                    </div>
+
+                    <!-- Q18 (conditional: Q17 = Yes) -->
+                    <div class="form-group intake-conditional" id="q18-container" style="display: none;">
+                        <label for="previous_agency_details">What went right or wrong? What should we know?</label>
+                        <textarea id="previous_agency_details" name="previous_agency_details" rows="4" placeholder="The more honest, the better — helps us avoid repeating what didn't work."></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <!-- Q19 -->
+                    <div class="form-group">
+                        <label for="whats_working">What's currently working for you (even if it's small)?</label>
+                        <textarea id="whats_working" name="whats_working" rows="4" placeholder='Example: "We get most of our business from referrals" or "Our Instagram is decent but everything else is dead."'></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="intake-step-nav">
+                        <button type="button" class="intake-btn-back">Back</button>
+                        <button type="button" class="intake-btn-next">Next</button>
+                    </div>
+                </div>
+
+                <!-- ==================== STEP 5: Goals & Priorities ==================== -->
+                <div class="intake-step" data-step="5">
+                    <h2 class="intake-step-title">Goals & Priorities</h2>
+
+                    <!-- Q20 -->
+                    <div class="form-group">
+                        <label for="primary_goal">What's the #1 thing you want to accomplish with our help? <span class="required">*</span></label>
+                        <textarea id="primary_goal" name="primary_goal" required rows="4" placeholder='Be specific. "Get more leads" is fine. "Get 20 qualified leads per month for our roofing company in Dallas" is better.'></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <!-- Q21 -->
+                    <div class="form-group">
+                        <label>Do you have a specific launch date, event, or deadline driving this? <span class="required">*</span></label>
+                        <div class="radio-group" data-required="true" data-name="has_deadline">
+                            <label class="radio-option"><input type="radio" name="has_deadline" value="Yes (please describe below)"><span>Yes (please describe below)</span></label>
+                            <label class="radio-option"><input type="radio" name="has_deadline" value="No — just ready to get started"><span>No — just ready to get started</span></label>
+                            <label class="radio-option"><input type="radio" name="has_deadline" value="Exploring — no rush"><span>Exploring — no rush</span></label>
+                            <span class="group-error"></span>
+                        </div>
+                    </div>
+
+                    <!-- Q22 (conditional: Q21 = Yes) -->
+                    <div class="form-group intake-conditional" id="q22-container" style="display: none;">
+                        <label for="deadline_details">What's the date or event?</label>
+                        <input type="text" id="deadline_details" name="deadline_details" placeholder="e.g., Grand opening March 15, Trade show in June...">
+                        <span class="field-error"></span>
+                    </div>
+
+                    <!-- Q23 -->
+                    <div class="form-group">
+                        <label>How soon do you want to see things in motion? <span class="required">*</span></label>
+                        <div class="radio-group" data-required="true" data-name="urgency">
+                            <label class="radio-option"><input type="radio" name="urgency" value="Yesterday (ASAP)"><span>Yesterday (ASAP)</span></label>
+                            <label class="radio-option"><input type="radio" name="urgency" value="Within 30 days"><span>Within 30 days</span></label>
+                            <label class="radio-option"><input type="radio" name="urgency" value="1–3 months"><span>1–3 months</span></label>
+                            <label class="radio-option"><input type="radio" name="urgency" value="I'm flexible"><span>I'm flexible</span></label>
+                            <span class="group-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="intake-step-nav">
+                        <button type="button" class="intake-btn-back">Back</button>
+                        <button type="button" class="intake-btn-next">Next</button>
+                    </div>
+                </div>
+
+                <!-- ==================== STEP 6: Budget & Expectations ==================== -->
+                <div class="intake-step" data-step="6">
+                    <h2 class="intake-step-title">Budget & Expectations</h2>
+                    <p class="intake-step-desc">We're not trying to qualify you — you're already here. This is so we don't waste your time building a plan that doesn't fit your budget. Be real with us and we'll be real with you.</p>
+
+                    <!-- Q24 -->
+                    <div class="form-group">
+                        <label>What's your expected monthly budget for marketing services? <span class="required">*</span><br><span class="label-hint">(not including ad spend)</span></label>
+                        <div class="radio-group" data-required="true" data-name="monthly_budget">
+                            <label class="radio-option"><input type="radio" name="monthly_budget" value="Under $1,000/month"><span>Under $1,000/month</span></label>
+                            <label class="radio-option"><input type="radio" name="monthly_budget" value="$1,000–$2,500/month"><span>$1,000–$2,500/month</span></label>
+                            <label class="radio-option"><input type="radio" name="monthly_budget" value="$2,500–$5,000/month"><span>$2,500–$5,000/month</span></label>
+                            <label class="radio-option"><input type="radio" name="monthly_budget" value="$5,000–$10,000/month"><span>$5,000–$10,000/month</span></label>
+                            <label class="radio-option"><input type="radio" name="monthly_budget" value="$10,000+/month"><span>$10,000+/month</span></label>
+                            <label class="radio-option"><input type="radio" name="monthly_budget" value="Not sure yet — help me figure it out"><span>Not sure yet — help me figure it out</span></label>
+                            <span class="group-error"></span>
+                        </div>
+                    </div>
+
+                    <!-- Q25 -->
+                    <div class="form-group">
+                        <label>Do you have a separate budget for ad spend? <span class="required">*</span><br><span class="label-hint">(the money that goes directly to Google, Meta, etc.)</span></label>
+                        <div class="radio-group" data-required="true" data-name="has_ad_budget">
+                            <label class="radio-option"><input type="radio" name="has_ad_budget" value="Yes — I have a number in mind"><span>Yes — I have a number in mind</span></label>
+                            <label class="radio-option"><input type="radio" name="has_ad_budget" value="Yes — but I need guidance on how much"><span>Yes — but I need guidance on how much</span></label>
+                            <label class="radio-option"><input type="radio" name="has_ad_budget" value="No — I don't plan to run paid ads right now"><span>No — I don't plan to run paid ads right now</span></label>
+                            <label class="radio-option"><input type="radio" name="has_ad_budget" value="Not sure"><span>Not sure</span></label>
+                            <span class="group-error"></span>
+                        </div>
+                    </div>
+
+                    <!-- Q26 (conditional: Q25 = has number) -->
+                    <div class="form-group intake-conditional" id="q26-container" style="display: none;">
+                        <label for="ad_spend_amount">What's your monthly ad spend budget?</label>
+                        <input type="text" id="ad_spend_amount" name="ad_spend_amount" placeholder="Monthly amount, rough is fine">
+                        <span class="field-error"></span>
+                    </div>
+
+                    <!-- Q27 -->
+                    <div class="form-group">
+                        <label for="budget_constraints">Are there any budget constraints or financial timelines we should know about?</label>
+                        <textarea id="budget_constraints" name="budget_constraints" rows="3" placeholder='Example: "We can start at $2k/month now but could scale to $5k in Q3" or "We have a one-time budget of $10k for the website."'></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="intake-step-nav">
+                        <button type="button" class="intake-btn-back">Back</button>
+                        <button type="button" class="intake-btn-next">Next</button>
+                    </div>
+                </div>
+
+                <!-- ==================== STEP 7: Account Status ==================== -->
+                <div class="intake-step" data-step="7">
+                    <h2 class="intake-step-title">Account Status</h2>
+                    <p class="intake-step-desc">So we can understand what's already in place — just let us know which of these you currently have set up. We'll sort out access and logins together once we kick things off.</p>
+
+                    <!-- Q28 -->
+                    <div class="form-group">
+                        <label>Which of the following do you currently have?</label>
+                        <div class="checkbox-group" data-name="existing_accounts">
+                            <label class="checkbox-option"><input type="checkbox" name="existing_accounts" value="Google Analytics"><span>Google Analytics</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_accounts" value="Google Ads account"><span>Google Ads account</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_accounts" value="Google Business Profile"><span>Google Business Profile</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_accounts" value="Meta Business Manager / Ads Manager"><span>Meta Business Manager / Ads Manager</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_accounts" value="Website with backend access"><span>Website with backend access (WordPress, Shopify, Squarespace, etc.)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_accounts" value="Email marketing platform"><span>Email marketing platform (Mailchimp, Klaviyo, etc.)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_accounts" value="CRM (HubSpot, GHL, Salesforce, etc.)"><span>CRM (HubSpot, GHL, Salesforce, etc.)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_accounts" value="Active social media accounts"><span>Active social media accounts</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_accounts" value="Domain registrar account"><span>Domain registrar account (GoDaddy, Namecheap, etc.)</span></label>
+                            <label class="checkbox-option"><input type="checkbox" name="existing_accounts" value="None of the above / not sure"><span>None of the above / not sure</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Q29 -->
+                    <div class="form-group">
+                        <label for="team_contacts">Is there anyone else on your team we'll be working with?</label>
+                        <input type="text" id="team_contacts" name="team_contacts" placeholder='Name(s) and role(s), or "just me"'>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="intake-step-nav">
+                        <button type="button" class="intake-btn-back">Back</button>
+                        <button type="button" class="intake-btn-next">Next</button>
+                    </div>
+                </div>
+
+                <!-- ==================== STEP 8: Anything Else + Contact + Submit ==================== -->
+                <div class="intake-step" data-step="8">
+                    <h2 class="intake-step-title">Almost Done</h2>
+
+                    <!-- Q30 -->
+                    <div class="form-group">
+                        <label for="anything_else">Is there anything else you want us to know before we put together your plan?</label>
+                        <textarea id="anything_else" name="anything_else" rows="4" placeholder="Competitors you admire, pet peeves, past experiences, brands you love, things you absolutely don't want — all fair game."></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <!-- Q31 -->
+                    <div class="form-group">
+                        <label>Preferred way to communicate with us?</label>
+                        <div class="radio-group" data-name="comm_preference">
+                            <label class="radio-option"><input type="radio" name="comm_preference" value="Text / SMS"><span>Text / SMS</span></label>
+                            <label class="radio-option"><input type="radio" name="comm_preference" value="Email"><span>Email</span></label>
+                            <label class="radio-option"><input type="radio" name="comm_preference" value="Phone call"><span>Phone call</span></label>
+                            <label class="radio-option"><input type="radio" name="comm_preference" value="Slack / messaging app"><span>Slack / messaging app</span></label>
+                            <label class="radio-option"><input type="radio" name="comm_preference" value="No preference"><span>No preference</span></label>
+                        </div>
+                    </div>
+
+                    <!-- Q32 -->
+                    <div class="form-group">
+                        <label for="email">Best email to reach you <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required autocomplete="email" placeholder="email@company.com">
+                        <span class="field-error"></span>
+                    </div>
+
+                    <!-- Q33 -->
+                    <div class="form-group">
+                        <label for="phone">Best phone number</label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555">
+                        <span class="field-error"></span>
+                    </div>
+
+                    <!-- Consent -->
+                    <div class="form-consent">
+                        <label class="consent-label">
+                            <input type="checkbox" name="sms_consent" id="sms_consent">
+                            <span>I agree to receive text messages. Message &amp; data rates may apply. Reply STOP to opt out.</span>
+                        </label>
+                        <label class="consent-label">
+                            <input type="checkbox" name="email_consent" id="email_consent">
+                            <span>I agree to receive emails about services, updates, and offers.</span>
+                        </label>
+                        <p class="consent-legal">By submitting this form, you agree to our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="intake-step-nav">
+                        <button type="button" class="intake-btn-back">Back</button>
+                        <button type="submit" class="intake-btn-submit" id="intakeSubmitBtn">
+                            <span class="btn-text">Submit</span>
+                            <span class="btn-loading" aria-hidden="true">
+                                <svg class="spinner" width="20" height="20" viewBox="0 0 20 20">
+                                    <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" fill="none"
+                                        stroke-dasharray="40" stroke-dashoffset="10" stroke-linecap="round" />
+                                </svg>
+                                Submitting...
+                            </span>
+                        </button>
+                    </div>
+
+                    <p class="recaptcha-notice">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.</p>
+                </div>
+            </form>
+
+            <!-- Success Message -->
+            <div id="intakeSuccess" class="intake-message intake-success" style="display: none;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5" />
+                </svg>
+                <div>
+                    <strong>We got it. Here's what happens next.</strong>
+                    <ol class="intake-next-steps">
+                        <li><strong>We review it</strong> — Our team will look through your answers and assess scope.</li>
+                        <li><strong>We get back to you within 48 hours</strong> — with a summary of what we recommend, estimated costs, and a realistic timeline.</li>
+                        <li><strong>We hop on a quick call</strong> — to align on the plan, answer questions, and kick things off.</li>
+                    </ol>
+                    <p>No games or 6-email chains. We have a clear path forward.</p>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="intakeError" class="intake-message intake-error" style="display: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="15" y1="9" x2="9" y2="15" />
+                    <line x1="9" y1="9" x2="15" y2="15" />
+                </svg>
+                <div>
+                    <strong>Something went wrong.</strong>
+                    <p>Please try again or email <a href="mailto:hello@vantagemethod.com">hello@vantagemethod.com</a></p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="/intake/intake.js"></script>
+</body>
+
+</html>

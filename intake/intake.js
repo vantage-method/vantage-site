@@ -143,7 +143,7 @@
     });
 
     // Q18 — show if Q17 starts with "Yes"
-    document.querySelectorAll('input[name="previous_agency"]').forEach(function (radio) {
+    document.querySelectorAll('input[name="5ElNUa709GZM2sRmX4sj"]').forEach(function (radio) {
         radio.addEventListener('change', function () {
             var container = document.getElementById('q18-container');
             container.style.display = this.value.startsWith('Yes') ? 'block' : 'none';
@@ -151,7 +151,7 @@
     });
 
     // Q22 — show if Q21 = "Yes (please describe below)"
-    document.querySelectorAll('input[name="has_deadline"]').forEach(function (radio) {
+    document.querySelectorAll('input[name="2CL4H8lTwYkFY6KsnefY"]').forEach(function (radio) {
         radio.addEventListener('change', function () {
             var container = document.getElementById('q22-container');
             container.style.display = this.value.startsWith('Yes') ? 'block' : 'none';
@@ -159,7 +159,7 @@
     });
 
     // Q26 — show if Q25 = "Yes — I have a number in mind"
-    document.querySelectorAll('input[name="has_ad_budget"]').forEach(function (radio) {
+    document.querySelectorAll('input[name="Hr4g8jqTLD5zGiulvI4Z"]').forEach(function (radio) {
         radio.addEventListener('change', function () {
             var container = document.getElementById('q26-container');
             container.style.display = (this.value === 'Yes — I have a number in mind') ? 'block' : 'none';
@@ -362,19 +362,19 @@
 
     function updateConditionalFields() {
         // Q18
-        var agencyRadio = form.querySelector('input[name="previous_agency"]:checked');
+        var agencyRadio = form.querySelector('input[name="5ElNUa709GZM2sRmX4sj"]:checked');
         if (agencyRadio) {
             document.getElementById('q18-container').style.display = agencyRadio.value.startsWith('Yes') ? 'block' : 'none';
         }
 
         // Q22
-        var deadlineRadio = form.querySelector('input[name="has_deadline"]:checked');
+        var deadlineRadio = form.querySelector('input[name="2CL4H8lTwYkFY6KsnefY"]:checked');
         if (deadlineRadio) {
             document.getElementById('q22-container').style.display = deadlineRadio.value.startsWith('Yes') ? 'block' : 'none';
         }
 
         // Q26
-        var adBudgetRadio = form.querySelector('input[name="has_ad_budget"]:checked');
+        var adBudgetRadio = form.querySelector('input[name="Hr4g8jqTLD5zGiulvI4Z"]:checked');
         if (adBudgetRadio) {
             document.getElementById('q26-container').style.display = (adBudgetRadio.value === 'Yes — I have a number in mind') ? 'block' : 'none';
         }
@@ -420,11 +420,11 @@
 
                 // Checkbox fields need manual aggregation (FormData only gets last value)
                 var checkboxFields = [
-                    'services_requested',
-                    'ai_current_tools',
-                    'ai_work_requested',
-                    'existing_assets',
-                    'existing_accounts'
+                    'SaKURcO0wpAsK0B7c0MW',
+                    'ky9xOCGS9vRtjXexeDfg',
+                    'kBMFyrjhmK0tzOzpWjoW',
+                    'wRSrIqs2DdN7SzmNECG4',
+                    'H7PKbd7FbYa44fjk3MCM'
                 ];
 
                 checkboxFields.forEach(function (fieldName) {
@@ -434,27 +434,27 @@
                     formDataObj[fieldName] = values.join(', ');
                 });
 
-                // Synthesize contact_name
+                // Synthesize full_name
                 var firstName = (formDataObj.first_name || '').trim();
                 var lastName = (formDataObj.last_name || '').trim();
-                formDataObj.contact_name = (firstName + ' ' + lastName).trim();
+                formDataObj.full_name = (firstName + ' ' + lastName).trim();
 
                 // Remove AI fields if section was skipped
                 if (!state.aiStepVisible) {
-                    var aiFields = ['ai_familiarity', 'ai_current_tools', 'ai_work_requested',
-                        'ai_use_case', 'ai_primary_goal', 'ai_integration_needs', 'ai_daily_usage'];
+                    var aiFields = ['GYwJ8PCSfUnxfzruh01w', 'ky9xOCGS9vRtjXexeDfg', 'kBMFyrjhmK0tzOzpWjoW',
+                        'bvvvmEzqivMX4rZW5x3o', 'pv7xZzGMXCgBeMVtWq0P', 'KLUFsO0hhHxa6h95wvMO', 'rN1RumAJkTJliW2PXmuw'];
                     aiFields.forEach(function (f) { delete formDataObj[f]; });
                 }
 
                 // Remove conditional field values if their containers are hidden
                 if (document.getElementById('q18-container').style.display === 'none') {
-                    delete formDataObj.previous_agency_details;
+                    delete formDataObj.wYWM9WS1CN3bgt8eRlqK;
                 }
                 if (document.getElementById('q22-container').style.display === 'none') {
-                    delete formDataObj.deadline_details;
+                    delete formDataObj.MZGLfAXO6NPBoKmYGMgl;
                 }
                 if (document.getElementById('q26-container').style.display === 'none') {
-                    delete formDataObj.ad_spend_amount;
+                    delete formDataObj.lSCPeBIO7rYIADqBOZ7Y;
                 }
 
                 // Build GHL payload

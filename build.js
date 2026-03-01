@@ -13,6 +13,15 @@ const TEMPLATE = 'index.template.html';
 const OUTPUT = 'index.html';
 const INCLUDE_RE = /^(\s*)<!--\s*@include\s+([\w./-]+)\s*-->\s*$/;
 
+// Service landing page templates (same @include system)
+const LANDING_PAGES = [
+    'google-ads',
+    'facebook-ads',
+    'google-meta-ads',
+    'custom-website',
+    'starter-pack'
+];
+
 // CSS files in load order (matches the original stylesheet order)
 const CSS_FILES = [
     'shared/base.css',
@@ -180,10 +189,59 @@ function cacheBust(html, hash) {
     return html;
 }
 
+/* ── Landing page build ──────────────────────────────────── */
+
+/**
+ * Process @include directives in a template string.
+ * Returns the assembled HTML.
+ */
+function processIncludes(templateStr) {
+    return templateStr.split('\n').map(line => {
+        const match = line.match(INCLUDE_RE);
+        if (!match) return line;
+
+        const indent = match[1];
+        const filePath = match[2];
+        const fullPath = path.join(__dirname, filePath);
+
+        if (!fs.existsSync(fullPath)) {
+            console.error(`  ERROR: Include file not found: ${filePath}`);
+            process.exit(1);
+        }
+
+        const content = fs.readFileSync(fullPath, 'utf8').trimEnd();
+        return content.split('\n').map(l => l.length ? indent + l : '').join('\n');
+    }).join('\n');
+}
+
+function buildLandingPages() {
+    console.log('Landing pages:');
+    let count = 0;
+
+    for (const page of LANDING_PAGES) {
+        const templatePath = path.join(__dirname, page, 'index.template.html');
+        const outputPath = path.join(__dirname, page, 'index.html');
+
+        if (!fs.existsSync(templatePath)) {
+            console.log(`  SKIP: ${page}/index.template.html not found`);
+            continue;
+        }
+
+        const template = fs.readFileSync(templatePath, 'utf8');
+        const assembled = processIncludes(template);
+        const stripped = stripHTMLComments(assembled);
+        fs.writeFileSync(outputPath, stripped, 'utf8');
+        count++;
+    }
+
+    console.log(`  ${count} landing pages built`);
+}
+
 /* ── Run ─────────────────────────────────────────────────── */
 
 buildCSS();
 buildHTML();
+buildLandingPages();
 
 const hash = computeBuildHash();
 const outputPath = path.join(__dirname, OUTPUT);

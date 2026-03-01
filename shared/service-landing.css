@@ -447,7 +447,7 @@
 }
 
 .s-form {
-    max-width: 520px;
+    max-width: 640px;
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(16px);
@@ -469,7 +469,7 @@
     margin-bottom: 1rem;
 }
 
-.s-form .form-group label {
+.s-form .form-group label:not(.radio-option):not(.checkbox-option):not(.consent-label) {
     display: block;
     font-size: 0.875rem;
     font-weight: 600;
@@ -481,7 +481,7 @@
     color: var(--color-accent);
 }
 
-.s-form .form-group input,
+.s-form .form-group input:not([type="radio"]):not([type="checkbox"]),
 .s-form .form-group textarea {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -494,13 +494,13 @@
     box-sizing: border-box;
 }
 
-.s-form .form-group input:focus,
+.s-form .form-group input:not([type="radio"]):not([type="checkbox"]):focus,
 .s-form .form-group textarea:focus {
     border-color: var(--color-accent);
     box-shadow: 0 0 0 3px rgba(0, 124, 135, 0.1);
 }
 
-.s-form .form-group input.error,
+.s-form .form-group input:not([type="radio"]):not([type="checkbox"]).error,
 .s-form .form-group textarea.error {
     border-color: #dc3545;
 }
@@ -593,7 +593,7 @@
     display: none;
     align-items: flex-start;
     gap: 1rem;
-    max-width: 520px;
+    max-width: 640px;
     margin: 0 auto;
     padding: 1.5rem;
     border-radius: 12px;
@@ -620,6 +620,354 @@
 
 .s-form-message.form-error svg {
     color: #dc3545;
+}
+
+/* ============================================
+   MULTI-STEP FORM — Reveal Button
+   ============================================ */
+
+.s-form-reveal-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.s-form-reveal-btn p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    max-width: 480px;
+}
+
+.s-form-reveal-btn.hidden {
+    display: none;
+}
+
+/* ============================================
+   MULTI-STEP FORM — Collapsed / Expanding
+   ============================================ */
+
+.s-form.collapsed {
+    display: none;
+}
+
+.s-form.expanding {
+    display: block;
+    animation: s-expandForm 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes s-expandForm {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   MULTI-STEP FORM — Progress Bar
+   ============================================ */
+
+.s-form .form-progress {
+    margin-bottom: 1.5rem;
+}
+
+.s-form .form-progress-track {
+    height: 4px;
+    background: var(--color-border);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.s-form .form-progress-fill {
+    height: 100%;
+    background: var(--color-accent);
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 25%;
+}
+
+.s-form .form-progress-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    display: block;
+    text-align: right;
+}
+
+/* ============================================
+   MULTI-STEP FORM — Steps
+   ============================================ */
+
+.s-form .form-step {
+    display: none;
+}
+
+.s-form .form-step.active {
+    display: block;
+    animation: s-fadeUp 0.3s ease;
+}
+
+.s-form .form-step-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+}
+
+/* ============================================
+   MULTI-STEP FORM — Radio Groups
+   ============================================ */
+
+.s-form .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.s-form .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    font-weight: 400;
+}
+
+.s-form .radio-option:hover {
+    border-color: rgba(0, 124, 135, 0.3);
+    background: rgba(0, 124, 135, 0.02);
+}
+
+.s-form .radio-option span {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    line-height: 1.4;
+}
+
+.s-form .radio-option input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.s-form .radio-option input[type="radio"]:checked {
+    border-color: var(--color-accent);
+}
+
+.s-form .radio-option input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.s-form .radio-option input[type="radio"]:focus-visible {
+    box-shadow: 0 0 0 3px rgba(0, 124, 135, 0.1);
+    border-color: var(--color-accent);
+}
+
+.s-form .radio-option:has(input[type="radio"]:checked) {
+    border-color: var(--color-accent);
+    background: rgba(0, 124, 135, 0.03);
+    box-shadow: 0 0 0 1px rgba(0, 124, 135, 0.15);
+}
+
+.s-form .radio-group.error .radio-option {
+    border-color: rgba(220, 53, 69, 0.4);
+}
+
+/* ============================================
+   MULTI-STEP FORM — Checkbox Groups
+   ============================================ */
+
+.s-form .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    margin-top: 0.25rem;
+}
+
+.s-form .checkbox-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.625rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: background 0.2s;
+    font-weight: 400;
+}
+
+.s-form .checkbox-option:hover {
+    background: rgba(0, 124, 135, 0.02);
+}
+
+.s-form .checkbox-option span {
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    color: var(--color-text);
+    line-height: 1.4;
+}
+
+.s-form .checkbox-option input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.s-form .checkbox-option input[type="checkbox"]:checked {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.s-form .checkbox-option input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 5.5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.s-form .checkbox-option input[type="checkbox"]:focus-visible {
+    box-shadow: 0 0 0 3px rgba(0, 124, 135, 0.1);
+    border-color: var(--color-accent);
+}
+
+.s-form .checkbox-group.error .checkbox-option {
+    border-color: rgba(220, 53, 69, 0.2);
+}
+
+/* Group errors (radios & checkboxes) */
+.s-form .group-error {
+    font-size: 0.8125rem;
+    color: #dc3545;
+    margin-top: 0.375rem;
+    display: none;
+}
+
+.s-form .group-error.visible {
+    display: block;
+}
+
+/* ============================================
+   MULTI-STEP FORM — Select Dropdown
+   ============================================ */
+
+.s-form .form-group select {
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+    box-sizing: border-box;
+    background: white;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    cursor: pointer;
+}
+
+.s-form .form-group select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(0, 124, 135, 0.1);
+}
+
+.s-form .form-group select.error {
+    border-color: #dc3545;
+}
+
+/* ============================================
+   MULTI-STEP FORM — Conditional Field
+   ============================================ */
+
+.s-form .form-conditional {
+    display: none;
+}
+
+.s-form .form-conditional.visible {
+    display: block;
+    animation: s-fadeUp 0.3s ease;
+}
+
+/* ============================================
+   MULTI-STEP FORM — Step Navigation
+   ============================================ */
+
+.s-form .form-step-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.s-form .form-btn-back {
+    padding: 0.625rem 1.5rem;
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.s-form .form-btn-back:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
+}
+
+.s-form .form-btn-next {
+    padding: 0.75rem 2rem;
+    font-size: 0.9375rem;
 }
 
 /* Sticky CTA bar */
@@ -762,6 +1110,19 @@
 
     .s-form .form-row {
         grid-template-columns: 1fr;
+    }
+
+    .s-form .form-step-title {
+        font-size: 1.125rem;
+    }
+
+    .s-form .form-step-nav {
+        gap: 0.75rem;
+    }
+
+    .s-form .form-btn-next {
+        flex: 1;
+        text-align: center;
     }
 
     .s-sticky-cta {

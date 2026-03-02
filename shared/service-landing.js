@@ -45,11 +45,14 @@
 
     var showAfter = 500;
 
+    var serviceForm = document.getElementById('service-lead-form');
+
     function updateSticky() {
         var scrollY = window.scrollY;
         var ctaRect = ctaSection.getBoundingClientRect();
         var ctaInView = ctaRect.top < window.innerHeight;
-        if (scrollY > showAfter && !ctaInView) {
+        var formOpen = serviceForm && !serviceForm.classList.contains('collapsed');
+        if (scrollY > showAfter && !ctaInView && !formOpen) {
             stickyBar.classList.add('visible');
         } else {
             stickyBar.classList.remove('visible');

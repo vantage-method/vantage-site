@@ -970,6 +970,20 @@
     font-size: 0.9375rem;
 }
 
+.s-form .form-step-nav:has(.s-form-submit) {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+}
+
+.s-form .form-step-nav .s-form-submit {
+    text-align: center;
+}
+
+.s-form .form-step-nav:has(.s-form-submit) .form-btn-back {
+    width: 100%;
+    text-align: center;
+}
+
 /* Sticky CTA bar */
 .s-sticky-cta {
     position: fixed;

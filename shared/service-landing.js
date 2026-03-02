@@ -302,6 +302,10 @@
                 if (condTa) delete formDataObj[condTa.name];
             }
 
+            /* Compute lead score before submission (available for routing after) */
+            var leadScore = window.VantageLeadScoring
+                ? window.VantageLeadScoring.computeLeadScore(formDataObj) : 0;
+
             var payload = new FormData();
             payload.set('formData', JSON.stringify(formDataObj));
             payload.set('captchaV3', captchaToken);
@@ -315,7 +319,13 @@
             if (!res.ok) throw new Error(json.message || 'Submission failed');
 
             form.style.display = 'none';
-            if (successEl) successEl.style.display = 'flex';
+
+            /* Route qualified leads to booking, others see confirmation */
+            if (window.VantageLeadScoring && window.VantageLeadScoring.isQualified(leadScore)) {
+                setTimeout(function () { window.location.href = '/booking/'; }, 800);
+            } else {
+                if (successEl) successEl.style.display = 'flex';
+            }
         } catch (err) {
             console.error('Form submission error:', err);
             if (errorEl) errorEl.style.display = 'flex';

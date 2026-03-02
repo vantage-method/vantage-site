@@ -39,6 +39,30 @@ sections/            Each page section has its own folder with .html, .css, .js
   pricing/           Partnership & pricing
   cta/               Contact form (posts to GHL)
 booking/             Standalone booking page (/booking)
+intake/              Password-gated partner intake form
+google-ads/          Service landing page — Google Ads
+facebook-ads/        Service landing page — Facebook Ads
+google-meta-ads/     Service landing page — Google + Meta Ads
+custom-website/      Service landing page — Custom Website
+starter-pack/        Service landing page — Starter Pack
 assets/images/       Brand, team, portfolio, and mountain images
 notes/               Internal reference docs
 ```
+
+## Service Landing Pages
+
+Each service landing page lives in its own folder with an `index.template.html` that gets built into `index.html` via `node build.js`. They share common styles (`shared/service-landing.css`), form logic (`shared/service-landing.js`), and a reusable form partial (`shared/service-form.html`).
+
+### Lead Scoring
+
+After a visitor submits the strategic growth consultation form, a client-side scoring system (`shared/lead-scoring.js`) grades the lead on a 100-point scale:
+
+| Field | Max Points |
+|-------|-----------|
+| Monthly Revenue | 25 |
+| Budget Commitment | 25 |
+| Implementation Timeline | 20 |
+| Decision Maker | 15 |
+| Seriousness (1–10) | 15 |
+
+Leads scoring **60+** are redirected to `/booking/`. Others see a friendly confirmation message. The threshold is a single constant (`SCORE_THRESHOLD`) at the top of `shared/lead-scoring.js`.

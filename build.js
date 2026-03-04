@@ -34,7 +34,8 @@ const CSS_FILES = [
     'sections/portfolio/portfolio.css',
     'sections/social-proof/social-proof.css',
     'sections/pricing/pricing.css',
-    'sections/cta/cta.css'
+    'sections/cta/cta.css',
+    'shared/footer.css'
 ];
 
 const COMPILED_CSS = 'assets/compiled.css';

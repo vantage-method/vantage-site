@@ -19,7 +19,8 @@ const LANDING_PAGES = [
     'facebook-ads',
     'google-meta-ads',
     'custom-website',
-    'starter-pack'
+    'starter-pack',
+    'evaluation'
 ];
 
 // CSS files in load order (matches the original stylesheet order)

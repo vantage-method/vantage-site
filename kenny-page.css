@@ -1,0 +1,641 @@
+/* ============================================
+   KENNY LANDING PAGE STYLES
+   Dedicated landing page for Ken Freire
+   ============================================ */
+
+/* Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+}
+
+.section-headline {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    color: var(--color-text);
+}
+
+.section-subline {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 1rem auto 0;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.kenny-hero {
+    padding: 10rem 0 6rem;
+    background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+}
+
+.kenny-hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.kenny-hero-image {
+    position: relative;
+}
+
+.kenny-hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.kenny-hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.kenny-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+}
+
+.kenny-headline {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.kenny-tagline {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.kenny-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.kenny-cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--color-accent);
+    color: white;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 4px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    align-self: flex-start;
+}
+
+.kenny-cta-button:hover {
+    background: var(--color-accent-dark);
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+.kenny-about {
+    padding: 6rem 0;
+    background: white;
+}
+
+.kenny-about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.kenny-about-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+/* ============================================
+   WHAT I BRING SECTION
+   ============================================ */
+.kenny-brings {
+    padding: 6rem 0;
+    background: var(--color-bg-alt);
+}
+
+.kenny-brings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.bring-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bring-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.bring-icon {
+    color: var(--color-accent);
+    margin-bottom: 1.5rem;
+}
+
+.bring-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.bring-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+/* ============================================
+   HOW I HELP SECTION
+   ============================================ */
+.kenny-helps {
+    padding: 6rem 0;
+    background: white;
+}
+
+.kenny-helps-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.help-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.help-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+.help-text h3 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+}
+
+.help-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+/* ============================================
+   AREAS OF FOCUS SECTION
+   ============================================ */
+.kenny-focus {
+    padding: 6rem 0;
+    background: var(--color-bg-alt);
+}
+
+.kenny-focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.focus-card {
+    background: white;
+    padding: 2rem 1.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+}
+
+.focus-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+}
+
+.focus-card p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.kenny-contact {
+    padding: 6rem 0;
+    background: white;
+}
+
+.kenny-contact-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.kenny-contact-header .section-headline {
+    margin-bottom: 1rem;
+}
+
+/* Form Styles */
+.kenny-form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.required {
+    color: var(--color-accent);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text);
+    background: white;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.field-error {
+    font-size: 0.875rem;
+    color: #d32f2f;
+    display: none;
+}
+
+.form-group.error input,
+.form-group.error textarea {
+    border-color: #d32f2f;
+}
+
+.form-group.error .field-error {
+    display: block;
+}
+
+.form-consent {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.consent-label {
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+}
+
+.consent-label input[type="checkbox"] {
+    margin-top: 0.25rem;
+    cursor: pointer;
+}
+
+.consent-legal {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+.consent-legal a {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+.cta-button {
+    width: 100%;
+    padding: 1.125rem 2rem;
+    background: var(--color-accent);
+    color: white;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    position: relative;
+}
+
+.cta-button:hover:not(:disabled) {
+    background: var(--color-accent-dark);
+}
+
+.cta-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-loading {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.cta-button.loading .btn-text {
+    display: none;
+}
+
+.cta-button.loading .btn-loading {
+    display: flex;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.recaptcha-notice {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 1.5rem;
+    line-height: 1.5;
+}
+
+.recaptcha-notice a {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+/* Form Messages */
+.form-message {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 4px;
+    margin-top: 2rem;
+}
+
+.form-message svg {
+    flex-shrink: 0;
+}
+
+.form-success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #4caf50;
+}
+
+.form-error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef5350;
+}
+
+.form-message strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.form-message p {
+    font-size: 0.9375rem;
+    margin: 0;
+}
+
+.form-message a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.kenny-footer {
+    padding: 3rem 0;
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+}
+
+.kenny-footer p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin: 0.5rem 0;
+}
+
+.kenny-footer a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.kenny-footer a:hover {
+    color: var(--color-accent-dark);
+}
+
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+@media (max-width: 768px) {
+    .kenny-hero {
+        padding: 8rem 0 4rem;
+    }
+
+    .kenny-hero-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .kenny-hero-image {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .kenny-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    .section-header {
+        margin-bottom: 3rem;
+    }
+
+    .kenny-brings-grid,
+    .kenny-focus-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .help-item {
+        grid-template-columns: 60px 1fr;
+        gap: 1.5rem;
+    }
+
+    .help-number {
+        font-size: 2.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .kenny-about,
+    .kenny-brings,
+    .kenny-helps,
+    .kenny-focus,
+    .kenny-contact {
+        padding: 4rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .kenny-stats {
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.75rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+
+    .kenny-cta-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .bring-card,
+    .focus-card {
+        padding: 1.75rem 1.5rem;
+    }
+}

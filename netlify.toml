@@ -43,3 +43,9 @@
   for = "/shared/*.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirect old kenny.html to new folder
+[[redirects]]
+  from = "/kenny.html"
+  to = "/kenny/"
+  status = 301

@@ -79,7 +79,7 @@
     var form = document.getElementById('kenny-lead-form');
     if (!form) return;
 
-    var RECAPTCHA_SITE_KEY = '6LcjFrUqAAAAAKWxNXoIU9-wz3gEU0hqD9BNbLZw';
+    var RECAPTCHA_SITE_KEY = '6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX';
 
     var submitBtn = form.querySelector('button[type="submit"]');
     var successEl = document.getElementById('formSuccess');

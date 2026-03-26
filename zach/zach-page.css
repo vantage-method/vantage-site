@@ -560,12 +560,16 @@
     margin-bottom: 1.25rem;
 }
 
-.zach-diagnostic-form label {
+.zach-diagnostic-form .form-group label {
     font-size: 0.9375rem;
     font-weight: 600;
     color: white;
     display: block;
     margin-bottom: 0.5rem;
+}
+
+.zach-diagnostic-form .required {
+    color: var(--color-accent);
 }
 
 .zach-diagnostic-form input {
@@ -581,12 +585,18 @@
     box-sizing: border-box;
 }
 
-.zach-diagnostic-form input:focus {
+.zach-diagnostic-form .form-group input {
+    color: white;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.zach-diagnostic-form .form-group input:focus {
     outline: none;
     border-color: var(--color-accent);
 }
 
-.zach-diagnostic-form input::placeholder {
+.zach-diagnostic-form .form-group input::placeholder {
     color: rgba(255, 255, 255, 0.4);
 }
 

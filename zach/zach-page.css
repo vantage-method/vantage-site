@@ -1,6 +1,5 @@
 /* ============================================
    ZACH LANDING PAGE STYLES
-   Dedicated landing page for Zach G.
    ============================================ */
 
 /* Container */
@@ -33,6 +32,11 @@
     letter-spacing: 0.02em;
     line-height: 1.1;
     color: var(--color-text);
+}
+
+.section-headline em {
+    font-style: italic;
+    color: var(--color-accent);
 }
 
 .section-subline {
@@ -77,21 +81,26 @@
 
 .zach-eyebrow {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.12em;
     color: var(--color-accent);
 }
 
 .zach-headline {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.02em;
-    line-height: 0.95;
+    line-height: 1.05;
     color: var(--color-text);
     margin: 0;
+}
+
+.zach-headline em {
+    font-style: italic;
+    color: var(--color-accent);
 }
 
 .zach-tagline {
@@ -129,6 +138,13 @@
     letter-spacing: 0.05em;
 }
 
+.zach-hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
 .zach-cta-button {
     display: inline-block;
     padding: 1rem 2.5rem;
@@ -142,7 +158,6 @@
     letter-spacing: 0.08em;
     border-radius: 4px;
     transition: background 0.3s ease, transform 0.2s ease;
-    align-self: flex-start;
 }
 
 .zach-cta-button:hover {
@@ -150,160 +165,21 @@
     transform: translateY(-2px);
 }
 
-/* ============================================
-   ABOUT SECTION
-   ============================================ */
-.zach-about {
-    padding: 6rem 0;
-    background: white;
-}
-
-.zach-about-content {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.zach-about-content p {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: var(--color-text);
-}
-
-/* ============================================
-   WHAT I BRING SECTION
-   ============================================ */
-.zach-brings {
-    padding: 6rem 0;
-    background: var(--color-bg-alt);
-}
-
-.zach-brings-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.bring-card {
-    background: white;
-    padding: 2.5rem 2rem;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.bring-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-}
-
-.bring-icon {
-    color: var(--color-accent);
-    margin-bottom: 1.5rem;
-}
-
-.bring-card h3 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-}
-
-.bring-card p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--color-text-muted);
-}
-
-/* ============================================
-   HOW I HELP SECTION
-   ============================================ */
-.zach-helps {
-    padding: 6rem 0;
-    background: white;
-}
-
-.zach-helps-content {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.help-item {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 2rem;
-    align-items: start;
-}
-
-.help-number {
-    font-family: var(--font-display);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    opacity: 0.3;
-    line-height: 1;
-}
-
-.help-text h3 {
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    margin-bottom: 0.75rem;
-    color: var(--color-text);
-}
-
-.help-text p {
-    font-size: 1.0625rem;
-    line-height: 1.7;
-    color: var(--color-text-muted);
-}
-
-/* ============================================
-   AREAS OF FOCUS SECTION
-   ============================================ */
-.zach-focus {
-    padding: 6rem 0;
-    background: var(--color-bg-alt);
-}
-
-.zach-focus-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
-}
-
-.focus-card {
-    background: white;
-    padding: 2rem 1.75rem;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-    border-left: 4px solid var(--color-accent);
-}
-
-.focus-card h3 {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    margin-bottom: 0.75rem;
-    color: var(--color-text);
-}
-
-.focus-card p {
+.zach-cta-secondary {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
     font-size: 0.9375rem;
-    line-height: 1.6;
-    color: var(--color-text-muted);
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 2px;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.zach-cta-secondary:hover {
+    color: var(--color-accent-dark);
+    border-color: var(--color-accent-dark);
 }
 
 /* ============================================
@@ -312,15 +188,6 @@
 .zach-empathy {
     padding: 6rem 0;
     background: var(--color-bg-alt);
-}
-
-.zach-empathy-intro {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    color: var(--color-text);
-    max-width: 800px;
-    margin: 0 auto 3rem;
-    text-align: center;
 }
 
 .zach-pain-cards {
@@ -413,7 +280,7 @@
 }
 
 .stakes-without li::before {
-    content: "✕";
+    content: "\2715";
     position: absolute;
     left: 0;
     color: #d32f2f;
@@ -422,7 +289,7 @@
 }
 
 .stakes-with li::before {
-    content: "✓";
+    content: "\2713";
     position: absolute;
     left: 0;
     color: var(--color-accent);
@@ -431,11 +298,72 @@
 }
 
 /* ============================================
+   THE OFFER: 90-DAY CLARITY SPRINT
+   ============================================ */
+.zach-offer {
+    padding: 6rem 0;
+    background: var(--color-bg-alt);
+}
+
+.zach-offer-steps {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.offer-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.offer-step-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+.offer-step-text h3 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+}
+
+.offer-step-text p {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+.zach-offer-closing {
+    max-width: 700px;
+    margin: 4rem auto 0;
+    text-align: center;
+}
+
+.zach-offer-closing p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+/* ============================================
    TESTIMONIALS SECTION
    ============================================ */
 .zach-testimonials {
     padding: 6rem 0;
-    background: var(--color-bg-alt);
+    background: white;
 }
 
 .zach-testimonials-grid {
@@ -445,7 +373,7 @@
 }
 
 .testimonial-card {
-    background: white;
+    background: var(--color-bg-alt);
     padding: 2.5rem 2rem;
     border-radius: 8px;
     border: 1px solid var(--color-border);
@@ -454,9 +382,24 @@
     justify-content: space-between;
 }
 
+.testimonial-result {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    background: rgba(201, 168, 76, 0.1);
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
+}
+
 .testimonial-card blockquote {
     margin: 0 0 1.5rem;
     padding: 0;
+    flex: 1;
 }
 
 .testimonial-card blockquote p {
@@ -469,20 +412,79 @@
 
 .testimonial-author {
     display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    align-items: center;
+    gap: 1rem;
     border-top: 1px solid var(--color-border);
     padding-top: 1.25rem;
 }
 
-.testimonial-author strong {
+.testimonial-headshot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.testimonial-author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.testimonial-author-info strong {
     font-size: 1rem;
     color: var(--color-text);
 }
 
-.testimonial-author span {
+.testimonial-author-info span {
     font-size: 0.875rem;
     color: var(--color-text-muted);
+}
+
+/* ============================================
+   ABOUT / GUIDE SECTION
+   ============================================ */
+.zach-about {
+    padding: 6rem 0;
+    background: var(--color-bg-alt);
+}
+
+.zach-about-layout {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.zach-about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.zach-about-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+.zach-credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.credential-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+    background: white;
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
 }
 
 /* ============================================
@@ -542,7 +544,7 @@
 }
 
 .zach-diagnostic-features li::before {
-    content: "✓";
+    content: "\2713";
     position: absolute;
     left: 0;
     color: var(--color-accent);
@@ -936,12 +938,15 @@
         font-size: 0.75rem;
     }
 
+    .zach-hero-ctas {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .section-header {
         margin-bottom: 3rem;
     }
 
-    .zach-brings-grid,
-    .zach-focus-grid,
     .zach-pain-cards,
     .zach-testimonials-grid {
         grid-template-columns: 1fr;
@@ -950,6 +955,15 @@
     .zach-stakes-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .offer-step {
+        grid-template-columns: 60px 1fr;
+        gap: 1.5rem;
+    }
+
+    .offer-step-number {
+        font-size: 2.5rem;
     }
 
     .zach-diagnostic-content {
@@ -969,29 +983,18 @@
         text-align: center;
     }
 
-    .help-item {
-        grid-template-columns: 60px 1fr;
-        gap: 1.5rem;
-    }
-
-    .help-number {
-        font-size: 2.5rem;
-    }
-
     .form-row {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
 
-    .zach-about,
-    .zach-brings,
-    .zach-helps,
-    .zach-focus,
-    .zach-contact,
     .zach-empathy,
     .zach-stakes,
+    .zach-offer,
     .zach-testimonials,
-    .zach-diagnostic {
+    .zach-about,
+    .zach-diagnostic,
+    .zach-contact {
         padding: 4rem 0;
     }
 }
@@ -1014,8 +1017,7 @@
         text-align: center;
     }
 
-    .bring-card,
-    .focus-card {
+    .pain-card {
         padding: 1.75rem 1.5rem;
     }
 }

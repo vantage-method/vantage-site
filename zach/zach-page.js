@@ -22,7 +22,7 @@
     }, observerOptions);
 
     // Animate sections on scroll
-    document.querySelectorAll('.zach-about, .zach-brings, .zach-helps, .zach-focus').forEach(section => {
+    document.querySelectorAll('.zach-about, .zach-empathy, .zach-stakes, .zach-brings, .zach-helps, .zach-testimonials, .zach-focus, .zach-diagnostic').forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(30px)';
         section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -55,7 +55,7 @@
     const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const cards = entry.target.querySelectorAll('.bring-card, .focus-card, .help-item');
+                const cards = entry.target.querySelectorAll('.bring-card, .focus-card, .help-item, .pain-card, .testimonial-card, .stakes-column');
                 cards.forEach(card => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0) translateX(0)';
@@ -64,7 +64,31 @@
         });
     }, observerOptions);
 
-    document.querySelectorAll('.zach-brings, .zach-focus, .zach-helps').forEach(section => {
+    // Animate pain cards
+    const painCards = document.querySelectorAll('.pain-card');
+    painCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+    });
+
+    // Animate testimonial cards
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    testimonialCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+    });
+
+    // Animate stakes columns
+    const stakesColumns = document.querySelectorAll('.stakes-column');
+    stakesColumns.forEach((col, index) => {
+        col.style.opacity = '0';
+        col.style.transform = 'translateY(30px)';
+        col.style.transition = `opacity 0.5s ease ${index * 0.15}s, transform 0.5s ease ${index * 0.15}s`;
+    });
+
+    document.querySelectorAll('.zach-brings, .zach-focus, .zach-helps, .zach-empathy, .zach-stakes, .zach-testimonials').forEach(section => {
         cardObserver.observe(section);
     });
 

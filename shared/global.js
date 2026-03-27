@@ -107,13 +107,15 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     });
 });
 
-// Logo — scroll to top
+// Logo — scroll to top on homepage, navigate home on subpages
 (function () {
     var logoLink = document.querySelector('.logo-link');
     if (logoLink) {
         logoLink.addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         });
     }
 })();

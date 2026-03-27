@@ -623,6 +623,24 @@
     text-decoration: none;
 }
 
+/* Hide reCAPTCHA badge — required disclaimer shown in .recaptcha-notice */
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
+
+.recaptcha-notice {
+    font-size: 0.6875rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.recaptcha-notice a {
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: underline;
+}
+
 .diagnostic-disclaimer {
     font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.5);

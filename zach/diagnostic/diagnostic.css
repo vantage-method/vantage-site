@@ -13,10 +13,21 @@
     -webkit-font-smoothing: antialiased;
 }
 
+.diag-page header {
+    background: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: none;
+}
+
+.diag-page .mobile-menu-toggle span {
+    background: #fff;
+}
+
+
 .diag-container {
     max-width: 640px;
     margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
+    padding: 5rem 1.5rem 4rem;
 }
 
 /* ── Screen Transitions ── */
@@ -608,7 +619,7 @@
 
 @media (min-width: 768px) {
     .diag-container {
-        padding: 3rem 2rem 5rem;
+        padding: 8rem 2rem 5rem;
     }
 
     .diag-intro-title {

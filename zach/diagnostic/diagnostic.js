@@ -144,6 +144,20 @@
 
     var TIER_LABELS = { green: 'Solid', amber: 'Leaking', red: 'Critical Leak' };
 
+    var SYMPTOMS = {
+        message: 'low website conversion or confused prospects',
+        funnel: 'leads who don\'t move forward',
+        retention: 'constantly needing new clients',
+        leadgen: 'ads or campaigns that don\'t perform'
+    };
+
+    var ROOT_CAUSES = {
+        message: 'the message describes what you do instead of what they get',
+        funnel: 'too many options or too many steps between interest and yes',
+        retention: 'no deliberate system to serve existing clients at the next level',
+        leadgen: 'scaling spend before validating the offer'
+    };
+
     /* ───────────────────────────────────────────
        STATE
     ─────────────────────────────────────────── */
@@ -267,13 +281,22 @@
         var scoreString = buildScoreString(scores);
         var tagString = buildTagString(scores);
 
+        // Use first fixFirst category for email fields (if tie, pick first)
+        var worstKey = scores.fixFirst[0];
+        var worstCat = scores.categories[worstKey];
+        var worstInsight = INSIGHTS[worstKey][worstCat.tier];
+
         var formDataObj = {
             formId: GHL_FORM_ID,
             location_id: GHL_LOCATION_ID,
             first_name: firstName,
             email: email,
             '9MJSN5Nzoq2LtIE8TwY2': scoreString,
-            '1bqFnfXVj43dV19dujxp': tagString
+            '1bqFnfXVj43dV19dujxp': tagString,
+            'TxHvVyL5cRVJJB7IXYsT': worstCat.label,
+            '7owKpRqVUZOVctDO3DSN': worstInsight,
+            'ssQhyLqn7Cjx48ye2lFT': SYMPTOMS[worstKey],
+            'yLr3gcPPwuFV87HBfzWS': ROOT_CAUSES[worstKey]
         };
 
         if (fixFirstText) {
@@ -326,7 +349,6 @@
                     '<span class="diag-meta-tag">5 Minutes</span>' +
                     '<span class="diag-meta-tag">Instant Results</span>' +
                 '</div>' +
-                '<a href="/zach/" class="diag-back-link">&larr; Back to Zach\'s page</a>' +
                 '<button class="diag-btn diag-start-btn">Start the Diagnostic</button>' +
                 '<p class="diag-intro-note">Your answers are scored across 4 categories. You\'ll see your personalized results immediately after providing your email.</p>' +
             '</div>'
@@ -475,9 +497,6 @@
                 '<div class="diag-bottom-cta">' +
                     '<p class="diag-bottom-cta-text">Ready to fix the leaks? Let\'s build the machine.</p>' +
                     '<a href="' + CALENDLY_URL + '" target="_blank" rel="noopener" class="diag-btn">Book a Call with Zach</a>' +
-                '</div>' +
-                '<div class="diag-results-footer">' +
-                    '<a href="/zach/" class="diag-back-link">&larr; Back to Zach\'s page</a>' +
                 '</div>' +
             '</div>'
         );

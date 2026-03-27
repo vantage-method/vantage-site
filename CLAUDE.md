@@ -56,6 +56,20 @@ Each page section is self-contained in `sections/<name>/` with its own HTML, CSS
 - Images are WebP with PNG fallbacks; brand assets are in `assets/images/brand/`
 - The loading splash screen gates on `window.load` — all resources must finish before dismissal
 
+## Forms, Quizzes & Diagnostic Tools
+
+These are distinct tools — don't confuse them:
+
+- **AI Quiz** (`shared/ai-quiz-modal.*`) — Homepage popup. 10 questions, scores AI maturity (4 levels). Modal triggered by delay/exit-intent/click.
+- **Growth Ceiling Diagnostic** (`zach/diagnostic/`) — Standalone page. 12 questions across 4 growth categories, shows "Fix This First" card. For Zach's prospects.
+- **Evaluation Form** (`evaluation/`) — Multi-step application form (4 steps). No scoring — pure lead qualification. Linked from service pages.
+- **Intake Form** (`intake/`) — Password-gated partner onboarding questionnaire. Internal only.
+- **Assessment** (`assessment/`) — 86-item internal checklist with real-time scoring. Not connected to GHL yet.
+- **CTA Contact Form** (`sections/cta/`) — Simple lead capture on homepage.
+- **Partner Page Forms** (`zach/`, `kenny/`) — Contact forms on individual salesperson pages.
+
+All GHL forms use location ID `1CRkPO5O8TwTWL8msQNK` and reCAPTCHA v3 key `6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX`.
+
 ## Notes
 
 `notes/site-improvements.md` contains a detailed performance analysis and optimization roadmap.

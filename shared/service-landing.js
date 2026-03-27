@@ -86,6 +86,13 @@
     var successEl = document.getElementById('service-form-success');
     var errorEl = document.getElementById('service-form-error');
     var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var V = window.VantageValidation || {};
+
+    // Attach phone formatting to phone fields
+    var phoneInputs = form.querySelectorAll('input[type="tel"]');
+    phoneInputs.forEach(function (input) {
+        if (V.attachPhoneFormatting) V.attachPhoneFormatting(input);
+    });
 
     /* ---------- Reveal Button ---------- */
     if (revealBtn) {
@@ -172,6 +179,20 @@
                 valid = false;
             } else if (input.type === 'email' && !emailRe.test(input.value.trim())) {
                 showFieldError(input, 'Please enter a valid email.');
+                valid = false;
+            } else if (input.type === 'tel' && V.isValidPhone && !V.isValidPhone(input.value)) {
+                showFieldError(input, 'Please enter a valid phone number.');
+                valid = false;
+            } else if ((input.name === 'first_name' || input.name === 'last_name') && V.isValidName && !V.isValidName(input.value)) {
+                showFieldError(input, 'Please enter a valid name.');
+                valid = false;
+            }
+        });
+
+        /* Optional phone fields — validate format if filled */
+        stepEl.querySelectorAll('input[type="tel"]:not([required])').forEach(function (input) {
+            if (input.value.trim() && V.isValidPhone && !V.isValidPhone(input.value)) {
+                showFieldError(input, 'Please enter a valid phone number.');
                 valid = false;
             }
         });

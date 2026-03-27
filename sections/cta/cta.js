@@ -96,7 +96,7 @@
     var submitBtn = form.querySelector('button[type="submit"]');
     var successEl = document.getElementById('formSuccess');
     var errorEl = document.getElementById('formError');
-    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var V = window.VantageValidation || {};
 
     function clearErrors() {
         form.querySelectorAll('.error').forEach(function (el) {
@@ -121,14 +121,14 @@
         var valid = true;
 
         var firstName = form.querySelector('[name="first_name"]');
-        if (!firstName.value.trim()) {
-            showFieldError(firstName, 'First name is required.');
+        if (!V.isValidName || !V.isValidName(firstName.value)) {
+            showFieldError(firstName, firstName.value.trim() ? 'Please enter a valid name.' : 'First name is required.');
             valid = false;
         }
 
         var lastName = form.querySelector('[name="last_name"]');
-        if (!lastName.value.trim()) {
-            showFieldError(lastName, 'Last name is required.');
+        if (!V.isValidName || !V.isValidName(lastName.value)) {
+            showFieldError(lastName, lastName.value.trim() ? 'Please enter a valid name.' : 'Last name is required.');
             valid = false;
         }
 
@@ -136,13 +136,23 @@
         if (!email.value.trim()) {
             showFieldError(email, 'Email is required.');
             valid = false;
-        } else if (!emailRe.test(email.value.trim())) {
+        } else if (V.isValidEmail && !V.isValidEmail(email.value)) {
             showFieldError(email, 'Please enter a valid email.');
+            valid = false;
+        }
+
+        var phone = form.querySelector('[name="phone"]');
+        if (phone && phone.value.trim() && V.isValidPhone && !V.isValidPhone(phone.value)) {
+            showFieldError(phone, 'Please enter a valid phone number.');
             valid = false;
         }
 
         return valid;
     }
+
+    // Attach phone formatting
+    var phoneInput = form.querySelector('[name="phone"]');
+    if (V.attachPhoneFormatting) V.attachPhoneFormatting(phoneInput);
 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();

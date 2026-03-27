@@ -281,11 +281,12 @@
 
         clearGateErrors(form);
 
-        if (!fullName) {
+        var V = window.VantageValidation || {};
+        if (!fullName || (V.isValidName && !V.isValidName(fullName))) {
             showGateError(form, 'fullName');
             valid = false;
         }
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (!email || (V.isValidEmail && !V.isValidEmail(email))) {
             showGateError(form, 'email');
             valid = false;
         }
@@ -399,6 +400,19 @@
     function handleEvalSubmit(e) {
         e.preventDefault();
         var form = e.target;
+        var V = window.VantageValidation || {};
+
+        // Validate phone if provided
+        var phoneVal = form.phone.value.trim();
+        if (phoneVal && V.isValidPhone && !V.isValidPhone(phoneVal)) {
+            var phoneInput = form.querySelector('[name="phone"]');
+            if (phoneInput) {
+                phoneInput.classList.add('error');
+                phoneInput.focus();
+            }
+            return;
+        }
+
         var submitBtn = form.querySelector('button[type="submit"]');
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span class="ai-quiz-spinner"></span> Submitting…';

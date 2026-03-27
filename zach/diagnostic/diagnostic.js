@@ -582,6 +582,7 @@
     ─────────────────────────────────────────── */
 
     function handleGateSubmit(form) {
+        var V = window.VantageValidation || {};
         var firstName = form.firstName.value.trim();
         var email = form.email.value.trim();
         var fixFirst = form.fixFirst.value.trim();
@@ -589,11 +590,11 @@
 
         clearGateErrors(form);
 
-        if (!firstName) {
+        if (!firstName || (V.isValidName && !V.isValidName(firstName))) {
             showGateError(form, 'firstName');
             valid = false;
         }
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (!email || (V.isValidEmail && !V.isValidEmail(email))) {
             showGateError(form, 'email');
             valid = false;
         }

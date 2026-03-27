@@ -472,6 +472,11 @@
     to { transform: rotate(360deg); }
 }
 
+/* Hide reCAPTCHA badge — required disclaimer shown in .recaptcha-notice */
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
+
 .recaptcha-notice {
     font-size: 0.8125rem;
     color: var(--color-text-muted);

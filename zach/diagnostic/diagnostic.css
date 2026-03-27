@@ -1,0 +1,644 @@
+/* ───────────────────────────────────────────
+   GROWTH CEILING DIAGNOSTIC — STYLES
+   Dark theme, mobile-first, teal accent
+─────────────────────────────────────────── */
+
+/* ── Page & Container ── */
+
+.diag-page {
+    background: #1a1a1a;
+    color: #f0f0f0;
+    min-height: 100vh;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.diag-container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+/* ── Screen Transitions ── */
+
+.diag-screen {
+    animation: diagFadeIn 0.35s ease both;
+}
+
+@keyframes diagFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Back Link ── */
+
+.diag-back-link {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 0.875rem;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+.diag-back-link:hover {
+    color: var(--color-accent, #007c87);
+}
+
+/* ── INTRO SCREEN ── */
+
+.diag-intro {
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.diag-intro-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(0, 124, 135, 0.15);
+    color: var(--color-accent, #007c87);
+    margin-bottom: 1.5rem;
+}
+
+.diag-intro-title {
+    font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #fff;
+    margin: 0 0 1rem;
+    line-height: 1.15;
+}
+
+.diag-intro-desc {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 1.125rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin: 0 0 1.75rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.diag-intro-meta {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.diag-meta-tag {
+    font-family: var(--font-mono, 'Space Mono', monospace);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent, #007c87);
+    background: rgba(0, 124, 135, 0.12);
+    padding: 0.375rem 0.875rem;
+    border-radius: 100px;
+    border: 1px solid rgba(0, 124, 135, 0.25);
+}
+
+.diag-intro-note {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ── PRIMARY BUTTON ── */
+
+.diag-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: var(--color-accent, #007c87);
+    color: #fff;
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.diag-btn:hover {
+    background: var(--color-accent-dark, #006672);
+    transform: translateY(-1px);
+}
+
+.diag-btn:active {
+    transform: translateY(0);
+}
+
+.diag-btn-secondary {
+    background: transparent;
+    border: 2px solid var(--color-accent, #007c87);
+    color: var(--color-accent, #007c87);
+}
+
+.diag-btn-secondary:hover {
+    background: rgba(0, 124, 135, 0.1);
+}
+
+/* ── PROGRESS BAR ── */
+
+.diag-progress {
+    margin-bottom: 2rem;
+}
+
+.diag-progress-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.diag-progress-label {
+    font-family: var(--font-mono, 'Space Mono', monospace);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.diag-progress-track {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.diag-progress-fill {
+    height: 100%;
+    background: var(--color-accent, #007c87);
+    border-radius: 4px;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 0%;
+}
+
+/* ── QUESTION SCREEN ── */
+
+.diag-category-eyebrow {
+    font-family: var(--font-mono, 'Space Mono', monospace);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent, #007c87);
+    margin: 0 0 0.75rem;
+}
+
+.diag-question-text {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.5;
+    margin: 0 0 2rem;
+}
+
+.diag-scale-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.diag-scale-labels span {
+    font-family: var(--font-mono, 'Space Mono', monospace);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.diag-scale-buttons {
+    display: flex;
+    gap: 0.625rem;
+    margin-bottom: 2.5rem;
+}
+
+.diag-scale-btn {
+    flex: 1;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.7);
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.diag-scale-btn:hover {
+    border-color: var(--color-accent, #007c87);
+    background: rgba(0, 124, 135, 0.1);
+    color: #fff;
+}
+
+.diag-scale-btn.active {
+    border-color: var(--color-accent, #007c87);
+    background: var(--color-accent, #007c87);
+    color: #fff;
+}
+
+/* ── BACK BUTTON ── */
+
+.diag-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 0.875rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
+}
+
+.diag-back-btn:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── GATE SCREEN ── */
+
+.diag-gate-title {
+    font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #fff;
+    margin: 0 0 0.75rem;
+}
+
+.diag-gate-desc {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.5;
+    margin: 0 0 2rem;
+}
+
+.diag-gate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.diag-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+}
+
+.diag-form-group label {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #ddd;
+}
+
+.diag-required {
+    color: var(--color-accent, #007c87);
+}
+
+.diag-optional {
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+}
+
+.diag-gate-form input,
+.diag-gate-form textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 1rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    box-sizing: border-box;
+}
+
+.diag-gate-form input::placeholder,
+.diag-gate-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.diag-gate-form input:focus,
+.diag-gate-form textarea:focus {
+    outline: none;
+    border-color: var(--color-accent, #007c87);
+    box-shadow: 0 0 0 3px rgba(0, 124, 135, 0.2);
+}
+
+.diag-gate-form input.error,
+.diag-gate-form textarea.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+.diag-gate-error {
+    display: none;
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 0.8125rem;
+    color: #ef4444;
+}
+
+.diag-gate-error.visible {
+    display: block;
+}
+
+.diag-gate-skip {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.diag-gate-skip a {
+    color: var(--color-accent, #007c87);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.diag-gate-skip a:hover {
+    color: #fff;
+}
+
+/* ── reCAPTCHA ── */
+
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
+
+.recaptcha-notice {
+    font-size: 0.6875rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.recaptcha-notice a {
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: underline;
+}
+
+/* ── RESULTS SCREEN ── */
+
+.diag-results-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.diag-results-eyebrow {
+    font-family: var(--font-mono, 'Space Mono', monospace);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent, #007c87);
+    margin: 0 0 0.75rem;
+}
+
+.diag-results-score {
+    font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1;
+}
+
+.diag-results-headline {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #ccc;
+    line-height: 1.5;
+    margin: 1rem 0 0;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ── Result Cards ── */
+
+.diag-results-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+.diag-result-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    animation: diagFadeIn 0.4s ease both;
+}
+
+.diag-result-card.fix-first {
+    border-color: var(--color-accent, #007c87);
+    border-width: 2px;
+    background: rgba(0, 124, 135, 0.08);
+    padding: 2rem 1.5rem 1.5rem;
+}
+
+.diag-fix-first-badge {
+    position: absolute;
+    top: -12px;
+    left: 1.5rem;
+    background: var(--color-accent, #007c87);
+    color: #fff;
+    font-family: var(--font-mono, 'Space Mono', monospace);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.25rem 0.75rem;
+    border-radius: 100px;
+}
+
+.diag-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.diag-card-title {
+    font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #fff;
+    margin: 0;
+}
+
+.diag-tier-badge {
+    font-family: var(--font-mono, 'Space Mono', monospace);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.625rem;
+    border-radius: 100px;
+    color: #fff;
+}
+
+.diag-tier-green .diag-tier-badge,
+.diag-tier-badge.diag-tier-green { background: #4caf50; }
+
+.diag-tier-amber .diag-tier-badge,
+.diag-tier-badge.diag-tier-amber { background: #f59e0b; }
+
+.diag-tier-red .diag-tier-badge,
+.diag-tier-badge.diag-tier-red { background: #ef4444; }
+
+.diag-card-score {
+    font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.75rem;
+}
+
+/* ── Score Bar ── */
+
+.diag-score-bar-track {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.diag-score-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    width: 0%;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.diag-score-bar-fill.diag-tier-green { background: #4caf50; }
+.diag-score-bar-fill.diag-tier-amber { background: #f59e0b; }
+.diag-score-bar-fill.diag-tier-red   { background: #ef4444; }
+
+.diag-card-insight {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 0.9375rem;
+    color: #bbb;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ── Mid CTA (after Fix This First) ── */
+
+.diag-mid-cta {
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.diag-mid-cta p {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 1rem;
+    color: #ccc;
+    margin: 0 0 1rem;
+}
+
+/* ── Bottom CTA ── */
+
+.diag-bottom-cta {
+    text-align: center;
+    padding: 2.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.diag-bottom-cta-text {
+    font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #fff;
+    margin: 0 0 1.25rem;
+}
+
+/* ── Results Footer ── */
+
+.diag-results-footer {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+/* ── RESPONSIVE ── */
+
+@media (min-width: 768px) {
+    .diag-container {
+        padding: 3rem 2rem 5rem;
+    }
+
+    .diag-intro-title {
+        font-size: 3rem;
+    }
+
+    .diag-question-text {
+        font-size: 1.375rem;
+    }
+
+    .diag-scale-btn {
+        min-height: 64px;
+        font-size: 1.375rem;
+    }
+
+    .diag-results-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+    }
+
+    .diag-result-card.fix-first {
+        grid-column: 1 / -1;
+    }
+
+    .diag-mid-cta {
+        grid-column: 1 / -1;
+    }
+
+    .diag-results-score {
+        font-size: 5rem;
+    }
+}

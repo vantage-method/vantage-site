@@ -602,9 +602,25 @@
     color: rgba(255, 255, 255, 0.4);
 }
 
+.zach-diagnostic-cta-block {
+    text-align: center;
+}
+
+.diag-cta-tagline {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 1.5rem;
+}
+
 .diagnostic-cta {
     width: 100%;
     margin-top: 0.5rem;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
 }
 
 .diagnostic-disclaimer {

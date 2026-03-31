@@ -65,11 +65,18 @@
         tag.style.transition = `opacity 0.3s ease ${index * 0.05}s, transform 0.3s ease ${index * 0.05}s`;
     });
 
+    const clientLinks = document.querySelectorAll('.client-link');
+    clientLinks.forEach((link, index) => {
+        link.style.opacity = '0';
+        link.style.transform = 'translateY(10px)';
+        link.style.transition = `opacity 0.3s ease ${index * 0.05 + 0.3}s, transform 0.3s ease ${index * 0.05 + 0.3}s`;
+    });
+
     // Trigger animations when sections come into view
     const cardObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const cards = entry.target.querySelectorAll('.pain-card, .testimonial-card, .stakes-column, .offer-step, .credential-tag');
+                const cards = entry.target.querySelectorAll('.pain-card, .testimonial-card, .stakes-column, .offer-step, .credential-tag, .client-link');
                 cards.forEach(card => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0) translateX(0)';

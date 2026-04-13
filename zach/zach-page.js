@@ -22,7 +22,7 @@
     }, observerOptions);
 
     // Animate sections on scroll
-    document.querySelectorAll('.zach-empathy, .zach-stakes, .zach-offer, .zach-testimonials, .zach-about, .zach-diagnostic').forEach(section => {
+    document.querySelectorAll('.zach-problem, .zach-empathy, .zach-stakes, .zach-offer, .zach-testimonials, .zach-about, .zach-diagnostic').forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(30px)';
         section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

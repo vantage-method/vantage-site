@@ -183,19 +183,73 @@
 }
 
 /* ============================================
-   EMPATHY SECTION
+   THE PROBLEM SECTION
    ============================================ */
-.zach-empathy {
+.zach-problem {
     padding: 6rem 0;
     background: var(--color-bg-alt);
 }
 
-.zach-pain-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
+.zach-problem-content {
+    max-width: 800px;
     margin: 0 auto;
+    text-align: center;
+}
+
+.zach-problem-content p {
+    font-size: 1.1875rem;
+    line-height: 1.8;
+    color: var(--color-text);
+}
+
+.zach-problem-kicker {
+    font-weight: 700;
+    font-size: 1.375rem !important;
+    color: var(--color-accent) !important;
+    margin-top: 2rem;
+}
+
+/* About distinction callout */
+.zach-about-distinction {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--color-accent) !important;
+}
+
+/* Nav lead magnet */
+.zach-nav-lead-magnet {
+    display: none;
+}
+
+.lead-magnet-link {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 1px;
+    transition: color 0.3s ease;
+}
+
+.lead-magnet-link:hover {
+    color: var(--color-accent-dark);
+}
+
+@media (min-width: 1025px) {
+    .zach-nav-lead-magnet {
+        display: block;
+        position: absolute;
+        top: 1rem;
+        right: 2rem;
+    }
+}
+
+/* Legacy empathy classes (keep for JS animation compat) */
+.zach-empathy {
+    padding: 6rem 0;
+    background: var(--color-bg-alt);
 }
 
 .pain-card {
@@ -1078,6 +1132,7 @@
         gap: 1.5rem;
     }
 
+    .zach-problem,
     .zach-empathy,
     .zach-stakes,
     .zach-offer,

@@ -216,34 +216,21 @@
     color: var(--color-accent) !important;
 }
 
-/* Nav lead magnet */
-.zach-nav-lead-magnet {
-    display: none;
-}
-
-.lead-magnet-link {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
+/* Nav guide link — styled differently from other nav links */
+.nav-guide-link {
+    font-family: var(--font-mono) !important;
+    font-size: 0.6875rem !important;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--color-accent);
+    color: var(--color-accent) !important;
     text-decoration: none;
     border-bottom: 1px solid var(--color-accent);
     padding-bottom: 1px;
     transition: color 0.3s ease;
 }
 
-.lead-magnet-link:hover {
-    color: var(--color-accent-dark);
-}
-
-@media (min-width: 1025px) {
-    .zach-nav-lead-magnet {
-        display: block;
-        position: absolute;
-        top: 1rem;
-        right: 2rem;
-    }
+.nav-guide-link:hover {
+    color: var(--color-accent-dark) !important;
 }
 
 /* Legacy empathy classes (keep for JS animation compat) */
@@ -1054,6 +1041,16 @@
 /* ============================================
    RESPONSIVE STYLES
    ============================================ */
+/* Mobile: let guide link match other mobile nav links */
+@media (max-width: 1024px) {
+    .nav-guide-link {
+        font-size: 1rem !important;
+        font-family: var(--font-body) !important;
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
 @media (max-width: 768px) {
     .zach-hero {
         padding: 8rem 0 4rem;

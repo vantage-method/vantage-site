@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Setup Cancelled — Vantage Method</title>
+    <meta name="description" content="Your payment setup with Vantage Method was cancelled. Reach out if you need anything.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://vantagemethod.com/payment-setup-cancelled/">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/shared/base.css">
+    <link rel="stylesheet" href="/shared/footer.css">
+    <link rel="stylesheet" href="/shared/payment-status.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo-link" aria-label="Back to homepage">
+                <img src="/assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="logo">
+            </a>
+            <nav id="mainNav">
+                <a href="/">Home</a>
+                <a href="/#contact" class="nav-cta">Let's Talk</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="payment-status-page">
+        <div class="payment-status-card">
+            <div class="payment-status-icon payment-status-icon--neutral" aria-hidden="true">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 8v5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="12" cy="16.5" r="1.25" fill="currentColor"/>
+                </svg>
+            </div>
+            <h1 class="payment-status-title">Cancellation received</h1>
+            <p class="payment-status-subtitle">No worries — we've got your cancellation and nothing was charged. If this was a mistake, you can restart the setup at any time.</p>
+            <p class="payment-status-body">Have a question or want to talk through a different option? Reach out at <a href="mailto:hello@vantagemethod.com">hello@vantagemethod.com</a> or book a call below.</p>
+
+            <div class="payment-status-actions">
+                <a href="/" class="payment-status-btn payment-status-btn--primary">Back to Homepage</a>
+                <a href="/booking/" class="payment-status-btn payment-status-btn--secondary">Book a Call</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-brand">
+                <a href="/" class="site-footer-logo">Vantage Method</a>
+                <p class="site-footer-tagline">Marketing systems that work.</p>
+                <a href="/booking/" class="site-footer-cta">Book a Call</a>
+            </div>
+            <div class="site-footer-nav">
+                <div class="site-footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/custom-website/">Custom Website</a></li>
+                        <li><a href="/google-ads/">Google Ads</a></li>
+                        <li><a href="/facebook-ads/">Facebook &amp; Instagram Ads</a></li>
+                        <li><a href="/google-meta-ads/">Google &amp; Meta Ads</a></li>
+                        <li><a href="/starter-pack/">Starter Pack</a></li>
+                        <li><a href="/partnerships/">Partnerships</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/booking/">Book a Call</a></li>
+                        <li><a href="/privacy/">Privacy Policy</a></li>
+                        <li><a href="/terms/">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer-bottom">
+            <span>&copy; <script>document.write(new Date().getFullYear())</script> Vantage Method. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var lastScroll = 0;
+            var header = document.querySelector('header');
+            window.addEventListener('scroll', function () {
+                var scrollY = window.scrollY;
+                if (scrollY > 100) {
+                    header.style.transform = scrollY > lastScroll ? 'translateY(-100%)' : 'translateY(0)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+                lastScroll = scrollY;
+            }, { passive: true });
+        })();
+    </script>
+</body>
+
+</html>

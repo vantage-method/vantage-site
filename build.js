@@ -11,6 +11,7 @@ const crypto = require('crypto');
 
 const TEMPLATE = 'index.template.html';
 const OUTPUT = 'index.html';
+const DIST_DIR = 'dist';
 const INCLUDE_RE = /^(\s*)<!--\s*@include\s+([\w./-]+)\s*-->\s*$/;
 
 // Service landing page templates (same @include system)
@@ -239,6 +240,87 @@ function buildLandingPages() {
     console.log(`  ${count} landing pages built`);
 }
 
+/* ── Publish directory ───────────────────────────────────── */
+
+const PUBLISH_PATHS = [
+    '404.html',
+    '_headers',
+    'ai-integration',
+    'assessment',
+    'assets',
+    'blaise',
+    'booking',
+    'custom-website',
+    'evaluation',
+    'facebook-ads',
+    'google-ads',
+    'google-meta-ads',
+    'index.html',
+    'intake',
+    'kenny',
+    'llms.txt',
+    'partnerships',
+    'privacy',
+    'robots.txt',
+    'sections',
+    'shared',
+    'sitemap.xml',
+    'starter-pack',
+    'terms',
+    'zach'
+];
+
+const PRIVATE_PATTERNS = [
+    /\.template\.html$/i,
+    /\.psd$/i,
+    /(^|\/)\.DS_Store$/i,
+    /(^|\/)README\.md$/i,
+    /(^|\/)CLAUDE\.md$/i,
+    /(^|\/)build\.js$/i,
+    /(^|\/)netlify\.toml$/i,
+    /(^|\/)package(-lock)?\.json$/i,
+    /(^|\/)\.git(\/|$)/i,
+    /(^|\/)node_modules(\/|$)/i,
+    /(^|\/)scripts(\/|$)/i,
+    /(^|\/)design(\/|$)/i,
+    /(^|\/)reference(\/|$)/i
+];
+
+function isPrivatePath(relativePath) {
+    return PRIVATE_PATTERNS.some(pattern => pattern.test(relativePath));
+}
+
+function copyPublishPath(sourceRoot, distRoot, relativePath) {
+    if (isPrivatePath(relativePath)) return;
+
+    const sourcePath = path.join(sourceRoot, relativePath);
+    if (!fs.existsSync(sourcePath)) return;
+
+    const stat = fs.statSync(sourcePath);
+    if (stat.isDirectory()) {
+        for (const entry of fs.readdirSync(sourcePath)) {
+            copyPublishPath(sourceRoot, distRoot, path.join(relativePath, entry));
+        }
+        return;
+    }
+
+    const destPath = path.join(distRoot, relativePath);
+    fs.mkdirSync(path.dirname(destPath), { recursive: true });
+    fs.copyFileSync(sourcePath, destPath);
+}
+
+function buildPublishDirectory() {
+    const distRoot = path.join(__dirname, DIST_DIR);
+    fs.rmSync(distRoot, { recursive: true, force: true });
+    fs.mkdirSync(distRoot, { recursive: true });
+
+    for (const relativePath of PUBLISH_PATHS) {
+        copyPublishPath(__dirname, distRoot, relativePath);
+    }
+
+    console.log(`Publish: copied public site files to ${DIST_DIR}/`);
+}
+
 /* ── Run ─────────────────────────────────────────────────── */
 
 buildCSS();
@@ -251,5 +333,7 @@ const html = fs.readFileSync(outputPath, 'utf8');
 const busted = cacheBust(html, hash);
 fs.writeFileSync(outputPath, busted, 'utf8');
 console.log(`Cache-bust: ?v=${hash} appended to local CSS/JS references.`);
+
+buildPublishDirectory();
 
 console.log('Done.');

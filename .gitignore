@@ -39,6 +39,7 @@ package-lock.json
 
 # Build artifacts
 assets/compiled.css
+dist/
 
 # Reference notes
 notes/

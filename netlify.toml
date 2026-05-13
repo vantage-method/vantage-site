@@ -1,15 +1,85 @@
 [build]
   command = "node build.js"
-  publish = "."
+  publish = "dist"
+
+# Never serve repository, dependency, build, or source-only files.
+[[redirects]]
+  from = "/build.js"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package-lock.json"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/_headers"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/.git/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/node_modules/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/scripts/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/design/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/reference/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/*.template.html"
+  to = "/404.html"
+  status = 404
+  force = true
 
 # Headers for better performance and security
 [[headers]]
   for = "/*"
   [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://player.vimeo.com https://links.wescotsolutions.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://vumbnail.com https://i.vimeocdn.com https://*.vimeocdn.com; media-src 'self'; font-src 'self' https://fonts.gstatic.com; frame-src https://www.google.com https://player.vimeo.com https://links.wescotsolutions.com; connect-src 'self' https://backend.leadconnectorhq.com https://www.google.com https://www.gstatic.com; base-uri 'self'; form-action 'self' https://backend.leadconnectorhq.com; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
 
 # Cache static assets (images, videos)
 [[headers]]

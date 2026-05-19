@@ -261,6 +261,7 @@ const PUBLISH_PATHS = [
     'llms.txt',
     'partnerships',
     'privacy',
+    'randy',
     'robots.txt',
     'sections',
     'shared',

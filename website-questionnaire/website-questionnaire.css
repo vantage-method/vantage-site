@@ -1,0 +1,64 @@
+.wq-page {
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+.wq-intro {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 2rem 1rem;
+    text-align: center;
+}
+
+.wq-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, var(--color-text) 40%, #007c87 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.wq-subtitle {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.wq-form-section {
+    padding-top: 1.5rem;
+}
+
+.wq-form {
+    max-width: 720px;
+    text-align: left;
+}
+
+.wq-help {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin: -0.25rem 0 0.5rem;
+    line-height: 1.5;
+}
+
+.wq-hidden-field {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.wq-submit-row {
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .wq-intro {
+        padding: 2rem 1.5rem 1rem;
+    }
+}

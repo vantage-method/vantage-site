@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Questionnaire — Vantage Method</title>
+    <meta name="description" content="Help us scope your website project — tell us what to keep, what to change, and what the new site needs to do.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://vantagemethod.com/website-questionnaire/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="/shared/base.css">
+    <link rel="stylesheet" href="/shared/service-landing.css">
+    <link rel="stylesheet" href="/shared/footer.css">
+    <link rel="stylesheet" href="/website-questionnaire/website-questionnaire.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo-link" aria-label="Back to homepage">
+                <img src="/assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="logo">
+            </a>
+            <nav id="mainNav">
+                <a href="/">Home</a>
+                <a href="/#contact">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wq-page">
+        <div class="container wq-intro">
+            <h1 class="wq-title">Website Questionnaire</h1>
+            <p class="wq-subtitle">Before we scope your new website, we need to understand what's working, what isn't, and where you want to go. Answer as much as you can — the more detail, the better we can plan.</p>
+        </div>
+
+        <section class="s-form-section wq-form-section">
+            <div class="container">
+                <form id="wq-form" class="s-form wq-form" name="website-questionnaire" method="POST" data-netlify="true" netlify-honeypot="wq-bot-field" novalidate>
+                    <input type="hidden" name="form-name" value="website-questionnaire">
+                    <p class="wq-hidden-field"><label>Don't fill this out if you're human: <input name="wq-bot-field"></label></p>
+
+                    <div class="form-row">
+                        <div class="form-group"><label>Your Name <span class="required">*</span></label><input type="text" name="name" required autocomplete="name" placeholder="Full name"><span class="field-error"></span></div>
+                        <div class="form-group"><label>Organization <span class="required">*</span></label><input type="text" name="organization" required placeholder="Organization name"><span class="field-error"></span></div>
+                    </div>
+                    <div class="form-group"><label>Email <span class="required">*</span></label><input type="email" name="email" required autocomplete="email" placeholder="email@organization.com"><span class="field-error"></span></div>
+
+                    <div class="form-group">
+                        <label>What parts of the current website should remain? <span class="required">*</span></label>
+                        <p class="wq-help">Please identify the pages, content, features, programs, forms, resources, and functionality that need to be preserved.</p>
+                        <textarea name="what_should_remain" rows="4" required placeholder="List the pages, content, features, programs, forms, resources, and functionality to keep..."></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What should be removed, consolidated, or significantly changed? <span class="required">*</span></label>
+                        <p class="wq-help">Are there outdated pages, inactive programs, unnecessary features, or areas of the website that are confusing or no longer useful?</p>
+                        <textarea name="what_should_change" rows="4" required placeholder="List outdated pages, inactive programs, unnecessary features, or confusing areas..."></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What needs to be added to the new website? <span class="required">*</span></label>
+                        <p class="wq-help">Please include any new pages, programs, resources, forms, user pathways, campaign tools, or functionality that the current site does not have.</p>
+                        <textarea name="what_to_add" rows="4" required placeholder="List new pages, programs, resources, forms, user pathways, campaign tools, or functionality..."></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What are the most important actions visitors should take? <span class="required">*</span></label>
+                        <p class="wq-help">For example: read content, subscribe, donate, register for an event, apply for a program, purchase a resource, take a course, or connect with the organization.</p>
+                        <textarea name="key_visitor_actions" rows="3" required placeholder="Describe the top actions visitors should take..."></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>What systems or integrations need to be connected? <span class="required">*</span></label>
+                        <p class="wq-help">Please identify all current platforms related to donations, email marketing, forms, events, applications, podcasts, videos, online courses, e-commerce, member access, analytics, and any other website functions. Please also note whether each system should remain in place, be replaced, or be brought into the new website experience.</p>
+                        <textarea name="systems_integrations" rows="4" required placeholder="List each platform and whether it should remain, be replaced, or be brought over..."></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How much of the existing content needs to be migrated? <span class="required">*</span></label>
+                        <div class="radio-group" data-required="true">
+                            <label class="radio-option"><input type="radio" name="migration_scope" value="All current content should be moved" required><span>All current content should be moved</span></label>
+                            <label class="radio-option"><input type="radio" name="migration_scope" value="Only selected content should be moved"><span>Only selected content should be moved</span></label>
+                            <label class="radio-option"><input type="radio" name="migration_scope" value="Vantage Method should review and recommend what to migrate, update, combine, or remove"><span>Vantage Method should review and recommend what to migrate, update, combine, or remove</span></label>
+                            <span class="group-error"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Are there any special requirements or priorities we should know about?</label>
+                        <p class="wq-help">Please include any required launch dates, upcoming campaigns, security or privacy concerns, accessibility needs, approval requirements, or features that must be included in the initial launch.</p>
+                        <textarea name="special_requirements" rows="4" placeholder="Launch dates, campaigns, security/privacy concerns, accessibility needs, approvals, must-have features..."></textarea>
+                        <span class="field-error"></span>
+                    </div>
+
+                    <div class="form-step-nav wq-submit-row">
+                        <button type="submit" class="s-form-submit"><span class="btn-text">Submit Questionnaire</span><span class="btn-loading" aria-hidden="true"><svg class="spinner" width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="44" stroke-dashoffset="10"/></svg> Sending...</span></button>
+                    </div>
+                </form>
+
+                <div id="wq-form-success" class="s-form-message form-success">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+                    <div><strong>Thanks — we've got it.</strong><p>Your answers have been sent over. We'll follow up shortly.</p></div>
+                </div>
+                <div id="wq-form-error" class="s-form-message form-error">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                    <div><strong>Something went wrong.</strong><p>Please try again or email <a href="mailto:team@vantagemethod.com">team@vantagemethod.com</a></p></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-brand">
+                <a href="/" class="site-footer-logo">Vantage Method</a>
+                <p class="site-footer-tagline">Marketing systems that work.</p>
+                <a href="/booking/" class="site-footer-cta">Book a Call</a>
+            </div>
+            <div class="site-footer-nav">
+                <div class="site-footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/custom-website/">Custom Website</a></li>
+                        <li><a href="/google-ads/">Google Ads</a></li>
+                        <li><a href="/facebook-ads/">Facebook &amp; Instagram Ads</a></li>
+                        <li><a href="/google-meta-ads/">Google &amp; Meta Ads</a></li>
+                        <li><a href="/starter-pack/">Starter Pack</a></li>
+                        <li><a href="/partnerships/">Partnerships</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/booking/">Book a Call</a></li>
+                        <li><a href="/privacy/">Privacy Policy</a></li>
+                        <li><a href="/terms/">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer-bottom">
+            <span>&copy; <script>document.write(new Date().getFullYear())</script> Vantage Method. All rights reserved.</span>
+        </div>
+    </footer>
+
+    <script src="/shared/form-validation.js"></script>
+    <script src="/website-questionnaire/website-questionnaire.js"></script>
+</body>
+
+</html>

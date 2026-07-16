@@ -98,7 +98,7 @@
             data[key] = value;
         });
 
-        fetch('/website-questionnaire/', {
+        fetch(window.location.pathname, {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: encode(data)

@@ -64,8 +64,7 @@
             }
         });
 
-        var migrationGroup = form.querySelector('.radio-group[data-required="true"]');
-        if (migrationGroup) {
+        form.querySelectorAll('.radio-group[data-required="true"]').forEach(function (migrationGroup) {
             var checked = migrationGroup.querySelector('input[type="radio"]:checked');
             var errorSpan = migrationGroup.querySelector('.group-error');
             if (!checked) {
@@ -78,7 +77,7 @@
                 errorSpan.textContent = '';
                 errorSpan.classList.remove('visible');
             }
-        }
+        });
 
         return valid;
     }

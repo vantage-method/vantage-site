@@ -53,16 +53,9 @@
                     <p class="wq-hidden-field"><label>Don't fill this out if you're human: <input name="wq-bot-field"></label></p>
 
                     <div class="form-group">
-                        <label>What parts of the current website should remain? <span class="required">*</span></label>
-                        <p class="wq-help">Please identify the pages, content, features, programs, forms, resources, and functionality that need to be preserved.</p>
-                        <textarea name="what_should_remain" rows="4" required placeholder="List the pages, content, features, programs, forms, resources, and functionality to keep..."></textarea>
-                        <span class="field-error"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label>What should be removed, consolidated, or significantly changed? <span class="required">*</span></label>
-                        <p class="wq-help">Are there outdated pages, inactive programs, unnecessary features, or areas of the website that are confusing or no longer useful?</p>
-                        <textarea name="what_should_change" rows="4" required placeholder="List outdated pages, inactive programs, unnecessary features, or confusing areas..."></textarea>
+                        <label>What parts of the current website should remain, change, or be removed? <span class="required">*</span></label>
+                        <p class="wq-help">Please identify the pages, content, programs, resources, forms, and functionality that should be preserved, updated, consolidated, or eliminated. Also indicate whether all existing content should be migrated or only selected content.</p>
+                        <textarea name="content_scope" rows="5" required placeholder="List what should be preserved, updated, consolidated, or eliminated, and whether all or only selected content should be migrated..."></textarea>
                         <span class="field-error"></span>
                     </div>
 
@@ -75,32 +68,22 @@
 
                     <div class="form-group">
                         <label>What are the most important actions visitors should take? <span class="required">*</span></label>
-                        <p class="wq-help">For example: read content, subscribe, donate, register for an event, apply for a program, purchase a resource, take a course, or connect with the organization.</p>
+                        <p class="wq-help">For example: read content, subscribe, donate, register for an event, apply for a program, purchase a resource, take a course, or connect with Bethany Global.</p>
                         <textarea name="key_visitor_actions" rows="3" required placeholder="Describe the top actions visitors should take..."></textarea>
                         <span class="field-error"></span>
                     </div>
 
                     <div class="form-group">
                         <label>What systems or integrations need to be connected? <span class="required">*</span></label>
-                        <p class="wq-help">Please identify all current platforms related to donations, email marketing, forms, events, applications, podcasts, videos, online courses, e-commerce, member access, analytics, and any other website functions. Please also note whether each system should remain in place, be replaced, or be brought into the new website experience.</p>
-                        <textarea name="systems_integrations" rows="4" required placeholder="List each platform and whether it should remain, be replaced, or be brought over..."></textarea>
+                        <p class="wq-help">Please identify all platforms related to donations, email marketing, forms, events, applications, podcasts, videos, courses, e-commerce, member access, analytics, or other website functions. Note whether each system should remain, be replaced, or be incorporated more directly into the new website experience.</p>
+                        <textarea name="systems_integrations" rows="4" required placeholder="List each platform and whether it should remain, be replaced, or be incorporated more directly..."></textarea>
                         <span class="field-error"></span>
                     </div>
 
                     <div class="form-group">
-                        <label>How much of the existing content needs to be migrated? <span class="required">*</span></label>
-                        <div class="radio-group" data-required="true">
-                            <label class="radio-option"><input type="radio" name="migration_scope" value="All current content should be moved" required><span>All current content should be moved</span></label>
-                            <label class="radio-option"><input type="radio" name="migration_scope" value="Only selected content should be moved"><span>Only selected content should be moved</span></label>
-                            <label class="radio-option"><input type="radio" name="migration_scope" value="Vantage Method should review and recommend what to migrate, update, combine, or remove"><span>Vantage Method should review and recommend what to migrate, update, combine, or remove</span></label>
-                            <span class="group-error"></span>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
                         <label>Are there any special requirements or priorities we should know about?</label>
-                        <p class="wq-help">Please include any required launch dates, upcoming campaigns, security or privacy concerns, accessibility needs, approval requirements, or features that must be included in the initial launch.</p>
-                        <textarea name="special_requirements" rows="4" placeholder="Launch dates, campaigns, security/privacy concerns, accessibility needs, approvals, must-have features..."></textarea>
+                        <p class="wq-help">Please include required launch dates, upcoming campaigns, security or privacy considerations, accessibility needs, and internal review or approval requirements.</p>
+                        <textarea name="special_requirements" rows="4" placeholder="Launch dates, campaigns, security/privacy considerations, accessibility needs, internal review or approval requirements..."></textarea>
                         <span class="field-error"></span>
                     </div>
 

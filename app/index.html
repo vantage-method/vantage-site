@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Vantage Method — An Entire Marketing Team in the Palm of Your Hand</title>
+<meta name="description" content="Vantage Method is an AI-powered marketing operating system — CMO strategy, Meta & Google ads, SEO, social, design, websites, email and booking working together in one platform, configured around your business.">
+<meta property="og:title" content="Vantage Method — An Entire Marketing Team in the Palm of Your Hand">
+<meta property="og:description" content="Strategy. Creation. Execution. Optimization. Eight marketing specialties in one intelligent platform, built around your company.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================ TOKENS ============================ */
+:root{
+  --bg:#070b0c;
+  --bg-2:#0b1113;
+  --panel:#101a1c;
+  --panel-2:#0b1214;
+  --line:rgba(255,255,255,.09);
+  --line-2:rgba(255,255,255,.05);
+  --text:#eff4f4;
+  --muted:#93a4a5;
+  --muted-2:#63736f;
+  --accent:#1ec8d9;
+  --accent-2:#12aab9;
+  --accent-deep:#007c87;
+  --accent-soft:rgba(30,200,217,.12);
+  --gold:#e8c37e;
+  --radius:18px;
+  --radius-sm:11px;
+  --max:1200px;
+  --f-display:'Barlow Condensed',sans-serif;
+  --f-body:'Barlow',sans-serif;
+  --f-mono:'Space Mono',monospace;
+  --e-out:cubic-bezier(.16,1,.3,1);
+  --e-io:cubic-bezier(.65,0,.35,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--f-body);background:var(--bg);color:var(--text);
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+::selection{background:var(--accent);color:#041416}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{position:relative}
+
+/* film grain + ambient light */
+body::before{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============================ SCROLL PROGRESS ============================ */
+.progress{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--accent-deep),var(--accent));z-index:1200;box-shadow:0 0 12px rgba(30,200,217,.6)}
+
+/* ============================ TYPE ============================ */
+.eyebrow{
+  font-family:var(--f-mono);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--accent);display:inline-flex;align-items:center;gap:.7em;margin-bottom:1.2rem;
+}
+.eyebrow::before{content:"";width:0;height:1px;background:var(--accent);opacity:.7;transition:width 1s var(--e-out) .2s}
+.in .eyebrow::before,.eyebrow.in::before{width:28px}
+h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.0;letter-spacing:-.015em}
+h1{font-size:clamp(2.8rem,7vw,5.8rem)}
+h2{font-size:clamp(2.1rem,4.6vw,3.7rem)}
+h3{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:700}
+.lead{font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--muted);max-width:62ch;line-height:1.55}
+.section-head{max-width:840px;margin-bottom:3.4rem}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-pad{padding:clamp(5.5rem,11vw,9rem) 0}
+.accent{color:var(--accent)}
+
+/* ============================ REVEAL ENGINE ============================ */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--e-out),transform .9s var(--e-out)}
+.reveal.in{opacity:1;transform:none}
+.reveal.blur{filter:blur(10px)}
+.reveal.blur.in{filter:blur(0)}
+.reveal.left{transform:translateX(-40px)}
+.reveal.left.in{transform:none}
+.reveal.right{transform:translateX(40px)}
+.reveal.right.in{transform:none}
+.reveal.scale{transform:scale(.94);transform-origin:center}
+.reveal.scale.in{transform:none}
+/* stagger children */
+.stagger>*{opacity:0;transform:translateY(28px);transition:opacity .7s var(--e-out),transform .7s var(--e-out)}
+.stagger.in>*{opacity:1;transform:none}
+.stagger.in>*{transition-delay:calc(var(--i,0)*70ms)}
+/* masked headline lines */
+.mask{overflow:hidden;display:block}
+.mask>span{display:block;transform:translateY(105%);transition:transform 1s var(--e-out)}
+.in .mask>span,.mask.in>span{transform:none}
+.mask.d1>span{transition-delay:.08s}.mask.d2>span{transition-delay:.18s}.mask.d3>span{transition-delay:.28s}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal,.stagger>*,.mask>span{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+  .progress{display:none}
+}
+
+/* ============================ BUTTONS ============================ */
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  font-family:var(--f-display);font-weight:700;font-size:.98rem;letter-spacing:.05em;text-transform:uppercase;
+  padding:.98rem 1.9rem;border-radius:9px;cursor:pointer;border:1px solid transparent;overflow:hidden;
+  transition:transform .3s var(--e-out),background .3s,box-shadow .35s,border-color .3s,color .3s;will-change:transform;
+}
+.btn>*{position:relative;z-index:1}
+.btn-primary{background:var(--accent);color:#041416;box-shadow:0 8px 30px -6px rgba(30,200,217,.5)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px -8px rgba(30,200,217,.65)}
+.btn-primary::after{content:"";position:absolute;inset:0;z-index:0;transform:translateX(-120%);
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);transition:transform .7s var(--e-out)}
+.btn-primary:hover::after{transform:translateX(120%)}
+.btn-ghost{background:rgba(255,255,255,.02);color:var(--text);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);background:var(--accent-soft)}
+.btn-lg{padding:1.15rem 2.5rem;font-size:1.05rem}
+.btn .arrow{transition:transform .3s var(--e-out)}
+.btn:hover .arrow{transform:translateX(5px)}
+
+/* ============================ HEADER ============================ */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.15rem 0;
+  transition:padding .4s var(--e-out),background .4s,border-color .4s;
+  background:rgba(7,11,12,.4);backdrop-filter:blur(16px);border-bottom:1px solid transparent}
+header.scrolled{padding:.65rem 0;background:rgba(7,11,12,.9);border-bottom-color:var(--line)}
+header .container{display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{height:30px}
+.brand .wordmark{font-family:var(--f-display);font-weight:800;font-size:1.15rem;letter-spacing:.02em}
+.brand .wordmark span{color:var(--accent)}
+nav.main{display:flex;align-items:center;gap:2rem}
+nav.main a:not(.btn){font-size:.93rem;color:var(--muted);font-weight:500;position:relative;transition:color .25s}
+nav.main a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-5px;height:1.5px;width:0;background:var(--accent);transition:width .3s var(--e-out)}
+nav.main a:not(.btn):hover{color:var(--text)}
+nav.main a:not(.btn):hover::after{width:100%}
+.menu-toggle{display:none;background:none;border:0;cursor:pointer;padding:.4rem;z-index:1001}
+.menu-toggle span{display:block;width:24px;height:2px;background:var(--text);margin:5px 0;border-radius:2px;transition:.35s var(--e-out)}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* ============================ HERO ============================ */
+.hero{padding-top:clamp(9.5rem,17vw,13rem);padding-bottom:clamp(4rem,8vw,7rem);overflow:hidden;isolation:isolate}
+.aurora{position:absolute;inset:-20% -10% auto -10%;height:120%;z-index:-1;pointer-events:none;filter:blur(60px);opacity:.55}
+.aurora i{position:absolute;border-radius:50%;mix-blend-mode:screen;animation:drift 18s var(--e-io) infinite alternate}
+.aurora i:nth-child(1){width:46vw;height:46vw;top:-6%;right:2%;background:radial-gradient(circle,rgba(30,200,217,.5),transparent 62%)}
+.aurora i:nth-child(2){width:40vw;height:40vw;top:18%;left:-6%;background:radial-gradient(circle,rgba(0,124,135,.55),transparent 62%);animation-delay:-6s}
+.aurora i:nth-child(3){width:30vw;height:30vw;bottom:-10%;left:38%;background:radial-gradient(circle,rgba(30,200,217,.28),transparent 62%);animation-delay:-11s}
+@keyframes drift{to{transform:translate3d(4%,6%,0) scale(1.12)}}
+.grid-fade{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.4;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(70% 60% at 50% 25%,#000,transparent 80%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,4vw,4rem);align-items:center}
+.hero h1{margin-bottom:1.6rem}
+.hero h1 .line2{color:var(--muted)}
+.hero .lead{margin-bottom:1.15rem}
+.hero .microline{font-family:var(--f-display);font-weight:600;font-size:1.08rem;letter-spacing:.02em;color:var(--text);margin-bottom:2.1rem}
+.hero .microline b{color:var(--accent)}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.7rem}
+.hero-trust{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;color:var(--muted-2);text-transform:uppercase}
+
+/* product window */
+.app-window{position:relative;background:linear-gradient(180deg,var(--panel),var(--panel-2));
+  border:1px solid var(--line);border-radius:20px;overflow:hidden;will-change:transform;
+  box-shadow:0 50px 110px -40px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.02) inset;
+  transform:perspective(1400px) rotateX(4deg) rotateY(-7deg)}
+.app-window::after{content:"";position:absolute;inset:0;border-radius:20px;pointer-events:none;box-shadow:0 0 70px rgba(30,200,217,.1) inset}
+.aw-bar{display:flex;align-items:center;gap:.5rem;padding:.85rem 1rem;border-bottom:1px solid var(--line-2);background:rgba(255,255,255,.015)}
+.aw-dot{width:11px;height:11px;border-radius:50%;background:#2b3739}
+.aw-title{margin-left:.6rem;font-family:var(--f-mono);font-size:.72rem;color:var(--muted-2);letter-spacing:.08em}
+.aw-body{display:grid;grid-template-columns:150px 1fr;min-height:360px}
+.aw-side{border-right:1px solid var(--line-2);padding:.9rem .7rem;display:flex;flex-direction:column;gap:.12rem;background:rgba(0,0,0,.18)}
+.aw-side .side-lbl{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;color:var(--muted-2);text-transform:uppercase;padding:.3rem .5rem .5rem}
+.aw-agent{display:flex;align-items:center;gap:.55rem;padding:.4rem .5rem;border-radius:7px;font-size:.82rem;color:var(--muted);transition:.4s var(--e-out)}
+.aw-agent .d{width:7px;height:7px;border-radius:50%;background:var(--muted-2);flex:none;transition:.4s}
+.aw-agent.live{color:var(--text);background:var(--accent-soft);transform:translateX(2px)}
+.aw-agent.live .d{background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.aw-main{padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:.8rem}
+.aw-prompt{background:rgba(255,255,255,.03);border:1px solid var(--line-2);border-radius:11px;padding:.8rem .9rem}
+.aw-prompt .who{font-family:var(--f-mono);font-size:.58rem;letter-spacing:.14em;color:var(--accent);text-transform:uppercase;margin-bottom:.3rem}
+.aw-prompt p{font-size:.92rem;color:var(--text);line-height:1.4;min-height:1.3em}
+.aw-prompt .cursor{display:inline-block;width:8px;height:1em;background:var(--accent);vertical-align:-2px;margin-left:1px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.aw-out{display:flex;flex-direction:column;gap:.5rem}
+.aw-row{display:flex;align-items:center;gap:.6rem;font-size:.82rem;color:var(--muted);opacity:0;transform:translateX(-10px);transition:.6s var(--e-out)}
+.aw-row.show{opacity:1;transform:none}
+.aw-row .tick{width:16px;height:16px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:.6rem;flex:none}
+.aw-row b{color:var(--text);font-weight:600}
+
+/* ============================ MARQUEE ============================ */
+.marquee{border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);background:var(--bg-2);overflow:hidden;padding:1.4rem 0}
+.marquee-track{display:flex;gap:3.5rem;width:max-content;animation:scrollx 34s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{font-family:var(--f-display);font-weight:700;font-size:1.15rem;letter-spacing:.04em;color:var(--muted);display:inline-flex;align-items:center;gap:3.5rem;white-space:nowrap}
+.marquee-track span::after{content:"◆";color:var(--accent);font-size:.7rem}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* ============================ STAT STRIP ============================ */
+.strip{border-bottom:1px solid var(--line-2);background:var(--bg-2)}
+.strip .container{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem 2rem;padding:2rem 24px}
+.strip .kpi{display:flex;flex-direction:column}
+.strip .kpi b{font-family:var(--f-display);font-weight:800;font-size:2.1rem;line-height:1;color:var(--text)}
+.strip .kpi b .sm{font-size:1rem;color:var(--accent)}
+.strip .kpi span{font-size:.8rem;color:var(--muted);letter-spacing:.04em;margin-top:.3rem}
+
+/* ============================ PROBLEM ============================ */
+.compare{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(1.2rem,3vw,2.5rem);align-items:stretch}
+.panel{background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:var(--radius);padding:1.9rem}
+.panel.bad{border-color:rgba(255,120,120,.16)}
+.panel.good{position:relative;border-color:transparent}
+.panel.good::before{content:"";position:absolute;inset:0;border-radius:var(--radius);padding:1px;
+  background:linear-gradient(140deg,var(--accent),transparent 55%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.panel h3{margin-bottom:1.3rem;display:flex;align-items:center;gap:.6rem}
+.panel h3 .tag{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:.25em .6em;border-radius:5px}
+.tag.red{background:rgba(255,120,120,.12);color:#ff9d9d}
+.tag.tl{background:var(--accent-soft);color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{font-size:.83rem;padding:.42rem .78rem;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:rgba(255,255,255,.02);transition:.3s var(--e-out)}
+.panel.bad .chip{border-style:dashed}
+.big-list{list-style:none;display:flex;flex-direction:column;gap:.75rem;margin-top:.4rem}
+.big-list li{display:flex;gap:.7rem;align-items:flex-start;font-size:1.02rem;color:var(--text)}
+.big-list li .m{color:var(--accent);flex:none;margin-top:.15rem}
+.compare-mid{display:grid;place-items:center;color:var(--accent);font-size:2rem}
+.metrics-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:2.6rem}
+.metric{border:1px solid var(--line-2);border-radius:var(--radius-sm);padding:1.1rem;text-align:center;background:var(--panel-2);transition:.35s var(--e-out)}
+.metric:hover{border-color:var(--line);transform:translateY(-4px)}
+.metric b{display:block;font-family:var(--f-display);font-weight:800;font-size:1.05rem;color:var(--accent);letter-spacing:.02em}
+.metric span{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+
+/* ============================ TEAM CARDS ============================ */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem}
+.card{position:relative;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);
+  border-radius:var(--radius);padding:1.6rem;overflow:hidden;transition:transform .4s var(--e-out),border-color .4s,box-shadow .4s}
+.card::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:linear-gradient(90deg,var(--accent),transparent);transition:width .5s var(--e-out)}
+.card::after{content:"";position:absolute;width:240px;height:240px;background:radial-gradient(circle,rgba(30,200,217,.14),transparent 60%);
+  left:var(--mx,50%);top:var(--my,0);transform:translate(-50%,-50%);opacity:0;transition:opacity .4s;pointer-events:none}
+.card:hover{transform:translateY(-7px);box-shadow:0 34px 70px -38px rgba(0,0,0,.85)}
+.card:hover::before{width:100%}
+.card:hover::after{opacity:1}
+.card .ico{position:relative;z-index:1;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);margin-bottom:1.15rem;transition:.4s var(--e-out)}
+.card:hover .ico{transform:scale(1.08) rotate(-4deg)}
+.card .ico svg{width:23px;height:23px}
+.card h3{position:relative;z-index:1;font-size:1.18rem;margin-bottom:.5rem}
+.card .role{position:relative;z-index:1;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:.7rem}
+.card p{position:relative;z-index:1;font-size:.9rem;color:var(--muted);line-height:1.5}
+.card .kick{position:relative;z-index:1;margin-top:.9rem;font-family:var(--f-display);font-weight:700;font-size:.92rem;color:var(--accent)}
+.team-plus{display:flex;gap:1.4rem;align-items:center;margin-top:1.1rem;padding:1.7rem 1.9rem;position:relative;overflow:hidden;
+  background:linear-gradient(90deg,var(--accent-soft),rgba(30,200,217,.02));border:1px solid rgba(30,200,217,.28);border-radius:var(--radius)}
+.team-plus .tp-ico{width:58px;height:58px;flex:none;border-radius:15px;display:grid;place-items:center;background:var(--panel);border:1px solid rgba(30,200,217,.3);color:var(--accent)}
+.team-plus .tp-ico svg{width:29px;height:29px}
+.team-plus .role{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem}
+.team-plus h3{font-size:1.28rem;margin-bottom:.4rem}
+.team-plus p{font-size:.95rem;color:var(--muted);max-width:72ch}
+
+/* ============================ DIAGRAM ============================ */
+.eco{position:relative;width:100%;max-width:740px;margin:0 auto;aspect-ratio:1/1}
+.eco svg.lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.eco .node{position:absolute;transform:translate(-50%,-50%);text-align:center;width:120px}
+.eco .node .bubble{width:76px;height:76px;border-radius:50%;margin:0 auto .55rem;display:grid;place-items:center;
+  background:var(--panel);border:1px solid var(--line);color:var(--muted);transition:.5s var(--e-out)}
+.eco .node .bubble svg{width:27px;height:27px}
+.eco .node .lbl{font-family:var(--f-display);font-weight:700;font-size:.84rem;color:var(--muted);letter-spacing:.02em;transition:.4s}
+.eco .node.active .bubble{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);box-shadow:0 0 30px rgba(30,200,217,.4);transform:scale(1.1)}
+.eco .node.active .lbl{color:var(--text)}
+.eco .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:156px;height:156px;border-radius:50%;
+  display:grid;place-items:center;text-align:center;isolation:isolate;
+  background:radial-gradient(circle at 50% 35%,rgba(30,200,217,.24),var(--panel) 70%);
+  border:1px solid var(--accent);box-shadow:0 0 70px rgba(30,200,217,.3),0 0 0 12px rgba(30,200,217,.05)}
+.eco .core::before{content:"";position:absolute;inset:-30%;z-index:-1;border-radius:50%;
+  background:conic-gradient(from 0deg,transparent,rgba(30,200,217,.35),transparent 55%);animation:spin 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.eco .core::before{animation:none}}
+.eco .core b{font-family:var(--f-display);font-weight:800;font-size:1.08rem;line-height:1.05;display:block}
+.eco .core span{font-family:var(--f-mono);font-size:.56rem;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+.flow-cap{font-family:var(--f-mono);font-size:.82rem;letter-spacing:.08em;color:var(--muted);text-align:center;margin-top:1.2rem;line-height:2}
+.flow-cap b{color:var(--accent)}
+
+/* ============================ ASK VANTAGE ============================ */
+.ask{background:var(--bg-2)}
+.ask-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+.ask-quote{position:relative;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--radius);padding:2.1rem}
+.ask-quote .who{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.ask-quote p{font-family:var(--f-display);font-weight:700;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.12;letter-spacing:-.01em}
+.ask-steps{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.step{display:flex;gap:.75rem;align-items:flex-start;background:var(--panel-2);border:1px solid var(--line-2);border-radius:var(--radius-sm);padding:.9rem;transition:.4s var(--e-out)}
+.step:hover{border-color:var(--accent);transform:translateX(4px);background:var(--panel)}
+.step .n{font-family:var(--f-mono);font-size:.7rem;color:var(--accent);border:1px solid var(--line);border-radius:6px;padding:.15rem .45rem;flex:none}
+.step b{display:block;font-size:.92rem;color:var(--text);font-weight:600;line-height:1.25}
+
+/* ============================ SPLIT / CONFIG ============================ */
+.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+.config-grid{display:flex;flex-wrap:wrap;gap:.55rem}
+.config-grid .chip{font-size:.85rem}
+.config-grid .chip:hover{border-color:var(--accent);color:var(--text);transform:translateY(-2px)}
+
+/* ============================ ONBOARDING ============================ */
+.check-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem 2rem}
+.check{display:flex;gap:.7rem;align-items:flex-start;padding:.65rem 0;border-bottom:1px solid var(--line-2)}
+.check .tick{width:22px;height:22px;border-radius:6px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex:none}
+.check .tick svg{width:13px;height:13px}
+.check span{font-size:.98rem;color:var(--text)}
+
+/* ============================ COST TABLE ============================ */
+.cost{width:100%;border-collapse:collapse;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.cost th,.cost td{padding:1rem 1.3rem;text-align:left;border-bottom:1px solid var(--line-2);font-size:.98rem}
+.cost thead th{font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.85rem;background:var(--panel-2)}
+.cost thead th:last-child{color:var(--accent)}
+.cost td:first-child{color:var(--muted)}
+.cost td:last-child{font-weight:600;color:var(--accent);font-family:var(--f-display)}
+.cost tr:last-child td{border-bottom:0}
+.cost tbody tr{transition:background .3s}
+.cost tbody tr:hover{background:rgba(30,200,217,.04)}
+
+/* ============================ PRICING ============================ */
+.pricing-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:1.4rem;align-items:start}
+.price-card{position:relative;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:20px;padding:2.3rem;display:flex;flex-direction:column;transition:transform .4s var(--e-out)}
+.price-card:hover{transform:translateY(-5px)}
+.price-card.feature{border-color:transparent}
+.price-card.feature::before{content:"";position:absolute;inset:0;border-radius:20px;padding:1.5px;
+  background:linear-gradient(130deg,var(--accent),var(--accent-deep),transparent 60%);background-size:200% 200%;animation:borderflow 6s ease infinite;
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+@keyframes borderflow{50%{background-position:100% 100%}}
+.price-card .flags{display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap}
+.flag{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;padding:.3em .7em;border-radius:6px}
+.flag.pop{background:var(--accent);color:#041416;font-weight:700}
+.flag.val{background:rgba(232,195,126,.14);color:var(--gold)}
+.price-card .plan{font-family:var(--f-display);font-weight:800;font-size:1.55rem;letter-spacing:.02em;text-transform:uppercase;margin-bottom:.3rem}
+.price-card .amt{display:flex;align-items:baseline;gap:.35rem;margin:.5rem 0 .2rem}
+.price-card .amt .num{font-family:var(--f-display);font-weight:800;font-size:3.5rem;line-height:1}
+.price-card .amt .per{color:var(--muted);font-size:1rem}
+.price-card .sub{color:var(--muted);font-size:.92rem;margin-bottom:1.1rem}
+.freebadge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--f-display);font-weight:700;color:var(--accent);background:var(--accent-soft);border:1px solid rgba(30,200,217,.3);border-radius:9px;padding:.5rem .8rem;font-size:.9rem;margin-bottom:1.2rem}
+.econ{border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2);padding:1.1rem 0;margin:0 0 1.2rem;display:flex;flex-direction:column;gap:.5rem}
+.econ .er{display:flex;justify-content:space-between;gap:1rem;font-size:.92rem;color:var(--muted)}
+.econ .er b{color:var(--text);font-family:var(--f-display);font-weight:700}
+.econ .er.total{font-size:1.02rem;color:var(--text)}
+.econ .er.total b{color:var(--accent);font-size:1.15rem}
+.save-callout{background:linear-gradient(90deg,rgba(232,195,126,.14),transparent);border:1px solid rgba(232,195,126,.3);border-radius:9px;padding:.7rem .9rem;font-size:.85rem;color:var(--gold);margin-bottom:1.2rem}
+.save-callout b{font-family:var(--f-display);font-weight:800}
+.incl{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin:.3rem 0 1.5rem}
+.incl li{display:flex;gap:.6rem;align-items:flex-start;font-size:.9rem;color:var(--muted)}
+.incl li .tick{color:var(--accent);flex:none}
+.price-card .cta-wrap{margin-top:auto}
+.price-card .btn{width:100%}
+.price-card .micro{font-size:.8rem;color:var(--muted-2);text-align:center;margin-top:.8rem}
+.pcompare{width:100%;border-collapse:collapse;margin-top:3rem;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.pcompare th,.pcompare td{padding:.95rem 1.2rem;text-align:center;border-bottom:1px solid var(--line-2);font-size:.95rem}
+.pcompare th{font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.82rem;background:var(--panel-2)}
+.pcompare td:first-child,.pcompare th:first-child{text-align:left;color:var(--muted)}
+.pcompare .col-feature{background:rgba(30,200,217,.06);color:var(--text)}
+.pcompare th.col-feature{color:var(--accent)}
+.pcompare .yes{color:var(--accent);font-weight:700}
+.pcompare .dash{color:var(--muted-2)}
+.pcompare tr:last-child td{border-bottom:0}
+
+/* ============================ VALUE GAP ============================ */
+.valuegap{text-align:center}
+.vg-lines{font-family:var(--f-display);font-weight:800;line-height:1.04;letter-spacing:-.015em;margin:1.6rem auto;max-width:17ch}
+.vg-lines .l{font-size:clamp(1.9rem,5.2vw,3.6rem);display:block;color:var(--muted)}
+.vg-lines .l.hi{color:var(--text)}
+.vg-lines .l.tl{color:var(--accent)}
+.vg-close{font-family:var(--f-display);font-weight:700;font-size:clamp(1.2rem,2.4vw,1.7rem);max-width:23ch;margin:2.3rem auto 0;line-height:1.2}
+.vg-close b{color:var(--accent)}
+
+/* ============================ AUDIENCE ============================ */
+.aud-grid{display:flex;flex-wrap:wrap;gap:.7rem;max-width:920px}
+.aud-grid .chip{font-size:.92rem;padding:.62rem 1.1rem}
+.aud-grid .chip:hover{border-color:var(--accent);color:var(--text);transform:translateY(-3px)}
+
+/* ============================ SUPERPOWERS ============================ */
+.roles{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-top:1.5rem}
+.role-pill{border:1px solid var(--line);border-radius:var(--radius-sm);padding:1.05rem;text-align:center;font-family:var(--f-display);font-weight:600;color:var(--muted);transition:.35s var(--e-out)}
+.role-pill:hover{border-color:var(--accent);color:var(--text);transform:translateY(-4px);background:var(--accent-soft)}
+
+/* ============================ SOCIAL PROOF ============================ */
+.proof{background:var(--bg-2)}
+.logo-row{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;margin-bottom:2.5rem}
+.logo-ph{height:66px;border:1px dashed var(--line);border-radius:11px;display:grid;place-items:center;font-family:var(--f-mono);font-size:.66rem;color:var(--muted-2);letter-spacing:.1em;text-transform:uppercase}
+.tsts{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.tst{background:var(--panel-2);border:1px dashed var(--line);border-radius:var(--radius);padding:1.6rem;display:flex;flex-direction:column;gap:1rem;min-height:210px}
+.tst .stars{color:var(--muted-2);letter-spacing:.2em}
+.tst .ph-body{flex:1;display:grid;place-items:center;text-align:center;color:var(--muted-2);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;line-height:1.6}
+.tst .who{display:flex;align-items:center;gap:.6rem}
+.tst .who .av{width:34px;height:34px;border-radius:50%;background:var(--line)}
+.tst .who span{font-size:.82rem;color:var(--muted-2)}
+.proof-note{text-align:center;font-family:var(--f-mono);font-size:.72rem;color:var(--muted-2);letter-spacing:.06em;margin-top:1.7rem}
+
+/* ============================ FAQ ============================ */
+.faq-list{max-width:860px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line);padding:.4rem 0}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;font-family:var(--f-display);font-weight:700;font-size:1.14rem;transition:color .3s}
+.faq summary:hover{color:var(--accent)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{width:22px;height:22px;flex:none;position:relative}
+.faq summary .pm::before,.faq summary .pm::after{content:"";position:absolute;background:var(--accent);border-radius:2px;transition:transform .3s var(--e-out)}
+.faq summary .pm::before{left:0;top:10px;width:22px;height:2px}
+.faq summary .pm::after{left:10px;top:0;width:2px;height:22px}
+.faq details[open] summary .pm::after{transform:rotate(90deg) scaleX(0)}
+.faq details p{color:var(--muted);padding:0 0 1.2rem;font-size:1rem;max-width:72ch}
+
+/* ============================ FINAL CTA ============================ */
+.final{text-align:center;overflow:hidden;isolation:isolate}
+.final .aurora{opacity:.4}
+.final h2{font-size:clamp(2.5rem,6.5vw,5rem);margin-bottom:1.4rem}
+.final .lead{margin:0 auto 2rem}
+.final-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.4rem}
+.final .reinforce{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.final .big3{display:flex;gap:2.6rem;justify-content:center;flex-wrap:wrap;margin-top:2.6rem}
+.big3 .b{text-align:center}
+.big3 .b b{font-family:var(--f-display);font-weight:800;font-size:2.6rem;color:var(--accent);display:block;line-height:1}
+.big3 .b span{font-size:.82rem;color:var(--muted);letter-spacing:.04em}
+
+/* ============================ FOOTER ============================ */
+footer{border-top:1px solid var(--line);padding:3rem 0 2.5rem;background:var(--panel-2)}
+footer .container{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+footer .brand img{height:26px}
+footer .fnav{display:flex;gap:1.6rem;flex-wrap:wrap}
+footer .fnav a{font-size:.88rem;color:var(--muted);transition:color .3s}
+footer .fnav a:hover{color:var(--accent)}
+footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px solid var(--line-2);padding-top:1.5rem;margin-top:.5rem}
+
+/* ============================ PRODUCT SHOWCASE ============================ */
+.showcase{background:linear-gradient(180deg,var(--bg),var(--bg-2))}
+.dashframe{position:relative;border:1px solid var(--line);border-radius:22px;overflow:hidden;
+  background:linear-gradient(180deg,var(--panel),var(--panel-2));
+  box-shadow:0 70px 130px -55px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.03) inset;will-change:transform}
+.dashframe::after{content:"";position:absolute;inset:0;border-radius:22px;pointer-events:none;box-shadow:0 0 90px rgba(30,200,217,.08) inset}
+.dash-bar{display:flex;align-items:center;gap:.5rem;padding:.9rem 1.1rem;border-bottom:1px solid var(--line-2);background:rgba(255,255,255,.015)}
+.dash-bar .aw-title{margin-left:.6rem;font-family:var(--f-mono);font-size:.72rem;color:var(--muted-2);letter-spacing:.08em}
+.dash-live{margin-left:auto;font-family:var(--f-mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:.4em}
+.dash-live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:pip 1.6s ease infinite}
+@keyframes pip{50%{opacity:.35}}
+.dash-body{display:grid;grid-template-columns:.85fr 1.6fr;gap:1px;background:var(--line-2)}
+.dash-side{background:var(--panel-2);padding:1.3rem 1.2rem}
+.dash-main{background:var(--panel-2);padding:1.3rem;display:flex;flex-direction:column;gap:1rem}
+.dash-lbl{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin-bottom:1rem}
+.feed{list-style:none;display:flex;flex-direction:column;gap:1rem}
+.feed li{display:flex;gap:.7rem;align-items:flex-start;font-size:.85rem;color:var(--muted);line-height:1.3}
+.feed li b{color:var(--text);font-weight:600}
+.feed .fd{width:8px;height:8px;border-radius:50%;background:var(--muted-2);margin-top:.35rem;flex:none}
+.feed .fd.tl{background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.feed time{display:block;font-family:var(--f-mono);font-size:.6rem;color:var(--muted-2);margin-top:.15rem;letter-spacing:.06em}
+.mtiles{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+.mtile{background:var(--panel);border:1px solid var(--line-2);border-radius:12px;padding:.9rem}
+.mtile span{font-size:.72rem;color:var(--muted);letter-spacing:.03em}
+.mtile b{display:block;font-family:var(--f-display);font-weight:800;font-size:1.9rem;line-height:1.1;margin:.2rem 0 .4rem}
+.mtile .spark{width:100%;height:26px;display:block}
+.dcard{background:var(--panel);border:1px solid var(--line-2);border-radius:14px;padding:1.1rem}
+.dcard-h{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.9rem}
+.dcard-h b{font-family:var(--f-display);font-weight:700;font-size:1.02rem}
+.dcard-h span{font-family:var(--f-mono);font-size:.62rem;color:var(--muted-2);letter-spacing:.06em}
+.chart svg{width:100%;height:150px;display:block}
+.legend{display:flex;gap:1.3rem;margin-top:.7rem;font-size:.74rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:.4em;vertical-align:-1px}
+.legend .lg1{background:var(--accent)}.legend .lg2{background:var(--accent-deep)}.legend .lg3{background:var(--gold)}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:.5rem}
+.cal .day{border:1px solid var(--line-2);border-radius:9px;padding:.5rem;min-height:74px;display:flex;flex-direction:column;gap:.3rem}
+.cal .day .dn{font-family:var(--f-mono);font-size:.56rem;color:var(--muted-2);letter-spacing:.08em}
+.cal .pill{font-size:.6rem;padding:.2rem .35rem;border-radius:5px;line-height:1.15;font-weight:600}
+.cal .pill.a{background:var(--accent-soft);color:var(--accent)}
+.cal .pill.b{background:rgba(0,124,135,.18);color:#7fd4dc}
+.cal .pill.c{background:rgba(232,195,126,.14);color:var(--gold)}
+
+/* ============================ INTEGRATIONS ============================ */
+.integrations{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.intg{display:flex;align-items:center;gap:.85rem;padding:1.15rem 1.2rem;border:1px solid var(--line);border-radius:14px;
+  background:linear-gradient(180deg,var(--panel),var(--panel-2));transition:.4s var(--e-out)}
+.intg:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(0,0,0,.8)}
+.intg .glyph{width:38px;height:38px;flex:none;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.04);color:var(--muted);transition:.4s}
+.intg:hover .glyph{color:var(--accent);background:var(--accent-soft)}
+.intg .glyph svg{width:21px;height:21px}
+.intg b{font-family:var(--f-display);font-weight:700;font-size:1rem;color:var(--text);display:block;line-height:1.1}
+.intg span{font-size:.72rem;color:var(--muted-2)}
+.intg-note{text-align:center;font-family:var(--f-mono);font-size:.72rem;color:var(--muted-2);letter-spacing:.05em;margin-top:1.6rem}
+
+/* ============================ RESPONSIVE ============================ */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr}
+  .app-window{order:2;transform:none}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .compare{grid-template-columns:1fr}
+  .compare-mid{transform:rotate(90deg);padding:.5rem 0}
+  .metrics-row{grid-template-columns:repeat(3,1fr)}
+  .ask-grid,.split,.pricing-grid{grid-template-columns:1fr}
+  .check-grid{grid-template-columns:1fr}
+  .roles{grid-template-columns:1fr 1fr}
+  .logo-row{grid-template-columns:repeat(3,1fr)}
+  .tsts{grid-template-columns:1fr}
+  .dash-body{grid-template-columns:1fr}
+  .integrations{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:640px){
+  nav.main{position:fixed;inset:0 0 0 auto;width:min(82vw,320px);background:var(--bg-2);flex-direction:column;
+    align-items:flex-start;justify-content:flex-start;padding:6rem 2rem 2rem;gap:1.4rem;
+    transform:translateX(100%);transition:transform .4s var(--e-out);border-left:1px solid var(--line)}
+  nav.main.open{transform:none}
+  nav.main a:not(.btn){font-size:1.1rem}
+  nav.main .btn{width:100%}
+  .menu-toggle{display:block}
+  .cards{grid-template-columns:1fr}
+  .metrics-row{grid-template-columns:repeat(2,1fr)}
+  .ask-steps,.roles,.logo-row{grid-template-columns:1fr}
+  .pcompare{font-size:.82rem}.pcompare th,.pcompare td{padding:.7rem .5rem}
+  .eco .node{width:88px}.eco .node .bubble{width:58px;height:58px}.eco .node .lbl{font-size:.7rem}.eco .core{width:116px;height:116px}
+  .big3{gap:1.7rem}
+  .mtiles{grid-template-columns:1fr}
+  .integrations{grid-template-columns:1fr}
+  .dcard.week{overflow-x:auto}.cal{min-width:440px}
+}
+.preview-flag{position:fixed;bottom:14px;left:14px;z-index:2000;background:rgba(30,200,217,.14);border:1px solid rgba(30,200,217,.4);color:var(--accent);font-family:var(--f-mono);font-size:.64rem;letter-spacing:.1em;padding:.4rem .7rem;border-radius:6px;text-transform:uppercase;pointer-events:none}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<!-- ============ HEADER ============ -->
+<header id="hdr">
+  <div class="container">
+    <a href="#top" class="brand">
+      <img src="assets/logo-light.png" alt="Vantage Method">
+      <span class="wordmark">Vantage<span>Method</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <nav class="main" id="nav">
+      <a href="#team">The Team</a>
+      <a href="#how">How It Works</a>
+      <a href="#inside">Product</a>
+      <a href="#onboarding">Onboarding</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#pricing" class="btn btn-primary">Get Vantage Method</a>
+    </nav>
+  </div>
+</header>
+<a id="top"></a>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="aurora"><i></i><i></i><i></i></div>
+  <div class="grid-fade"></div>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal in">The Marketing Operating System</span>
+      <h1>
+        <span class="mask d1"><span>An Entire Marketing Team.</span></span>
+        <span class="mask d2"><span class="line2">In the Palm of Your Hand.</span></span>
+      </h1>
+      <p class="lead reveal" data-i="2">Vantage Method brings the capabilities of a CMO, a paid‑advertising team, an SEO strategist, a content creator, a designer, a website developer and an email marketer together inside one AI‑powered marketing operating system.</p>
+      <p class="microline reveal" data-i="3"><b>Strategy. Creation. Execution. Optimization.</b> All in one place.</p>
+      <div class="hero-cta reveal" data-i="4">
+        <a href="#pricing" class="btn btn-primary btn-lg" data-magnetic>Get Vantage Method <span class="arrow">→</span></a>
+        <a href="#how" class="btn btn-ghost btn-lg">See How It Works</a>
+      </div>
+      <p class="hero-trust reveal" data-i="5">Eight marketing disciplines · One platform · Built around your business</p>
+    </div>
+
+    <div class="app-window reveal scale" data-i="2" id="appWindow" data-parallax="18">
+      <div class="aw-bar"><span class="aw-dot"></span><span class="aw-dot"></span><span class="aw-dot"></span><span class="aw-title">vantage method — command</span></div>
+      <div class="aw-body">
+        <div class="aw-side">
+          <div class="side-lbl">Your Team</div>
+          <div class="aw-agent" data-a="0"><span class="d"></span>CMO Brain</div>
+          <div class="aw-agent" data-a="1"><span class="d"></span>Meta Ads</div>
+          <div class="aw-agent" data-a="2"><span class="d"></span>Google Ads</div>
+          <div class="aw-agent" data-a="3"><span class="d"></span>Social</div>
+          <div class="aw-agent" data-a="4"><span class="d"></span>SEO</div>
+          <div class="aw-agent" data-a="5"><span class="d"></span>Designer</div>
+          <div class="aw-agent" data-a="6"><span class="d"></span>Web</div>
+          <div class="aw-agent" data-a="7"><span class="d"></span>Email</div>
+          <div class="aw-agent" data-a="8"><span class="d"></span>Booking</div>
+        </div>
+        <div class="aw-main">
+          <div class="aw-prompt"><div class="who">You</div><p id="awType"></p></div>
+          <div class="aw-out" id="awOut">
+            <div class="aw-row"><span class="tick">✓</span><span><b>CMO Brain</b> — storm‑season lead strategy &amp; offer</span></div>
+            <div class="aw-row"><span class="tick">✓</span><span><b>Google Ads</b> — “roof repair Tulsa” search campaign</span></div>
+            <div class="aw-row"><span class="tick">✓</span><span><b>Meta Ads</b> — geo‑targeted lead campaign + creative</span></div>
+            <div class="aw-row"><span class="tick">✓</span><span><b>Web</b> — high‑converting landing page</span></div>
+            <div class="aw-row"><span class="tick">✓</span><span><b>Email</b> — instant follow‑up sequence</span></div>
+            <div class="aw-row"><span class="tick">✓</span><span><b>Booking</b> — trials booked &amp; reminders sent</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>CMO Strategy</span><span>Meta Ads</span><span>Google Ads</span><span>Social Content</span><span>SEO</span><span>Design</span><span>Websites</span><span>Email</span><span>Booking</span>
+    <span>CMO Strategy</span><span>Meta Ads</span><span>Google Ads</span><span>Social Content</span><span>SEO</span><span>Design</span><span>Websites</span><span>Email</span><span>Booking</span>
+  </div>
+</div>
+
+<!-- ============ STAT STRIP ============ -->
+<div class="strip">
+  <div class="container stagger reveal">
+    <div class="kpi"><b data-count="8">0</b><span>Marketing specialties, unified</span></div>
+    <div class="kpi"><b data-count="1">0</b><span>Platform, one login</span></div>
+    <div class="kpi"><b data-count="1">0</b><span>Connected marketing strategy</span></div>
+    <div class="kpi"><b>$<span data-count="999">0</span><span class="sm">/mo</span></b><span>With annual membership</span></div>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Problem</span>
+      <h2>Marketing shouldn’t require <span class="accent">managing an entire marketing department.</span></h2>
+      <p class="lead" style="margin-top:1.2rem">Eight specialists. Multiple agencies. A stack of disconnected tools. Endless logins, meetings and invoices — and you in the middle coordinating all of it.</p>
+    </div>
+    <div class="compare">
+      <div class="panel bad reveal left">
+        <h3>Marketing today <span class="tag red">Fragmented</span></h3>
+        <div class="chips stagger">
+          <span class="chip">CMO</span><span class="chip">Agency</span><span class="chip">Google Ads specialist</span>
+          <span class="chip">Meta Ads specialist</span><span class="chip">SEO company</span><span class="chip">Social manager</span>
+          <span class="chip">Graphic designer</span><span class="chip">Web developer</span><span class="chip">Email marketer</span>
+          <span class="chip">Analytics platforms</span><span class="chip">Multiple subscriptions</span><span class="chip">Multiple logins</span>
+          <span class="chip">Multiple meetings</span><span class="chip">Multiple invoices</span>
+        </div>
+      </div>
+      <div class="compare-mid reveal">→</div>
+      <div class="panel good reveal right">
+        <h3>Vantage Method <span class="tag tl">Unified</span></h3>
+        <ul class="big-list">
+          <li><span class="m">◆</span> One platform</li>
+          <li><span class="m">◆</span> One marketing brain</li>
+          <li><span class="m">◆</span> One unified strategy</li>
+          <li><span class="m">◆</span> One place for strategy, creation, execution &amp; optimization</li>
+          <li><span class="m">◆</span> One partner accountable for the whole picture</li>
+        </ul>
+      </div>
+    </div>
+    <div class="metrics-row stagger reveal">
+      <div class="metric"><b>↓ Complexity</b><span>Less to manage</span></div>
+      <div class="metric"><b>↓ Expense</b><span>Fewer vendors</span></div>
+      <div class="metric"><b>↓ Coordination</b><span>One brain</span></div>
+      <div class="metric"><b>↑ Speed</b><span>Faster execution</span></div>
+      <div class="metric"><b>↑ Consistency</b><span>One voice</span></div>
+      <div class="metric"><b>↑ Accountability</b><span>One system</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEET THE TEAM ============ -->
+<section class="section-pad" id="team" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Meet Your AI Marketing Team</span>
+      <h2>Every area of your marketing gets a <span class="accent">specialist.</span></h2>
+    </div>
+    <div class="cards stagger reveal tilt-group">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a4 4 0 0 1 4 4c1.5.7 2.5 2 2.5 3.8 0 1-.4 2-1 2.7.3.6.5 1.3.5 2 0 2.5-2 4.5-4.5 4.5S9 20 9 17.5"/><path d="M12 3a4 4 0 0 0-4 4c-1.5.7-2.5 2-2.5 3.8 0 1 .4 2 1 2.7"/><path d="M12 8v13"/></svg></div>
+        <div class="role">Strategy before tactics</div><h3>The CMO Brain</h3>
+        <p>Creates strategy, analyzes opportunities, develops campaigns, establishes positioning and helps decide what your company should do next.</p>
+        <div class="kick">Put a CMO‑level brain behind every decision.</div>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3M7 9l3 3 4-5 3 4"/></svg></div>
+        <div class="role">Facebook &amp; Instagram</div><h3>Meta Ads Manager</h3>
+        <p>Develops campaigns, audiences, creative concepts, ad copy, offers, testing strategies and optimization recommendations for Facebook and Instagram.</p>
+        <div class="kick">Ads that reach the right people, tuned as they run.</div>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg></div>
+        <div class="role">Search that converts</div><h3>Google Ads Manager</h3>
+        <p>Builds search campaigns, keywords, ad groups, copy, landing‑page strategy, negative keywords and ongoing campaign analysis.</p>
+        <div class="kick">Show up the moment customers are searching.</div>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h10M4 18h7"/><circle cx="18" cy="16" r="3"/><path d="M18 13v-2"/></svg></div>
+        <div class="role">Content that shows up</div><h3>Social Media Creator</h3>
+        <p>Develops content strategies, posts, captions, campaigns, calendars, hooks, video concepts and platform‑specific content.</p>
+        <div class="kick">Turn an idea into a month of content.</div>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l5-5 4 4 8-8"/><path d="M15 4h5v5"/></svg></div>
+        <div class="role">Organic growth</div><h3>SEO Expert</h3>
+        <p>Identifies keywords, content opportunities, local SEO strategies, website improvements, competitive gaps and long‑term organic growth.</p>
+        <div class="kick">Get found for what your customers search.</div>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 1 0 0 20c1.5 0 2-1 2-2s-1-1.5-1-2.5 1-1.5 2-1.5h1a4 4 0 0 0 4-4c0-5-4-8-8-8Z"/></svg></div>
+        <div class="role">Brand made visible</div><h3>Designer</h3>
+        <p>Creates and directs branded marketing assets, campaign creative, ad concepts, graphics and visual direction across everything.</p>
+        <div class="kick">On‑brand creative, ready when you are.</div>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M7 13h6M7 16h4"/></svg></div>
+        <div class="role">Pages that sell</div><h3>Website Builder</h3>
+        <p>Develops landing pages, websites, conversion funnels, page structures, copy, UX improvements and lead‑generation experiences.</p>
+        <div class="kick">Launch a landing experience in days, not months.</div>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+        <div class="role">Follow‑up on autopilot</div><h3>Email Marketer</h3>
+        <p>Builds campaigns, newsletters, nurture sequences, promotions, follow‑up systems, reactivation strategies and automated communication.</p>
+        <div class="kick">Never let a lead go cold again.</div>
+      </div>
+    </div>
+
+    <div class="team-plus reveal">
+      <div class="tp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/><path d="M8.5 14l2.2 2.2L15.5 12"/></svg></div>
+      <div class="tp-copy">
+        <div class="role">And it books the appointment</div>
+        <h3>Booking &amp; Scheduling</h3>
+        <p>Your specialists don’t stop at the click. Vantage schedules trials and consultations, sends reminders, coordinates appointments and responds to new leads fast — so interest turns into booked calls, automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIAGRAM ============ -->
+<section class="section-pad" id="how">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">One Connected System</span>
+      <h2>They don’t work separately.<br><span class="accent">They work together.</span></h2>
+      <p class="lead" style="margin:1.2rem auto 0">Vantage isn’t eight disconnected AI tools. The strategy shapes the campaigns. The campaigns shape the creative, the pages, the ads, the follow‑up. One connected marketing intelligence — not a stack of chatbots.</p>
+    </div>
+    <div class="eco reveal scale" id="eco">
+      <svg class="lines" id="ecoLines" viewBox="0 0 740 740" preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+      <div class="core"><div><b>CMO<br>Brain</b><span>Strategy Core</span></div></div>
+      <div class="node" data-i="0"><div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 9l3 3 4-5 3 4"/></svg></div><div class="lbl">Meta Ads</div></div>
+      <div class="node" data-i="1"><div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div><div class="lbl">Google Ads</div></div>
+      <div class="node" data-i="2"><div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 17l5-5 4 4 8-8"/><path d="M15 4h5v5"/></svg></div><div class="lbl">SEO</div></div>
+      <div class="node" data-i="3"><div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div><div class="lbl">Social</div></div>
+      <div class="node" data-i="4"><div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a10 10 0 0 0 0 18"/></svg></div><div class="lbl">Design</div></div>
+      <div class="node" data-i="5"><div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div><div class="lbl">Web</div></div>
+      <div class="node" data-i="6"><div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><div class="lbl">Email</div></div>
+      <div class="node" data-i="7"><div class="bubble"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M20 19V9M12 19V3"/></svg></div><div class="lbl">Booking</div></div>
+    </div>
+    <p class="flow-cap reveal">Strategy <b>→</b> Campaign <b>→</b> Creative <b>→</b> Landing Page <b>→</b> Ads <b>→</b> Email <b>→</b> Booking <b>→</b> Optimization</p>
+  </div>
+</section>
+
+<!-- ============ INSIDE VANTAGE (PRODUCT SHOWCASE) ============ -->
+<section class="section-pad showcase" id="inside">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Inside Vantage</span>
+      <h2>Your entire marketing operation, <span class="accent">on one screen.</span></h2>
+      <p class="lead" style="margin:1.2rem auto 0">Strategy, campaigns, content and follow‑up — running together in a single command center built around your business.</p>
+    </div>
+    <div class="dashframe reveal scale" data-parallax="10">
+      <div class="dash-bar"><span class="aw-dot"></span><span class="aw-dot"></span><span class="aw-dot"></span><span class="aw-title">vantage method — command center</span><span class="dash-live">live</span></div>
+      <div class="dash-body">
+        <aside class="dash-side">
+          <div class="dash-lbl">Agent activity</div>
+          <ul class="feed">
+            <li><span class="fd tl"></span><div><b>CMO Brain</b> mapped a storm‑season plan<time>just now</time></div></li>
+            <li><span class="fd tl"></span><div><b>Google Ads</b> launched 3 search campaigns<time>2 min ago</time></div></li>
+            <li><span class="fd"></span><div><b>Designer</b> produced 6 ad creatives<time>11 min ago</time></div></li>
+            <li><span class="fd"></span><div><b>Website</b> published a landing page<time>18 min ago</time></div></li>
+            <li><span class="fd"></span><div><b>Email</b> scheduled a 5‑step follow‑up<time>26 min ago</time></div></li>
+            <li><span class="fd"></span><div><b>Booking</b> confirmed 4 trial calls<time>40 min ago</time></div></li>
+          </ul>
+        </aside>
+        <div class="dash-main">
+          <div class="mtiles">
+            <div class="mtile"><span>New leads</span><b>128</b>
+              <svg class="spark" viewBox="0 0 120 26" preserveAspectRatio="none"><g fill="#1ec8d9"><rect x="2" y="14" width="9" height="12" rx="2"/><rect x="15" y="10" width="9" height="16" rx="2"/><rect x="28" y="16" width="9" height="10" rx="2"/><rect x="41" y="8" width="9" height="18" rx="2"/><rect x="54" y="11" width="9" height="15" rx="2"/><rect x="67" y="5" width="9" height="21" rx="2"/><rect x="80" y="9" width="9" height="17" rx="2"/><rect x="93" y="3" width="9" height="23" rx="2"/><rect x="106" y="6" width="9" height="20" rx="2"/></g></svg></div>
+            <div class="mtile"><span>Booked calls</span><b>36</b>
+              <svg class="spark" viewBox="0 0 120 26" preserveAspectRatio="none"><polyline points="2,22 17,18 32,20 47,12 62,14 77,8 92,10 107,4 118,6" fill="none" stroke="#1ec8d9" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="mtile"><span>Content shipped</span><b>52</b>
+              <svg class="spark" viewBox="0 0 120 26" preserveAspectRatio="none"><polyline points="2,20 17,16 32,17 47,11 62,13 77,9 92,7 107,8 118,3" fill="none" stroke="#e8c37e" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div class="dcard chart">
+            <div class="dcard-h"><b>Campaign performance</b><span>Last 30 days · sample view</span></div>
+            <svg viewBox="0 0 600 150" preserveAspectRatio="none">
+              <defs><linearGradient id="ag" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="rgba(30,200,217,.35)"/><stop offset="1" stop-color="rgba(30,200,217,0)"/></linearGradient></defs>
+              <g stroke="rgba(255,255,255,.05)" stroke-width="1"><line x1="0" y1="38" x2="600" y2="38"/><line x1="0" y1="75" x2="600" y2="75"/><line x1="0" y1="112" x2="600" y2="112"/></g>
+              <path d="M0,120 C60,110 90,80 150,86 C210,92 240,50 300,58 C360,66 390,30 450,38 C510,46 540,22 600,26 L600,150 L0,150 Z" fill="url(#ag)"/>
+              <path d="M0,120 C60,110 90,80 150,86 C210,92 240,50 300,58 C360,66 390,30 450,38 C510,46 540,22 600,26" fill="none" stroke="#1ec8d9" stroke-width="2.6"/>
+              <path d="M0,132 C60,128 90,116 150,118 C210,120 240,104 300,108 C360,112 390,96 450,100 C510,104 540,92 600,94" fill="none" stroke="#007c87" stroke-width="2.2"/>
+              <path d="M0,140 C80,138 140,134 220,132 C320,130 420,124 600,120" fill="none" stroke="#e8c37e" stroke-width="1.8" stroke-dasharray="3 4"/>
+            </svg>
+            <div class="legend"><span><i class="lg1"></i>Meta</span><span><i class="lg2"></i>Google</span><span><i class="lg3"></i>Organic</span></div>
+          </div>
+          <div class="dcard week">
+            <div class="dcard-h"><b>This week’s content</b><span>Auto‑scheduled</span></div>
+            <div class="cal">
+              <div class="day"><span class="dn">MON</span><span class="pill a">IG Reel</span><span class="pill b">Email</span></div>
+              <div class="day"><span class="dn">TUE</span><span class="pill c">Blog / SEO</span></div>
+              <div class="day"><span class="dn">WED</span><span class="pill a">FB Post</span><span class="pill a">Story</span></div>
+              <div class="day"><span class="dn">THU</span><span class="pill b">Newsletter</span></div>
+              <div class="day"><span class="dn">FRI</span><span class="pill a">IG Carousel</span><span class="pill c">Google post</span></div>
+              <div class="day"><span class="dn">SAT</span><span class="pill a">Story</span></div>
+              <div class="day"><span class="dn">SUN</span><span class="pill c">Review ask</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="intg-note">Illustrative interface — sample data shown to demonstrate the product.</p>
+  </div>
+</section>
+
+<!-- ============ ASK VANTAGE ============ -->
+<section class="section-pad ask" id="ask">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">The “Ask Vantage” Experience</span>
+      <h2>Tell us where you want to go.<br><span class="accent">Vantage builds the plan to get there.</span></h2>
+      <p class="lead" style="margin-top:1.2rem">You bring the objective. Vantage Method orchestrates the marketing execution across every discipline — together.</p>
+    </div>
+    <div class="ask-grid">
+      <div class="ask-quote reveal left"><div class="who">A business owner says</div><p>“We need more roofing leads in Tulsa before storm season.”</p></div>
+      <div class="ask-steps stagger reveal right">
+        <div class="step"><span class="n">01</span><span><b>Market strategy</b></span></div>
+        <div class="step"><span class="n">02</span><span><b>Offer development</b></span></div>
+        <div class="step"><span class="n">03</span><span><b>Google Ads campaign</b></span></div>
+        <div class="step"><span class="n">04</span><span><b>Meta campaign</b></span></div>
+        <div class="step"><span class="n">05</span><span><b>Landing page</b></span></div>
+        <div class="step"><span class="n">06</span><span><b>Social content</b></span></div>
+        <div class="step"><span class="n">07</span><span><b>Email follow‑up</b></span></div>
+        <div class="step"><span class="n">08</span><span><b>SEO content plan</b></span></div>
+        <div class="step"><span class="n">09</span><span><b>Creative assets</b></span></div>
+        <div class="step"><span class="n">10</span><span><b>Performance recommendations</b></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUILT AROUND ============ -->
+<section class="section-pad">
+  <div class="container split">
+    <div class="section-head reveal left" style="margin-bottom:0">
+      <span class="eyebrow">Built Around You</span>
+      <h2>This isn’t off‑the‑shelf AI.<br><span class="accent">Vantage is configured around your business.</span></h2>
+      <p class="lead" style="margin-top:1.2rem">During onboarding, Vantage Method is customized around your company — so it understands your market, your offers and your customers, not generic best practices.</p>
+    </div>
+    <div class="config-grid stagger reveal right">
+      <span class="chip">Your business</span><span class="chip">Your industry</span><span class="chip">Your brand</span>
+      <span class="chip">Products &amp; services</span><span class="chip">Your customers</span><span class="chip">Your competitors</span>
+      <span class="chip">Your offers</span><span class="chip">Your website</span><span class="chip">Existing marketing</span>
+      <span class="chip">Advertising accounts</span><span class="chip">Social channels</span><span class="chip">Email platforms</span>
+      <span class="chip">Brand assets</span><span class="chip">Your goals</span><span class="chip">Sales process</span><span class="chip">Your market</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTEGRATIONS ============ -->
+<section class="section-pad" id="integrations">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Connected To Your World</span>
+      <h2>Plugs into the platforms <span class="accent">you already run.</span></h2>
+      <p class="lead" style="margin:1.2rem auto 0">Vantage works across the accounts your marketing already lives in — connected during onboarding, so everything stays in sync.</p>
+    </div>
+    <div class="integrations stagger reveal">
+      <div class="intg"><span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span><div><b>Facebook</b><span>Page &amp; advertising</span></div></div>
+      <div class="intg"><span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></span><div><b>Instagram</b><span>Content &amp; ads</span></div></div>
+      <div class="intg"><span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></span><div><b>Meta Ads</b><span>Campaign manager</span></div></div>
+      <div class="intg"><span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 12a9 9 0 1 1-3.2-6.9"/><path d="M21 12h-8"/></svg></span><div><b>Google</b><span>Search presence</span></div></div>
+      <div class="intg"><span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 4l8 15H4z"/><path d="M12 10v5"/></svg></span><div><b>Google Ads</b><span>Paid search</span></div></div>
+      <div class="intg"><span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 20V11M12 20V4M19 20v-6"/></svg></span><div><b>Analytics</b><span>Traffic insight</span></div></div>
+      <div class="intg"><span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><div><b>Search Console</b><span>SEO signals</span></div></div>
+      <div class="intg"><span class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><b>Email</b><span>Sending &amp; inbox</span></div></div>
+    </div>
+    <p class="intg-note">Your exact integrations are confirmed and connected during onboarding.</p>
+  </div>
+</section>
+
+<!-- ============ ONBOARDING ============ -->
+<section class="section-pad" id="onboarding" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">White‑Glove Onboarding</span>
+      <h2>Your Vantage launch includes <span class="accent">everything to install it inside your company.</span></h2>
+      <p class="lead" style="margin-top:1.2rem">We’re not simply giving you another login. We’re helping install a marketing operating system inside your business.</p>
+    </div>
+    <div class="check-grid stagger reveal">
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Business discovery &amp; strategy</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Platform configuration</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>AI agent customization</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Brand training</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Marketing‑data integration</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Account integrations</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Website &amp; digital ecosystem review</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Existing campaign review</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Marketing asset organization</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Team training</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Implementation assistance</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Initial strategic setup</span></div>
+      <div class="check"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5 9-11"/></svg></span><span>Ongoing support</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COST COMPARISON ============ -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">The Value</span>
+      <h2>The capabilities of a marketing department.<br><span class="accent">Without the marketing‑department overhead.</span></h2>
+    </div>
+    <div class="reveal">
+      <table class="cost">
+        <thead><tr><th>Traditional Marketing</th><th>Vantage Method</th></tr></thead>
+        <tbody>
+          <tr><td>Marketing strategist</td><td>Included</td></tr>
+          <tr><td>Meta ads specialist</td><td>Included</td></tr>
+          <tr><td>Google Ads specialist</td><td>Included</td></tr>
+          <tr><td>SEO strategist</td><td>Included</td></tr>
+          <tr><td>Social media creator</td><td>Included</td></tr>
+          <tr><td>Designer</td><td>Included</td></tr>
+          <tr><td>Web support</td><td>Included</td></tr>
+          <tr><td>Email marketer</td><td>Included</td></tr>
+          <tr><td>Multiple platforms</td><td>Unified</td></tr>
+          <tr><td>Multiple vendors</td><td>One platform</td></tr>
+          <tr><td>Multiple strategies</td><td>One marketing brain</td></tr>
+        </tbody>
+      </table>
+      <p class="lead" style="margin-top:1.5rem;font-size:1rem">Vantage multiplies your capabilities, reduces outsourced work, and accelerates execution — it isn’t about eliminating every human professional.</p>
+      <p style="margin-top:1rem;font-size:.82rem;color:var(--muted-2);max-width:72ch">Outcomes described on this page reflect what the platform is built to support — not guarantees. Results depend on your market, offer and how the system is used.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section-pad" id="pricing" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Pricing</span>
+      <h2>Two ways to bring Vantage <span class="accent">into your business.</span></h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card feature reveal left">
+        <div class="flags"><span class="flag pop">Most Popular</span><span class="flag val">Best Value</span></div>
+        <div class="plan">Vantage Annual</div>
+        <div class="amt"><span class="num">$999</span><span class="per">/ month</span></div>
+        <div class="sub">12‑month agreement</div>
+        <div class="freebadge">★ Last 2 months FREE — pay for only 10 months in year one</div>
+        <div class="econ">
+          <div class="er"><span>Platform ($999 × 10 paid months)</span><b>$9,990</b></div>
+          <div class="er"><span>One‑time implementation</span><b>$1,000</b></div>
+          <div class="er total"><span>First‑year investment</span><b>$10,990</b></div>
+          <div class="er"><span>Effective monthly (over 12 months)</span><b>$832.50</b></div>
+        </div>
+        <div class="save-callout"><b>SAVE OVER 35%</b> vs. paying the standard month‑to‑month rate for 12 months.</div>
+        <ul class="incl">
+          <li><span class="tick">✓</span> Integrations &amp; account connections</li>
+          <li><span class="tick">✓</span> AI agent customization</li>
+          <li><span class="tick">✓</span> Business &amp; brand configuration</li>
+          <li><span class="tick">✓</span> Initial marketing setup &amp; training</li>
+          <li><span class="tick">✓</span> Launch assistance &amp; ongoing support</li>
+        </ul>
+        <div class="cta-wrap"><a href="#final" class="btn btn-primary btn-lg" data-magnetic>Start With Vantage <span class="arrow">→</span></a>
+          <p class="micro">Best for companies ready to make Vantage part of their long‑term marketing infrastructure.</p></div>
+      </div>
+      <div class="price-card reveal right">
+        <div class="flags"><span class="flag val" style="background:rgba(255,255,255,.06);color:var(--muted)">Maximum Flexibility</span></div>
+        <div class="plan">Month‑to‑Month</div>
+        <div class="amt"><span class="num">$1,299</span><span class="per">/ month</span></div>
+        <div class="sub">No annual commitment</div>
+        <div class="econ">
+          <div class="er"><span>One‑time implementation</span><b>$2,500</b></div>
+          <div class="er"><span>Commitment</span><b>None</b></div>
+        </div>
+        <ul class="incl">
+          <li><span class="tick">✓</span> Integrations &amp; account connections</li>
+          <li><span class="tick">✓</span> AI agent customization</li>
+          <li><span class="tick">✓</span> Business &amp; brand configuration</li>
+          <li><span class="tick">✓</span> Initial marketing setup &amp; training</li>
+          <li><span class="tick">✓</span> Launch assistance &amp; ongoing support</li>
+        </ul>
+        <div class="cta-wrap"><a href="#final" class="btn btn-ghost btn-lg">Start Month‑to‑Month</a>
+          <p class="micro">Best for companies wanting maximum flexibility without a long‑term agreement.</p></div>
+      </div>
+    </div>
+    <div class="reveal" style="overflow-x:auto">
+      <table class="pcompare">
+        <thead><tr><th>&nbsp;</th><th class="col-feature">Annual</th><th>Month‑to‑Month</th></tr></thead>
+        <tbody>
+          <tr><td>Monthly price</td><td class="col-feature">$999</td><td>$1,299</td></tr>
+          <tr><td>Commitment</td><td class="col-feature">12 months</td><td>None</td></tr>
+          <tr><td>Free months</td><td class="col-feature">2</td><td class="dash">—</td></tr>
+          <tr><td>Setup</td><td class="col-feature">$1,000</td><td>$2,500</td></tr>
+          <tr><td>Custom AI configuration</td><td class="col-feature yes">Included</td><td class="yes">Included</td></tr>
+          <tr><td>Integrations</td><td class="col-feature yes">Included</td><td class="yes">Included</td></tr>
+          <tr><td>Training</td><td class="col-feature yes">Included</td><td class="yes">Included</td></tr>
+          <tr><td>Support</td><td class="col-feature yes">Included</td><td class="yes">Included</td></tr>
+          <tr><td>Best value</td><td class="col-feature yes">✓</td><td class="dash">—</td></tr>
+          <tr><td>Flexibility</td><td class="col-feature dash">—</td><td class="yes">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUE GAP ============ -->
+<section class="section-pad valuegap">
+  <div class="container">
+    <span class="eyebrow reveal" style="justify-content:center;display:inline-flex">The Real Question</span>
+    <h2 class="reveal">What would it cost to <span class="accent">build this team yourself?</span></h2>
+    <div class="vg-lines">
+      <span class="l hi mask"><span>8 disciplines.</span></span>
+      <span class="l mask d1"><span>8 skill sets.</span></span>
+      <span class="l mask d2"><span>Countless subscriptions.</span></span>
+      <span class="l mask d2"><span>Hundreds of decisions.</span></span>
+      <span class="l tl mask d3"><span>One Vantage Method.</span></span>
+    </div>
+    <p class="vg-close reveal">You probably don’t need eight more employees. You need access to <b>what those eight employees know how to do.</b></p>
+  </div>
+</section>
+
+<!-- ============ WHO IT'S FOR ============ -->
+<section class="section-pad" style="background:var(--bg-2)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Who Vantage Is For</span>
+      <h2>Built for companies that need better marketing —<br><span class="accent">not more marketing complexity.</span></h2>
+    </div>
+    <div class="aud-grid stagger reveal">
+      <span class="chip">Home service companies</span><span class="chip">Professional services</span>
+      <span class="chip">Multi‑location businesses</span><span class="chip">Healthcare &amp; wellness</span>
+      <span class="chip">Real estate companies</span><span class="chip">Contractors</span>
+      <span class="chip">Local service businesses</span><span class="chip">Founder‑led companies</span>
+      <span class="chip">Small internal marketing teams</span><span class="chip">Businesses juggling several agencies or freelancers</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUPERPOWERS ============ -->
+<section class="section-pad">
+  <div class="container split">
+    <div class="section-head reveal left" style="margin-bottom:0">
+      <span class="eyebrow">Vantage + Your Team</span>
+      <h2>Give your team <span class="accent">superpowers.</span></h2>
+      <p class="lead" style="margin-top:1.2rem">Vantage isn’t about replacing everyone. A single person using Vantage Method can orchestrate far more marketing than they ever could across disconnected tools and vendors.</p>
+    </div>
+    <div class="reveal right">
+      <div class="roles stagger">
+        <div class="role-pill">Owners</div><div class="role-pill">Marketing directors</div><div class="role-pill">Sales leaders</div>
+        <div class="role-pill">Internal teams</div><div class="role-pill">Agencies</div><div class="role-pill">Admin staff</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOCIAL PROOF ============ -->
+<section class="section-pad proof">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Trusted By Growing Businesses</span>
+      <h2>Results, in their words.</h2>
+    </div>
+    <div class="logo-row stagger reveal">
+      <div class="logo-ph">Client Logo</div><div class="logo-ph">Client Logo</div><div class="logo-ph">Client Logo</div>
+      <div class="logo-ph">Client Logo</div><div class="logo-ph">Client Logo</div>
+    </div>
+    <div class="tsts stagger reveal">
+      <div class="tst"><div class="stars">★★★★★</div><div class="ph-body">Customer testimonial<br>to be added</div><div class="who"><span class="av"></span><span>Name · Company</span></div></div>
+      <div class="tst"><div class="stars">★★★★★</div><div class="ph-body">Case‑study result<br>to be added</div><div class="who"><span class="av"></span><span>Name · Company</span></div></div>
+      <div class="tst"><div class="stars">★★★★★</div><div class="ph-body">Customer testimonial<br>to be added</div><div class="who"><span class="av"></span><span>Name · Company</span></div></div>
+    </div>
+    <p class="proof-note">Placeholders shown — real testimonials, logos, results and campaign examples drop in here as they’re confirmed.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section-pad faq" id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow" style="justify-content:center">Questions</span>
+      <h2>Everything you’re wondering.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <details><summary>Is Vantage Method just another AI chatbot? <span class="pm"></span></summary><p>No. Vantage is configured around your company’s marketing ecosystem and built around specialized marketing workflows — strategy, ads, content, SEO, design, websites, email and booking — working together, not a single generic assistant.</p></details>
+      <details><summary>Do I need marketing experience? <span class="pm"></span></summary><p>No. Vantage is useful for experienced marketers and for business owners with no marketing background. You bring the objective; Vantage helps orchestrate the execution.</p></details>
+      <details><summary>Does Vantage replace my marketing team? <span class="pm"></span></summary><p>Think of Vantage as a force multiplier. It can reduce your dependence on outside vendors, accelerate the work, and give your existing team dramatically more capability.</p></details>
+      <details><summary>What happens during onboarding? <span class="pm"></span></summary><p>We handle discovery, platform configuration, AI agent customization, brand training, account integrations and initial strategic setup — installing Vantage around your specific business, then training your team.</p></details>
+      <details><summary>Why is there a setup fee? <span class="pm"></span></summary><p>Because the platform is configured around your individual company rather than delivered as generic software. That customization is what makes Vantage understand your market, offers and customers.</p></details>
+      <details><summary>What integrations are supported? <span class="pm"></span></summary><p>Vantage connects to your key marketing accounts and platforms during onboarding. Your confirmed integrations are set up as part of your launch — we’ll walk through exactly which ones apply to you.</p></details>
+      <details><summary>Can I cancel? <span class="pm"></span></summary><p>Annual memberships carry a 12‑month agreement. The month‑to‑month subscription gives you greater flexibility with no long‑term commitment.</p></details>
+      <details><summary>Why are the last two months free on the annual plan? <span class="pm"></span></summary><p>Because we want to reward companies that commit to implementing Vantage as part of their long‑term marketing infrastructure.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section-pad final" id="final">
+  <div class="aurora"><i></i><i></i><i></i></div>
+  <div class="container">
+    <span class="eyebrow reveal" style="justify-content:center;display:inline-flex">Get Started</span>
+    <h2><span class="mask"><span>Stop managing marketing.</span></span><span class="mask d1"><span class="accent">Start commanding it.</span></span></h2>
+    <p class="lead reveal">Vantage Method brings strategy, advertising, content, SEO, design, websites, email and booking together inside one intelligent marketing operating system — built around your company.</p>
+    <div class="final-cta reveal">
+      <a href="#" class="btn btn-primary btn-lg" data-magnetic>Build My Vantage Method <span class="arrow">→</span></a>
+      <a href="#" class="btn btn-ghost btn-lg">Book a Demo</a>
+    </div>
+    <p class="reinforce reveal">Starting at $999/month with annual membership</p>
+    <div class="big3 stagger reveal">
+      <div class="b"><b data-count="8">0</b><span>Marketing disciplines</span></div>
+      <div class="b"><b data-count="1">0</b><span>Platform</span></div>
+      <div class="b"><b data-count="1">0</b><span>Marketing strategy</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <a href="#top" class="brand"><img src="assets/logo-light.png" alt="Vantage Method"><span class="wordmark">Vantage<span>Method</span></span></a>
+    <nav class="fnav">
+      <a href="#team">The Team</a><a href="#how">How It Works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+      <a href="https://vantagemethod.com">vantagemethod.com</a>
+    </nav>
+    <div class="copy">© <span id="yr">2026</span> Vantage Method. An entire marketing team in the palm of your hand.</div>
+  </div>
+</footer>
+
+<div class="preview-flag">Preview — not live</div>
+
+<script>
+var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ---- header + scroll progress + parallax (rAF) ---- */
+var hdr=document.getElementById('hdr'),prog=document.getElementById('progress');
+var parEls=[].slice.call(document.querySelectorAll('[data-parallax]'));
+var ticking=false;
+function onScroll(){
+  if(ticking)return;ticking=true;
+  requestAnimationFrame(function(){
+    var y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+    hdr.classList.toggle('scrolled',y>20);
+    prog.style.transform='scaleX('+(h>0?y/h:0)+')';
+    if(!RM){var vh=innerHeight;parEls.forEach(function(el){
+      var r=el.getBoundingClientRect(),c=r.top+r.height/2,off=(c-vh/2)/vh;
+      el.style.transform='perspective(1400px) rotateX(4deg) rotateY(-7deg) translateY('+(off*-(+el.dataset.parallax))+'px)';
+    });}
+    ticking=false;
+  });
+}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+/* ---- mobile menu ---- */
+var mt=document.getElementById('menuToggle'),nav=document.getElementById('nav');
+mt.addEventListener('click',function(){mt.classList.toggle('active');nav.classList.toggle('open')});
+nav.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mt.classList.remove('active');nav.classList.remove('open')})});
+
+/* ---- reveal + stagger + count-up ---- */
+function setStagger(el){var kids=el.children;for(var i=0;i<kids.length;i++){kids[i].style.setProperty('--i',i)}}
+document.querySelectorAll('.stagger').forEach(setStagger);
+
+function countUp(el){
+  var target=+el.getAttribute('data-count'),dur=1200,t0=null;
+  if(RM){el.textContent=target;return;}
+  function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);var e=1-Math.pow(1-p,3);
+    el.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting){e.target.classList.add('in');
+    e.target.querySelectorAll&&e.target.querySelectorAll('[data-count]').forEach(countUp);
+    io.unobserve(e.target);}
+})},{threshold:.16});
+document.querySelectorAll('.reveal,.mask').forEach(function(el){io.observe(el)});
+document.querySelectorAll('.strip .container,.big3').forEach(function(el){io.observe(el)});
+
+/* ---- card cursor glow ---- */
+if(!RM)document.querySelectorAll('.tilt-group .card').forEach(function(c){
+  c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();
+    c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
+});
+
+/* ---- magnetic buttons ---- */
+if(!RM&&matchMedia('(pointer:fine)').matches)document.querySelectorAll('[data-magnetic]').forEach(function(b){
+  b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();
+    b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)';});
+  b.addEventListener('pointerleave',function(){b.style.transform='';});
+});
+
+/* ---- hero: typing prompt + agent cycle ---- */
+(function(){
+  var txt="“We need more roofing leads in Tulsa before storm season.”";
+  var el=document.getElementById('awType'),agents=document.querySelectorAll('.aw-agent'),rows=document.querySelectorAll('#awOut .aw-row');
+  var order=[0,2,1,6,7,8],ci=0,started=false;
+  function cycle(){agents.forEach(function(a){a.classList.remove('live')});
+    var a=document.querySelector('.aw-agent[data-a="'+order[ci]+'"]');if(a)a.classList.add('live');
+    for(var r=0;r<rows.length;r++)rows[r].classList.toggle('show',r<=ci);ci=(ci+1)%order.length;}
+  function type(i){if(i>txt.length){el.textContent=txt;cycle();setInterval(cycle,1500);return;}
+    el.innerHTML=txt.slice(0,i)+'<span class="cursor"></span>';setTimeout(function(){type(i+1)},34);}
+  var aw=document.getElementById('appWindow');
+  var awio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!started){started=true;
+    if(RM){el.textContent=txt;cycle();setInterval(cycle,1500);}else type(0);}})},{threshold:.35});
+  awio.observe(aw);
+})();
+
+/* ---- ecosystem diagram: draw connectors + traveling pulse ---- */
+(function(){
+  var eco=document.getElementById('eco'),svg=document.getElementById('ecoLines');if(!eco)return;
+  var nodes=eco.querySelectorAll('.node'),N=nodes.length,cx=370,cy=370,R=278,pts=[];
+  for(var k=0;k<N;k++){
+    var ang=(-90+k*(360/N))*Math.PI/180,x=cx+R*Math.cos(ang),y=cy+R*Math.sin(ang);pts.push({x:x,y:y});
+    nodes[k].style.left=(x/740*100)+'%';nodes[k].style.top=(y/740*100)+'%';
+    var ln=document.createElementNS('http://www.w3.org/2000/svg','line');
+    ln.setAttribute('x1',cx);ln.setAttribute('y1',cy);ln.setAttribute('x2',x);ln.setAttribute('y2',y);
+    ln.setAttribute('stroke','rgba(30,200,217,0.22)');ln.setAttribute('stroke-width','1.4');
+    ln.setAttribute('data-l',k);var len=Math.hypot(x-cx,y-cy);
+    ln.setAttribute('stroke-dasharray',len);ln.setAttribute('stroke-dashoffset',len);
+    ln.style.transition='stroke-dashoffset 1s var(--e-out) '+(k*90)+'ms';svg.appendChild(ln);
+  }
+  for(var k2=0;k2<N;k2++){var a=pts[k2],b=pts[(k2+1)%N];
+    var lr=document.createElementNS('http://www.w3.org/2000/svg','line');
+    lr.setAttribute('x1',a.x);lr.setAttribute('y1',a.y);lr.setAttribute('x2',b.x);lr.setAttribute('y2',b.y);
+    lr.setAttribute('stroke','rgba(255,255,255,0.06)');lr.setAttribute('stroke-width','1');svg.appendChild(lr);}
+  var spokes=svg.querySelectorAll('line[data-l]'),idx=0,run=false;
+  function pulse(){nodes.forEach(function(n){n.classList.remove('active')});
+    spokes.forEach(function(l){l.setAttribute('stroke','rgba(30,200,217,0.22)');l.setAttribute('stroke-width','1.4')});
+    nodes[idx].classList.add('active');
+    var al=svg.querySelector('line[data-l="'+idx+'"]');if(al){al.setAttribute('stroke','rgba(30,200,217,0.95)');al.setAttribute('stroke-width','2.6')}
+    idx=(idx+1)%N;}
+  var ecoio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!run){run=true;
+    spokes.forEach(function(l){l.setAttribute('stroke-dashoffset','0')});
+    if(!RM){pulse();setInterval(pulse,1050);}else nodes.forEach(function(n){n.classList.add('active')});}})},{threshold:.3});
+  ecoio.observe(eco);
+})();
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>

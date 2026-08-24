@@ -246,6 +246,7 @@ const PUBLISH_PATHS = [
     '404.html',
     '_headers',
     'ai-integration',
+    'app',
     'assessment',
     'assets',
     'blaise',

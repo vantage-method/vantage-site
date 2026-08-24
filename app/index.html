@@ -204,6 +204,14 @@ nav.main a:not(.btn):hover{color:var(--text)}
 .card .role{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:.7rem}
 .card p{font-size:.9rem;color:var(--muted);line-height:1.5}
 .card .kick{margin-top:.9rem;font-family:var(--f-display);font-weight:700;font-size:.92rem;color:var(--accent);letter-spacing:.01em}
+.team-plus{display:flex;gap:1.4rem;align-items:center;margin-top:1.1rem;padding:1.6rem 1.8rem;
+  background:linear-gradient(90deg,var(--accent-soft),rgba(28,192,209,.02));border:1px solid rgba(28,192,209,.28);border-radius:var(--radius)}
+.team-plus .tp-ico{width:56px;height:56px;flex:none;border-radius:14px;display:grid;place-items:center;background:var(--panel);border:1px solid rgba(28,192,209,.3);color:var(--accent)}
+.team-plus .tp-ico svg{width:28px;height:28px}
+.team-plus .role{font-family:var(--f-mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:.35rem}
+.team-plus h3{font-size:1.25rem;margin-bottom:.4rem}
+.team-plus p{font-size:.95rem;color:var(--muted);max-width:70ch}
+@media(max-width:640px){.team-plus{flex-direction:column;align-items:flex-start;text-align:left}}
 
 /* ============ DIAGRAM ============ */
 .eco-wrap{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
@@ -459,6 +467,7 @@ footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px soli
           <div class="aw-agent" data-a="5"><span class="d"></span>Designer</div>
           <div class="aw-agent" data-a="6"><span class="d"></span>Web</div>
           <div class="aw-agent" data-a="7"><span class="d"></span>Email</div>
+          <div class="aw-agent" data-a="8"><span class="d"></span>Booking</div>
         </div>
         <div class="aw-main">
           <div class="aw-prompt">
@@ -473,6 +482,7 @@ footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px soli
             <div class="aw-row"><span class="tick">✓</span><span><b>Meta Ads</b> — geo‑targeted lead campaign + creative</span></div>
             <div class="aw-row"><span class="tick">✓</span><span><b>Web</b> — high‑converting landing page</span></div>
             <div class="aw-row"><span class="tick">✓</span><span><b>Email</b> — instant follow‑up sequence</span></div>
+            <div class="aw-row"><span class="tick">✓</span><span><b>Booking</b> — trials booked &amp; reminders sent</span></div>
           </div>
         </div>
       </div>
@@ -595,6 +605,15 @@ footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px soli
         <h3>Email Marketer</h3>
         <p>Builds campaigns, newsletters, nurture sequences, promotions, follow‑up systems, reactivation strategies and automated communication.</p>
         <div class="kick">Never let a lead go cold again.</div>
+      </div>
+    </div>
+
+    <div class="team-plus reveal" data-d="1">
+      <div class="tp-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v3M16 3v3"/><path d="M8.5 14l2.2 2.2L15.5 12"/></svg></div>
+      <div class="tp-copy">
+        <div class="role">And it books the appointment</div>
+        <h3>Booking &amp; Scheduling</h3>
+        <p>Your specialists don’t stop at the click. Vantage schedules trials and consultations, sends reminders, coordinates appointments and responds to new leads fast — so interest turns into booked calls, automatically.</p>
       </div>
     </div>
   </div>
@@ -724,6 +743,7 @@ footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px soli
         </tbody>
       </table>
       <p class="lead" style="margin-top:1.5rem;font-size:1rem">Vantage multiplies your capabilities, reduces outsourced work, and accelerates execution — it isn’t about eliminating every human professional.</p>
+      <p style="margin-top:1rem;font-size:.82rem;color:var(--muted-2);max-width:70ch">Outcomes described on this page reflect what the platform is built to support — not guarantees. Results depend on your market, offer and how the system is used.</p>
     </div>
   </div>
 </section>
@@ -954,7 +974,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
 /* ===== hero app-window cycle ===== */
 (function(){
   var agents=document.querySelectorAll('.aw-agent'),rows=document.querySelectorAll('#awOut .aw-row');
-  var order=[0,2,1,6,7],i=0,started=false;
+  var order=[0,2,1,6,7,8],i=0,started=false;
   function tick(){
     agents.forEach(function(a){a.classList.remove('live')});
     var a=document.querySelector('.aw-agent[data-a="'+order[i]+'"]');if(a)a.classList.add('live');

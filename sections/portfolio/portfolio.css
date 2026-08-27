@@ -169,7 +169,6 @@
 }
 .pf-card--tall {
     width: 300px;
-    height: 480px;
 }
 
 /* ---- Video cards ---- */
@@ -503,7 +502,7 @@
     .pf-section { padding: 90px 0 60px; }
     .pf-card { width: 300px; height: 380px; }
     .pf-card--wide { width: 420px; }
-    .pf-card--tall { width: 260px; height: 440px; }
+    .pf-card--tall { width: 260px; }
     .pf-metric-value { font-size: 3.5rem; }
     .pf-track { gap: 16px; padding: 0 24px; }
 }
@@ -515,7 +514,7 @@
     .pf-pill { padding: 8px 16px; font-size: 0.75rem; }
     .pf-card { width: 280px; height: 350px; }
     .pf-card--wide { width: 340px; }
-    .pf-card--tall { width: 240px; height: 400px; }
+    .pf-card--tall { width: 240px; }
     .pf-track { gap: 14px; padding: 0 20px; }
     .pf-metric-value { font-size: 3rem; }
     .pf-card-overlay {
@@ -528,7 +527,7 @@
     .pf-section { padding: 56px 0 36px; }
     .pf-card { width: 260px; height: 320px; }
     .pf-card--wide { width: 300px; }
-    .pf-card--tall { width: 220px; height: 360px; }
+    .pf-card--tall { width: 220px; }
     .pf-track { gap: 12px; padding: 0 16px; }
     .pf-metric-value { font-size: 2.6rem; }
     .pf-headline { font-size: 2rem; }

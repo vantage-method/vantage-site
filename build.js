@@ -284,9 +284,9 @@ const PRIVATE_PATTERNS = [
     /(^|\/)package(-lock)?\.json$/i,
     /(^|\/)\.git(\/|$)/i,
     /(^|\/)node_modules(\/|$)/i,
-    /(^|\/)scripts(\/|$)/i,
-    /(^|\/)design(\/|$)/i,
-    /(^|\/)reference(\/|$)/i
+    /^scripts(\/|$)/i,
+    /^design(\/|$)/i,
+    /^reference(\/|$)/i
 ];
 
 function isPrivatePath(relativePath) {

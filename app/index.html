@@ -321,7 +321,9 @@ nav.main a:not(.btn):hover::after{width:100%}
 .cost tbody tr:hover{background:rgba(30,200,217,.04)}
 
 /* ============================ PRICING ============================ */
-.pricing-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:1.4rem;align-items:start}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;align-items:start}
+.price-card.enterprise{background:linear-gradient(180deg,#12191b,var(--panel-2));border-color:rgba(232,195,126,.28)}
+.price-card .amt .num.custom{font-size:2.7rem;color:var(--gold)}
 .price-card{position:relative;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:20px;padding:2.3rem;display:flex;flex-direction:column;transition:transform .4s var(--e-out)}
 .price-card:hover{transform:translateY(-5px)}
 .price-card.feature{border-color:transparent}
@@ -938,7 +940,7 @@ footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px soli
   <div class="container">
     <div class="section-head center reveal">
       <span class="eyebrow" style="justify-content:center">Pricing</span>
-      <h2>Two ways to bring Vantage <span class="accent">into your business.</span></h2>
+      <h2>Three ways to bring Vantage <span class="accent">into your business.</span></h2>
     </div>
     <div class="pricing-grid">
       <div class="price-card feature reveal left">
@@ -964,7 +966,7 @@ footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px soli
         <div class="cta-wrap"><a href="#final" class="btn btn-primary btn-lg" data-magnetic>Start With Vantage <span class="arrow">→</span></a>
           <p class="micro">Best for companies ready to make Vantage part of their long‑term marketing infrastructure.</p></div>
       </div>
-      <div class="price-card reveal right">
+      <div class="price-card reveal">
         <div class="flags"><span class="flag val" style="background:rgba(255,255,255,.06);color:var(--muted)">Maximum Flexibility</span></div>
         <div class="plan">Month‑to‑Month</div>
         <div class="amt"><span class="num">$1,299</span><span class="per">/ month</span></div>
@@ -983,21 +985,45 @@ footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px soli
         <div class="cta-wrap"><a href="#final" class="btn btn-ghost btn-lg">Start Month‑to‑Month</a>
           <p class="micro">Best for companies wanting maximum flexibility without a long‑term agreement.</p></div>
       </div>
+      <div class="price-card enterprise reveal right">
+        <div class="flags"><span class="flag val">For Organizations</span></div>
+        <div class="plan">Enterprise</div>
+        <div class="amt"><span class="num custom">Custom</span></div>
+        <div class="sub">A tailored quote — built for scale &amp; complexity</div>
+        <div class="econ">
+          <div class="er"><span>Pricing</span><b>By quotation</b></div>
+          <div class="er"><span>Onboarding &amp; setup</span><b>Custom</b></div>
+        </div>
+        <ul class="incl">
+          <li><span class="tick">✓</span> Multiple websites &amp; landing pages</li>
+          <li><span class="tick">✓</span> CRM integrations</li>
+          <li><span class="tick">✓</span> App &amp; data integrations</li>
+          <li><span class="tick">✓</span> Advanced data reporting</li>
+          <li><span class="tick">✓</span> Multiple marketing segments</li>
+          <li><span class="tick">✓</span> Multiple stakeholder audiences</li>
+          <li><span class="tick">✓</span> Dedicated support &amp; strategic setup</li>
+        </ul>
+        <div class="cta-wrap"><a href="#final" class="btn btn-ghost btn-lg">Request a Quote</a>
+          <p class="micro">Best for multi‑brand, multi‑location and data‑driven organizations.</p></div>
+      </div>
     </div>
     <div class="reveal" style="overflow-x:auto">
       <table class="pcompare">
-        <thead><tr><th>&nbsp;</th><th class="col-feature">Annual</th><th>Month‑to‑Month</th></tr></thead>
+        <thead><tr><th>&nbsp;</th><th class="col-feature">Annual</th><th>Month‑to‑Month</th><th>Enterprise</th></tr></thead>
         <tbody>
-          <tr><td>Monthly price</td><td class="col-feature">$999</td><td>$1,299</td></tr>
-          <tr><td>Commitment</td><td class="col-feature">12 months</td><td>None</td></tr>
-          <tr><td>Free months</td><td class="col-feature">2</td><td class="dash">—</td></tr>
-          <tr><td>Setup</td><td class="col-feature">$2,000</td><td>$2,500</td></tr>
-          <tr><td>Custom AI configuration</td><td class="col-feature yes">Included</td><td class="yes">Included</td></tr>
-          <tr><td>Integrations</td><td class="col-feature yes">Included</td><td class="yes">Included</td></tr>
-          <tr><td>Training</td><td class="col-feature yes">Included</td><td class="yes">Included</td></tr>
-          <tr><td>Support</td><td class="col-feature yes">Included</td><td class="yes">Included</td></tr>
-          <tr><td>Best value</td><td class="col-feature yes">✓</td><td class="dash">—</td></tr>
-          <tr><td>Flexibility</td><td class="col-feature dash">—</td><td class="yes">✓</td></tr>
+          <tr><td>Monthly price</td><td class="col-feature">$999</td><td>$1,299</td><td>Custom</td></tr>
+          <tr><td>Commitment</td><td class="col-feature">12 months</td><td>None</td><td>Custom</td></tr>
+          <tr><td>Free months</td><td class="col-feature">2</td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td>Setup</td><td class="col-feature">$2,000</td><td>$2,500</td><td>Custom</td></tr>
+          <tr><td>Custom AI configuration</td><td class="col-feature yes">Included</td><td class="yes">Included</td><td class="yes">Advanced</td></tr>
+          <tr><td>Integrations</td><td class="col-feature yes">Included</td><td class="yes">Included</td><td class="yes">CRM &amp; apps</td></tr>
+          <tr><td>Multiple websites</td><td class="col-feature dash">—</td><td class="dash">—</td><td class="yes">✓</td></tr>
+          <tr><td>Advanced data reporting</td><td class="col-feature dash">—</td><td class="dash">—</td><td class="yes">✓</td></tr>
+          <tr><td>Multiple segments &amp; audiences</td><td class="col-feature dash">—</td><td class="dash">—</td><td class="yes">✓</td></tr>
+          <tr><td>Training</td><td class="col-feature yes">Included</td><td class="yes">Included</td><td class="yes">Included</td></tr>
+          <tr><td>Support</td><td class="col-feature yes">Included</td><td class="yes">Included</td><td class="yes">Dedicated</td></tr>
+          <tr><td>Best value</td><td class="col-feature yes">✓</td><td class="dash">—</td><td class="dash">—</td></tr>
+          <tr><td>Flexibility</td><td class="col-feature dash">—</td><td class="yes">✓</td><td class="yes">✓</td></tr>
         </tbody>
       </table>
     </div>

@@ -92,7 +92,7 @@ h3{font-size:clamp(1.3rem,2vw,1.7rem);font-weight:700}
 .reveal.scale{transform:scale(.94);transform-origin:center}
 .reveal.scale.in{transform:none}
 /* stagger children */
-.stagger>*{opacity:0;transform:translateY(28px);transition:opacity .7s var(--e-out),transform .7s var(--e-out)}
+.stagger>*{opacity:0;transform:perspective(1100px) rotateX(11deg) translateY(34px);transform-origin:50% 100%;transition:opacity .7s var(--e-out),transform .8s var(--e-out)}
 .stagger.in>*{opacity:1;transform:none}
 .stagger.in>*{transition-delay:calc(var(--i,0)*70ms)}
 /* masked headline lines */
@@ -1222,7 +1222,7 @@ function onScroll(){
     prog.style.transform='scaleX('+(h>0?y/h:0)+')';
     if(!RM){var vh=innerHeight;parEls.forEach(function(el){
       var r=el.getBoundingClientRect(),c=r.top+r.height/2,off=(c-vh/2)/vh;
-      el.style.transform='perspective(1400px) rotateX(4deg) rotateY(-7deg) translateY('+(off*-(+el.dataset.parallax))+'px)';
+      el.style.transform='perspective(1400px) rotateX(4deg) rotateY('+(-7+off*5).toFixed(2)+'deg) translateY('+(off*-(+el.dataset.parallax))+'px)';
     });}
     if(askSteps.length&&askSec){var rr=askSec.getBoundingClientRect();
       var pr=(innerHeight*0.82-rr.top)/(rr.height*0.85);pr=pr<0?0:(pr>1?1:pr);
@@ -1267,6 +1267,22 @@ if(!RM&&matchMedia('(pointer:fine)').matches)document.querySelectorAll('.tilt-gr
     c.style.transform='perspective(900px) rotateX('+((0.5-py)*6).toFixed(2)+'deg) rotateY('+((px-0.5)*6).toFixed(2)+'deg) translateY(-6px)';});
   c.addEventListener('pointerleave',function(){c.style.transform='';});
 });
+
+/* ---- hero depth: layers shift with cursor (4D window) ---- */
+if(!RM&&matchMedia('(pointer:fine)').matches){
+  var hero=document.querySelector('.hero');
+  if(hero){var au=hero.querySelector('.aurora'),gf=hero.querySelector('.grid-fade'),hc=hero.querySelector('.hero-copy');
+    hero.addEventListener('pointermove',function(e){
+      var dx=e.clientX/innerWidth-0.5,dy=e.clientY/innerHeight-0.5;
+      if(au)au.style.transform='translate3d('+(dx*30)+'px,'+(dy*30)+'px,0)';
+      if(gf)gf.style.transform='translate3d('+(dx*-16)+'px,'+(dy*-16)+'px,0)';
+      if(hc)hc.style.transform='translate3d('+(dx*8)+'px,'+(dy*8)+'px,0)';
+    });
+    hero.addEventListener('pointerleave',function(){
+      if(au)au.style.transform='';if(gf)gf.style.transform='';if(hc)hc.style.transform='';
+    });
+  }
+}
 
 /* ---- magnetic buttons ---- */
 if(!RM&&matchMedia('(pointer:fine)').matches)document.querySelectorAll('[data-magnetic]').forEach(function(b){

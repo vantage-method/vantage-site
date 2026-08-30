@@ -491,6 +491,49 @@ footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px soli
 .intg span{font-size:.72rem;color:var(--muted-2)}
 .intg-note{text-align:center;font-family:var(--f-mono);font-size:.72rem;color:var(--muted-2);letter-spacing:.05em;margin-top:1.6rem}
 
+/* ============================ RAZZLE / MOTION LAYER ============================ */
+/* shimmering gradient headline accents */
+@keyframes accentshimmer{to{background-position:-200% center}}
+h1 .accent,h2 .accent{
+  background:linear-gradient(90deg,var(--accent) 0%,#8af0f8 25%,var(--accent-deep) 50%,#8af0f8 75%,var(--accent) 100%);
+  background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+  animation:accentshimmer 7s linear infinite}
+
+/* punchier base reveal (subtle scale-in) */
+.reveal{transform:translateY(38px) scale(.984)}
+.reveal.in{transform:none}
+
+/* shine sweep across framed product visuals on reveal */
+.app-window .shine,.dashframe .shine{position:absolute;inset:0;z-index:6;pointer-events:none;overflow:hidden;border-radius:inherit}
+.app-window .shine::before,.dashframe .shine::before{content:"";position:absolute;top:-20%;left:0;width:55%;height:140%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.16),transparent);transform:translateX(-180%) rotate(2deg)}
+.app-window.in .shine::before,.dashframe.in .shine::before{animation:sweep 1.7s var(--e-out) .35s}
+@keyframes sweep{to{transform:translateX(320%) rotate(2deg)}}
+
+/* 3D tilt */
+.tilt3d{transition:transform .35s var(--e-out);transform-style:preserve-3d;will-change:transform}
+
+/* stat pop on count-up finish */
+@keyframes statpop{0%{transform:scale(1)}45%{transform:scale(1.15)}100%{transform:scale(1)}}
+.pop{animation:statpop .55s var(--e-out)}
+
+/* Ask Vantage scroll-scrub: steps dim, then light up in sequence */
+.ask-steps .step{opacity:.4;transition:opacity .45s var(--e-out),transform .45s var(--e-out),border-color .45s,box-shadow .45s,background .45s}
+.ask-steps .step.on{opacity:1;border-color:var(--accent);background:var(--panel);box-shadow:0 0 0 1px rgba(30,200,217,.3),0 12px 34px -18px rgba(30,200,217,.55);transform:translateX(6px)}
+.ask-steps .step.on .n{background:var(--accent);color:#041416;border-color:var(--accent)}
+
+/* editorial chapter numbers in eyebrows */
+.eyebrow .ch{font-weight:700;color:var(--accent);letter-spacing:.14em}
+
+/* diagram traveling energy dot */
+#ecoLines .spark-dot{fill:#c7f7fc;filter:drop-shadow(0 0 7px var(--accent))}
+
+@media(prefers-reduced-motion:reduce){
+  h1 .accent,h2 .accent{animation:none}
+  .app-window.in .shine::before,.dashframe.in .shine::before{animation:none}
+  .ask-steps .step{opacity:1}
+}
+
 /* ============================ RESPONSIVE ============================ */
 @media(max-width:960px){
   .hero-grid{grid-template-columns:1fr}
@@ -573,6 +616,7 @@ footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px soli
     </div>
 
     <div class="app-window reveal scale" data-i="2" id="appWindow" data-parallax="18">
+      <span class="shine"></span>
       <div class="aw-bar"><span class="aw-dot"></span><span class="aw-dot"></span><span class="aw-dot"></span><span class="aw-title">vantage method — command</span></div>
       <div class="aw-body">
         <div class="aw-side">
@@ -765,6 +809,7 @@ footer .copy{font-size:.8rem;color:var(--muted-2);width:100%;border-top:1px soli
       <p class="lead" style="margin:1.2rem auto 0">Strategy, campaigns, content and follow‑up — running together in a single command center built around your business.</p>
     </div>
     <div class="dashframe reveal scale" data-parallax="10">
+      <span class="shine"></span>
       <div class="dash-bar"><span class="aw-dot"></span><span class="aw-dot"></span><span class="aw-dot"></span><span class="aw-title">vantage method — command center</span><span class="dash-live">live</span></div>
       <div class="dash-body">
         <aside class="dash-side">
@@ -1166,6 +1211,8 @@ var RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
 /* ---- header + scroll progress + parallax (rAF) ---- */
 var hdr=document.getElementById('hdr'),prog=document.getElementById('progress');
 var parEls=[].slice.call(document.querySelectorAll('[data-parallax]'));
+var askSteps=[].slice.call(document.querySelectorAll('.ask-steps .step'));
+var askSec=document.getElementById('ask');
 var ticking=false;
 function onScroll(){
   if(ticking)return;ticking=true;
@@ -1177,6 +1224,10 @@ function onScroll(){
       var r=el.getBoundingClientRect(),c=r.top+r.height/2,off=(c-vh/2)/vh;
       el.style.transform='perspective(1400px) rotateX(4deg) rotateY(-7deg) translateY('+(off*-(+el.dataset.parallax))+'px)';
     });}
+    if(askSteps.length&&askSec){var rr=askSec.getBoundingClientRect();
+      var pr=(innerHeight*0.82-rr.top)/(rr.height*0.85);pr=pr<0?0:(pr>1?1:pr);
+      var nn=Math.round(pr*askSteps.length);
+      for(var si=0;si<askSteps.length;si++)askSteps[si].classList.toggle('on',si<nn);}
     ticking=false;
   });
 }
@@ -1195,7 +1246,9 @@ function countUp(el){
   var target=+el.getAttribute('data-count'),dur=1200,t0=null;
   if(RM){el.textContent=target;return;}
   function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1);var e=1-Math.pow(1-p,3);
-    el.textContent=Math.round(target*e);if(p<1)requestAnimationFrame(step);}
+    el.textContent=Math.round(target*e);
+    if(p<1)requestAnimationFrame(step);
+    else{var pt=el.closest('.kpi')||el.closest('.b')||el.parentElement||el;pt.classList.add('pop');setTimeout(function(){pt.classList.remove('pop')},600);}}
   requestAnimationFrame(step);
 }
 var io=new IntersectionObserver(function(es){es.forEach(function(e){
@@ -1206,10 +1259,13 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e){
 document.querySelectorAll('.reveal,.mask').forEach(function(el){io.observe(el)});
 document.querySelectorAll('.strip .container,.big3').forEach(function(el){io.observe(el)});
 
-/* ---- card cursor glow ---- */
-if(!RM)document.querySelectorAll('.tilt-group .card').forEach(function(c){
+/* ---- card cursor glow + 3D tilt ---- */
+if(!RM&&matchMedia('(pointer:fine)').matches)document.querySelectorAll('.tilt-group .card,.price-card').forEach(function(c){
   c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect();
-    c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
+    var px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+    c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');
+    c.style.transform='perspective(900px) rotateX('+((0.5-py)*6).toFixed(2)+'deg) rotateY('+((px-0.5)*6).toFixed(2)+'deg) translateY(-6px)';});
+  c.addEventListener('pointerleave',function(){c.style.transform='';});
 });
 
 /* ---- magnetic buttons ---- */
@@ -1254,10 +1310,19 @@ if(!RM&&matchMedia('(pointer:fine)').matches)document.querySelectorAll('[data-ma
     lr.setAttribute('x1',a.x);lr.setAttribute('y1',a.y);lr.setAttribute('x2',b.x);lr.setAttribute('y2',b.y);
     lr.setAttribute('stroke','rgba(255,255,255,0.06)');lr.setAttribute('stroke-width','1');svg.appendChild(lr);}
   var spokes=svg.querySelectorAll('line[data-l]'),idx=0,run=false;
+  var dot=document.createElementNS('http://www.w3.org/2000/svg','circle');
+  dot.setAttribute('r','5');dot.setAttribute('class','spark-dot');dot.setAttribute('cx',cx);dot.setAttribute('cy',cy);dot.setAttribute('opacity','0');
+  svg.appendChild(dot);
+  function travel(to){var t0=null,d=680;dot.setAttribute('opacity','1');
+    function st(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/d,1),e=1-Math.pow(1-p,3);
+      dot.setAttribute('cx',cx+(to.x-cx)*e);dot.setAttribute('cy',cy+(to.y-cy)*e);
+      if(p<1)requestAnimationFrame(st);else dot.setAttribute('opacity','0');}
+    requestAnimationFrame(st);}
   function pulse(){nodes.forEach(function(n){n.classList.remove('active')});
     spokes.forEach(function(l){l.setAttribute('stroke','rgba(30,200,217,0.22)');l.setAttribute('stroke-width','1.4')});
     nodes[idx].classList.add('active');
     var al=svg.querySelector('line[data-l="'+idx+'"]');if(al){al.setAttribute('stroke','rgba(30,200,217,0.95)');al.setAttribute('stroke-width','2.6')}
+    if(!RM)travel(pts[idx]);
     idx=(idx+1)%N;}
   var ecoio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!run){run=true;
     spokes.forEach(function(l){l.setAttribute('stroke-dashoffset','0')});

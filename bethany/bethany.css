@@ -1,0 +1,376 @@
+/* ============================================
+   BETHANY PROPOSAL PAGE
+   Pricing tables, package cards, phase blocks
+   ============================================ */
+
+.bp .s-hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: s-fadeUp 0.6s ease 0.3s forwards;
+}
+
+.bp-section {
+    padding: 6rem 0;
+}
+
+.bp-section-alt {
+    background: var(--color-bg-alt);
+}
+
+.bp-lead {
+    max-width: 760px;
+    margin: -2.5rem auto 3rem;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+.bp-note {
+    max-width: 760px;
+    margin: 1.5rem auto 0;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+}
+
+/* Tables */
+.bp-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-bg);
+}
+
+.bp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+}
+
+.bp-table th,
+.bp-table td {
+    padding: 1rem 1.125rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.bp-table thead th {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text-muted);
+    background: var(--color-bg-alt);
+    white-space: nowrap;
+}
+
+.bp-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.bp-table td:first-child {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.bp-table td small {
+    display: block;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    white-space: normal;
+}
+
+.bp-table a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.bp-table a:hover {
+    text-decoration: underline;
+}
+
+.bp-table-price td:last-child {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.bp-table-price th:last-child {
+    text-align: right;
+}
+
+.bp-row-total td {
+    background: rgba(0, 124, 135, 0.06);
+    border-top: 2px solid var(--color-accent);
+}
+
+.bp-row-total td:last-child {
+    color: var(--color-accent);
+}
+
+/* Phase blocks */
+.bp-phase {
+    max-width: 1000px;
+    margin: 0 auto 4.5rem;
+}
+
+.bp-phase:last-child {
+    margin-bottom: 0;
+}
+
+.bp-phase-label {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+}
+
+.bp-phase-title {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.bp-phase > p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    max-width: 860px;
+}
+
+/* Packages */
+.bp-packages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.bp-package {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 2.25rem 2rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+}
+
+.bp-package-featured {
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 16px 40px rgba(0, 124, 135, 0.14);
+}
+
+.bp-badge {
+    position: absolute;
+    top: -0.8rem;
+    left: 2rem;
+    padding: 0.3rem 0.8rem;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #fff;
+    background: var(--color-accent);
+    border-radius: 4px;
+}
+
+.bp-package h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.bp-package-price {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+}
+
+.bp-list-price {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-decoration: line-through;
+    margin-bottom: 0.35rem;
+}
+
+.bp-package ul {
+    list-style: none;
+    margin: 0 0 2rem;
+    padding: 0;
+    flex: 1;
+}
+
+.bp-package li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.9875rem;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+.bp-package li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.bp-package .s-cta-button {
+    text-align: center;
+}
+
+/* Assumptions */
+.bp-two-col {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.bp-sub {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.bp-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bp-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9875rem;
+    line-height: 1.65;
+    color: var(--color-text-muted);
+}
+
+.bp-list li strong {
+    color: var(--color-text);
+}
+
+.bp-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+}
+
+.bp-list-questions li::before {
+    content: '?';
+    top: 0;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background: none;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .bp-packages {
+        grid-template-columns: 1fr;
+    }
+    .bp-two-col {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .bp-section {
+        padding: 4rem 0;
+    }
+    .bp-lead {
+        margin-top: -1.5rem;
+    }
+    .bp-table td:first-child {
+        white-space: normal;
+    }
+    .bp-table th,
+    .bp-table td {
+        padding: 0.8rem 0.9rem;
+    }
+}
+
+/* Print: the client will save this as a PDF */
+@media print {
+    header,
+    .s-hero-vanta,
+    .s-hero-visual,
+    .s-sticky-cta,
+    .s-cta,
+    .site-footer-nav {
+        display: none !important;
+    }
+    .s-hero {
+        min-height: 0;
+        padding: 2rem 0;
+    }
+    .s-hero-headline,
+    .s-section-title {
+        -webkit-text-fill-color: initial;
+        background: none;
+        color: #000;
+    }
+    .s-reveal,
+    .s-eyebrow,
+    .s-hero-headline,
+    .s-hero-sub,
+    .s-hero-cta,
+    .s-trust-line {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+    .bp-section,
+    .s-benefits,
+    .s-included {
+        padding: 1.5rem 0;
+        break-inside: avoid;
+    }
+    .bp-table-wrap {
+        overflow: visible;
+    }
+    .bp-package {
+        break-inside: avoid;
+    }
+    a[href^="http"]::after {
+        content: '';
+    }
+}

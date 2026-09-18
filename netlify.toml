@@ -120,3 +120,18 @@
   from = "/kenny.html"
   to = "/kenny/"
   status = 301
+
+# bethany.vantagemethod.com serves the Bethany proposal page.
+# The subdomain is a domain alias of this site, so /shared, /assets and /booking
+# resolve normally; only the root is rewritten to the proposal.
+[[redirects]]
+  from = "https://bethany.vantagemethod.com/"
+  to = "/bethany/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "https://bethany.vantagemethod.com/index.html"
+  to = "/bethany/index.html"
+  status = 200
+  force = true

@@ -249,6 +249,7 @@ const PUBLISH_PATHS = [
     'app',
     'assessment',
     'assets',
+    'bethany',
     'blaise',
     'booking',
     'custom-website',

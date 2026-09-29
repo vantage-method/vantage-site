@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crescent Project — Reaching Muslims with the Love of Christ</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Concept redesign — Crescent Project: equipping the Church to share the love of Christ with Muslims.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--sand:#f3ead3;--sand-2:# efe3c7;--sand-2:#eee2c6;--paper:#fbf6ea;--ink:#241f18;--muted:#6a6153;--teal:#12655c;--teal-dk:#0d4a43;--clay:#b8552f;--line:#e2d6ba}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--sand);color:var(--ink);font-family:"Work Sans",system-ui,sans-serif;font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+h1,h2,h3{font-family:"Merriweather",Georgia,serif;font-weight:700;line-height:1.16}
+a{color:inherit;text-decoration:none}
+.eyebrow{font-family:"Work Sans",sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;padding:13px 26px;border-radius:8px;border:2px solid transparent;cursor:pointer;transition:.15s;font-family:"Work Sans",sans-serif}
+.btn-teal{background:var(--teal);color:#fff}.btn-teal:hover{background:var(--teal-dk)}
+.btn-clay{background:var(--clay);color:#fff}.btn-clay:hover{filter:brightness(.92)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}.btn-ghost:hover{background:var(--ink);color:var(--sand)}
+/* header */
+header{position:sticky;top:0;z-index:20;background:rgba(243,234,211,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:20px}
+.logo img{height:52px;width:auto}
+nav.main{display:flex;gap:24px;font-weight:600;align-items:center}
+nav.main a:hover{color:var(--teal)}
+@media(max-width:840px){nav.main{display:none}}
+/* hero */
+.hero{position:relative;min-height:min(78vh,640px);display:flex;align-items:center;color:#fff;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(13,38,34,.86),rgba(18,101,92,.55))}
+.hero .wrap{position:relative;z-index:2;padding-top:70px;padding-bottom:70px}
+.hero .eyebrow{color:#8fded0}
+.hero h1{color:#fff;font-size:clamp(2.4rem,5.5vw,4.2rem);max-width:18ch;margin:16px 0 0}
+.hero p{color:#e7efe9;font-size:clamp(1.1rem,2vw,1.35rem);max-width:54ch;margin:20px 0 0}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+/* mission strip */
+.mission{background:var(--paper);border-bottom:1px solid var(--line)}
+.mission .wrap{padding:clamp(40px,5vw,64px) 0;text-align:center}
+.mission p{font-family:"Merriweather",serif;font-size:clamp(1.3rem,3vw,2rem);line-height:1.5;max-width:24ch;margin:0 auto;color:var(--ink)}
+.mission p em{color:var(--teal);font-style:normal}
+/* sections */
+section{padding:clamp(48px,6vw,84px) 0}
+.sec-head{text-align:center;max-width:62ch;margin:0 auto clamp(34px,4vw,48px)}
+.sec-head h2{font-size:clamp(1.9rem,4vw,2.8rem)}
+.sec-head p{color:var(--muted);margin-top:14px;font-size:1.15rem}
+/* ways cards */
+.ways{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.way{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:30px;transition:.16s}
+.way:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(36,31,24,.1)}
+.way .ic{width:52px;height:52px;border-radius:12px;background:var(--teal);color:#fff;display:grid;place-items:center;margin-bottom:18px}
+.way h3{font-size:1.4rem}.way p{color:var(--muted);margin-top:10px;font-size:1.02rem}
+.way a{display:inline-block;margin-top:16px;font-weight:700;color:var(--teal)}
+/* events (dark teal) */
+.events{background:var(--teal-dk);color:#eaf3f0}
+.events .sec-head h2{color:#fff}.events .sec-head p{color:#b9d3cd}
+.evgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.ev{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:14px;overflow:hidden}
+.ev .top{padding:24px 24px 20px}
+.ev .k{font-family:"Work Sans",sans-serif;font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:#8fded0}
+.ev h3{color:#fff;font-size:1.4rem;margin:8px 0 6px}
+.ev .d{color:#b9d3cd}
+.ev .foot{border-top:1px solid rgba(255,255,255,.14);padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.ev .foot a{font-weight:700;color:#fff}
+/* sahara feature */
+.sahara{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:center}
+@media(max-width:800px){.sahara{grid-template-columns:1fr}}
+.sahara .fig{border-radius:16px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 24px 50px rgba(36,31,24,.16)}
+.sahara .fig img{width:100%;height:100%;object-fit:cover}
+.sahara h2{font-size:clamp(1.9rem,4vw,2.8rem)}
+.sahara p{color:var(--muted);margin-top:16px;font-size:1.12rem}
+.sahara .cta{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+/* newsletter */
+.news{background:var(--sand);border-top:1px solid var(--line)}
+.news .box{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:clamp(32px,5vw,56px);text-align:center}
+.news h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}.news p{color:var(--muted);max-width:52ch;margin:12px auto 0}
+.subform{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.subform input{padding:14px 18px;border-radius:8px;border:2px solid var(--line);background:#fff;min-width:280px;font-family:inherit;font-size:1rem}
+/* footer */
+footer{background:#1c1810;color:#c9bfa8;padding:56px 0 36px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr 1fr}}
+footer h4{color:#fff;font-family:"Work Sans",sans-serif;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+footer a{display:block;padding:5px 0}footer a:hover{color:#8fded0}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:34px;padding-top:20px;font-size:.85rem;color:#8a8069;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hbar">
+    <a class="logo" href="#"><img src="https://images.squarespace-cdn.com/content/v1/612ce6ef3dfcc161170dcdc9/2d76a028-d4b9-437a-b37b-21e7fcb18d76/BGCP.png?format=750w" alt="Crescent Project"></a>
+    <nav class="main">
+      <a href="#ways">What We Do</a>
+      <a href="#events">Events</a>
+      <a href="#sahara">Sahara Challenge</a>
+      <a href="#">Resources</a>
+      <a href="#">About</a>
+    </nav>
+    <a class="btn btn-clay" href="#">Donate</a>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <img class="bg" src="https://images.squarespace-cdn.com/content/v1/612ce6ef3dfcc161170dcdc9/1767368957258-FFN5ZUJZJ43RTGPV15ZE/patrick-fore-b_SHPU5M3nk-unsplash.jpg" alt="">
+    <div class="wrap">
+      <span class="eyebrow">Crescent Project</span>
+      <h1>Helping the Church reach Muslims with the love of Christ.</h1>
+      <p>For over two decades we've equipped everyday believers to build genuine friendships with Muslims and share the hope of Jesus — with confidence, not fear.</p>
+      <div class="cta">
+        <a class="btn btn-teal" href="#ways">Get equipped</a>
+        <a class="btn btn-ghost" style="border-color:#fff;color:#fff" href="#events">Find an event</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="mission">
+    <div class="wrap">
+      <p>Nearly two billion Muslims. Most have never known a Christian. <em>You can be the one who does.</em></p>
+    </div>
+  </div>
+
+  <section id="ways">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Where to begin</span>
+        <h2>Three ways we equip you</h2>
+        <p>Whether you're just starting or ready to go deeper, there's a next step for you and your church.</p>
+      </div>
+      <div class="ways">
+        <div class="way">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V5a2 2 0 012-2h9l5 5v11"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div>
+          <h3>Bridges Study</h3>
+          <p>Our flagship small-group course: understand Islam, overcome fear, and learn to share your faith naturally.</p>
+          <a href="#">Explore Bridges →</a>
+        </div>
+        <div class="way">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></div>
+          <h3>Sahara Challenge</h3>
+          <p>An immersive experience in learning, prayer, and outreach to Muslims — a turning point for thousands.</p>
+          <a href="#sahara">Take the challenge →</a>
+        </div>
+        <div class="way">
+          <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></div>
+          <h3>Podcast &amp; Media</h3>
+          <p>“Let Me Be Your Neighbor,” blog, and videos — real stories and practical help you can use this week.</p>
+          <a href="#">Listen &amp; watch →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="events" id="events">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:#8fded0">Live events</span>
+        <h2>Meet us in person</h2>
+        <p>Bridges seminars and gatherings across the country and beyond.</p>
+      </div>
+      <div class="evgrid">
+        <div class="ev"><div class="top"><div class="k">Bridges Seminar</div><h3>Nashville, TN</h3><div class="d">A weekend to learn, pray, and be equipped.</div></div><div class="foot"><span>Spring 2026</span><a href="#">Register →</a></div></div>
+        <div class="ev"><div class="top"><div class="k">Bridges Seminar</div><h3>Washington, D.C.</h3><div class="d">Reaching the nations in our nation's capital.</div></div><div class="foot"><span>Summer 2026</span><a href="#">Register →</a></div></div>
+        <div class="ev"><div class="top"><div class="k">Gathering</div><h3>Europe Gatherings</h3><div class="d">Equipping the Church across Europe.</div></div><div class="foot"><span>Fall 2026</span><a href="#">Register →</a></div></div>
+        <div class="ev"><div class="top"><div class="k">Host</div><h3>Host a Seminar</h3><div class="d">Bring Bridges to your church or city.</div></div><div class="foot"><span>Year-round</span><a href="#">Inquire →</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sahara">
+    <div class="wrap sahara">
+      <div class="fig"><img src="https://images.squarespace-cdn.com/content/v1/612ce6ef3dfcc161170dcdc9/af872f96-e136-4c80-920e-70f926ab9cd0/matheus-ferrero-TkrRvwxjb_8-unsplash+%281%29.jpg" alt="Sahara Challenge"></div>
+      <div>
+        <span class="eyebrow">The Sahara Challenge</span>
+        <h2>The experience that changes how you see your Muslim neighbor.</h2>
+        <p>Days of teaching, prayer, and real conversations that turn fear into friendship. Alumni call it the moment everything clicked — and the reason they finally started sharing their faith.</p>
+        <div class="cta">
+          <a class="btn btn-teal" href="#">Learn more</a>
+          <a class="btn btn-ghost" href="#">Watch stories</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="news">
+    <div class="wrap">
+      <div class="box">
+        <h2>Stay connected</h2>
+        <p>Stories from the field, new resources, and upcoming events — a few times a month.</p>
+        <form class="subform" onsubmit="return false">
+          <input type="email" placeholder="you@email.com" aria-label="Email">
+          <button class="btn btn-teal" type="submit">Sign up</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <img src="https://images.squarespace-cdn.com/content/v1/612ce6ef3dfcc161170dcdc9/2d76a028-d4b9-437a-b37b-21e7fcb18d76/BGCP.png?format=500w" alt="Crescent Project" style="height:56px;margin-bottom:14px;filter:brightness(0) invert(1)">
+        <p style="max-width:34ch">Equipping the Church to share the love of Christ with Muslims — one friendship at a time.</p>
+      </div>
+      <div><h4>Equip</h4><a href="#">Bridges Study</a><a href="#sahara">Sahara Challenge</a><a href="#">Podcast</a><a href="#">Blog &amp; Videos</a></div>
+      <div><h4>Engage</h4><a href="#">Every Imam</a><a href="#">ESL Ministry</a><a href="#">Internships</a><a href="#events">Events</a></div>
+      <div><h4>Connect</h4><a href="#">About Us</a><a href="#">Contact</a><a href="#">Donate</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Crescent Project</span><span>Concept redesign by Vantage Method</span></div>
+  </div>
+</footer>
+</body>
+</html>

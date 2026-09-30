@@ -6,92 +6,200 @@
 <title>Book a Call — Vantage Method</title>
 <meta name="description" content="Book a 30-minute call with our team. We'll scope your Vantage Agent setup and get you started.">
 <link rel="canonical" href="https://vantagemethod.com/book/">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#ffffff; --text:#0a0a0a; --muted:#666; --border:#e5e5e5; --alt:#fafafa;
-    --accent:#007c87; --accent-dark:#006672;
+    --bg:#F7F8F8; --surface:#ffffff; --text:#0a0a0a; --body:#3C464E; --muted:#5C6670;
+    --border:#E3E7E9; --accent:#137576; --accent-bright:#1FA5A6; --accent-dark:#0C4E4F;
+    --accent-soft:rgba(19,117,118,.10); --radius:18px;
+    --shadow:0 24px 70px rgba(10,20,25,.10), 0 4px 14px rgba(10,20,25,.05);
+    --e:cubic-bezier(.16,1,.3,1);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0B0E0F; --surface:#14181A; --text:#F2F5F6; --body:#B9C3C9; --muted:#94A0A7;
+      --border:#242A2E; --accent:#35BDBE; --accent-bright:#35BDBE; --accent-dark:#6FD9DA;
+      --accent-soft:rgba(53,189,190,.12);
+      --shadow:0 30px 80px rgba(0,0,0,.55);
+    }
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--bg);color:var(--text);font:17px/1.6 Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--text);font:16px/1.55 Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100svh}
   a{color:var(--accent)}
-  .mono{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-  header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-  header img{height:34px;display:block}
-  header a.back{font-size:15px;text-decoration:none;color:var(--muted)}
-  header a.back:hover{color:var(--accent)}
-  main{max-width:900px;margin:0 auto;padding:48px 16px 100px}
-  h1{font-family:'Barlow Condensed';font-weight:800;font-size:clamp(38px,6vw,56px);line-height:1.05;margin:14px 0 10px}
-  h1 span{color:var(--accent)}
-  .lede{color:var(--muted);max-width:56ch;margin-bottom:38px}
-  h2{font-family:'Barlow Condensed';font-weight:700;font-size:24px;margin:34px 0 12px}
-  .tzn{font-size:13.5px;color:var(--muted);margin:6px 0 16px}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  .mono{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 
-  .days{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}
-  .day{flex:0 0 auto;min-width:92px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:var(--bg);cursor:pointer;text-align:center;font:inherit}
-  .day b{display:block;font-size:18px}
-  .day span{font-size:12.5px;color:var(--muted)}
-  .day.sel{border-color:var(--accent);background:var(--accent);color:#fff}
-  .day.sel span{color:rgba(255,255,255,.85)}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 26px}
+  header.top .brand{font-family:'Barlow Condensed';font-weight:800;font-size:20px;letter-spacing:.02em;color:var(--text);text-decoration:none}
+  header.top .brand em{font-style:normal;color:var(--accent)}
+  header.top a.back{font-size:14.5px;text-decoration:none;color:var(--muted)}
+  header.top a.back:hover{color:var(--accent)}
 
-  .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:18px}
-  .slot{padding:11px 6px;border:1px solid var(--border);border-radius:10px;background:var(--bg);cursor:pointer;font:600 15px Barlow;text-align:center}
+  main{max-width:1060px;margin:0 auto;padding:22px 16px 90px}
+  .intro{text-align:center;max-width:620px;margin:0 auto 34px}
+  .intro h1{font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,5.4vw,48px);line-height:1.06;margin:10px 0 8px}
+  .intro h1 span{color:var(--accent)}
+  .intro p{color:var(--muted);font-size:15.5px}
+  .tzn{font-size:12.5px;color:var(--muted);text-align:center;margin-top:16px}
+
+  /* ---------- the three-panel flow ---------- */
+  .flow{
+    display:flex;justify-content:center;align-items:stretch;gap:0;
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
+    box-shadow:var(--shadow);overflow:hidden;min-height:432px;
+  }
+  .panel{transition:flex-basis .55s var(--e),opacity .4s ease,transform .55s var(--e);min-width:0}
+
+  .cal{flex:0 1 460px;padding:28px 30px}
+  .times{flex:0 0 0;opacity:0;transform:translateX(24px);overflow:hidden;border-left:1px solid transparent;pointer-events:none}
+  .formp{flex:0 0 0;opacity:0;transform:translateX(24px);overflow:hidden;border-left:1px solid transparent;pointer-events:none}
+
+  .flow[data-stage="2"] .cal,
+  .flow[data-stage="3"] .cal{flex:0 1 380px}
+  .flow[data-stage="2"] .times,
+  .flow[data-stage="3"] .times{flex:0 0 250px;opacity:1;transform:none;border-left-color:var(--border);pointer-events:auto}
+  .flow[data-stage="3"] .cal{flex:0 1 320px}
+  .flow[data-stage="3"] .formp{flex:1 1 400px;opacity:1;transform:none;border-left-color:var(--border);pointer-events:auto}
+
+  /* ---------- calendar ---------- */
+  .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .cal-head b{font-family:'Barlow Condensed';font-weight:700;font-size:22px}
+  .cal-nav{display:flex;gap:6px}
+  .cal-nav button{width:34px;height:34px;border-radius:9px;border:1px solid var(--border);color:var(--muted);display:grid;place-items:center;transition:.2s}
+  .cal-nav button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+  .cal-nav button:disabled{opacity:.35;cursor:default}
+  .dow,.days-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+  .dow{margin-bottom:6px}
+  .dow span{text-align:center;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+  .day{
+    aspect-ratio:1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    font-weight:600;font-size:14.5px;color:var(--muted);position:relative;transition:background .2s,color .2s,transform .2s;
+  }
+  .day.pad{visibility:hidden}
+  .day.open{color:var(--text);background:var(--accent-soft)}
+  .day.open::after{content:"";width:4px;height:4px;border-radius:50%;background:var(--accent);position:absolute;bottom:6px}
+  .day.open:hover{background:var(--accent);color:#fff;transform:translateY(-1px)}
+  .day.open:hover::after{background:#fff}
+  .day.sel{background:var(--accent);color:#fff}
+  .day.sel::after{background:#fff}
+  .day:not(.open){cursor:default}
+  .cal-loading,.cal-error{padding:60px 0;text-align:center;color:var(--muted)}
+
+  /* ---------- times ---------- */
+  .times-in{padding:28px 22px;width:250px}
+  .times-in .mono{display:block;margin-bottom:4px}
+  .times-in h2{font-family:'Barlow Condensed';font-weight:700;font-size:21px;margin-bottom:14px;white-space:nowrap}
+  .slot-list{display:flex;flex-direction:column;gap:8px;max-height:310px;overflow-y:auto;padding-right:4px;scrollbar-width:thin}
+  .slot{
+    padding:10px 12px;border:1.5px solid var(--border);border-radius:10px;text-align:center;
+    font-weight:600;font-size:14.5px;transition:border-color .2s,color .2s,background .2s;
+  }
   .slot:hover{border-color:var(--accent);color:var(--accent)}
   .slot.sel{background:var(--accent);border-color:var(--accent);color:#fff}
 
-  form{margin-top:34px;display:none}
-  form.on{display:block}
-  .picked{display:inline-block;border:1px solid var(--border);background:var(--alt);border-radius:10px;padding:10px 16px;margin-bottom:22px;font-weight:600}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  @media(max-width:640px){.grid{grid-template-columns:1fr}}
-  label{display:block;font-size:13.5px;font-weight:600;margin:0 0 4px}
-  input,textarea{width:100%;padding:12px 14px;font:inherit;border:1.5px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text)}
+  /* ---------- form ---------- */
+  .form-in{padding:28px 28px;min-width:300px}
+  .form-in .picked{font-size:14px;color:var(--body);background:var(--accent-soft);border-radius:10px;padding:10px 14px;margin-bottom:18px}
+  .form-in .picked b{display:block;color:var(--text)}
+  .form-in .picked button{color:var(--accent);font-size:12.5px;font-weight:600;text-decoration:underline;padding:0}
+  label{display:block;font-size:12.5px;font-weight:600;margin-bottom:3px;color:var(--body)}
+  input,textarea{
+    width:100%;padding:10px 12px;font:inherit;font-size:14.5px;border:1.5px solid var(--border);border-radius:9px;
+    background:var(--bg);color:var(--text)
+  }
   input:focus,textarea:focus{outline:none;border-color:var(--accent)}
-  .field{margin-bottom:14px}
+  .field{margin-bottom:11px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
-  button.go{margin-top:8px;padding:15px 34px;font:700 17px Barlow;color:#fff;background:var(--accent);border:0;border-radius:10px;cursor:pointer}
-  button.go:hover{background:var(--accent-dark)}
-  button.go:disabled{opacity:.55;cursor:wait}
-  .err{color:#b3261e;font-size:15px;min-height:22px;margin-top:10px}
-  .empty,.loading{color:var(--muted);padding:30px 0}
+  .go{
+    width:100%;margin-top:6px;padding:13px;border-radius:10px;font-weight:700;font-size:15.5px;color:#fff;
+    background:var(--accent);transition:background .2s,transform .2s;position:relative;overflow:hidden;
+  }
+  .go:hover{background:var(--accent-dark);transform:translateY(-1px)}
+  .go:disabled{opacity:.55;cursor:wait;transform:none}
+  .err{color:#C0392B;font-size:13.5px;min-height:18px;margin-top:8px}
 
-  #done{display:none;text-align:center;padding:60px 0}
-  #done .tick{width:74px;height:74px;border-radius:50%;background:var(--accent);color:#fff;font-size:38px;line-height:74px;margin:0 auto 22px}
-  #done h2{font-size:34px}
+  /* ---------- done ---------- */
+  #done{display:none;text-align:center;padding:70px 20px}
+  #done .tick{width:72px;height:72px;border-radius:50%;background:var(--accent);color:#fff;font-size:36px;line-height:72px;margin:0 auto 20px}
+  #done h2{font-family:'Barlow Condensed';font-weight:800;font-size:36px}
   #done p{color:var(--muted);max-width:52ch;margin:10px auto 0}
+
+  /* ---------- mobile: the flow stacks ---------- */
+  @media (max-width:860px){
+    .flow{flex-direction:column;min-height:0}
+    .panel{transition:opacity .4s ease,transform .5s var(--e)}
+    .cal{flex:none !important;width:100%;max-width:460px;margin:0 auto}
+    .times,.formp{flex:none !important;display:none;border-left:0 !important;border-top:1px solid var(--border)}
+    .flow[data-stage="2"] .times,.flow[data-stage="3"] .times{display:block}
+    .flow[data-stage="3"] .formp{display:block}
+    .times-in{width:100%;padding:22px 24px}
+    .slot-list{flex-direction:row;flex-wrap:wrap;max-height:none}
+    .slot{flex:1 1 90px}
+    .form-in{min-width:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;animation:none !important}
+  }
 </style>
 </head>
 <body>
-<header>
-  <a href="/"><img src="/assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method"></a>
+<header class="top">
+  <a class="brand" href="/">Vantage <em>Method</em></a>
   <a class="back" href="/">← Back to the site</a>
 </header>
 <main>
-  <div id="pick">
-    <p class="mono">Book a call</p>
-    <h1>30 minutes.<br>Then your marketing <span>runs itself.</span></h1>
-    <p class="lede">Pick a time that suits you. You'll meet with Kenny from our team — he'll walk you through the Vantage Agent, scope your setup, and if it's a fit, get you started the same week.</p>
+  <div id="book">
+    <div class="intro">
+      <p class="mono">Book a call · 30 minutes</p>
+      <h1>Pick a time.<br>Then your marketing <span>runs itself.</span></h1>
+      <p>You'll meet with Kenny from our team — he'll walk you through the Vantage Agent, scope your setup, and if it's a fit, get you started the same week.</p>
+    </div>
 
-    <h2>Pick a day</h2>
+    <div class="flow" data-stage="1" id="flow">
+      <section class="panel cal" id="calPanel">
+        <div class="cal-head">
+          <b id="calMonth">&nbsp;</b>
+          <div class="cal-nav">
+            <button id="prevM" aria-label="Previous month">‹</button>
+            <button id="nextM" aria-label="Next month">›</button>
+          </div>
+        </div>
+        <div class="dow"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+        <div class="days-grid" id="daysGrid"></div>
+        <div class="cal-loading" id="calLoading">Loading available dates…</div>
+      </section>
+
+      <section class="panel times" aria-label="Available times">
+        <div class="times-in">
+          <span class="mono">Available times</span>
+          <h2 id="timesDay">&nbsp;</h2>
+          <div class="slot-list" id="slotList"></div>
+        </div>
+      </section>
+
+      <section class="panel formp" aria-label="Your details">
+        <form class="form-in" id="f">
+          <div class="picked"><b id="pickedWhen"></b>30 minutes · video or phone <button type="button" id="changeTime">change</button></div>
+          <div class="row2">
+            <div class="field"><label for="name">Your name *</label><input id="name" required autocomplete="name"></div>
+            <div class="field"><label for="email">Email *</label><input id="email" type="email" required autocomplete="email"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="company">Company</label><input id="company" autocomplete="organization"></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" autocomplete="tel"></div>
+          </div>
+          <div class="field"><label for="notes">Anything we should know?</label><textarea id="notes" rows="2" placeholder="What you sell, what's working, what isn't…"></textarea></div>
+          <div class="hp" aria-hidden="true"><label>Website<input id="website" tabindex="-1" autocomplete="off"></label></div>
+          <button class="go" id="go" type="submit">Confirm booking</button>
+          <p class="err" id="err" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </div>
     <p class="tzn" id="tzn">Times are shown in your timezone.</p>
-    <div class="days" id="days"><span class="loading">Loading available times…</span></div>
-    <div class="slots" id="slots"></div>
-
-    <form id="f">
-      <div class="picked" id="picked"></div>
-      <div class="grid">
-        <div class="field"><label for="name">Your name *</label><input id="name" required autocomplete="name"></div>
-        <div class="field"><label for="email">Email *</label><input id="email" type="email" required autocomplete="email"></div>
-        <div class="field"><label for="company">Company</label><input id="company" autocomplete="organization"></div>
-        <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" autocomplete="tel"></div>
-      </div>
-      <div class="field"><label for="notes">Anything we should know before the call?</label><textarea id="notes" rows="3" placeholder="What you sell, what's working, what isn't…"></textarea></div>
-      <div class="hp" aria-hidden="true"><label>Website<input id="website" tabindex="-1" autocomplete="off"></label></div>
-      <button class="go" id="go" type="submit">Confirm booking</button>
-      <p class="err" id="err" role="status" aria-live="polite"></p>
-    </form>
   </div>
 
   <div id="done">
@@ -106,74 +214,135 @@
   const API = 'https://agent.vantagemethod.com/api/booking';
   const $ = (id) => document.getElementById(id);
   const plan = new URLSearchParams(location.search).get('plan') || '';
-  let data = null, day = null, slot = null;
+  const mobile = () => matchMedia('(max-width:860px)').matches;
+
+  let byDate = new Map();   // 'YYYY-MM-DD' (local) -> [iso slots]
+  let months = [];          // ['YYYY-MM', ...] covered by availability
+  let mIdx = 0;             // current month index
+  let selDate = null, selSlot = null;
 
   try {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
     if (tz) $('tzn').textContent = 'Times are shown in your timezone (' + tz.replace(/_/g, ' ') + ').';
   } catch (e) {}
 
-  const dayLabel = (iso) => {
-    const d = new Date(iso + 'T12:00:00Z');
-    return {
-      top: d.toLocaleDateString(undefined, { timeZone: 'UTC', weekday: 'short' }),
-      big: d.toLocaleDateString(undefined, { timeZone: 'UTC', month: 'short', day: 'numeric' }),
-    };
-  };
+  const localKey = (d) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
   const timeLabel = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+  const stage = (n) => { $('flow').dataset.stage = n; };
 
-  function renderDays() {
-    const el = $('days');
-    el.innerHTML = '';
-    if (!data.days.length) { el.innerHTML = '<span class="empty">No open times right now — email team@vantagemethod.com and we\'ll find one.</span>'; return; }
-    data.days.forEach((d, i) => {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'day' + (i === 0 ? ' sel' : '');
-      const l = dayLabel(d.date);
-      b.innerHTML = '<span>' + l.top + '</span><b>' + l.big + '</b>';
-      b.onclick = () => { day = d; slot = null; $('f').classList.remove('on');
-        el.querySelectorAll('.day').forEach((x) => x.classList.remove('sel')); b.classList.add('sel'); renderSlots(); };
-      el.appendChild(b);
-      if (i === 0) day = d;
-    });
-    renderSlots();
+  function scrollToPanel(sel) {
+    if (mobile()) setTimeout(() => {
+      const el = document.querySelector(sel);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 80);
   }
 
-  function renderSlots() {
-    const el = $('slots');
-    el.innerHTML = '';
-    (day ? day.slots : []).forEach((s) => {
-      const b = document.createElement('button');
-      b.type = 'button'; b.className = 'slot'; b.textContent = timeLabel(s);
-      b.onclick = () => { slot = s;
-        el.querySelectorAll('.slot').forEach((x) => x.classList.remove('sel')); b.classList.add('sel');
-        $('picked').textContent = new Date(s).toLocaleString(undefined, { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' });
-        $('f').classList.add('on');
-        $('f').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
-      el.appendChild(b);
-    });
-  }
-
-  async function load() {
-    try {
-      const r = await fetch(API + '/availability');
-      data = await r.json();
-      renderDays();
-    } catch (e) {
-      $('days').innerHTML = '<span class="empty">Couldn\'t load times — refresh, or email team@vantagemethod.com.</span>';
+  // ---- calendar ----
+  function renderMonth() {
+    const [y, m] = months[mIdx].split('-').map(Number);
+    $('calMonth').textContent = new Date(y, m - 1, 1).toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
+    $('prevM').disabled = mIdx === 0;
+    $('nextM').disabled = mIdx >= months.length - 1;
+    const grid = $('daysGrid');
+    grid.innerHTML = '';
+    const first = new Date(y, m - 1, 1);
+    const daysInMonth = new Date(y, m, 0).getDate();
+    for (let i = 0; i < first.getDay(); i++) {
+      const pad = document.createElement('div'); pad.className = 'day pad'; grid.appendChild(pad);
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const key = y + '-' + String(m).padStart(2, '0') + '-' + String(d).padStart(2, '0');
+      const cell = document.createElement('button');
+      cell.type = 'button';
+      cell.textContent = d;
+      const open = byDate.has(key);
+      cell.className = 'day' + (open ? ' open' : '') + (key === selDate ? ' sel' : '');
+      if (open) {
+        cell.setAttribute('aria-label', 'Show times for ' + key);
+        cell.onclick = () => pickDate(key, cell);
+      } else {
+        cell.disabled = true;
+      }
+      grid.appendChild(cell);
     }
   }
 
+  function renderTimes(key) {
+    const d = new Date(key + 'T12:00:00');
+    $('timesDay').textContent = d.toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric' });
+    const list = $('slotList');
+    list.innerHTML = '';
+    (byDate.get(key) || []).forEach((iso) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'slot'; b.textContent = timeLabel(iso);
+      b.onclick = () => pickSlot(iso, b);
+      list.appendChild(b);
+    });
+  }
+
+  function pickDate(key, cell) {
+    selDate = key; selSlot = null;
+    document.querySelectorAll('.day.sel').forEach((x) => x.classList.remove('sel'));
+    cell.classList.add('sel');
+    renderTimes(key);
+    stage(2);
+    scrollToPanel('.times');
+  }
+
+  function pickSlot(iso, btn) {
+    selSlot = iso;
+    document.querySelectorAll('.slot.sel').forEach((x) => x.classList.remove('sel'));
+    btn.classList.add('sel');
+    $('pickedWhen').textContent = new Date(iso).toLocaleString(undefined, { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+    stage(3);
+    scrollToPanel('.formp');
+    setTimeout(() => { try { $('name').focus({ preventScroll: mobile() }); } catch (e) {} }, mobile() ? 0 : 480);
+  }
+
+  $('changeTime').onclick = () => { selSlot = null; stage(2); scrollToPanel('.times'); };
+  $('prevM').onclick = () => { if (mIdx > 0) { mIdx--; renderMonth(); } };
+  $('nextM').onclick = () => { if (mIdx < months.length - 1) { mIdx++; renderMonth(); } };
+
+  // ---- data ----
+  async function load() {
+    try {
+      const r = await fetch(API + '/availability');
+      const data = await r.json();
+      byDate = new Map();
+      for (const day of data.days) {
+        for (const iso of day.slots) {
+          const key = localKey(new Date(iso));   // regroup by the VISITOR's date
+          if (!byDate.has(key)) byDate.set(key, []);
+          byDate.get(key).push(iso);
+        }
+      }
+      months = [...new Set([...byDate.keys()].map((k) => k.slice(0, 7)))].sort();
+      $('calLoading').style.display = 'none';
+      if (!months.length) {
+        $('calLoading').style.display = 'block';
+        $('calLoading').textContent = 'No open times right now — email team@vantagemethod.com and we’ll find one.';
+        return;
+      }
+      mIdx = 0;
+      renderMonth();
+    } catch (e) {
+      $('calLoading').className = 'cal-error';
+      $('calLoading').textContent = 'Couldn’t load the calendar — refresh, or email team@vantagemethod.com.';
+    }
+  }
+
+  // ---- submit ----
   $('f').addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (!slot) return;
+    if (!selSlot) return;
     $('err').textContent = '';
     $('go').disabled = true;
+    $('go').textContent = 'Booking…';
     try {
       const r = await fetch(API + '/book', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          start: slot, plan,
+          start: selSlot, plan,
           name: $('name').value.trim(), email: $('email').value.trim(),
           company: $('company').value.trim(), phone: $('phone').value.trim(),
           notes: $('notes').value.trim(), website: $('website').value,
@@ -182,17 +351,21 @@
       const j = await r.json();
       if (!r.ok) {
         $('err').textContent = j.error || 'Something went wrong — try another time.';
-        if (r.status === 409) { $('f').classList.remove('on'); await load(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-        $('go').disabled = false;
+        $('go').disabled = false; $('go').textContent = 'Confirm booking';
+        if (r.status === 409) {
+          await load();
+          if (selDate && byDate.has(selDate)) { renderTimes(selDate); stage(2); }
+          else { selDate = null; stage(1); }
+        }
         return;
       }
-      $('pick').style.display = 'none';
+      $('book').style.display = 'none';
       $('doneWhen').textContent = new Date(j.start).toLocaleString(undefined, { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' — 30 minutes.';
       $('done').style.display = 'block';
       window.scrollTo({ top: 0 });
     } catch (e2) {
       $('err').textContent = 'Network hiccup — please try again.';
-      $('go').disabled = false;
+      $('go').disabled = false; $('go').textContent = 'Confirm booking';
     }
   });
 

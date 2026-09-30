@@ -505,15 +505,18 @@
   .alt-bill button:disabled { color: var(--muted); cursor: default; }
   .fine { margin-top: 14px; font-size: 12.5px; color: var(--muted); text-align: center; line-height: 1.5; }
   .fine a { color: var(--muted); }
+  /* Equal-height cards: pin each row's height so the three plans read as one
+     aligned table — price on one line, notes on one line, buttons on one line. */
+  @media (min-width: 941px) {
+    .price { min-height: 56px; align-items: baseline; }
+    .price-note { min-height: 80px; }
+    .price-card > p.sub { min-height: 70px; }
+    .alt-bill { min-height: 20px; }
+    .fine { min-height: 38px; }
+  }
   .pricing-foot { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 28px; margin-top: 40px; }
   .pricing-foot .v h3 { margin-bottom: 5px; }
   .pricing-foot .v p { color: var(--muted); font-size: 14.5px; }
-  .addon {
-    margin-top: 28px; border: 1px dashed var(--stroke-strong); border-radius: 16px;
-    padding: 16px 18px; background: var(--surface-2);
-  }
-  .addon b { font-size: 14.5px; }
-  .addon p { color: var(--muted); font-size: 13.5px; margin-top: 4px; }
   .value-list { display: grid; gap: 18px; margin-top: 26px; }
   .value-list .v h3 { margin-bottom: 5px; }
   .value-list .v p { color: var(--muted); font-size: 14.5px; }
@@ -807,7 +810,7 @@
         <div class="step">
           <div class="num">2</div>
           <h3>We set up your agent</h3>
-          <p>We build it on our own hardware, give it its brief, and connect the accounts you want it working in. Usually the same day — we email you the moment it's live.</p>
+          <p>We build it on our own hardware, give it its brief, and connect the accounts you want it working in. Usually within a couple of days — we email you the moment it's live.</p>
         </div>
         <div class="step">
           <div class="num">3</div>
@@ -905,7 +908,7 @@
         <div class="stat"><b>24/7</b><span>Always working — nights, weekends, holidays</span></div>
         <div class="stat"><b>8+</b><span>Marketing disciplines in one operator</span></div>
         <div class="stat"><b>1</b><span>Conversation to run it all</span></div>
-        <div class="stat"><b>Same day</b><span>From checkout to a live, working agent</span></div>
+        <div class="stat"><b>Days</b><span>From checkout to a live agent — days, not months</span></div>
       </div>
     </div>
   </section>
@@ -949,7 +952,7 @@
           <p class="price-tag">Base — turnkey · in beta</p>
           <p class="price"><b>$500</b><span>/ month</span></p>
           <p class="price-note">Month to month. Cancel anytime. Now in beta — early spots are limited.</p>
-          <p class="sub">Your agent, working today. You connect your accounts with one-tap sign-ins.</p>
+          <p class="sub">Your agent, working this week. You connect your accounts with one-tap sign-ins.</p>
           <ul class="incl">
             <li>A dedicated AI operator, built and hosted by us</li>
             <li>iPhone and Mac apps: your agent in your pocket</li>
@@ -959,7 +962,8 @@
             <li>Hosting, updates and support included</li>
           </ul>
           <a class="btn btn-primary btn-lg" href="https://agent.vantagemethod.com/api/checkout/start?plan=self-serve">Join the beta — $500/mo</a>
-          <p class="fine">Secure payment via Stripe · Cancel anytime · Vantage Method LLC</p>
+          <p class="alt-bill">Month to month · cancel anytime</p>
+          <p class="fine">Secure payment via Stripe · Vantage Method LLC</p>
         </div>
 
         <div class="price-card featured">
@@ -977,7 +981,7 @@
           </ul>
           <a class="btn btn-primary btn-lg" href="https://agent.vantagemethod.com/api/checkout/start?plan=custom&amp;annual=1">Get started — $1,000/mo</a>
           <p class="alt-bill">Billed annually · Prefer monthly? <a href="https://agent.vantagemethod.com/api/checkout/start?plan=custom">$1,300/mo + $2,500 launch build</a></p>
-          <p class="fine">Prefer to talk it through first? <a href="/book/">Book a call</a>.<br>Secure payment via Stripe · Cancel anytime · Vantage Method LLC</p>
+          <p class="fine">Prefer to talk it through first? <a href="/book/">Book a call</a> · Secure payment via Stripe</p>
         </div>
 
         <div class="price-card">
@@ -993,6 +997,7 @@
             <li>Invoicing, security review and procurement handled with your team</li>
           </ul>
           <a class="btn btn-primary btn-lg" href="/book/">Book a call</a>
+          <p class="alt-bill">Priced per company · invoicing available</p>
           <p class="fine">We'll scope it together and send a proposal. Or <a href="https://agent.vantagemethod.com/contact">write to us</a>.</p>
         </div>
       </div>
@@ -1010,10 +1015,6 @@
           <h3>Cancel whenever</h3>
           <p>Monthly plans run month to month through Stripe; annual plans run for the year. Manage or cancel your subscription any time from your <a href="https://agent.vantagemethod.com/account">customer sign-in</a>.</p>
         </div>
-      </div>
-      <div class="addon reveal">
-        <b>Need more hands? Extra agents — $500/mo each.</b>
-        <p>Add a second or third agent from your account at any time on Base or Pro. Each one is its own operator with its own conversation.</p>
       </div>
     </div>
   </section>
@@ -1050,8 +1051,8 @@
           <p>Those give you words. <strong>This one has hands.</strong> It runs on a real computer of its own with your real logins, so it can deploy a site, launch a campaign, push code and run tomorrow morning's work without you. The chat window is where you ask — the work happens on a machine that never sleeps.</p>
         </details>
         <details>
-          <summary>What does it cost, and what if I need more than one?</summary>
-          <p>Three ways in. <strong>$500/month for Base</strong> (in beta) — turnkey: you connect your accounts with one-tap sign-ins and your agent runs on your own Claude subscription. <strong>$1,000/month for Pro when you pay annually</strong> ($12,000 a year, launch build included), or $1,300 month to month plus a one-time $2,500 launch build — our team hand-builds and tests every connection, including custom API integrations, with guided onboarding. <strong>Enterprise is priced per company</strong> — agents across your teams, internal integrations and dedicated support; <a href="/book/">book a call</a> and we'll scope it with you. Extra agents are $500/month each on Base and Pro. Cancel anytime. Your Claude subscription (~$100/mo) is the one thing paid separately, straight to Anthropic.</p>
+          <summary>What does it cost?</summary>
+          <p>Three ways in. <strong>$500/month for Base</strong> (in beta) — turnkey: you connect your accounts with one-tap sign-ins and your agent runs on your own Claude subscription. <strong>$1,000/month for Pro when you pay annually</strong> ($12,000 a year, launch build included), or $1,300 month to month plus a one-time $2,500 launch build — our team hand-builds and tests every connection, including custom API integrations, with guided onboarding. <strong>Enterprise is priced per company</strong> — agents across your teams, internal integrations and dedicated support; <a href="/book/">book a call</a> and we'll scope it with you. Cancel anytime. Your Claude subscription (~$100/mo) is the one thing paid separately, straight to Anthropic.</p>
         </details>
         <details>
           <summary>What do I need on my end?</summary>
@@ -1065,7 +1066,7 @@
     <div class="wrap">
       <div class="cta-band reveal">
         <h2>Put an operator on your team today.</h2>
-        <p>Subscribe and we'll build your agent. Most are live the same day — you just scan a code and start talking.</p>
+        <p>Subscribe and we'll build your agent. Most are live within days — you just scan a code and start talking.</p>
         <div class="cta-actions">
           <a class="btn btn-primary btn-lg" href="/book/">Book a call <span class="arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-ghost btn-lg" href="#pricing">Get your agent — from $500/mo</a>

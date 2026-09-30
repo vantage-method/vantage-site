@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('motion');</script>
 <title>Vantage Method — Your Marketing Engine</title>
 <meta name="description" content="An AI operator that connects to your ads, website, email and CRM — and runs your marketing for you, every day. Turnkey from $500/mo, or white-glove where we set up everything.">
 <meta name="theme-color" content="#137576">
@@ -386,6 +387,7 @@
   /* ---------- bento ---------- */
   .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
   .card {
+    position: relative;
     background: var(--surface); border: 1px solid var(--stroke); border-radius: var(--radius);
     padding: 28px 26px; box-shadow: var(--shadow-sm);
     transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -546,9 +548,68 @@
     .conn-panel, .price-card, .cta-band { padding-left: 22px; padding-right: 22px; }
     .cta-band { padding-top: 42px; padding-bottom: 42px; }
   }
+  /* ---------- motion layer (scoped to .motion so no-JS shows everything) ---------- */
+  .motion .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .motion .reveal.in { opacity: 1; transform: none; }
+  .motion .stagger > * { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+  .motion .stagger.in > * { opacity: 1; transform: none; }
+  .motion .stagger.in > :nth-child(1) { transition-delay: .06s; }
+  .motion .stagger.in > :nth-child(2) { transition-delay: .14s; }
+  .motion .stagger.in > :nth-child(3) { transition-delay: .22s; }
+  .motion .stagger.in > :nth-child(4) { transition-delay: .30s; }
+  .motion .stagger.in > :nth-child(5) { transition-delay: .38s; }
+  .motion .stagger.in > :nth-child(6) { transition-delay: .46s; }
+  .motion .stagger.in > :nth-child(7) { transition-delay: .54s; }
+  .motion .stagger.in > :nth-child(8) { transition-delay: .62s; }
+
+  /* shimmering gradient sweep across the headline accent */
+  @keyframes accentshimmer { to { background-position: -200% center; } }
+  h1 .grad { background-size: 200% auto; animation: accentshimmer 8s linear infinite; }
+
+  /* shine sweep across primary buttons on hover */
+  .btn-primary { position: relative; overflow: hidden; }
+  .btn-primary::after {
+    content: ""; position: absolute; top: -4px; bottom: -4px; left: -30%; width: 26%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,0.45), transparent);
+    transform: skewX(-18deg) translateX(-220%); pointer-events: none;
+  }
+  @keyframes btnsweep { to { transform: skewX(-18deg) translateX(640%); } }
+  .btn-primary:hover::after { animation: btnsweep .8s ease forwards; }
+
+  /* cards: lift + cursor-tracking glow */
+  .card { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+  .card:hover { transform: translateY(-4px); border-color: rgba(31,165,166,0.45); box-shadow: var(--shadow-lg); }
+  .card::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; opacity: 0;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--accent-soft), transparent 65%);
+    transition: opacity .3s ease; pointer-events: none;
+  }
+  .card:hover::after { opacity: 1; }
+  .price-card { transition: transform .3s ease, box-shadow .3s ease; }
+  .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .step { transition: transform .3s ease; }
+  .step:hover { transform: translateY(-3px); }
+  .chip { transition: transform .25s ease, border-color .25s ease; }
+  .chip:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+  /* hero conversation: bubbles arrive one at a time */
+  .motion .mock .bubble, .motion .mock .mock-task { opacity: 0; transform: translateY(8px) scale(.98); transition: opacity .35s ease, transform .35s ease; }
+  .motion .mock .bubble.show, .motion .mock .mock-task.show { opacity: 1; transform: none; }
+  .motion .mock-bar i { width: 0; transition: width 1.4s ease .2s; }
+  .motion .mock-task.show .mock-bar i { width: 68%; }
+  .bubble .tdots { display: inline-flex; gap: 3px; align-items: center; padding: 2px 1px; }
+  .bubble .tdots i { width: 5px; height: 5px; border-radius: 50%; background: #9FD4D9; opacity: .35; animation: tdot 1s infinite; }
+  .bubble .tdots i:nth-child(2) { animation-delay: .15s; }
+  .bubble .tdots i:nth-child(3) { animation-delay: .3s; }
+  @keyframes tdot { 30% { opacity: 1; transform: translateY(-2px); } }
+  .mock-title small::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #63D6E0; margin-right: 4px; vertical-align: 1px; animation: livepip 2.4s ease-in-out infinite; }
+  @keyframes livepip { 50% { opacity: .35; } }
+
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     * { transition: none !important; animation: none !important; }
+    .motion .reveal, .motion .stagger > *, .motion .mock .bubble, .motion .mock .mock-task { opacity: 1 !important; transform: none !important; }
+    .motion .mock-bar i { width: 68% !important; }
   }
 </style>
 </head>
@@ -624,9 +685,6 @@
                 <div class="mock-bar"><i></i></div>
               </div>
             </div>
-            <img id="heroShot" src="assets/hero-shot.png?v=1785347201"
-                 alt="Vantage Agent on iPhone: the owner asks the agent to build a lead funnel, and the agent reports it built the landing page, lead magnet, thank-you page and email sequence and shipped them to GitHub."
-                 onerror="heroFallback()">
             <div class="phone-notch" aria-hidden="true"></div>
           </div>
         </div>
@@ -637,12 +695,12 @@
   <!-- HOW IT WORKS -->
   <section id="how">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <p class="kicker">How it works</p>
         <h2>Working for you by tomorrow.</h2>
         <p>No software to install, no servers to rent, nothing to keep running. We build your agent, and you talk to it from your phone.</p>
       </div>
-      <div class="steps">
+      <div class="steps stagger">
         <div class="step">
           <div class="num">1</div>
           <h3>Pick your path</h3>
@@ -665,12 +723,12 @@
   <!-- CAPABILITIES -->
   <section id="capabilities">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <p class="kicker">What it takes off your plate</p>
         <h2>The work you keep putting off,<br>done by Friday.</h2>
         <p>Every one of these is a job you're either paying someone for, waiting weeks on, or quietly not doing at all.</p>
       </div>
-      <div class="bento">
+      <div class="bento stagger">
         <article class="card feature-lead span-3">
           <div class="glyph" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
@@ -747,13 +805,13 @@
   <!-- CONNECTIONS -->
   <section id="connections">
     <div class="wrap">
-      <div class="conn-panel">
+      <div class="conn-panel reveal">
         <p class="kicker">Connections</p>
         <h2 style="font-size:clamp(24px,2.6vw,30px)">Plugged into the accounts you already pay for.</h2>
         <p style="color:var(--body); margin-top:12px; max-width:620px; font-size:16px">
           Hand over a connection once — we'll wire it in for you — and your agent can use it for everything after that.
         </p>
-        <div class="chips">
+        <div class="chips stagger">
           <span class="chip"><span class="d" aria-hidden="true"></span>Domain registrar</span>
           <span class="chip"><span class="d" aria-hidden="true"></span>Web hosting</span>
           <span class="chip"><span class="d" aria-hidden="true"></span>GitHub</span>
@@ -774,13 +832,13 @@
   <!-- PRICING -->
   <section id="pricing">
     <div class="wrap">
-      <div class="pricing-head">
+      <div class="pricing-head reveal">
         <p class="kicker">Pricing</p>
         <h2>Start turnkey today, go white-glove,<br>or bring the whole company.</h2>
         <p class="sub">Every plan is a dedicated AI operator, built and hosted by us, with the iPhone and Mac apps, hosting, updates and support included.</p>
       </div>
 
-      <div class="plans">
+      <div class="plans stagger">
         <div class="price-card">
           <p class="price-tag">Base — turnkey · in beta</p>
           <p class="price"><b>$500</b><span>/ month</span></p>
@@ -833,7 +891,7 @@
         </div>
       </div>
 
-      <div class="pricing-foot">
+      <div class="pricing-foot stagger">
         <div class="v">
           <h3>Priced against a hire, not an app</h3>
           <p>An operator that builds, ships and runs campaigns for you, available every hour of the day — for less than a day of contractor time a month.</p>
@@ -847,7 +905,7 @@
           <p>Monthly plans run month to month through Stripe; annual plans run for the year. Manage or cancel your subscription any time from your <a href="https://agent.vantagemethod.com/account">customer sign-in</a>.</p>
         </div>
       </div>
-      <div class="addon">
+      <div class="addon reveal">
         <b>Need more hands? Extra agents — $500/mo each.</b>
         <p>Add a second or third agent from your account at any time on Base or Pro. Each one is its own operator with its own conversation.</p>
       </div>
@@ -857,11 +915,11 @@
   <!-- FAQ -->
   <section id="faq">
     <div class="wrap">
-      <div class="section-head center">
+      <div class="section-head center reveal">
         <p class="kicker">Can it actually…</p>
         <h2>Yes. And yes.</h2>
       </div>
-      <div class="faq">
+      <div class="faq stagger">
         <details open>
           <summary>Does it really run my ads, or just write them?</summary>
           <p><strong>It really runs them.</strong> Connect your Meta account once and your agent builds the campaigns, launches them, checks performance on a schedule, shifts budget away from what's losing, and writes and posts new creative when a winner starts to fatigue. You approve the direction; it does the clicking.</p>
@@ -901,7 +959,7 @@
   <!-- FINAL CTA -->
   <section style="padding-top:0">
     <div class="wrap">
-      <div class="cta-band">
+      <div class="cta-band reveal">
         <h2>Put an operator on your team today.</h2>
         <p>Subscribe and we'll build your agent. Most are live the same day — you just scan a code and start talking.</p>
         <div class="cta-actions">
@@ -936,12 +994,68 @@
 </footer>
 
 <script>
-// If the screenshot ever fails to load, hide it so the styled mock
-// conversation sitting behind it shows through instead of a broken image.
-function heroFallback() {
-  var shot = document.getElementById('heroShot');
-  if (shot) shot.style.display = 'none';
-}
+(function () {
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- scroll reveals ----
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  document.querySelectorAll('.reveal, .stagger').forEach(function (el) {
+    if (RM) el.classList.add('in'); else io.observe(el);
+  });
+
+  // ---- card cursor glow ----
+  if (!RM && matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.card').forEach(function (c) {
+      c.addEventListener('pointermove', function (ev) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+        c.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  // ---- hero conversation: play the exchange, then loop ----
+  var mock = document.querySelector('.mock');
+  if (mock && !RM) {
+    var items = Array.prototype.slice.call(mock.querySelectorAll('.bubble, .mock-task'));
+    var texts = items.map(function (el) { return el.innerHTML; });
+    var dots = '<span class="tdots" aria-hidden="true"><i></i><i></i><i></i></span>';
+    var timer;
+    function play(i) {
+      if (i >= items.length) {
+        timer = setTimeout(reset, 7000);
+        return;
+      }
+      var el = items[i];
+      var isAgent = el.classList.contains('agent');
+      if (isAgent) {
+        el.innerHTML = dots;
+        el.classList.add('show');
+        timer = setTimeout(function () {
+          el.innerHTML = texts[i];
+          timer = setTimeout(function () { play(i + 1); }, 1250);
+        }, 850);
+      } else {
+        el.classList.add('show');
+        timer = setTimeout(function () { play(i + 1); }, el.classList.contains('mock-task') ? 400 : 1000);
+      }
+    }
+    function reset() {
+      items.forEach(function (el, i) { el.classList.remove('show'); el.innerHTML = texts[i]; });
+      timer = setTimeout(function () { play(0); }, 700);
+    }
+    // Pause the loop while the tab is hidden so it never runs down batteries.
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) { clearTimeout(timer); }
+      else { clearTimeout(timer); reset(); }
+    });
+    timer = setTimeout(function () { play(0); }, 600);
+  }
+})();
 
 (function () {
   const nav = document.getElementById('nav');

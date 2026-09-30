@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bethany Global University — At the End of Your Comfort Zone</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Concept redesign — Bethany Global University: a missions university that trains you and sends you to the nations.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14171b;--ink-2:#1d2228;--bone:#f6f3ee;--muted:#8a9099;--muted-d:#5b626b;--fire:#0a7e9e;--fire-dk:#086a85;--line:#e4ded4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bone);color:var(--ink);font-family:"Open Sans",system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,52px)}
+h1,h2,h3,.display{font-family:"Anton",Impact,sans-serif;font-weight:400;line-height:.98;letter-spacing:.01em;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+.eyebrow{font-weight:800;font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--fire)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;letter-spacing:.02em;padding:14px 30px;border-radius:4px;border:2px solid transparent;cursor:pointer;transition:.15s;text-transform:uppercase;font-size:.92rem}
+.btn-fire{background:var(--fire);color:#fff}.btn-fire:hover{background:var(--fire-dk)}
+.btn-ghost{border-color:currentColor}.btn-ghost:hover{background:#fff;color:var(--ink)}
+/* header */
+header{position:absolute;top:0;left:0;right:0;z-index:20}
+.hbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0;gap:20px}
+.logo img{height:46px;width:auto}
+nav.main{display:flex;gap:26px;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;align-items:center;color:#fff}
+nav.main a:hover{color:var(--fire)}
+@media(max-width:900px){nav.main{display:none}}
+/* hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,15,.55) 0%,rgba(10,12,15,.15) 40%,rgba(10,12,15,.85) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:clamp(48px,7vw,90px);padding-top:120px}
+.hero h1{font-size:clamp(3.2rem,10vw,8rem);max-width:14ch;text-shadow:0 4px 30px rgba(0,0,0,.35)}
+.hero p{font-size:clamp(1.1rem,2vw,1.4rem);max-width:48ch;margin-top:20px;color:#e9e6df;font-weight:500}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+/* stats bar */
+.bar{background:var(--fire);color:#fff}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-around;padding:26px 0;text-align:center}
+.bar .stat .n{font-family:"Anton",sans-serif;font-size:clamp(1.8rem,4vw,2.6rem)}
+.bar .stat .l{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;opacity:.92}
+/* model */
+section{padding:clamp(52px,7vw,100px) 0}
+.model{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+@media(max-width:820px){.model{grid-template-columns:1fr}}
+.model .fig{border-radius:8px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 60px rgba(20,23,27,.2)}
+.model .fig img{width:100%;height:100%;object-fit:cover}
+.model h2{font-size:clamp(2.2rem,5vw,3.6rem);max-width:16ch}
+.model p{color:var(--muted-d);font-size:1.15rem;margin-top:18px}
+.model .pts{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+.model .pt{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.model .pt .b{width:30px;height:30px;border-radius:6px;background:var(--ink);color:var(--fire);display:grid;place-items:center;font-family:"Anton",sans-serif;flex:none}
+.model .pt b{font-weight:700}
+/* programs */
+.programs{background:var(--ink);color:var(--bone)}
+.programs .sec-head{max-width:60ch;margin-bottom:clamp(30px,4vw,46px)}
+.programs h2{font-size:clamp(2.2rem,5vw,3.6rem);color:#fff}
+.programs .sec-head p{color:var(--muted);margin-top:14px;font-size:1.12rem}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden}
+.prog{background:var(--ink);padding:30px 28px;transition:.16s;display:flex;flex-direction:column;gap:8px}
+.prog:hover{background:var(--ink-2)}
+.prog .k{font-weight:800;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fire)}
+.prog h3{font-size:1.55rem;color:#fff;line-height:1.05}
+.prog p{color:var(--muted);font-size:.98rem}
+.prog .go{margin-top:auto;padding-top:14px;font-weight:700;color:#fff;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase}
+/* quote */
+.quote{background:var(--bone)}
+.quote .wrap{max-width:900px;text-align:center}
+.quote blockquote{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(1.8rem,4.5vw,3.2rem);line-height:1.05}
+.quote .who{margin-top:22px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem;color:var(--muted-d)}
+/* cta band */
+.cta-band{position:relative;color:#fff;overflow:hidden}
+.cta-band img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cta-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,23,27,.9),rgba(10,126,158,.65))}
+.cta-band .wrap{position:relative;z-index:2;text-align:center;padding:clamp(56px,8vw,110px) 0}
+.cta-band h2{font-size:clamp(2.4rem,6vw,4.5rem);color:#fff}
+.cta-band p{max-width:46ch;margin:16px auto 0;font-size:1.2rem;color:#f1ede6}
+.cta-band .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+/* footer */
+footer{background:var(--ink-2);color:var(--muted);padding:56px 0 36px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:28px}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr 1fr}}
+footer h4{color:#fff;font-weight:800;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+footer a{display:block;padding:5px 0}footer a:hover{color:var(--fire)}
+.foot-logo img{height:44px;margin-bottom:14px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:.85rem;color:#6b727b;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* lighter teal where the accent sits on dark backgrounds */
+.hero .eyebrow,.prog .k,.model .pt .b{color:#5fc6dd}
+nav.main a:hover,footer a:hover{color:#5fc6dd}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap hbar">
+    <a class="logo" href="#"><img src="https://bethanygu.edu/wp-content/uploads/2024/10/BGU-Logo-1.png" alt="Bethany Global University" style="filter:brightness(0) invert(1)"></a>
+    <nav class="main">
+      <a href="#programs">Academics</a>
+      <a href="#model">Why BGU</a>
+      <a href="#">Cost &amp; Aid</a>
+      <a href="#">About</a>
+      <a href="#apply">Apply</a>
+    </nav>
+    <a class="btn btn-fire" href="#apply">Request Info</a>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <img class="bg" src="https://bethanygu.edu/wp-content/uploads/2025/02/Home-Page-Guy-scaled.webp" alt="">
+    <div class="wrap">
+      <span class="eyebrow">Bethany Global University</span>
+      <h1>At the end of your comfort zone.</h1>
+      <p>A missions university that trains you in the classroom and sends you to the nations — so you graduate ready to go, not just to know.</p>
+      <div class="cta">
+        <a class="btn btn-fire" href="#apply">Apply now</a>
+        <a class="btn btn-ghost" style="color:#fff" href="#programs">Explore programs</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="bar">
+    <div class="wrap">
+      <div class="stat"><div class="n">Trained &amp; Sent</div><div class="l">The BGU model</div></div>
+      <div class="stat"><div class="n">Field-Based</div><div class="l">Real missions experience</div></div>
+      <div class="stat"><div class="n">The Nations</div><div class="l">Where our grads serve</div></div>
+      <div class="stat"><div class="n">Accredited</div><div class="l">Degrees that count</div></div>
+    </div>
+  </div>
+
+  <section id="model">
+    <div class="wrap model">
+      <div class="fig"><img src="https://bethanygu.edu/wp-content/uploads/2024/10/boat-lady-left.jpg" alt=""></div>
+      <div>
+        <span class="eyebrow">Why Bethany Global</span>
+        <h2>Don't just study missions. Do them.</h2>
+        <p>Most schools teach you about the world. BGU puts you in it. Our students learn Scripture and strategy on campus, then step into real cross-cultural ministry — so what you believe gets tested and proven before you graduate.</p>
+        <div class="pts">
+          <div class="pt"><span class="b">1</span><div><b>Learn deeply.</b> Biblically grounded academics built for the field, not just the exam.</div></div>
+          <div class="pt"><span class="b">2</span><div><b>Go for real.</b> Hands-on cross-cultural ministry is built into the degree, not bolted on.</div></div>
+          <div class="pt"><span class="b">3</span><div><b>Be sent well.</b> Graduate with a calling, a community, and a clear next step.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs" id="programs">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Academics</span>
+        <h2>Degrees for the called.</h2>
+        <p>Undergraduate and graduate programs built around one goal: sending equipped, resilient workers to the nations.</p>
+      </div>
+      <div class="pgrid">
+        <a class="prog" href="#"><span class="k">Undergraduate</span><h3>B.A. in Ministry Studies</h3><p>A full four-year foundation in Bible, missions, and cross-cultural ministry.</p><span class="go">Learn more →</span></a>
+        <a class="prog" href="#"><span class="k">Undergraduate</span><h3>A.A. in Ministry Studies</h3><p>Two years of core training to launch — or to build toward the B.A.</p><span class="go">Learn more →</span></a>
+        <a class="prog" href="#"><span class="k">Certificate</span><h3>Bible &amp; Missions</h3><p>Focused training for those ready to serve without a full degree track.</p><span class="go">Learn more →</span></a>
+        <a class="prog" href="#"><span class="k">Graduate</span><h3>M.A. in Ministry Leadership</h3><p>Sharpen the leadership skills to build teams and multiply ministry.</p><span class="go">Learn more →</span></a>
+        <a class="prog" href="#"><span class="k">Graduate</span><h3>M.A. in Disability Ministry</h3><p>Specialized training to reach and serve the disability community.</p><span class="go">Learn more →</span></a>
+        <a class="prog" href="#"><span class="k">Graduate</span><h3>M.A. in Ministry Studies</h3><p>Deepen your theological and missiological foundation for the field.</p><span class="go">Learn more →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap">
+      <span class="eyebrow">The call</span>
+      <blockquote>“Are you willing to go anywhere and do anything for the sake of the gospel?”</blockquote>
+      <div class="who">The question at the heart of a BGU education</div>
+    </div>
+  </section>
+
+  <section class="cta-band" id="apply">
+    <img class="bg" src="https://bethanygu.edu/wp-content/uploads/2024/10/beanie-guy.jpg" alt="">
+    <div class="wrap">
+      <h2>Your next step starts here.</h2>
+      <p>Request information or start your application today — and take the first step toward the end of your comfort zone.</p>
+      <div class="cta">
+        <a class="btn btn-fire" href="#">Apply now</a>
+        <a class="btn btn-ghost" style="color:#fff" href="#">Request info</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="foot-logo"><img src="https://bethanygu.edu/wp-content/uploads/2024/10/BGU-Logo-1.png" alt="Bethany Global University" style="filter:brightness(0) invert(1)"></div>
+        <p style="max-width:34ch">Training and sending the next generation of missionaries to the ends of the earth.</p>
+      </div>
+      <div><h4>Academics</h4><a href="#programs">Undergraduate</a><a href="#programs">Graduate</a><a href="#">Certificates</a><a href="#">Accreditation</a></div>
+      <div><h4>Admissions</h4><a href="#">Apply</a><a href="#">Request Info</a><a href="#">Cost &amp; Aid</a><a href="#">Scholarships</a></div>
+      <div><h4>About</h4><a href="#">Our Story</a><a href="#">Beliefs</a><a href="#">Leadership</a><a href="#">Contact</a></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Bethany Global University</span><span>Concept redesign by Vantage Method</span></div>
+  </div>
+</footer>
+</body>
+</html>

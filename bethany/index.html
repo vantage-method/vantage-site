@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethany Global Proposal — Vantage Method</title>
+    <meta name="description" content="Three options for Bethany Global: a unified CMS across all sites, website redesigns with hosting, and agentic AI in your business.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="canonical" href="https://bethany.vantagemethod.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Bethany Global Proposal — Vantage Method">
+    <meta property="og:description" content="Three ways forward for Bethany Global — one unified CMS, website redesigns, or agentic AI. Choose one, combine, or phase them.">
+    <meta property="og:url" content="https://bethany.vantagemethod.com/">
+    <meta property="og:site_name" content="Vantage Method">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/brand/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/shared/base.css">
+    <link rel="stylesheet" href="/shared/service-landing.css">
+    <link rel="stylesheet" href="/shared/footer.css">
+    <link rel="stylesheet" href="/bethany/bethany.css">
+</head>
+
+<body class="bp">
+    <header>
+        <div class="container">
+            <a href="https://vantagemethod.com/" class="logo-link" aria-label="Vantage Method"><img src="/assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="logo"></a>
+            <nav id="mainNav">
+                <a href="#rec1">Unified CMS</a>
+                <a href="#rec2">Websites</a>
+                <a href="#rec3">Agentic AI</a>
+                <a href="#bundle">All three</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <style>
+        /* ── Recommendations: uniform, full-width layout ── */
+        .rec{padding:5.5rem 0;border-top:1px solid var(--color-border)}
+        .rec-alt{background:var(--color-bg-alt)}
+        .rec-num{font-family:"Space Mono",monospace;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-dark);margin:0 0 .6rem}
+        .rec-title{font-family:"Barlow Condensed",sans-serif;font-weight:900;font-size:clamp(2rem,4.6vw,3rem);text-transform:uppercase;letter-spacing:-.01em;line-height:1;margin:0 0 1.1rem;color:var(--color-text)}
+        .rec-desc{font-family:"Barlow",sans-serif;font-size:1.15rem;line-height:1.62;color:var(--color-text-muted);margin:0 0 2.3rem;max-width:74ch}
+        .rec .s-benefits-grid{width:100%;margin:0}
+        /* full-width price panels, same frame across all three */
+        .rec-price{width:100%;margin-top:2.4rem;background:var(--color-bg);border:1px solid var(--color-border);border-radius:16px;padding:1.9rem 2rem;box-shadow:0 12px 34px rgba(0,0,0,.05)}
+        .rec-alt .rec-price{background:#fff}
+        .rp-label{font-family:"Space Mono",monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted)}
+        .rp-simple{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:1rem}
+        .rp-figure{font-family:"Barlow Condensed",sans-serif;font-weight:900;font-size:clamp(2.4rem,5vw,3.4rem);line-height:1;color:var(--color-text);font-variant-numeric:tabular-nums}
+        .rp-note{flex-basis:100%;font-family:"Barlow",sans-serif;font-size:.95rem;color:var(--color-text-muted);margin-top:.4rem}
+        /* Rec 2 per-site breakdown */
+        .rp-breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--color-border);border:1px solid var(--color-border);border-radius:12px;overflow:hidden}
+        .rp-item{background:var(--color-bg);padding:1.2rem 1.3rem;display:flex;flex-direction:column;gap:.35rem}
+        .rec-alt .rp-item{background:#fff}
+        .rp-item span{font-family:"Barlow",sans-serif;font-size:.95rem;color:var(--color-text-muted)}
+        .rp-item strong{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.7rem;color:var(--color-text);font-variant-numeric:tabular-nums}
+        .rp-item.rp-total{background:var(--color-text)}
+        .rp-item.rp-total span{color:rgba(255,255,255,.7)}
+        .rp-item.rp-total strong{color:#fff}
+        @media(max-width:680px){.rp-breakdown{grid-template-columns:1fr 1fr}}
+        /* Rec 3 agent billing comparison */
+        .rp-agent{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1px;background:var(--color-border);border:1px solid var(--color-border);border-radius:12px;overflow:hidden}
+        .rp-cell{background:var(--color-bg);padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.3rem}
+        .rec-alt .rp-cell{background:#fff}
+        .rp-cell .k{font-family:"Space Mono",monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-muted)}
+        .rp-cell .v{font-family:"Barlow Condensed",sans-serif;font-weight:900;font-size:1.9rem;line-height:1.05;color:var(--color-text);font-variant-numeric:tabular-nums}
+        .rp-cell .sub{font-family:"Barlow",sans-serif;font-size:.9rem;color:var(--color-text-muted)}
+        .rp-cell.rp-diff{background:rgba(0,124,135,.08)}
+        .rp-cell.rp-diff .v{color:var(--color-accent-dark)}
+        .rp-cell.rp-diff .k{color:var(--color-accent-dark)}
+        @media(max-width:680px){.rp-agent{grid-template-columns:1fr 1fr}}
+        .rec-concepts{margin-top:1.6rem}
+        .rc-label{font-family:"Space Mono",monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted);margin:0 0 .8rem}
+        .rc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+        @media(max-width:680px){.rc-links{grid-template-columns:1fr}}
+        .rc-link{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:#fff;border:2px solid var(--color-accent);border-radius:12px;padding:1.1rem 1.3rem;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.15rem;text-transform:uppercase;letter-spacing:.01em;color:var(--color-accent-dark);text-decoration:none;transition:.15s}
+        .rc-link:hover{background:var(--color-accent);color:#fff}
+        .rc-link span{font-family:"Barlow",sans-serif;font-weight:700}
+        /* ── Bundle: fills the bottom ── */
+        .bundle{background:var(--color-text);color:#fff;padding:6rem 0}
+        .bundle-num{font-family:"Space Mono",monospace;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#5fd0b0;margin:0 0 .6rem}
+        .bundle-title{font-family:"Barlow Condensed",sans-serif;font-weight:900;font-size:clamp(2rem,4.6vw,3rem);text-transform:uppercase;letter-spacing:-.01em;line-height:1;margin:0 0 1.1rem}
+        .bundle-desc{font-family:"Barlow",sans-serif;font-size:1.15rem;line-height:1.62;color:rgba(255,255,255,.72);max-width:74ch;margin:0 0 2.6rem}
+        .bundle-compare{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+        @media(max-width:760px){.bundle-compare{grid-template-columns:1fr}}
+        .bc-col{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:1.9rem}
+        .bc-col.bc-best{background:rgba(0,124,135,.16);border-color:var(--color-accent)}
+        .bc-k{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:1.5rem;text-transform:uppercase;letter-spacing:.01em}
+        .bc-sub{font-family:"Space Mono",monospace;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55);margin:.3rem 0 1.3rem}
+        .bc-line{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid rgba(255,255,255,.1);font-family:"Barlow",sans-serif;font-size:1rem}
+        .bc-line span:last-child{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+        .bc-total{margin-top:1.3rem;padding-top:1.2rem;border-top:2px solid rgba(255,255,255,.35)}
+        .bc-total .bc-tl{font-family:"Space Mono",monospace;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+        .bc-total .bc-tv{font-family:"Barlow Condensed",sans-serif;font-weight:900;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums}
+        .bc-save{margin-top:1.2rem;background:rgba(95,208,176,.16);border-radius:10px;padding:1rem 1.1rem;font-family:"Barlow",sans-serif}
+        .bc-save strong{color:#7fe0c2;font-size:1.15rem}
+        .bc-save small{display:block;color:rgba(255,255,255,.6);margin-top:.3rem;font-size:.85rem}
+        .bundle-foot{margin-top:2rem;font-family:"Barlow",sans-serif;font-size:.95rem;color:rgba(255,255,255,.55)}
+        </style>
+
+        <section class="s-hero">
+            <div id="s-vantaBg" class="s-hero-vanta" aria-hidden="true"></div>
+            <div class="s-hero-visual" aria-hidden="true"></div>
+            <div class="container">
+                <p class="s-eyebrow">Prepared for Bethany Global · September 2026</p>
+                <h1 class="s-hero-headline">Three recommendations.</h1>
+                <p class="s-hero-sub">Three ways to strengthen Bethany's digital foundation &mdash; a unified CMS across every site, refreshed websites, and an AI agent in your operations. Below: what each involves, what it costs, and the total if you take on all three together.</p>
+            </div>
+        </section>
+
+        <section class="rec" id="rec1">
+            <div class="container">
+                <p class="rec-num">Recommendation 1</p>
+                <h2 class="rec-title">Unified CMS</h2>
+                <p class="rec-desc">Move Bethany Global University, Crescent Project and Just Disciple onto the single content platform that already runs Bethany Global. One place to publish across every site &mdash; no WordPress, Squarespace or separate logins left to maintain.</p>
+                <div class="s-benefits-grid">
+                    <div class="s-benefit-card s-reveal">
+                        <div class="s-benefit-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="10" width="32" height="28" rx="2"/><path d="M8 18h32M16 10v8"/></svg></div>
+                        <h3>One login, one editor</h3>
+                        <p>Your team learns one system and edits every Bethany site from it.</p>
+                    </div>
+                    <div class="s-benefit-card s-reveal">
+                        <div class="s-benefit-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l16 8-16 8-16-8 16-8z"/><path d="M12 20v9c0 3 5 6 12 6s12-3 12-6v-9"/></svg></div>
+                        <h3>Nothing separate to manage</h3>
+                        <p>No plugins, no WP Engine, no Cloudflare stack per site. One platform, kept current.</p>
+                    </div>
+                    <div class="s-benefit-card s-reveal">
+                        <div class="s-benefit-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 40s-14-8-14-19a8 8 0 0114-5 8 8 0 0114 5c0 11-14 19-14 19z"/></svg></div>
+                        <h3>Giving &amp; email already wired</h3>
+                        <p>The integrations that run on Bethany Global carry across &mdash; giving, forms and email.</p>
+                    </div>
+                </div>
+                <div class="rec-price">
+                    <div class="rp-simple">
+                        <span class="rp-label">Estimated investment · one-time</span>
+                        <span class="rp-figure">$12,500&ndash;$18,500</span>
+                        <span class="rp-note">Already live for Bethany Global. The range depends on content volume and integrations across the three sites moved onto the platform.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="rec rec-alt" id="rec2">
+            <div class="container">
+                <p class="rec-num">Recommendation 2</p>
+                <h2 class="rec-title">Website redesign</h2>
+                <p class="rec-desc">New designs for Just Disciple, Crescent Project and Bethany Global University &mdash; modern, fast and on-brand. Priced per site, and each can be hosted on the Bethany Global platform alongside everything else.</p>
+                <div class="s-benefits-grid">
+                    <div class="s-benefit-card s-reveal">
+                        <div class="s-benefit-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="11" width="34" height="26" rx="2"/><path d="M7 19h34M14 27h12"/></svg></div>
+                        <h3>Modern &amp; fast</h3>
+                        <p>Clean, responsive designs built to load quickly on every device.</p>
+                    </div>
+                    <div class="s-benefit-card s-reveal">
+                        <div class="s-benefit-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l14 5v10c0 9-6 16-14 21-8-5-14-12-14-21V11l14-5z"/><path d="M18 24l4 4 8-8"/></svg></div>
+                        <h3>Hosted &amp; handled</h3>
+                        <p>SSL, backups, updates and a global CDN handled for you on one platform.</p>
+                    </div>
+                    <div class="s-benefit-card s-reveal">
+                        <div class="s-benefit-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4v40M4 24h40" opacity=".25"/><circle cx="24" cy="24" r="18"/><path d="M24 6c6 5 6 31 0 36M24 6c-6 5-6 31 0 36"/></svg></div>
+                        <h3>One consistent brand</h3>
+                        <p>Every site aligned to the Bethany Global look and voice.</p>
+                    </div>
+                </div>
+                <div class="rec-price">
+                    <div class="rp-breakdown">
+                        <div class="rp-item"><span>Just Disciple</span><strong>$3,500</strong></div>
+                        <div class="rp-item"><span>Crescent Project</span><strong>$4,500</strong></div>
+                        <div class="rp-item"><span>Bethany Global University</span><strong>$2,500</strong></div>
+                        <div class="rp-item rp-total"><span>All three</span><strong>$10,500</strong></div>
+                    </div>
+                </div>
+                <div class="rec-concepts">
+                    <p class="rc-label">See the redesign concepts</p>
+                    <div class="rc-links">
+                        <a class="rc-link" href="/redesign/bgu/" target="_blank" rel="noopener">Bethany Global University <span>&rarr;</span></a>
+                        <a class="rc-link" href="/redesign/crescent/" target="_blank" rel="noopener">Crescent Project <span>&rarr;</span></a>
+                        <a class="rc-link" href="/redesign/just-disciple/" target="_blank" rel="noopener">Just Disciple <span>&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="rec" id="rec3">
+            <div class="container">
+                <p class="rec-num">Recommendation 3</p>
+                <h2 class="rec-title">Agentic AI</h2>
+                <p class="rec-desc">Bring an agent into your business systems &mdash; drafting, answering, routing and reporting across departments, from one governed knowledge base, with your team in command. A one-time setup, then an ongoing subscription you can pay monthly or annually.</p>
+                <div class="s-benefits-grid">
+                    <div class="s-benefit-card s-reveal">
+                        <div class="s-benefit-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="16" width="24" height="18" rx="3"/><path d="M24 16v-6M18 42h12"/><circle cx="19" cy="25" r="1.6"/><circle cx="29" cy="25" r="1.6"/></svg></div>
+                        <h3>Works across departments</h3>
+                        <p>Admissions, advancement, student services, comms, the field and the back office.</p>
+                    </div>
+                    <div class="s-benefit-card s-reveal">
+                        <div class="s-benefit-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6l14 5v10c0 9-6 16-14 21-8-5-14-12-14-21V11l14-5z"/><path d="M18 24l4 4 8-8"/></svg></div>
+                        <h3>You stay in command</h3>
+                        <p>It proposes; a person approves. Least-privilege access and a full audit trail.</p>
+                    </div>
+                    <div class="s-benefit-card s-reveal">
+                        <div class="s-benefit-icon"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 39V21M19 39V13M29 39V25M39 39V9"/><path d="M7 39h34"/></svg></div>
+                        <h3>Earns each step</h3>
+                        <p>Start with a pilot in one department, then expand as it proves out.</p>
+                    </div>
+                </div>
+                <div class="rec-price">
+                    <div class="rp-agent">
+                        <div class="rp-cell"><span class="k">One-time setup</span><span class="v">$7,500</span><span class="sub">Discovery, integrations &amp; supervised pilot</span></div>
+                        <div class="rp-cell"><span class="k">Pay monthly</span><span class="v">$39,000<span style="font-size:1rem">/yr</span></span><span class="sub">$3,250 per month</span></div>
+                        <div class="rp-cell"><span class="k">Pay annually</span><span class="v">$31,200<span style="font-size:1rem">/yr</span></span><span class="sub">Billed once a year</span></div>
+                        <div class="rp-cell rp-diff"><span class="k">Annual saves</span><span class="v">$7,800<span style="font-size:1rem">/yr</span></span><span class="sub">20% less than monthly</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bundle" id="bundle">
+            <div class="container">
+                <p class="bundle-num">All three together</p>
+                <h2 class="bundle-title">Do the whole thing, for less</h2>
+                <p class="bundle-desc">We understand the scope of this work, and we'd rather do it well as one engagement than piece by piece. So if Bethany takes on all three, we bill the agent annually and take 10% off everything else. Here's the first-year cost either way.</p>
+                <div class="bundle-compare">
+                    <div class="bc-col">
+                        <div class="bc-k">Piece by piece</div>
+                        <div class="bc-sub">Each on its own · agent billed monthly</div>
+                        <div class="bc-line"><span>Unified CMS</span><span>$12,500&ndash;$18,500</span></div>
+                        <div class="bc-line"><span>Website redesign</span><span>$10,500</span></div>
+                        <div class="bc-line"><span>Agent setup</span><span>$7,500</span></div>
+                        <div class="bc-line"><span>Agent (monthly)</span><span>$39,000/yr</span></div>
+                        <div class="bc-total"><div class="bc-tl">First-year total</div><div class="bc-tv">$69,500&ndash;$75,500</div></div>
+                    </div>
+                    <div class="bc-col bc-best">
+                        <div class="bc-k">All three together</div>
+                        <div class="bc-sub">Agent billed annually · 10% off everything else</div>
+                        <div class="bc-line"><span>Unified CMS &minus;10%</span><span>$11,250&ndash;$16,650</span></div>
+                        <div class="bc-line"><span>Website redesign &minus;10%</span><span>$9,450</span></div>
+                        <div class="bc-line"><span>Agent setup &minus;10%</span><span>$6,750</span></div>
+                        <div class="bc-line"><span>Agent (annual)</span><span>$31,200/yr</span></div>
+                        <div class="bc-total"><div class="bc-tl">First-year total</div><div class="bc-tv">$58,650&ndash;$64,050</div></div>
+                        <div class="bc-save"><strong>Year-one difference: $10,850&ndash;$11,450</strong><small>10% off the build ($3,050&ndash;$3,650) plus annual agent billing ($7,800).</small></div>
+                    </div>
+                </div>
+                <p class="bundle-foot">One-time work is billed once. After year one, the agent continues at $31,200/year (annual) or $39,000/year (monthly).</p>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <div class="site-footer-brand">
+                <a href="https://vantagemethod.com/" class="site-footer-logo">Vantage Method</a>
+                <p class="site-footer-tagline">Marketing systems that work.</p>
+            </div>
+            <div class="site-footer-nav">
+                <div class="site-footer-col">
+                    <h4>This proposal</h4>
+                    <ul>
+                        <li><a href="#platform">Platform</a></li>
+                        <li><a href="#packages">Packages</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#assumptions">Assumptions</a></li>
+                    </ul>
+                </div>
+                <div class="site-footer-col">
+                    <h4>Vantage Method</h4>
+                    <ul>
+                        <li><a href="https://vantagemethod.com/">Home</a></li>
+                        <li><a href="https://vantagemethod.com/privacy/">Privacy Policy</a></li>
+                        <li><a href="https://vantagemethod.com/terms/">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer-bottom">
+            <span>&copy; <script>document.write(new Date().getFullYear())</script> Vantage Method. Prepared for Bethany Global. Prices valid through October 31, 2026.</span>
+        </div>
+    </footer>
+
+    <script src="/shared/service-landing.js"></script>
+</body>
+
+</html>

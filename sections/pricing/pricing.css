@@ -174,3 +174,81 @@
         max-width: 100%;
     }
 }
+
+/* ---- Three Ways In (agent tiers) ---- */
+#pricing .section-subtitle {
+    color: var(--color-text-muted);
+    max-width: 62ch;
+    margin: 1rem auto 0;
+}
+.vp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 3rem 0 2rem;
+}
+@media (max-width: 900px) { .vp-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; } }
+.vp-card {
+    position: relative;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 2.2rem 1.8rem 2rem;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+.vp-card.featured {
+    border-color: var(--color-accent);
+    box-shadow: 0 18px 50px -20px rgba(0, 124, 135, 0.35);
+}
+.vp-flag {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: rgba(0, 124, 135, 0.08);
+    border: 1px solid rgba(0, 124, 135, 0.25);
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+}
+.vp-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin: 0 0 0.4rem;
+}
+.vp-price {
+    font-family: var(--font-display);
+    font-size: 2.6rem;
+    font-weight: 800;
+    line-height: 1;
+    margin: 0 0 0.35rem;
+    color: var(--color-text);
+}
+.vp-price span { font-size: 1.1rem; font-weight: 600; color: var(--color-text-muted); }
+.vp-note { font-size: 0.92rem; color: var(--color-text-muted); margin: 0 0 0.9rem; }
+.vp-card > p:not(.vp-price):not(.vp-note) { font-size: 0.98rem; flex: 1; margin: 0 0 1.4rem; }
+.vp-btn {
+    display: block;
+    text-align: center;
+    padding: 0.85rem 1.4rem;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    background: var(--color-accent);
+    color: #fff;
+    transition: background 0.2s;
+}
+.vp-btn:hover { background: var(--color-accent-dark); }
+.vp-btn.secondary {
+    background: transparent;
+    color: var(--color-accent);
+    border: 1.5px solid var(--color-accent);
+}
+.vp-btn.secondary:hover { background: rgba(0, 124, 135, 0.08); color: var(--color-accent-dark); }
+.vp-under { color: var(--color-text-muted); font-size: 0.95rem; text-align: center; }
+.vp-under a { color: var(--color-accent); }

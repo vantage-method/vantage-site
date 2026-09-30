@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book a Call — Vantage Method</title>
+<meta name="description" content="Book a 30-minute call with our team. We'll scope your Vantage Agent setup and get you started.">
+<link rel="canonical" href="https://vantagemethod.com/book/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff; --text:#0a0a0a; --muted:#666; --border:#e5e5e5; --alt:#fafafa;
+    --accent:#007c87; --accent-dark:#006672;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font:17px/1.6 Barlow,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent)}
+  .mono{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  header img{height:34px;display:block}
+  header a.back{font-size:15px;text-decoration:none;color:var(--muted)}
+  header a.back:hover{color:var(--accent)}
+  main{max-width:900px;margin:0 auto;padding:48px 16px 100px}
+  h1{font-family:'Barlow Condensed';font-weight:800;font-size:clamp(38px,6vw,56px);line-height:1.05;margin:14px 0 10px}
+  h1 span{color:var(--accent)}
+  .lede{color:var(--muted);max-width:56ch;margin-bottom:38px}
+  h2{font-family:'Barlow Condensed';font-weight:700;font-size:24px;margin:34px 0 12px}
+  .tzn{font-size:13.5px;color:var(--muted);margin:6px 0 16px}
+
+  .days{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px}
+  .day{flex:0 0 auto;min-width:92px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:var(--bg);cursor:pointer;text-align:center;font:inherit}
+  .day b{display:block;font-size:18px}
+  .day span{font-size:12.5px;color:var(--muted)}
+  .day.sel{border-color:var(--accent);background:var(--accent);color:#fff}
+  .day.sel span{color:rgba(255,255,255,.85)}
+
+  .slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:10px;margin-top:18px}
+  .slot{padding:11px 6px;border:1px solid var(--border);border-radius:10px;background:var(--bg);cursor:pointer;font:600 15px Barlow;text-align:center}
+  .slot:hover{border-color:var(--accent);color:var(--accent)}
+  .slot.sel{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  form{margin-top:34px;display:none}
+  form.on{display:block}
+  .picked{display:inline-block;border:1px solid var(--border);background:var(--alt);border-radius:10px;padding:10px 16px;margin-bottom:22px;font-weight:600}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:640px){.grid{grid-template-columns:1fr}}
+  label{display:block;font-size:13.5px;font-weight:600;margin:0 0 4px}
+  input,textarea{width:100%;padding:12px 14px;font:inherit;border:1.5px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text)}
+  input:focus,textarea:focus{outline:none;border-color:var(--accent)}
+  .field{margin-bottom:14px}
+  .hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+  button.go{margin-top:8px;padding:15px 34px;font:700 17px Barlow;color:#fff;background:var(--accent);border:0;border-radius:10px;cursor:pointer}
+  button.go:hover{background:var(--accent-dark)}
+  button.go:disabled{opacity:.55;cursor:wait}
+  .err{color:#b3261e;font-size:15px;min-height:22px;margin-top:10px}
+  .empty,.loading{color:var(--muted);padding:30px 0}
+
+  #done{display:none;text-align:center;padding:60px 0}
+  #done .tick{width:74px;height:74px;border-radius:50%;background:var(--accent);color:#fff;font-size:38px;line-height:74px;margin:0 auto 22px}
+  #done h2{font-size:34px}
+  #done p{color:var(--muted);max-width:52ch;margin:10px auto 0}
+</style>
+</head>
+<body>
+<header>
+  <a href="/"><img src="/assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method"></a>
+  <a class="back" href="/app/">← Back to the agent</a>
+</header>
+<main>
+  <div id="pick">
+    <p class="mono">Book a call</p>
+    <h1>30 minutes.<br>Then your marketing <span>runs itself.</span></h1>
+    <p class="lede">Pick a time that suits you. You'll meet with Kenny from our team — he'll walk you through the Vantage Agent, scope your setup, and if it's a fit, get you started the same week.</p>
+
+    <h2>Pick a day</h2>
+    <p class="tzn" id="tzn">Times are shown in your timezone.</p>
+    <div class="days" id="days"><span class="loading">Loading available times…</span></div>
+    <div class="slots" id="slots"></div>
+
+    <form id="f">
+      <div class="picked" id="picked"></div>
+      <div class="grid">
+        <div class="field"><label for="name">Your name *</label><input id="name" required autocomplete="name"></div>
+        <div class="field"><label for="email">Email *</label><input id="email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="company">Company</label><input id="company" autocomplete="organization"></div>
+        <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="field"><label for="notes">Anything we should know before the call?</label><textarea id="notes" rows="3" placeholder="What you sell, what's working, what isn't…"></textarea></div>
+      <div class="hp" aria-hidden="true"><label>Website<input id="website" tabindex="-1" autocomplete="off"></label></div>
+      <button class="go" id="go" type="submit">Confirm booking</button>
+      <p class="err" id="err" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <div id="done">
+    <div class="tick">✓</div>
+    <h2>You're booked.</h2>
+    <p id="doneWhen"></p>
+    <p>A confirmation with a calendar invite is on its way to your inbox. Kenny will call or send a meeting link before your time. Need to change it? Just reply to that email.</p>
+  </div>
+</main>
+<script>
+(() => {
+  const API = 'https://agent.vantagemethod.com/api/booking';
+  const $ = (id) => document.getElementById(id);
+  const plan = new URLSearchParams(location.search).get('plan') || '';
+  let data = null, day = null, slot = null;
+
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (tz) $('tzn').textContent = 'Times are shown in your timezone (' + tz.replace(/_/g, ' ') + ').';
+  } catch (e) {}
+
+  const dayLabel = (iso) => {
+    const d = new Date(iso + 'T12:00:00Z');
+    return {
+      top: d.toLocaleDateString(undefined, { timeZone: 'UTC', weekday: 'short' }),
+      big: d.toLocaleDateString(undefined, { timeZone: 'UTC', month: 'short', day: 'numeric' }),
+    };
+  };
+  const timeLabel = (iso) => new Date(iso).toLocaleTimeString(undefined, { hour: 'numeric', minute: '2-digit' });
+
+  function renderDays() {
+    const el = $('days');
+    el.innerHTML = '';
+    if (!data.days.length) { el.innerHTML = '<span class="empty">No open times right now — email team@vantagemethod.com and we\'ll find one.</span>'; return; }
+    data.days.forEach((d, i) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'day' + (i === 0 ? ' sel' : '');
+      const l = dayLabel(d.date);
+      b.innerHTML = '<span>' + l.top + '</span><b>' + l.big + '</b>';
+      b.onclick = () => { day = d; slot = null; $('f').classList.remove('on');
+        el.querySelectorAll('.day').forEach((x) => x.classList.remove('sel')); b.classList.add('sel'); renderSlots(); };
+      el.appendChild(b);
+      if (i === 0) day = d;
+    });
+    renderSlots();
+  }
+
+  function renderSlots() {
+    const el = $('slots');
+    el.innerHTML = '';
+    (day ? day.slots : []).forEach((s) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'slot'; b.textContent = timeLabel(s);
+      b.onclick = () => { slot = s;
+        el.querySelectorAll('.slot').forEach((x) => x.classList.remove('sel')); b.classList.add('sel');
+        $('picked').textContent = new Date(s).toLocaleString(undefined, { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' });
+        $('f').classList.add('on');
+        $('f').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+      el.appendChild(b);
+    });
+  }
+
+  async function load() {
+    try {
+      const r = await fetch(API + '/availability');
+      data = await r.json();
+      renderDays();
+    } catch (e) {
+      $('days').innerHTML = '<span class="empty">Couldn\'t load times — refresh, or email team@vantagemethod.com.</span>';
+    }
+  }
+
+  $('f').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!slot) return;
+    $('err').textContent = '';
+    $('go').disabled = true;
+    try {
+      const r = await fetch(API + '/book', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          start: slot, plan,
+          name: $('name').value.trim(), email: $('email').value.trim(),
+          company: $('company').value.trim(), phone: $('phone').value.trim(),
+          notes: $('notes').value.trim(), website: $('website').value,
+        }),
+      });
+      const j = await r.json();
+      if (!r.ok) {
+        $('err').textContent = j.error || 'Something went wrong — try another time.';
+        if (r.status === 409) { $('f').classList.remove('on'); await load(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        $('go').disabled = false;
+        return;
+      }
+      $('pick').style.display = 'none';
+      $('doneWhen').textContent = new Date(j.start).toLocaleString(undefined, { weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' — 30 minutes.';
+      $('done').style.display = 'block';
+      window.scrollTo({ top: 0 });
+    } catch (e2) {
+      $('err').textContent = 'Network hiccup — please try again.';
+      $('go').disabled = false;
+    }
+  });
+
+  load();
+})();
+</script>
+</body>
+</html>

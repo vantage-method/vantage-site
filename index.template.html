@@ -4,16 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>document.documentElement.classList.add('motion');</script>
-<title>Vantage Method — Your Marketing Engine</title>
+<title>Vantage Method — Your AI-Powered Marketing Engine</title>
 <meta name="description" content="An AI operator that connects to your ads, website, email and CRM — and runs your marketing for you, every day. Turnkey from $500/mo, or white-glove where we set up everything.">
 <meta name="theme-color" content="#137576">
 <link rel="canonical" href="https://vantagemethod.com/">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<meta property="og:title" content="Vantage Method — Your Marketing Engine">
+<meta property="og:title" content="Vantage Method — Your AI-Powered Marketing Engine">
 <meta property="og:description" content="An AI operator that builds your funnels, runs your ads, works your SEO and follows up with your leads — every day. We set it up and run it for you.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://vantagemethod.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@700;800;900&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
   :root {
     --teal: #137576;
@@ -59,7 +62,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Barlow', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg);
     color: var(--ink);
     line-height: 1.55;
@@ -146,6 +149,20 @@
 
   /* ---------- hero ---------- */
   .hero { position: relative; padding: 132px 0 52px; overflow: hidden; }
+  /* faint engineering grid, fading out from the headline */
+  .hero .grid-fx {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(75% 85% at 55% 12%, #000 0%, transparent 78%);
+    mask-image: radial-gradient(75% 85% at 55% 12%, #000 0%, transparent 78%);
+  }
+  @keyframes aurora {
+    to { transform: translate3d(2.5%, 3%, 0) scale(1.07); }
+  }
+  .hero::before { animation: aurora 14s ease-in-out infinite alternate; will-change: transform; }
   .hero::before {
     content: ""; position: absolute; inset: -240px -10% auto -10%; height: 780px; z-index: 0;
     background:
@@ -169,7 +186,8 @@
   }
   .eyebrow {
     display: inline-flex; align-items: center; gap: 9px;
-    font-size: 12.5px; font-weight: 600; letter-spacing: 0.02em;
+    font-family: 'Space Mono', monospace;
+    font-size: 10.5px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--accent); background: var(--surface);
     border: 1px solid var(--stroke); box-shadow: var(--shadow-sm);
     padding: 7px 14px 7px 11px; border-radius: 999px; margin-bottom: 24px;
@@ -179,8 +197,10 @@
     box-shadow: 0 0 0 3px rgba(31, 165, 166, 0.18);
   }
   h1 {
-    font-size: clamp(32px, 4.6vw, 54px);
-    line-height: 1.06; letter-spacing: -0.035em; font-weight: 700;
+    font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+    font-size: clamp(40px, 5.6vw, 68px);
+    line-height: 1.01; letter-spacing: -0.012em; font-weight: 800;
+    text-transform: none;
   }
   h1 .grad {
     background: linear-gradient(100deg, var(--teal-bright) 0%, var(--teal) 42%, var(--teal-deep) 100%);
@@ -361,10 +381,15 @@
   .section-head { max-width: 660px; margin-bottom: 44px; }
   .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
   .kicker {
-    font-size: 12.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--accent); margin-bottom: 12px;
   }
-  h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.12; letter-spacing: -0.028em; font-weight: 700; }
+  .kicker::before { content: "— "; opacity: .5; }
+  h2 {
+    font-family: 'Barlow Condensed', 'Barlow', sans-serif;
+    font-size: clamp(30px, 3.9vw, 46px); line-height: 1.06; letter-spacing: -0.008em; font-weight: 800;
+  }
   .section-head p { margin-top: 14px; color: var(--body); font-size: 17px; }
   h3 { font-size: 17px; letter-spacing: -0.012em; font-weight: 650; }
 
@@ -441,7 +466,16 @@
     content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
     background: linear-gradient(90deg, var(--teal-bright), var(--teal), var(--teal-deep));
   }
-  .price-card.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-lg); }
+  .price-card.featured {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--surface), var(--surface)) padding-box,
+      linear-gradient(120deg, var(--teal-bright), var(--teal-deep) 45%, var(--teal-bright) 90%) border-box;
+    background-size: auto, 280% 280%;
+    animation: borderflow 7s ease-in-out infinite;
+    box-shadow: 0 0 0 1px rgba(31, 165, 166, 0.35), var(--shadow-lg);
+  }
+  @keyframes borderflow { 50% { background-position: 0 0, 100% 100%; } }
   .plan-badge {
     position: absolute; top: 16px; right: 16px; font-size: 11px; font-weight: 700;
     letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: var(--accent);
@@ -449,7 +483,7 @@
   }
   .price-tag { font-size: 12.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
   .price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 12px 0 4px; }
-  .price b { font-size: 46px; font-weight: 700; letter-spacing: -0.035em; line-height: 1; }
+  .price b { font-family: 'Barlow Condensed', sans-serif; font-size: 54px; font-weight: 800; letter-spacing: -0.01em; line-height: 1; }
   .price b.quote { font-size: 32px; letter-spacing: -0.025em; padding: 7px 0; }
   .price s { color: var(--muted); font-size: 24px; font-weight: 600; letter-spacing: -0.02em; text-decoration: line-through; }
   .price span { color: var(--muted); font-size: 15px; font-weight: 500; }
@@ -491,12 +525,17 @@
     font-weight: 600; font-size: 16.5px; letter-spacing: -0.01em;
   }
   summary::-webkit-details-marker { display: none; }
+  summary { transition: color .25s ease; }
+  summary:hover { color: var(--accent); }
   summary::after {
     content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
     font-size: 22px; font-weight: 400; color: var(--accent); line-height: 1;
+    transition: transform .3s cubic-bezier(.16,1,.3,1);
   }
-  details[open] summary::after { content: "−"; }
+  details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
   details p { padding: 0 40px 24px 2px; color: var(--body); font-size: 15.5px; max-width: 720px; }
+  @keyframes faqin { from { opacity: 0; transform: translateY(-6px); } }
+  details[open] p { animation: faqin .35s ease; }
 
   /* ---------- final cta ---------- */
   .cta-band {
@@ -508,6 +547,15 @@
     content: ""; position: absolute; inset: auto -10% -60% -10%; height: 320px;
     background: radial-gradient(50% 60% at 50% 50%, rgba(31, 165, 166, 0.38), transparent 70%);
     pointer-events: none;
+  }
+  .cta-band::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(80% 100% at 50% 0%, #000 0%, transparent 80%);
+    mask-image: radial-gradient(80% 100% at 50% 0%, #000 0%, transparent 80%);
   }
   .cta-band > * { position: relative; z-index: 1; }
   .cta-band h2 { color: #fff; }
@@ -548,6 +596,43 @@
     .conn-panel, .price-card, .cta-band { padding-left: 22px; padding-right: 22px; }
     .cta-band { padding-top: 42px; padding-bottom: 42px; }
   }
+  /* ---------- integrations marquee ---------- */
+  .integrations {
+    border-bottom: 1px solid var(--stroke); background: var(--surface);
+    padding: 17px 0; overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  }
+  .marq { display: flex; width: max-content; animation: marq 38s linear infinite; }
+  .integrations:hover .marq { animation-play-state: paused; }
+  @keyframes marq { to { transform: translateX(-50%); } }
+  .marq ul { display: flex; align-items: center; list-style: none; margin: 0; padding: 0; }
+  .marq li {
+    font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--muted); white-space: nowrap;
+    display: flex; align-items: center;
+  }
+  .marq li::after {
+    content: ""; width: 5px; height: 5px; margin: 0 22px; transform: rotate(45deg);
+    background: var(--accent); opacity: 0.45; flex: none;
+  }
+
+  /* ---------- stat band ---------- */
+  .statband { padding: 0; }
+  .statband .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    border-top: 1px solid var(--stroke); border-bottom: 1px solid var(--stroke);
+    padding: 44px 8px;
+  }
+  .stat b {
+    display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+    font-size: clamp(38px, 4.2vw, 56px); line-height: 1; letter-spacing: -0.01em;
+    background: linear-gradient(100deg, var(--teal-bright) 0%, var(--teal) 55%, var(--teal-deep) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .stat span { display: block; margin-top: 8px; color: var(--muted); font-size: 13.5px; max-width: 24ch; }
+  @media (max-width: 760px) { .statband .stats { grid-template-columns: repeat(2, 1fr); gap: 28px 20px; } }
+
   /* ---------- motion layer (scoped to .motion so no-JS shows everything) ---------- */
   .motion .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
   .motion .reveal.in { opacity: 1; transform: none; }
@@ -564,7 +649,7 @@
 
   /* shimmering gradient sweep across the headline accent */
   @keyframes accentshimmer { to { background-position: -200% center; } }
-  h1 .grad { background-size: 200% auto; animation: accentshimmer 8s linear infinite; }
+  h1 .grad, .hero h1 .grad { background-size: 200% auto; animation: accentshimmer 8s linear infinite; }
 
   /* shine sweep across primary buttons on hover */
   .btn-primary { position: relative; overflow: hidden; }
@@ -639,14 +724,16 @@
 
   <!-- HERO -->
   <section class="hero">
+    <div class="grid-fx" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow"><span class="dot"></span> Your marketing engine</p>
-        <h1>The full power of AI,<br class="nb"><span class="grad">in the palm<br class="nb"> of your hand.</span></h1>
+        <p class="eyebrow"><span class="dot"></span> Vantage Agent</p>
+        <h1>Your AI&#8209;powered<br class="nb"> <span class="grad">marketing engine.</span></h1>
         <p class="lede">
-          Vantage Agent isn't a chatbot — it's an operator that does the work. It builds and
-          launches your funnels, runs your ads, works your SEO and follows up with your leads,
-          every day, without being asked twice.
+          Not a chatbot — an operator with hands. The Vantage Agent plugs into your ads, your
+          website, your email and your CRM, then does the work: builds and launches your funnels,
+          runs your campaigns, works your SEO and follows up with every lead. Every day. Without
+          being asked twice.
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary btn-lg" href="/book/">Book a call <span class="arrow" aria-hidden="true">→</span></a>
@@ -691,6 +778,22 @@
       </div>
     </div>
   </section>
+
+  <!-- INTEGRATIONS MARQUEE -->
+  <div class="integrations" aria-label="Works with the tools you already use">
+    <div class="marq" aria-hidden="true">
+      <ul>
+        <li>Meta Ads</li><li>Google Ads</li><li>Google Analytics</li><li>Search Console</li>
+        <li>GoHighLevel</li><li>Mailchimp</li><li>Klaviyo</li><li>Stripe</li><li>Zoom</li>
+        <li>Dropbox</li><li>GitHub</li><li>Vercel</li><li>Cloudflare</li><li>Resend</li>
+      </ul>
+      <ul>
+        <li>Meta Ads</li><li>Google Ads</li><li>Google Analytics</li><li>Search Console</li>
+        <li>GoHighLevel</li><li>Mailchimp</li><li>Klaviyo</li><li>Stripe</li><li>Zoom</li>
+        <li>Dropbox</li><li>GitHub</li><li>Vercel</li><li>Cloudflare</li><li>Resend</li>
+      </ul>
+    </div>
+  </div>
 
   <!-- HOW IT WORKS -->
   <section id="how">
@@ -798,6 +901,18 @@
           <h3>One hire's work, without the hire</h3>
           <p>No recruiting, no onboarding, no payroll, no turnover — and it doesn't forget what you told it in March. Add a second agent for another lane of work whenever you're ready.</p>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BAND -->
+  <section class="statband">
+    <div class="wrap">
+      <div class="stats stagger">
+        <div class="stat"><b>24/7</b><span>Always working — nights, weekends, holidays</span></div>
+        <div class="stat"><b>8+</b><span>Marketing disciplines in one operator</span></div>
+        <div class="stat"><b>1</b><span>Conversation to run it all</span></div>
+        <div class="stat"><b>Same day</b><span>From checkout to a live, working agent</span></div>
       </div>
     </div>
   </section>

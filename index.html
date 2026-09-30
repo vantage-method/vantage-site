@@ -1,1132 +1,955 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vantage Method - Marketing Systems That Work</title>
-    <meta name="description" content="Vantage Method designs and operates agentic marketing systems that automate lead generation, measure what matters, and deliver results within your operating margins.">
-    <link rel="canonical" href="https://vantagemethod.com/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vantage Method — Your Marketing Engine</title>
+<meta name="description" content="An AI operator that connects to your ads, website, email and CRM — and runs your marketing for you, every day. Turnkey from $500/mo, or white-glove where we set up everything.">
+<meta name="theme-color" content="#137576">
+<link rel="canonical" href="https://vantagemethod.com/">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Vantage Method — Your Marketing Engine">
+<meta property="og:description" content="An AI operator that builds your funnels, runs your ads, works your SEO and follows up with your leads — every day. We set it up and run it for you.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vantagemethod.com/">
+<style>
+  :root {
+    --teal: #137576;
+    --teal-deep: #0C4E4F;
+    --teal-bright: #1FA5A6;
+    --accent: #137576;
+    --accent-soft: rgba(19, 117, 118, 0.10);
+    --ink: #0A0A0A;
+    --body: #3C464E;
+    --muted: #5C6670;
+    --bg: #F7F8F8;
+    --surface: #FFFFFF;
+    --surface-2: #FBFCFC;
+    --stroke: #E3E7E9;
+    --stroke-strong: #D3D9DC;
+    --shadow-sm: 0 1px 2px rgba(10, 20, 25, 0.05), 0 2px 8px rgba(10, 20, 25, 0.04);
+    --shadow-lg: 0 24px 70px rgba(10, 20, 25, 0.10), 0 4px 14px rgba(10, 20, 25, 0.05);
+    --nav-bg: rgba(247, 248, 248, 0.82);
+    --logo-light: block;
+    --logo-dark: none;
+    --radius: 18px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --accent: #35BDBE;
+      --accent-soft: rgba(53, 189, 190, 0.12);
+      --ink: #F2F5F6;
+      --body: #B9C3C9;
+      --muted: #94A0A7;
+      --bg: #0B0E0F;
+      --surface: #14181A;
+      --surface-2: #171C1E;
+      --stroke: #242A2E;
+      --stroke-strong: #313A3F;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 30px 80px rgba(0, 0, 0, 0.55);
+      --nav-bg: rgba(11, 14, 15, 0.78);
+      --logo-light: none;
+      --logo-dark: block;
+    }
+  }
 
-        <meta property="og:type" content="website">
-    <meta property="og:title" content="Vantage Method - Marketing Systems That Work">
-    <meta property="og:description" content="Agentic marketing systems that automate lead generation, measure what matters, and deliver results within your operating margins.">
-    <meta property="og:url" content="https://vantagemethod.com/">
-    <meta property="og:site_name" content="Vantage Method">
-    <meta property="og:image" content="https://vantagemethod.com/assets/images/brand/Vantage-Method-Dark.png">
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  @media (max-width: 520px) { .wrap { padding: 0 20px; } }
 
-        <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Vantage Method - Marketing Systems That Work">
-    <meta name="twitter:description" content="Agentic marketing systems that automate lead generation, measure what matters, and deliver results within your operating margins.">
-    <meta name="twitter:image" content="https://vantagemethod.com/assets/images/brand/Vantage-Method-Dark.png">
+  a { color: var(--accent); }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .logo-mark { height: 30px; width: auto; }
+  .logo-mark.on-light { display: var(--logo-light); }
+  .logo-mark.on-dark { display: var(--logo-dark); }
 
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/brand/favicon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/brand/apple-touch-icon.png">
+  /* ---------- nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50; margin-bottom: -64px;
+    background: var(--nav-bg);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .nav.scrolled { border-bottom-color: var(--stroke); }
+  .nav-inner { display: flex; align-items: center; gap: 28px; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
+  .brand .name { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; white-space: nowrap; }
+  .brand .name em { font-style: normal; color: var(--accent); }
+  .nav-links { display: flex; gap: 26px; margin-left: auto; }
+  .nav-links a {
+    text-decoration: none; color: var(--body); font-size: 14.5px; font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { display: flex; align-items: center; gap: 18px; }
+  .nav-signin {
+    text-decoration: none; color: var(--body); font-size: 14.5px; font-weight: 500;
+    transition: color 0.15s ease; white-space: nowrap;
+  }
+  .nav-signin:hover { color: var(--ink); }
+  @media (max-width: 820px) {
+    /* Not enough room for every section link, but Pricing and FAQ are the two
+       people come back for — keep those, drop the rest. */
+    .nav-inner { gap: 16px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { display: none; }
+    .nav-links a[href="#pricing"], .nav-links a[href="#faq"] { display: inline-block; }
+    .brand .name { font-size: 14.5px; }
+  }
+  @media (max-width: 560px) {
+    .brand .name { display: none; }
+  }
 
-        <link rel="preload" href="assets/images/brand/Vantage-Method-Dark.png" as="image">
-    <link rel="preload" href="assets/images/mountains/center-mountain-front.webp" as="image">
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: inherit; font-weight: 600; font-size: 15px; line-height: 1;
+    text-decoration: none; cursor: pointer; border: 1px solid transparent;
+    padding: 13px 20px; border-radius: 999px; white-space: nowrap;
+    transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-primary {
+    color: #fff; background: linear-gradient(135deg, #188E8F 0%, var(--teal) 45%, var(--teal-deep) 100%);
+    box-shadow: 0 6px 20px rgba(15, 88, 89, 0.28);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(15, 88, 89, 0.34); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-primary[disabled] { opacity: 0.7; cursor: progress; transform: none; }
+  .btn-ghost {
+    color: var(--ink); background: var(--surface); border-color: var(--stroke-strong);
+    box-shadow: var(--shadow-sm);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-lg { padding: 16px 26px; font-size: 16px; }
+  .btn-sm { padding: 10px 16px; font-size: 14px; }
+  .arrow { transition: transform 0.15s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
+  /* ---------- hero ---------- */
+  .hero { position: relative; padding: 132px 0 52px; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -240px -10% auto -10%; height: 780px; z-index: 0;
+    background:
+      radial-gradient(46% 46% at 78% 26%, rgba(31, 165, 166, 0.20), transparent 70%),
+      radial-gradient(40% 40% at 18% 12%, rgba(19, 117, 118, 0.16), transparent 70%),
+      radial-gradient(36% 36% at 52% 62%, rgba(12, 78, 79, 0.09), transparent 72%);
+    filter: blur(6px);
+    pointer-events: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    .hero::before {
+      background:
+        radial-gradient(46% 46% at 78% 26%, rgba(31, 165, 166, 0.20), transparent 70%),
+        radial-gradient(42% 42% at 16% 10%, rgba(19, 117, 118, 0.24), transparent 72%);
+    }
+  }
+  .hero-grid {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+    gap: 48px; align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.02em;
+    color: var(--accent); background: var(--surface);
+    border: 1px solid var(--stroke); box-shadow: var(--shadow-sm);
+    padding: 7px 14px 7px 11px; border-radius: 999px; margin-bottom: 24px;
+  }
+  .eyebrow .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--teal-bright);
+    box-shadow: 0 0 0 3px rgba(31, 165, 166, 0.18);
+  }
+  h1 {
+    font-size: clamp(32px, 4.6vw, 54px);
+    line-height: 1.06; letter-spacing: -0.035em; font-weight: 700;
+  }
+  h1 .grad {
+    background: linear-gradient(100deg, var(--teal-bright) 0%, var(--teal) 42%, var(--teal-deep) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  @media (prefers-color-scheme: dark) {
+    h1 .grad { background: linear-gradient(100deg, #6FD9DA 0%, #2BB3B4 55%, #12908F 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  }
+  .lede {
+    margin-top: 22px; font-size: clamp(16.5px, 1.6vw, 19px); color: var(--body);
+    max-width: 540px; line-height: 1.6;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .hero-meta {
+    margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px 18px;
+    font-size: 13.5px; color: var(--muted);
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 7px; }
+  .tick { color: var(--accent); font-weight: 700; }
 
-        <link rel="stylesheet" href="assets/compiled.css?v=fb2b03a3">
-        <style>
-        .loading-splash {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
+  /* ---------- dark hero ----------
+     The hero is always dark, in either theme: it makes the product shot glow
+     and gives the page a clear "above the fold" moment. Everything below it
+     stays on the normal light/dark surfaces. */
+  .hero {
+    background: radial-gradient(120% 130% at 72% 8%, #0C3234 0%, #08222736 40%, transparent 72%), #06171A;
+    color: #F2F5F6;
+  }
+  .hero::before {
+    background:
+      radial-gradient(46% 46% at 78% 26%, rgba(31, 165, 166, 0.26), transparent 70%),
+      radial-gradient(42% 42% at 16% 10%, rgba(19, 117, 118, 0.30), transparent 72%),
+      radial-gradient(36% 36% at 52% 66%, rgba(12, 78, 79, 0.22), transparent 74%);
+    filter: blur(8px);
+  }
+  .hero h1 { color: #FFFFFF; }
+  .hero h1 .grad {
+    background: linear-gradient(100deg, #6FD9DA 0%, #31BEBF 52%, #159C9C 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero .lede { color: #B7C6CA; }
+  .hero .eyebrow {
+    color: #7EDEDF; background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.16); box-shadow: none;
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  }
+  .hero .hero-meta { color: #90A4AA; }
+  .hero .tick { color: #31BEBF; }
+  .hero .btn-ghost {
+    color: #EAF2F3; background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.20); box-shadow: none;
+  }
+  .hero .btn-ghost:hover { border-color: #31BEBF; color: #7EDEDF; background: rgba(255,255,255,0.11); }
+  /* the phone's ground shadow needs more weight on a dark backdrop */
+  .hero .phone-stage::after { background: rgba(0, 0, 0, 0.55); }
+  .hero :focus-visible { outline-color: #7EDEDF; }
 
-        .loading-splash.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
+  /* Nav sits on the hero, so it has to read as dark until you scroll past it. */
+  .nav {
+    background: rgba(6, 23, 26, 0.30);
+    border-bottom-color: transparent;
+  }
+  .nav .brand { color: #F2F5F6; }
+  .nav .brand .name em { color: #31BEBF; }
+  .nav .logo-mark.on-light { display: none; }
+  .nav .logo-mark.on-dark { display: block; }
+  .nav-links a, .nav-signin { color: #A9BCC1; }
+  .nav-links a:hover, .nav-signin:hover { color: #FFFFFF; }
+  .nav.scrolled {
+    background: var(--nav-bg);
+    border-bottom-color: var(--stroke);
+  }
+  .nav.scrolled .brand { color: var(--ink); }
+  .nav.scrolled .brand .name em { color: var(--accent); }
+  .nav.scrolled .logo-mark.on-light { display: var(--logo-light); }
+  .nav.scrolled .logo-mark.on-dark { display: var(--logo-dark); }
+  .nav.scrolled .nav-links a, .nav.scrolled .nav-signin { color: var(--body); }
+  .nav.scrolled .nav-links a:hover, .nav.scrolled .nav-signin:hover { color: var(--ink); }
 
-        .loading-inner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 28px;
-        }
+  /* ---------- phone ---------- */
+  .phone-stage { display: flex; justify-content: center; position: relative; }
+  .phone-stage::after {
+    content: ""; position: absolute; bottom: -6%; left: 50%; transform: translateX(-50%);
+    width: 78%; height: 42px; border-radius: 50%;
+    background: rgba(0, 60, 66, 0.22); filter: blur(26px); z-index: 0;
+  }
 
-        .loading-logo {
-            width: 60px;
-            height: auto;
-            animation: loadPulse 1.8s ease-in-out infinite;
-        }
+  /* Animated backdrop: slow drifting light behind the phone, plus rings that
+     pulse outward — the sense of an agent working in the background. */
+  .stage-fx {
+    position: absolute; inset: -34% -42%; z-index: 0; pointer-events: none;
+    display: grid; place-items: center;
+  }
+  .stage-fx .orb {
+    position: absolute; border-radius: 50%; filter: blur(52px); opacity: 0.85;
+    will-change: transform;
+  }
+  .stage-fx .orb.a {
+    width: 66%; aspect-ratio: 1; background: radial-gradient(circle, rgba(0,180,198,0.62), transparent 66%);
+    top: 2%; left: 0%; animation: drift-a 17s ease-in-out infinite;
+  }
+  .stage-fx .orb.b {
+    width: 58%; aspect-ratio: 1; background: radial-gradient(circle, rgba(0,124,135,0.58), transparent 66%);
+    bottom: 0%; right: 0%; animation: drift-b 21s ease-in-out infinite;
+  }
+  .stage-fx .orb.c {
+    width: 46%; aspect-ratio: 1; background: radial-gradient(circle, rgba(0,201,180,0.45), transparent 68%);
+    top: 40%; right: 26%; animation: drift-c 25s ease-in-out infinite;
+  }
+  .stage-fx .ring {
+    position: absolute; width: 46%; aspect-ratio: 1; border-radius: 50%;
+    border: 1.5px solid rgba(0, 150, 163, 0.5); opacity: 0;
+    animation: pulse-ring 6s ease-out infinite;
+  }
+  .stage-fx .ring:nth-of-type(5) { animation-delay: 2s; }
+  .stage-fx .ring:nth-of-type(6) { animation-delay: 4s; }
+  @keyframes drift-a {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(14%, 10%, 0) scale(1.12); }
+  }
+  @keyframes drift-b {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.06); }
+    50%      { transform: translate3d(-12%, -12%, 0) scale(0.94); }
+  }
+  @keyframes drift-c {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(0.95); }
+    50%      { transform: translate3d(-10%, 12%, 0) scale(1.15); }
+  }
+  @keyframes pulse-ring {
+    0%   { transform: scale(0.72); opacity: 0; }
+    18%  { opacity: 0.5; }
+    100% { transform: scale(1.55); opacity: 0; }
+  }
+  @media (prefers-color-scheme: dark) {
+    .stage-fx .orb { opacity: 0.42; }
+    .stage-fx .ring { border-color: rgba(53, 189, 190, 0.3); }
+  }
+  .phone {
+    position: relative; z-index: 1;
+    width: min(272px, 68vw); aspect-ratio: 1179 / 2556;
+    padding: 9px; border-radius: 44px;
+    background: linear-gradient(160deg, #4A5257 0%, #16191B 34%, #0B0D0E 70%, #33393D 100%);
+    box-shadow:
+      0 2px 3px rgba(255, 255, 255, 0.18) inset,
+      0 40px 80px -22px rgba(4, 32, 36, 0.48),
+      0 12px 28px -12px rgba(4, 32, 36, 0.35);
+  }
+  @media (max-height: 820px) and (min-width: 900px) { .phone { width: 244px; } }
+  .phone-screen {
+    position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden;
+    background: #05171A; display: block;
+  }
+  .phone-screen video, .phone-screen img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; display: block; z-index: 2; background: #05171A;
+  }
+  .phone-notch {
+    position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
+    width: 33%; height: 22px; border-radius: 999px; background: #050708; z-index: 4;
+  }
+  /* graceful fallback: a calm, on-brand mock of the app, sitting under the video */
+  .mock { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, #062A2F 0%, #04191D 55%, #041416 100%); padding: 42px 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .mock-head { display: flex; align-items: center; gap: 8px; padding: 0 4px 10px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .mock-avatar { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(140deg, var(--teal-bright), var(--teal-deep)); flex: none; }
+  .mock-title { font-size: 11.5px; font-weight: 700; color: #EAF6F7; line-height: 1.25; }
+  .mock-title small { display: block; font-size: 9.5px; font-weight: 500; color: #63D6E0; }
+  .bubble { max-width: 82%; padding: 8px 10px; border-radius: 13px; font-size: 10.5px; line-height: 1.4; }
+  .bubble.you { align-self: flex-end; background: linear-gradient(135deg, #188E8F, #00636D); color: #fff; border-bottom-right-radius: 4px; }
+  .bubble.agent { align-self: flex-start; background: rgba(255,255,255,0.09); color: #DCEBED; border-bottom-left-radius: 4px; }
+  .mock-task { margin-top: auto; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.05); border-radius: 11px; padding: 9px 10px; }
+  .mock-task b { display: block; font-size: 10px; color: #EAF6F7; }
+  .mock-task span { font-size: 9px; color: #7FB6BD; }
+  .mock-bar { height: 3px; border-radius: 3px; background: rgba(255,255,255,0.12); margin-top: 7px; overflow: hidden; }
+  .mock-bar i { display: block; height: 100%; width: 68%; background: linear-gradient(90deg, var(--teal-bright), #6FD9DA); }
 
-        .loading-bar {
-            width: 160px;
-            height: 3px;
-            background: rgba(0, 124, 135, 0.12);
-            border-radius: 3px;
-            overflow: hidden;
-        }
+  /* ---------- sections ---------- */
+  section { padding: 76px 0; }
+  .section-head { max-width: 660px; margin-bottom: 44px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kicker {
+    font-size: 12.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+  }
+  h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.12; letter-spacing: -0.028em; font-weight: 700; }
+  .section-head p { margin-top: 14px; color: var(--body); font-size: 17px; }
+  h3 { font-size: 17px; letter-spacing: -0.012em; font-weight: 650; }
 
-        .loading-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #007c87, #00b4c6);
-            border-radius: 3px;
-            transition: width 0.3s ease;
-        }
+  .rule { height: 1px; background: var(--stroke); }
 
-        .loading-pct {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            color: rgba(0, 124, 135, 0.6);
-        }
+  /* ---------- steps ---------- */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step {
+    background: var(--surface); border: 1px solid var(--stroke); border-radius: var(--radius);
+    padding: 26px 24px 24px; box-shadow: var(--shadow-sm); position: relative;
+  }
+  .step .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 9px; margin-bottom: 16px;
+    font-size: 13px; font-weight: 700; color: var(--accent);
+    background: var(--accent-soft); border: 1px solid var(--stroke);
+  }
+  .step p { color: var(--muted); font-size: 14.5px; margin-top: 7px; }
 
-        @keyframes loadPulse {
+  /* ---------- bento ---------- */
+  .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--stroke); border-radius: var(--radius);
+    padding: 28px 26px; box-shadow: var(--shadow-sm);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover { border-color: var(--stroke-strong); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .card p { color: var(--muted); font-size: 14.5px; margin-top: 9px; }
+  .card .glyph {
+    width: 56px; height: 56px; border-radius: 15px; display: grid; place-items: center;
+    background: var(--accent-soft); color: var(--accent); margin-bottom: 18px;
+    border: 1px solid rgba(19, 117, 118, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    .card .glyph { border-color: rgba(53, 189, 190, 0.2); }
+  }
+  .card .glyph svg { width: 28px; height: 28px; display: block; }
+  .card.feature-lead .glyph { width: 62px; height: 62px; border-radius: 17px; }
+  .card.feature-lead .glyph svg { width: 32px; height: 32px; }
+  .span-3 { grid-column: span 3; }
+  .span-2 { grid-column: span 2; }
+  .card.feature-lead { background: linear-gradient(150deg, var(--surface) 0%, var(--surface-2) 60%, rgba(19, 117, 118, 0.06) 100%); }
+  .mini-list { list-style: none; margin-top: 18px; display: grid; gap: 9px; }
+  .mini-list li { display: flex; gap: 10px; font-size: 14.5px; color: var(--body); }
+  .mini-list li::before { content: "→"; color: var(--accent); font-weight: 700; }
 
-            0%,
-            100% {
-                opacity: 0.4;
-                transform: scale(0.96);
-            }
+  /* ---------- connections ---------- */
+  .conn-panel {
+    background: var(--surface); border: 1px solid var(--stroke); border-radius: 22px;
+    padding: 36px 32px; box-shadow: var(--shadow-sm);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 9px;
+    border: 1px solid var(--stroke); background: var(--surface-2);
+    border-radius: 999px; padding: 9px 16px 9px 12px;
+    font-size: 14px; font-weight: 550; color: var(--ink);
+  }
+  .chip .d { width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); background: var(--accent); opacity: 0.85; }
+  .chip.more { color: var(--muted); font-weight: 500; border-style: dashed; }
+  .conn-note { margin-top: 20px; font-size: 13.5px; color: var(--muted); max-width: 640px; }
 
-            50% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-    </style>
+  /* ---------- pricing ---------- */
+  .pricing-head { max-width: 680px; margin: 0 auto 40px; text-align: center; }
+  .pricing-head p.sub { color: var(--muted); font-size: 16px; margin-top: 14px; }
+  .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+  .price-card {
+    background: var(--surface); border: 1px solid var(--stroke-strong); border-radius: 24px;
+    padding: 32px 28px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .price-card::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: linear-gradient(90deg, var(--teal-bright), var(--teal), var(--teal-deep));
+  }
+  .price-card.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-lg); }
+  .plan-badge {
+    position: absolute; top: 16px; right: 16px; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: var(--accent);
+    padding: 5px 10px; border-radius: 999px;
+  }
+  .price-tag { font-size: 12.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+  .price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 12px 0 4px; }
+  .price b { font-size: 46px; font-weight: 700; letter-spacing: -0.035em; line-height: 1; }
+  .price b.quote { font-size: 32px; letter-spacing: -0.025em; padding: 7px 0; }
+  .price s { color: var(--muted); font-size: 24px; font-weight: 600; letter-spacing: -0.02em; text-decoration: line-through; }
+  .price span { color: var(--muted); font-size: 15px; font-weight: 500; }
+  .price-note { font-size: 13px; color: var(--muted); line-height: 1.45; }
+  .price-note b { color: var(--body); font-weight: 600; }
+  .price-card > p.sub { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+  .incl { list-style: none; margin: 22px 0 24px; display: grid; gap: 11px; align-content: start; flex: 1; }
+  .incl li { display: flex; gap: 11px; font-size: 14.5px; color: var(--body); line-height: 1.45; }
+  .incl li::before {
+    content: "✓"; color: var(--accent); font-weight: 700; font-size: 13px; flex: none;
+    margin-top: 1px;
+  }
+  .price-card .btn { width: 100%; margin-top: auto; }
+  .alt-bill { margin-top: 12px; font-size: 13px; color: var(--muted); text-align: center; line-height: 1.5; }
+  .alt-bill button {
+    background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: var(--accent);
+    text-decoration: underline; text-underline-offset: 2px; cursor: pointer;
+  }
+  .alt-bill button:disabled { color: var(--muted); cursor: default; }
+  .fine { margin-top: 14px; font-size: 12.5px; color: var(--muted); text-align: center; line-height: 1.5; }
+  .fine a { color: var(--muted); }
+  .pricing-foot { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 28px; margin-top: 40px; }
+  .pricing-foot .v h3 { margin-bottom: 5px; }
+  .pricing-foot .v p { color: var(--muted); font-size: 14.5px; }
+  .addon {
+    margin-top: 28px; border: 1px dashed var(--stroke-strong); border-radius: 16px;
+    padding: 16px 18px; background: var(--surface-2);
+  }
+  .addon b { font-size: 14.5px; }
+  .addon p { color: var(--muted); font-size: 13.5px; margin-top: 4px; }
+  .value-list { display: grid; gap: 18px; margin-top: 26px; }
+  .value-list .v h3 { margin-bottom: 5px; }
+  .value-list .v p { color: var(--muted); font-size: 14.5px; }
+  /* ---------- faq ---------- */
+  .faq { display: grid; gap: 0; border-top: 1px solid var(--stroke); max-width: 860px; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--stroke); }
+  summary {
+    list-style: none; cursor: pointer; padding: 22px 40px 22px 2px; position: relative;
+    font-weight: 600; font-size: 16.5px; letter-spacing: -0.01em;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    font-size: 22px; font-weight: 400; color: var(--accent); line-height: 1;
+  }
+  details[open] summary::after { content: "−"; }
+  details p { padding: 0 40px 24px 2px; color: var(--body); font-size: 15.5px; max-width: 720px; }
+
+  /* ---------- final cta ---------- */
+  .cta-band {
+    position: relative; overflow: hidden; border-radius: 26px; padding: 56px 40px;
+    background: linear-gradient(140deg, #06424A 0%, var(--teal-deep) 46%, #012C31 100%);
+    color: #fff; text-align: center;
+  }
+  .cta-band::after {
+    content: ""; position: absolute; inset: auto -10% -60% -10%; height: 320px;
+    background: radial-gradient(50% 60% at 50% 50%, rgba(31, 165, 166, 0.38), transparent 70%);
+    pointer-events: none;
+  }
+  .cta-band > * { position: relative; z-index: 1; }
+  .cta-band h2 { color: #fff; }
+  .cta-band p { color: rgba(233, 246, 247, 0.82); margin: 14px auto 28px; max-width: 520px; font-size: 17px; }
+  .cta-band .btn-primary {
+    background: #fff; color: var(--teal-deep); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  }
+  .cta-band .btn-ghost {
+    background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.4); box-shadow: none;
+  }
+  .cta-band .btn-ghost:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.08); }
+  .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--stroke); padding: 44px 0 56px; }
+  .foot-grid { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 22px; }
+  .foot-links a { color: var(--body); text-decoration: none; font-size: 14px; }
+  .foot-links a:hover { color: var(--accent); }
+  .foot-links a.foot-signin { color: var(--accent); font-weight: 600; }
+  .copyright { color: var(--muted); font-size: 13px; margin-top: 26px; }
+
+  @media (max-width: 940px) {
+    .hero { padding: 120px 0 68px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+    .lede { max-width: none; }
+    .steps { grid-template-columns: 1fr; }
+    .bento { grid-template-columns: repeat(2, 1fr); }
+    .span-3, .span-2 { grid-column: span 2; }
+    .plans { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .pricing-foot { grid-template-columns: 1fr; }
+    section { padding: 64px 0; }
+  }
+  @media (max-width: 620px) {
+    .bento { grid-template-columns: 1fr; }
+    .span-3, .span-2 { grid-column: span 1; }
+    .hero-actions .btn, .cta-actions .btn { width: 100%; }
+    .conn-panel, .price-card, .cta-band { padding-left: 22px; padding-right: 22px; }
+    .cta-band { padding-top: 42px; padding-bottom: 42px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
 </head>
-
 <body>
 
-        <div id="loadingSplash" class="loading-splash">
-        <div class="loading-inner">
-            <img src="assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="loading-logo"
-                fetchpriority="high">
-            <div class="loading-bar">
-                <div class="loading-bar-fill"></div>
-            </div>
-            <span class="loading-pct" id="loadingPct">0%</span>
-        </div>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <img class="logo-mark on-light" src="assets/vantage-logo.png" alt="">
+      <img class="logo-mark on-dark" src="assets/vantage-logo-dark.png" alt="">
+      <span class="name">Vantage <em>Method</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#how">How it works</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#connections">Connections</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-sm" href="/book/">Book a call</a>
     </div>
+  </div>
+</header>
 
-        <div id="vantaBg"></div>
+<main id="top">
 
-        <header>
-        <div class="container">
-            <a href="#" class="logo-link" aria-label="Back to top"><img
-                    src="assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="logo"
-                    fetchpriority="high"></a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav id="mainNav">
-                <a href="/app/">The Vantage Agent</a>
-                <a href="#outcome">Our Approach</a>
-                <a href="#how-we-work">How We Work</a>
-                <a href="#what-we-do">Services</a>
-                <a href="#team">Team</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#pricing">Pricing</a>
-                <a href="/book/" class="nav-cta">Book a Call</a>
-            </nav>
+    <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow"><span class="dot"></span> Your marketing engine</p>
+        <h1>The full power of AI,<br class="nb"><span class="grad">in the palm<br class="nb"> of your hand.</span></h1>
+        <p class="lede">
+          Vantage Agent isn't a chatbot — it's an operator that does the work. It builds and
+          launches your funnels, runs your ads, works your SEO and follows up with your leads,
+          every day, without being asked twice.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="/book/">Book a call <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost btn-lg" href="#pricing">Plans from $500/mo</a>
         </div>
-    </header>
+        <p class="hero-meta">
+          <span><span class="tick" aria-hidden="true">✓</span> We set it up for you</span>
+          <span><span class="tick" aria-hidden="true">✓</span> Nothing to install</span>
+          <span><span class="tick" aria-hidden="true">✓</span> Cancel anytime</span>
+        </p>
+      </div>
 
-        <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>
-                    YOUR MARKETING <span class="hero-rotating-wrapper">
-                        <span class="hero-rotating-phrase">ENGINE.</span>
-                        <span class="hero-rotating-phrase">TEAM.</span>
-                        <span class="hero-rotating-phrase">AGENT.</span>
-                    </span><br>
-                    Meet the Vantage Agent — an AI operator that runs your marketing for you.
-                </h1>
-                <p class="hero-subtext">
-                    It connects to the services you already use — your ads, your website, your email, your CRM, your AI — and does the work: builds funnels, runs campaigns, follows up with leads, every day, without being asked twice. Turnkey from $500/month, or white-glove where we set up everything.
-                </p>
-                <div class="hero-buttons">
-                    <a href="/book/" class="hero-cta">Book a Call</a>
-                    <a href="/app/" class="hero-cta-secondary">Meet the Agent</a>
-                </div>
+      <div class="phone-stage">
+        <div class="stage-fx" aria-hidden="true">
+          <span class="orb a"></span><span class="orb b"></span><span class="orb c"></span>
+          <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+        </div>
+        <div class="phone">
+          <div class="phone-screen">
+                        <div class="mock" aria-hidden="true">
+              <div class="mock-head">
+                <div class="mock-avatar"></div>
+                <div class="mock-title">Atlas<small>Working · always on</small></div>
+              </div>
+              <div class="bubble you">Put the new pricing page live and email the list.</div>
+              <div class="bubble agent">Built it, deployed to your host, DNS is pointed. Sending 1,240 emails through Resend now.</div>
+              <div class="bubble you">Nice. Same time every Monday?</div>
+              <div class="bubble agent">Scheduled. Monday 7:00am, weekly.</div>
+              <div class="bubble you">And bump the ad budget to $300/day.</div>
+              <div class="bubble agent">Updated in your Meta account. Two campaigns, live now.</div>
+              <div class="mock-task">
+                <b>Weekly campaign report</b>
+                <span>Next run · Monday 7:00am</span>
+                <div class="mock-bar"><i></i></div>
+              </div>
             </div>
+            <img id="heroShot" src="assets/hero-shot.png?v=1785347201"
+                 alt="Vantage Agent on iPhone: the owner asks the agent to build a lead funnel, and the agent reports it built the landing page, lead magnet, thank-you page and email sequence and shipped them to GitHub."
+                 onerror="heroFallback()">
+            <div class="phone-notch" aria-hidden="true"></div>
+          </div>
         </div>
-    </section>
-
-        <div class="mountain-sections-wrapper">
-                <div class="side-mountains-container" id="sideMountains">
-            <img src="assets/images/mountains/left-mountain.webp" alt="Left Mountain" class="left-mountain" id="leftMountain">
-            <img src="assets/images/mountains/righ-mountain.webp" alt="Right Mountain" class="right-mountain" id="rightMountain">
-        </div>
-        <div class="center-mountain-container">
-            <img src="assets/images/mountains/center-mountain-back.webp" alt="Mountain Background" class="center-mountain" style="z-index: 0;">
-            <img src="assets/images/mountains/center-mountain-middle.webp" alt="Mountain Middle" class="center-mountain center-mountain-middle" id="centerMountainMiddle" style="z-index: 1;">
-            <img src="assets/images/mountains/center-mountain-front.webp" alt="Mountain Front" class="center-mountain" style="z-index: 2;" fetchpriority="high">
-        </div>
-
-                <section class="mountain-section" id="outcome">
-        <div class="content-block" id="outcomeBlock">
-            <div class="block-title">The Outcome</div>
-            <div class="block-content">
-                <p>If marketing feels like a gamble — because time is tight, margins are thin, and delivery capacity is limited — more leads aren’t the answer.</p>
-                <p>Not just more <span class="rotating-wrapper">
-                    <span class="rotating-phrase">leads.</span>
-                    <span class="rotating-phrase">customers.</span>
-                    <span class="rotating-phrase">opportunities.</span>
-                </span></p>
-                <p><span class="highlight-text">Better ones</span> — at the right price.</p>
-                <div class="block-divider"></div>
-                <ul>
-                    <li class="icon-demand">Predictable demand <span style="opacity:.7;">(no more feast / famine)</span></li>
-                    <li class="icon-attribution">Clear attribution <span style="opacity:.7;">(what works vs. what wastes money)</span></li>
-                    <li class="icon-opportunities">Qualified opportunities <span style="opacity:.7;">(less chasing, more closing)</span></li>
-                </ul>
-            </div>
-            <a href="#how" class="block-cta">How we get there</a>
-        </div>
-    </section>
-
-        <section class="mountain-section" id="how">
-        <div class="content-block" id="howBlock">
-            <div class="block-title">How We Get There</div>
-            <div class="block-content">
-                <p>We don’t start with ads. <span class="highlight-text">We start with constraints.</span></p>
-                <div class="block-divider"></div>
-                <p><strong>Growth only works when it fits inside:</strong></p>
-                <ul>
-                    <li class="icon-margins">margins</li>
-                    <li class="icon-capacity">capacity</li>
-                    <li class="icon-systems">systems</li>
-                </ul>
-                <p style="margin-top: 14px; opacity: .85;">When marketing ignores reality, it doesn’t scale the business — it breaks it.</p>
-            </div>
-            <a href="#where" class="block-cta">Where we start</a>
-        </div>
-    </section>
-
-        <section class="mountain-section" id="where">
-        <div class="content-block" id="whereBlock">
-            <div class="block-title">Where It Actually Begins</div>
-            <div class="block-content">
-                <p>Before we spend a dollar on marketing, we reverse-engineer what the business must produce — <span class="highlight-text">profit, cash flow, and the time you’re trying to buy back</span> — then we decide whether marketing can responsibly accelerate it.</p>
-                <div class="block-divider"></div>
-                <p><strong>This is where:</strong></p>
-                <ul>
-                    <li class="icon-waste">waste is removed</li>
-                    <li class="icon-automation">automation is applied</li>
-                    <li class="icon-humans">humans stay in their wheelhouse</li>
-                </ul>
-            </div>
-            <a href="#principles" class="block-cta">Our Principles</a>
-        </div>
-    </section>
+      </div>
     </div>
+  </section>
 
-        <section class="content-section" id="principles">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Our Principles</h2>
-                <p class="section-subtitle principles-subtitle">Measure. Automate. Focus.</p>
-            </div>
-            <div class="principles-grid">
-                <div class="principle-card" data-number="01">
-                    <div class="principle-visual">
-                        <div class="principle-anim anim-data">
-                            <div class="data-bar" style="--h: 35%; --d: 0s"></div>
-                            <div class="data-bar" style="--h: 65%; --d: 0.4s"></div>
-                            <div class="data-bar" style="--h: 45%; --d: 0.8s"></div>
-                            <div class="data-bar" style="--h: 80%; --d: 1.2s"></div>
-                            <div class="data-bar" style="--h: 55%; --d: 1.6s"></div>
-                            <div class="data-bar" style="--h: 90%; --d: 2.0s"></div>
-                            <div class="data-bar" style="--h: 70%; --d: 2.4s"></div>
-                        </div>
-                    </div>
-                    <h3 class="principle-title">Data First</h3>
-                    <p class="principle-description">We carefully measure the data that actually matters.</p>
-                </div>
-
-                <div class="principle-card" data-number="02">
-                    <div class="principle-visual">
-                        <div class="principle-anim anim-automate">
-                            <div class="orbit orbit-1">
-                                <div class="orbit-node"></div>
-                            </div>
-                            <div class="orbit orbit-2">
-                                <div class="orbit-node"></div>
-                            </div>
-                            <div class="orbit orbit-3">
-                                <div class="orbit-node"></div>
-                            </div>
-                            <div class="core-dot"></div>
-                        </div>
-                    </div>
-                    <h3 class="principle-title">Automate the Busywork</h3>
-                    <p class="principle-description">We automate the boring, repetitive work — not the human judgment.</p>
-                </div>
-
-                <div class="principle-card" data-number="03">
-                    <div class="principle-visual">
-                        <div class="principle-anim anim-focus">
-                            <div class="focus-ring ring-1"></div>
-                            <div class="focus-ring ring-2"></div>
-                            <div class="focus-ring ring-3"></div>
-                            <div class="focus-center"></div>
-                        </div>
-                    </div>
-                    <h3 class="principle-title">Work in Your Sweet Spot</h3>
-                    <p class="principle-description">You do the work that only you can do. The work that matters most.</p>
-                </div>
-            </div>
-            <a href="#how-we-work" class="section-nav-button">See How We Work</a>
+    <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">How it works</p>
+        <h2>Working for you by tomorrow.</h2>
+        <p>No software to install, no servers to rent, nothing to keep running. We build your agent, and you talk to it from your phone.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Pick your path</h3>
+          <p>Go turnkey with one Stripe checkout and set it up yourself — or <a href="/book/">book a 30-minute call</a> and we scope the whole thing with you, white-glove.</p>
         </div>
-    </section>
-
-        <section class="hww-section" id="how-we-work">
-        <div class="hww-bg-grid"></div>
-        <div class="container">
-            <div class="hww-header">
-                <p class="hww-eyebrow">How We Work</p>
-                <h2 class="hww-headline">Most marketing fails because it ignores the business.</h2>
-                <p class="hww-subline">Discipline. Constraints. Reality.</p>
-            </div>
-
-            <div class="hww-steps">
-                                <div class="hww-step" data-step="01">
-                    <div class="hww-step-visual">
-                        <div class="hww-anim anim-blueprint">
-                            <div class="bp-node bp-center"></div>
-                            <div class="bp-node bp-top"></div>
-                            <div class="bp-node bp-left"></div>
-                            <div class="bp-node bp-right"></div>
-                            <div class="bp-node bp-bottom-l"></div>
-                            <div class="bp-node bp-bottom-r"></div>
-                            <svg class="bp-lines" viewBox="0 0 200 200">
-                                <line x1="100" y1="100" x2="100" y2="30" class="bp-line" />
-                                <line x1="100" y1="100" x2="30" y2="100" class="bp-line" />
-                                <line x1="100" y1="100" x2="170" y2="100" class="bp-line" />
-                                <line x1="100" y1="100" x2="55" y2="160" class="bp-line" />
-                                <line x1="100" y1="100" x2="145" y2="160" class="bp-line" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="hww-step-content">
-                        <h3 class="hww-step-title">Business Model Analysis</h3>
-                        <p class="hww-step-text">We reverse-engineer your business model, identify where marketing fits, and apply automation where it replaces wasted effort.</p>
-                    </div>
-                    <div class="hww-connector"></div>
-                </div>
-
-                                <div class="hww-step" data-step="02">
-                    <div class="hww-step-visual">
-                        <div class="hww-anim anim-system">
-                            <div class="sys-channel">
-                                <div class="sys-particle" style="--delay: 0s"></div>
-                                <div class="sys-particle" style="--delay: 0.6s"></div>
-                                <div class="sys-particle" style="--delay: 1.2s"></div>
-                            </div>
-                            <div class="sys-channel ch-2">
-                                <div class="sys-particle" style="--delay: 0.3s"></div>
-                                <div class="sys-particle" style="--delay: 0.9s"></div>
-                                <div class="sys-particle" style="--delay: 1.5s"></div>
-                            </div>
-                            <div class="sys-channel ch-3">
-                                <div class="sys-particle" style="--delay: 0.15s"></div>
-                                <div class="sys-particle" style="--delay: 0.75s"></div>
-                                <div class="sys-particle" style="--delay: 1.35s"></div>
-                            </div>
-                            <div class="sys-gate gate-1"></div>
-                            <div class="sys-gate gate-2"></div>
-                        </div>
-                    </div>
-                    <div class="hww-step-content">
-                        <h3 class="hww-step-title">Critical System Design</h3>
-                        <p class="hww-step-text">We design marketing systems the same way you'd design any critical system: with discipline, constraints, and respect for reality.</p>
-                    </div>
-                    <div class="hww-connector"></div>
-                </div>
-
-                                <div class="hww-step" data-step="03">
-                    <div class="hww-step-visual">
-                        <div class="hww-anim anim-ai">
-                            <div class="ai-core"></div>
-                            <div class="ai-arc arc-1"></div>
-                            <div class="ai-arc arc-2"></div>
-                            <div class="ai-arc arc-3"></div>
-                            <div class="ai-pulse"></div>
-                            <div class="ai-dot dot-1"></div>
-                            <div class="ai-dot dot-2"></div>
-                            <div class="ai-dot dot-3"></div>
-                            <div class="ai-dot dot-4"></div>
-                        </div>
-                    </div>
-                    <div class="hww-step-content">
-                        <h3 class="hww-step-title">AI is used deliberately.</h3>
-                        <p class="hww-step-text">We use it where it excels — repetition, analysis, orchestration. We keep humans involved where judgment, creativity, and accountability matter.</p>
-                    </div>
-                </div>
-            </div>
-
-            <a href="#what-we-do" class="section-nav-button hww-nav-btn">What We Do</a>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>We set up your agent</h3>
+          <p>We build it on our own hardware, give it its brief, and connect the accounts you want it working in. Usually the same day — we email you the moment it's live.</p>
         </div>
-    </section>
-
-        <section class="wwd-section" id="what-we-do">
-        <div class="container">
-            <div class="wwd-header">
-                <p class="wwd-eyebrow">What We Do</p>
-                <h2 class="wwd-headline">Analyze. Execute. Partner.</h2>
-            </div>
-
-            <div class="wwd-pillars">
-                                <div class="wwd-pillar" data-pillar="01">
-                    <div class="wwd-pillar-accent"></div>
-                    <div class="wwd-pillar-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="22" cy="22" r="14" stroke="currentColor" stroke-width="2" class="icon-ring"/>
-                            <line x1="32" y1="32" x2="42" y2="42" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" class="icon-handle"/>
-                            <path d="M16 22h12M22 16v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" class="icon-cross"/>
-                        </svg>
-                    </div>
-                    <h3 class="wwd-pillar-title">Business Analysis &amp; AI Discovery</h3>
-                    <p class="wwd-pillar-desc">We evaluate whether marketing can responsibly accelerate your business — and where automation fits.</p>
-                    <ul class="wwd-pillar-list">
-                        <li>Revenue &amp; margin analysis</li>
-                        <li>Customer journey mapping</li>
-                        <li>Marketing budget feasibility</li>
-                    </ul>
-                    <p class="wwd-pillar-note">The outcome is clarity — on what to automate, what to measure, and whether a partnership makes sense.</p>
-                </div>
-
-                                <div class="wwd-pillar" data-pillar="02">
-                    <div class="wwd-pillar-accent"></div>
-                    <div class="wwd-pillar-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2" class="icon-gear-outer"/>
-                            <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2" class="icon-gear-inner"/>
-                            <line x1="24" y1="4" x2="24" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="icon-spoke"/>
-                            <line x1="24" y1="36" x2="24" y2="44" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="icon-spoke"/>
-                            <line x1="4" y1="24" x2="12" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="icon-spoke"/>
-                            <line x1="36" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="icon-spoke"/>
-                        </svg>
-                    </div>
-                    <h3 class="wwd-pillar-title">End-to-End Marketing Systems</h3>
-                    <p class="wwd-pillar-desc">We build and operate complete marketing systems — from brand positioning through lead delivery.</p>
-                    <ul class="wwd-pillar-list">
-                        <li><a href="/custom-website/">Website &amp; conversion optimization</a></li>
-                        <li><a href="/google-ads/">Google Ads</a> · <a href="/facebook-ads/">Facebook Ads</a> · <a href="/google-meta-ads/">Google &amp; Meta Ads</a></li>
-                        <li>Lead qualification &amp; handoff</li>
-                    </ul>
-                    <p class="wwd-pillar-note">Marketing doesn't stop at traffic. It ends when a qualified opportunity reaches the business.</p>
-                    <p class="wwd-service-links">Explore by service: <a href="/custom-website/">Custom Website</a> · <a href="/google-ads/">Google Ads</a> · <a href="/facebook-ads/">Facebook Ads</a> · <a href="/google-meta-ads/">Google &amp; Meta Ads</a> · <a href="/starter-pack/">Starter Pack</a></p>
-                </div>
-
-                                <div class="wwd-pillar" data-pillar="03">
-                    <div class="wwd-pillar-accent"></div>
-                    <div class="wwd-pillar-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M14 28c-4 0-6 2-6 4v4h16v-4c0-2-2-4-6-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="icon-hand-l"/>
-                            <path d="M34 28c4 0 6 2 6 4v4H24v-4c0-2 2-4 6-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="icon-hand-r"/>
-                            <circle cx="18" cy="20" r="5" stroke="currentColor" stroke-width="2" class="icon-head-l"/>
-                            <circle cx="30" cy="20" r="5" stroke="currentColor" stroke-width="2" class="icon-head-r"/>
-                        </svg>
-                    </div>
-                    <h3 class="wwd-pillar-title">Marketing for Equity</h3>
-                    <p class="wwd-pillar-desc">For businesses with strong fundamentals but limited capital, we offer a long-term partnership model.</p>
-                    <ul class="wwd-pillar-list">
-                        <li>Full marketing function operation</li>
-                        <li>Equity &amp; profit participation</li>
-                        <li>Product-market fit required</li>
-                    </ul>
-                    <p class="wwd-pillar-note">We only partner where shared incentives align and we believe deeply in the outcome.</p>
-                </div>
-            </div>
-
-            <a href="#portfolio" class="section-nav-button">Our Work</a>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Scan the code with your phone</h3>
+          <p>Install the iPhone app and enter the pairing code from your account page. From then on you just text your agent, like any other operator on your team.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    
-        <section class="pf-section" id="portfolio">
-        <div class="pf-noise"></div>
-        <div class="container">
-            <div class="pf-header">
-                <p class="pf-eyebrow">Our Work</p>
-                <h2 class="pf-headline">Results that speak for themselves.</h2>
-                <p class="pf-subline">Outcomes first — then the creative and systems behind them.</p>
-            </div>
-            <div class="pf-filters" id="pfFilters">
-                <button class="pf-pill" data-filter="campaigns">Campaigns</button>
-                <button class="pf-pill" data-filter="video">Video</button>
-                <button class="pf-pill" data-filter="design">Design</button>
-                <button class="pf-pill" data-filter="apps">Apps</button>
-                <button class="pf-pill active" data-filter="all">All</button>
-            </div>
-        </div>
-
-                <div class="pf-gallery" id="pfGallery">
-            <div class="pf-track" id="pfTrack">
-
-                                <div class="pf-card pf-card--wide pf-card--video" data-cat="video" data-vimeo="1153743575">
-                    <div class="pf-video-thumb" style="background-image: url('https://vumbnail.com/1153743575.jpg');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Video Production</span>
-                        <h3 class="pf-card-title">Warrior In Me</h3>
-                        <p class="pf-card-sub">JC AllStars ft. Veteran Shilo Harris</p>
-                    </div>
-                    <div class="pf-play-icon"><svg viewBox="0 0 24 24">
-                            <polygon points="5,3 19,12 5,21" fill="currentColor" />
-                        </svg></div>
-                </div>
-
-                                <div class="pf-card pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/design/chris-lamm-branding.webp?v=2');">
-                    </div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Brand Identity</span>
-                        <h3 class="pf-card-title">Chris Lamm</h3>
-                        <p class="pf-card-sub">Logo &amp; brand identity system</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--metric" data-cat="campaigns">
-                    <div class="pf-metric-inner">
-                        <span class="pf-metric-value" data-target="340" data-suffix="%">0%</span>
-                        <span class="pf-metric-label">Return on Ad Spend</span>
-                        <div class="pf-metric-bar">
-                            <div class="pf-metric-fill" style="--fill: 85%"></div>
-                        </div>
-                        <p class="pf-metric-detail">B2B SaaS · 6-month engagement</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--wide pf-card--image" data-cat="design">
-                    <div class="pf-img"
-                        style="background-image: url('assets/images/design/harvey-collective-branding.webp?v=2');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Brand Identity</span>
-                        <h3 class="pf-card-title">Harvey Collective</h3>
-                        <p class="pf-card-sub">Full brand &amp; visual identity</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--tall pf-card--video" data-cat="video" data-vimeo="1134637731">
-                    <div class="pf-video-thumb" style="background-image: url('https://vumbnail.com/1134637731.jpg');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Product Video</span>
-                        <h3 class="pf-card-title">WarTribe IceWeave</h3>
-                        <p class="pf-card-sub">Product showcase &amp; brand film</p>
-                    </div>
-                    <div class="pf-play-icon"><svg viewBox="0 0 24 24">
-                            <polygon points="5,3 19,12 5,21" fill="currentColor" />
-                        </svg></div>
-                </div>
-
-                                <div class="pf-card pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/design/Instagram 2.webp?v=2');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Social Media</span>
-                        <h3 class="pf-card-title">Social Campaign</h3>
-                        <p class="pf-card-sub">Instagram content design</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--metric pf-card--accent" data-cat="campaigns">
-                    <div class="pf-metric-inner">
-                        <span class="pf-metric-value" data-target="2.4" data-suffix="M" data-decimal="1">0</span>
-                        <span class="pf-metric-label">Monthly Impressions</span>
-                        <div class="pf-metric-bar">
-                            <div class="pf-metric-fill" style="--fill: 72%"></div>
-                        </div>
-                        <p class="pf-metric-detail">Multi-channel paid media</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--tall pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/photos/1.webp');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Photography</span>
-                        <h3 class="pf-card-title">Brand Photography</h3>
-                        <p class="pf-card-sub">Professional photo production</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--wide pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/design/next-ridge-branding.webp?v=2');">
-                    </div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Brand Identity</span>
-                        <h3 class="pf-card-title">Next Ridge</h3>
-                        <p class="pf-card-sub">Brand strategy &amp; identity design</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/design/Instagram E4.webp?v=2');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Social Media</span>
-                        <h3 class="pf-card-title">Content Series</h3>
-                        <p class="pf-card-sub">Branded social content</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--metric" data-cat="campaigns">
-                    <div class="pf-metric-inner">
-                        <span class="pf-metric-value" data-target="47" data-suffix="%" data-prefix="-">0%</span>
-                        <span class="pf-metric-label">Customer Acquisition Cost</span>
-                        <div class="pf-metric-bar">
-                            <div class="pf-metric-fill" style="--fill: 65%"></div>
-                        </div>
-                        <p class="pf-metric-detail">E-commerce · 90-day sprint</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--wide pf-card--video" data-cat="video" data-vimeo="1111737267">
-                    <div class="pf-video-thumb" style="background-image: url('https://vumbnail.com/1111737267.jpg');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Content Production</span>
-                        <h3 class="pf-card-title">Anna Hype</h3>
-                        <p class="pf-card-sub">Long-form brand content</p>
-                    </div>
-                    <div class="pf-play-icon"><svg viewBox="0 0 24 24">
-                            <polygon points="5,3 19,12 5,21" fill="currentColor" />
-                        </svg></div>
-                </div>
-
-                                <div class="pf-card pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/photos/2.webp');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Photography</span>
-                        <h3 class="pf-card-title">Product Shoot</h3>
-                        <p class="pf-card-sub">Studio &amp; lifestyle photography</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--tall pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/design/elite-tee.webp?v=2');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Product Design</span>
-                        <h3 class="pf-card-title">Elite Tee</h3>
-                        <p class="pf-card-sub">Apparel &amp; product branding</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--image" data-cat="design">
-                    <div class="pf-img"
-                        style="background-image: url('assets/images/design/olsons-martial-arts-branding.webp?v=2');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Brand Identity</span>
-                        <h3 class="pf-card-title">Olsons Martial Arts</h3>
-                        <p class="pf-card-sub">Logo &amp; brand system</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--metric pf-card--accent" data-cat="campaigns">
-                    <div class="pf-metric-inner">
-                        <span class="pf-metric-value" data-target="12" data-suffix="x">0</span>
-                        <span class="pf-metric-label">Return on Ad Spend</span>
-                        <div class="pf-metric-bar">
-                            <div class="pf-metric-fill" style="--fill: 92%"></div>
-                        </div>
-                        <p class="pf-metric-detail">DTC brand · Paid social</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--wide pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/photos/3.webp');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Photography</span>
-                        <h3 class="pf-card-title">Editorial</h3>
-                        <p class="pf-card-sub">Editorial &amp; campaign photography</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--wide pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/design/Instagram 5.webp?v=2');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Social Media</span>
-                        <h3 class="pf-card-title">Brand Campaign</h3>
-                        <p class="pf-card-sub">Instagram marketing content</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/design/true-north-branding.webp?v=2');">
-                    </div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Brand Identity</span>
-                        <h3 class="pf-card-title">True North</h3>
-                        <p class="pf-card-sub">Brand strategy &amp; visual identity</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/photos/4.webp');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Photography</span>
-                        <h3 class="pf-card-title">Lifestyle</h3>
-                        <p class="pf-card-sub">Brand lifestyle imagery</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--metric" data-cat="campaigns">
-                    <div class="pf-metric-inner">
-                        <span class="pf-metric-value" data-target="186" data-suffix="%">0%</span>
-                        <span class="pf-metric-label">Conversion Rate Lift</span>
-                        <div class="pf-metric-bar">
-                            <div class="pf-metric-fill" style="--fill: 78%"></div>
-                        </div>
-                        <p class="pf-metric-detail">Landing page optimization</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/design/Instagram M2.webp?v=2');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Social Media</span>
-                        <h3 class="pf-card-title">Social Series</h3>
-                        <p class="pf-card-sub">Branded content design</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--tall pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/photos/5.webp');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Photography</span>
-                        <h3 class="pf-card-title">Portrait</h3>
-                        <p class="pf-card-sub">Professional portrait photography</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--tall pf-card--image" data-cat="design">
-                    <div class="pf-img" style="background-image: url('assets/images/design/Instagram 7.webp?v=2');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Social Media</span>
-                        <h3 class="pf-card-title">Visual Content</h3>
-                        <p class="pf-card-sub">Instagram campaign creative</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--wide pf-card--image" data-cat="apps">
-                    <div class="pf-img" style="background-image: url('assets/images/apps/leslies-app.webp');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">App UI/UX</span>
-                        <h3 class="pf-card-title">Leslie&rsquo;s</h3>
-                        <p class="pf-card-sub">Ecommerce app design &amp; development</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--wide pf-card--video" data-cat="video" data-vimeo="818463359">
-                    <div class="pf-video-thumb" style="background-image: url('https://vumbnail.com/818463359.jpg');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Documentary</span>
-                        <h3 class="pf-card-title">The Rifle, Return to Normandy</h3>
-                        <p class="pf-card-sub">Emmy-winning documentary</p>
-                    </div>
-                    <div class="pf-play-icon"><svg viewBox="0 0 24 24">
-                            <polygon points="5,3 19,12 5,21" fill="currentColor" />
-                        </svg></div>
-                </div>
-
-                                <div class="pf-card pf-card--wide pf-card--image" data-cat="apps">
-                    <div class="pf-img" style="background-image: url('assets/images/apps/bill4time.webp');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">UI/UX Design</span>
-                        <h3 class="pf-card-title">Bill4Time</h3>
-                        <p class="pf-card-sub">SaaS platform design</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--wide pf-card--video" data-cat="video" data-vimeo="1071013142">
-                    <div class="pf-video-thumb" style="background-image: url('https://vumbnail.com/1071013142.jpg');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Commercial</span>
-                        <h3 class="pf-card-title">Stoic Cigars</h3>
-                        <p class="pf-card-sub">Brand story &amp; commercial</p>
-                    </div>
-                    <div class="pf-play-icon"><svg viewBox="0 0 24 24">
-                            <polygon points="5,3 19,12 5,21" fill="currentColor" />
-                        </svg></div>
-                </div>
-
-                                <div class="pf-card pf-card--tall pf-card--image" data-cat="apps">
-                    <div class="pf-img" style="background-image: url('assets/images/apps/get-some-jerky.webp');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Branding &amp; Development</span>
-                        <h3 class="pf-card-title">Get Some Jerky</h3>
-                        <p class="pf-card-sub">Full brand identity, print &amp; web</p>
-                    </div>
-                </div>
-
-                                <div class="pf-card pf-card--wide pf-card--video" data-cat="video" data-vimeo="319118681">
-                    <div class="pf-video-thumb" style="background-image: url('https://vumbnail.com/319118681.jpg');"></div>
-                    <div class="pf-card-overlay">
-                        <span class="pf-card-tag">Production Reel</span>
-                        <h3 class="pf-card-title">Production Showcase</h3>
-                        <p class="pf-card-sub">Commercials, TV, music videos &amp; films</p>
-                    </div>
-                    <div class="pf-play-icon"><svg viewBox="0 0 24 24">
-                            <polygon points="5,3 19,12 5,21" fill="currentColor" />
-                        </svg></div>
-                </div>
-
-            </div>
-        </div>
-
-                <div class="pf-scroll-hint">
-            <span>Drag to explore</span>
-            <svg width="32" height="16" viewBox="0 0 32 16">
-                <path d="M0 8h28M22 2l6 6-6 6" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"
-                    stroke-linejoin="round" />
+    <section id="capabilities">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">What it takes off your plate</p>
+        <h2>The work you keep putting off,<br>done by Friday.</h2>
+        <p>Every one of these is a job you're either paying someone for, waiting weeks on, or quietly not doing at all.</p>
+      </div>
+      <div class="bento">
+        <article class="card feature-lead span-3">
+          <div class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 5.5A1.5 1.5 0 0 1 4.5 4h15A1.5 1.5 0 0 1 21 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/>
+              <path d="M3 8.5h18"/><circle cx="6" cy="6.2" r=".6" fill="currentColor"/>
+              <path d="M8 12h8M8 15h5"/><path d="M14.5 17.5 17 20l4-4.5"/>
             </svg>
+          </div>
+          <h3>Stop waiting three weeks for a landing page</h3>
+          <p>You describe the offer. You get a live page — written, deployed to your hosting, domain pointed, code in your GitHub — usually before you've finished your coffee. No agency queue, no dev ticket, no "we'll have something Thursday."</p>
+          <ul class="mini-list">
+            <li>Funnels, landing pages and lead magnets, built and live</li>
+            <li>Copy, layout, forms and follow-up email written for you</li>
+            <li>Revisions in the time it takes to ask for them</li>
+          </ul>
+        </article>
+        <article class="card feature-lead span-3">
+          <div class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 17.5 8.5 12l3.5 3.5L21 6.5"/>
+              <path d="M15.5 6.5H21v5.5"/>
+              <path d="M3 21h18"/>
+            </svg>
+          </div>
+          <h3>Yes — it actually runs your ads</h3>
+          <p>Not "drafts ad copy." It signs into your Meta account, builds the campaigns, launches them, watches the numbers daily and moves budget off what isn't working. Then it tells you what it did and what it wants to try next.</p>
+          <ul class="mini-list">
+            <li>Campaigns built, launched and adjusted in your account</li>
+            <li>New creative written and posted when performance dips</li>
+            <li>Email campaigns sent from your own domain</li>
+          </ul>
+        </article>
+        <article class="card span-2">
+          <div class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>
+              <path d="M11 8v6M8 11h6"/>
+            </svg>
+          </div>
+          <h3>Yes — it works on your SEO</h3>
+          <p>Keyword research, pages written and published, titles and metadata fixed, site speed and structure cleaned up, Search Console watched. The unglamorous compounding work nobody on your team gets around to.</p>
+        </article>
+        <article class="card span-2">
+          <div class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="16" rx="2"/>
+              <path d="M3 10h18M8 3v4M16 3v4"/>
+              <path d="m9 15 2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>It doesn't need reminding</h3>
+          <p>"Check the ads every morning and tell me if anything's off." Booked. It runs on its own schedule, does the work while you sleep, and reports back — the follow-through you've been the bottleneck on.</p>
+        </article>
+        <article class="card span-2">
+          <div class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10" cy="8" r="3.6"/>
+              <path d="M3.5 20a6.5 6.5 0 0 1 13 0"/>
+              <path d="M19 7v6M16 10h6"/>
+            </svg>
+          </div>
+          <h3>One hire's work, without the hire</h3>
+          <p>No recruiting, no onboarding, no payroll, no turnover — and it doesn't forget what you told it in March. Add a second agent for another lane of work whenever you're ready.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+    <section id="connections">
+    <div class="wrap">
+      <div class="conn-panel">
+        <p class="kicker">Connections</p>
+        <h2 style="font-size:clamp(24px,2.6vw,30px)">Plugged into the accounts you already pay for.</h2>
+        <p style="color:var(--body); margin-top:12px; max-width:620px; font-size:16px">
+          Hand over a connection once — we'll wire it in for you — and your agent can use it for everything after that.
+        </p>
+        <div class="chips">
+          <span class="chip"><span class="d" aria-hidden="true"></span>Domain registrar</span>
+          <span class="chip"><span class="d" aria-hidden="true"></span>Web hosting</span>
+          <span class="chip"><span class="d" aria-hidden="true"></span>GitHub</span>
+          <span class="chip"><span class="d" aria-hidden="true"></span>Resend email</span>
+          <span class="chip"><span class="d" aria-hidden="true"></span>Google</span>
+          <span class="chip"><span class="d" aria-hidden="true"></span>Meta ads</span>
+          <span class="chip more">+ anything else with an API key</span>
+        </div>
+        <p class="conn-note">
+          Credentials go straight into your own agent's environment and stay there.
+          We keep the label and which service it is — never the key itself.
+          <a href="https://agent.vantagemethod.com/privacy">Read exactly what we store →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+    <section id="pricing">
+    <div class="wrap">
+      <div class="pricing-head">
+        <p class="kicker">Pricing</p>
+        <h2>Start turnkey today, go white-glove,<br>or bring the whole company.</h2>
+        <p class="sub">Every plan is a dedicated AI operator, built and hosted by us, with the iPhone and Mac apps, hosting, updates and support included.</p>
+      </div>
+
+      <div class="plans">
+        <div class="price-card">
+          <p class="price-tag">Base — turnkey · in beta</p>
+          <p class="price"><b>$500</b><span>/ month</span></p>
+          <p class="price-note">Month to month. Cancel anytime. Now in beta — early spots are limited.</p>
+          <p class="sub">Your agent, working today. You connect your accounts with one-tap sign-ins.</p>
+          <ul class="incl">
+            <li>A dedicated AI operator, built and hosted by us</li>
+            <li>iPhone and Mac apps: your agent in your pocket</li>
+            <li>Connect Meta, Google, GoHighLevel, Mailchimp, Klaviyo and Dropbox yourself — sign in, click Allow, done</li>
+            <li>Scheduled and recurring work, managed by the agent</li>
+            <li>Runs on your own Claude subscription (~$100/mo, paid to Anthropic) — your dashboard walks you through it</li>
+            <li>Hosting, updates and support included</li>
+          </ul>
+          <a class="btn btn-primary btn-lg" href="https://agent.vantagemethod.com/api/checkout/start?plan=self-serve">Join the beta — $500/mo</a>
+          <p class="fine">Secure payment via Stripe · Cancel anytime · Vantage Method LLC</p>
         </div>
 
-        <div class="container">
-            <a href="#team" class="section-nav-button pf-nav-btn">Meet The Team</a>
+        <div class="price-card featured">
+          <span class="plan-badge">Best value</span>
+          <p class="price-tag">Pro — white-glove</p>
+          <p class="price"><s>$1,300</s><b>$1,000</b><span>/ month</span></p>
+          <p class="price-note"><b>$1,000/mo when you pay annually</b> ($12,000 a year, launch build included) — or $1,300 month to month plus a one-time $2,500 launch build.</p>
+          <p class="sub">Everything in Base, built for you — including the systems only your business uses.</p>
+          <ul class="incl">
+            <li>Every connection hand-built and tested by our team</li>
+            <li>Custom API integrations for your stack</li>
+            <li>Guided onboarding: business intake, brand-voice calibration, a tested go-live</li>
+            <li>Domain, hosting, GitHub, email and ad accounts wired by us</li>
+            <li>Claude subscription set up with you on a call</li>
+          </ul>
+          <a class="btn btn-primary btn-lg" href="https://agent.vantagemethod.com/api/checkout/start?plan=custom&amp;annual=1">Get started — $1,000/mo</a>
+          <p class="alt-bill">Billed annually · Prefer monthly? <a href="https://agent.vantagemethod.com/api/checkout/start?plan=custom">$1,300/mo + $2,500 launch build</a></p>
+          <p class="fine">Prefer to talk it through first? <a href="/book/">Book a call</a>.<br>Secure payment via Stripe · Cancel anytime · Vantage Method LLC</p>
         </div>
-    </section>
 
-        <section class="tm-section" id="team">
-        <div class="tm-bg-radial"></div>
-        <div class="container">
-            <div class="tm-header">
-                <p class="tm-eyebrow">The Team</p>
-                <h2 class="tm-headline">The team bringing your vision to life.</h2>
-                <p class="tm-subline">A senior team with <strong>50+ years</strong> of entrepreneurial experience, delivering <strong>$500M+</strong> in revenue across national and global brands - with deep expertise in e-commerce, AI-driven marketing, and local services, all focused on scalable, profitable growth.</p>
-            </div>
-
-            <div class="tm-layout" id="tmLayout">
-                                <div class="tm-orbit-stage" id="tmOrbitStage">
-                    <div class="tm-hub">
-                        <div class="tm-hub-ring ring-1"></div>
-                        <div class="tm-hub-ring ring-2"></div>
-                        <span class="tm-hub-label"><span class="tm-hub-sub">Our Team</span>Your Company</span>
-                    </div>
-                    <canvas id="tmConnectionCanvas" class="tm-connection-canvas"></canvas>
-                    <div class="tm-ring" id="tmRing">
-                        <div class="tm-member" data-idx="0" data-name="Randy" data-title="Visionary" data-bio="Randy is a co-founder of Vantage Method with an MBA and extensive experience building businesses across e-commerce, real estate, and consulting. He brings a proven track record in branding, revenue growth, and turning entrepreneurial concepts into profitable realities." data-img="assets/images/team/Randy.webp">
-                            <div class="tm-inner"><div class="tm-photo" style="background-image: url('assets/images/team/Randy.webp');"></div><span class="tm-name">Randy</span></div>
-                        </div>
-                        <div class="tm-member" data-idx="1" data-name="Scott" data-title="Architect" data-bio="Scott is a co-founder of Vantage Method with over 10 years of experience building web applications and leading technical teams. He brings a proven track record in software development, AI integration, and digital transformation." data-img="assets/images/team/Scott.webp">
-                            <div class="tm-inner"><div class="tm-photo" style="background-image: url('assets/images/team/Scott.webp');"></div><span class="tm-name">Scott</span></div>
-                        </div>
-                        <div class="tm-member" data-idx="2" data-name="Brandon" data-title="Operator" data-bio="Brandon is an operator and investment strategist focused on acquiring and improving overlooked businesses through disciplined execution and aligned partnerships. He brings a proven track record of scaling and exiting over $500M in undervalued assets and building durable, cash-flowing companies that reward all stakeholders." data-img="assets/images/team/Brandon.webp">
-                            <div class="tm-inner"><div class="tm-photo" style="background-image: url('assets/images/team/Brandon.webp');"></div><span class="tm-name">Brandon</span></div>
-                        </div>
-                        <div class="tm-member" data-idx="3" data-name="Zach" data-title="Creative Director" data-bio="Visual and brand strategist who helps companies create imagery that drives growth. Has worked with brands including SanDisk, Journey, and Prime Video. Brings a strategic lens to every project, focusing on clarity, credibility, and conversion." data-img="assets/images/team/Zach.webp">
-                            <div class="tm-inner"><div class="tm-photo" style="background-image: url('assets/images/team/Zach.webp');"></div><span class="tm-name">Zach</span></div>
-                        </div>
-                        <div class="tm-member" data-idx="4" data-name="James" data-title="Designer" data-bio="As the creative force behind Craft &amp; Arrow, James blends brand strategy and marketing design to deliver beautiful systems that move the needle in competitive markets. His work spans logo and identity design, packaging, and full digital ecosystems that differentiate brands and drive results." data-img="assets/images/team/James.webp">
-                            <div class="tm-inner"><div class="tm-photo" style="background-image: url('assets/images/team/James.webp');"></div><span class="tm-name">James</span></div>
-                        </div>
-                        <div class="tm-member" data-idx="5" data-name="Matthew" data-title="Filmmaker" data-bio="Award-winning filmmaker, composer, and storyteller with 25+ years of creative leadership. 7-time Emmy winner whose work has reached over 200 million homes across platforms including Amazon Prime and Hulu. Founder of 1307 Productions and the nonprofit Operation Rock The Troops." data-img="assets/images/team/Matthew.webp">
-                            <div class="tm-inner"><div class="tm-photo" style="background-image: url('assets/images/team/Matthew.webp');"></div><span class="tm-name">Matthew</span></div>
-                        </div>
-                        <div class="tm-member" data-idx="6" data-name="Ken" data-title="Growth Strategist" data-bio="Ken is a growth and operations strategist with 15 years of experience helping expert-led businesses scale without burnout. He brings a proven track record of generating over $20M in revenue and building disciplined sales, operations, and leadership systems that turn authority into predictable growth." data-img="assets/images/team/Kenny.webp">
-                            <div class="tm-inner"><div class="tm-photo" style="background-image: url('assets/images/team/Kenny.webp');"></div><span class="tm-name">Ken</span></div>
-                        </div>
-                        <div class="tm-member" data-idx="7" data-name="Blaze" data-title="Marketing Strategist" data-bio="Blaze is a marketing strategist and AI practitioner with 15 years of experience growing brands and building audiences through content and systems. He brings a proven track record as the creator of a top-ranking marketing podcast and as Senior AI Strategist at Social Media Examiner, helping experts cut through the noise and build real authority." data-img="assets/images/team/Daniel.webp">
-                            <div class="tm-inner"><div class="tm-photo" style="background-image: url('assets/images/team/Daniel.webp');"></div><span class="tm-name">Blaze</span></div>
-                        </div>
-                        <div class="tm-member" data-idx="8" data-name="Westin" data-title="Innovator" data-bio="Westin is a co-founder of Vantage Method and helps lead creative direction, brand identity, and AI-driven marketing strategy. He brings experience across design, systems, and practical AI implementation to ensure every touchpoint is clear, credible, and built to support real business growth." data-img="assets/images/team/westin.webp">
-                            <div class="tm-inner"><div class="tm-photo" style="background-image: url('assets/images/team/westin.webp');"></div><span class="tm-name">Westin</span></div>
-                        </div>
-                        <div class="tm-member" data-idx="9" data-name="Dwight" data-title="Operations Strategist" data-bio="Dwight is a founder-operator and operations strategist with 20+ years of experience building, acquiring, and scaling service-based businesses. As Managing Partner of Simple House Capital Group, he brings a proven track record helping owners professionalize, scale, and exit — without sacrificing control or culture." data-img="assets/images/team/Dwight.jpeg">
-                            <div class="tm-inner"><div class="tm-photo" style="background-image: url('assets/images/team/Dwight.jpeg');"></div><span class="tm-name">Dwight</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                                <div class="tm-panel" id="tmPanel">
-                    <button class="tm-panel-close" id="tmPanelClose" aria-label="Close">&times;</button>
-                    <div class="tm-panel-photo" id="tmPanelPhoto"></div>
-                    <h3 class="tm-panel-name" id="tmPanelName"></h3>
-                    <p class="tm-panel-role" id="tmPanelRole"></p>
-                    <div class="tm-panel-divider"></div>
-                    <p class="tm-panel-bio" id="tmPanelBio"></p>
-                </div>
-            </div>
-
-            <a href="#pricing" class="section-nav-button tm-nav-btn">Partnership &amp; Pricing</a>
+        <div class="price-card">
+          <p class="price-tag">Enterprise</p>
+          <p class="price"><b class="quote">Call for pricing</b></p>
+          <p class="price-note">Scoped with you on a call, priced per company.</p>
+          <p class="sub">Everything in Pro, for teams that need agents across the company — and the security, procurement and support that come with it.</p>
+          <ul class="incl">
+            <li>As many agents as you need, each with its own owners and conversation</li>
+            <li>Integrations with your internal systems and data</li>
+            <li>Dedicated onboarding for every team, run by us</li>
+            <li>Priority support and a named point of contact</li>
+            <li>Invoicing, security review and procurement handled with your team</li>
+          </ul>
+          <a class="btn btn-primary btn-lg" href="/book/">Book a call</a>
+          <p class="fine">We'll scope it together and send a proposal. Or <a href="https://agent.vantagemethod.com/contact">write to us</a>.</p>
         </div>
-    </section>
+      </div>
 
-        <section class="content-section" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Three Ways In</h2>
-                <p class="section-subtitle">Same agent, same infrastructure — pick how much of the setup you want us to do. Every plan runs on your own Claude Code (or Codex) subscription, about $100/month paid straight to the AI provider.</p>
-            </div>
-            <div class="vp-grid">
-                <div class="vp-card">
-                    <span class="vp-flag">In beta</span>
-                    <h3>Base — Turnkey</h3>
-                    <p class="vp-price">$500<span>/mo</span></p>
-                    <p class="vp-note">Month to month. Cancel anytime.</p>
-                    <p>Onboard yourself in an afternoon: connect Meta, Google, your CRM and more with one-tap sign-ins, and your agent gets to work.</p>
-                    <a class="vp-btn secondary" href="https://agent.vantagemethod.com/api/checkout/start?plan=self-serve">Join the beta</a>
-                </div>
-                <div class="vp-card featured">
-                    <span class="vp-flag">Most popular</span>
-                    <h3>Pro — White-Glove</h3>
-                    <p class="vp-price">$1,000<span>/mo</span></p>
-                    <p class="vp-note">Billed annually ($12,000/yr, $2,500 launch build included) — or $1,300/mo month-to-month plus the launch build.</p>
-                    <p>Our team hand-builds and tests every connection — ads, website, domains, email, custom APIs — with guided onboarding and a tested go-live.</p>
-                    <a class="vp-btn" href="/book/?plan=pro">Book a call</a>
-                </div>
-                <div class="vp-card">
-                    <span class="vp-flag">For organizations</span>
-                    <h3>Enterprise</h3>
-                    <p class="vp-price">Call for pricing</p>
-                    <p class="vp-note">Priced per company.</p>
-                    <p>Agents across your teams, integrations with internal systems and data, advanced reporting — with security review, procurement and dedicated support handled.</p>
-                    <a class="vp-btn secondary" href="/book/?plan=enterprise">Book a call</a>
-                </div>
-            </div>
-            <p class="vp-under">Want the full tour first? <a href="/app/">Meet the Vantage Agent</a> — or explore our done-for-you services: <a href="/custom-website/">Custom Website</a>, <a href="/google-ads/">Google Ads</a>, <a href="/facebook-ads/">Facebook Ads</a>, <a href="/starter-pack/">Starter Pack</a>.</p>
+      <div class="pricing-foot">
+        <div class="v">
+          <h3>Priced against a hire, not an app</h3>
+          <p>An operator that builds, ships and runs campaigns for you, available every hour of the day — for less than a day of contractor time a month.</p>
         </div>
-    </section>
-
-        <section class="cta-section" id="contact">
-        <div class="cta-mountains-container" id="ctaMountains">
-            <img src="assets/images/mountains/left-mountain.webp" alt="Left Mountain" class="cta-left-mountain" loading="lazy">
-            <img src="assets/images/mountains/righ-mountain.webp" alt="Right Mountain" class="cta-right-mountain" loading="lazy">
+        <div class="v">
+          <h3>Nothing else to buy</h3>
+          <p>Setup, hosting, the apps and every update are included. Your agent thinks with Claude under your own Claude subscription (about $100/mo, paid to Anthropic like the rest of your stack) — on Base your dashboard walks you through connecting it in a couple of minutes; on Pro and Enterprise we set it up with you.</p>
         </div>
-        <div class="container">
-            <h2 class="cta-title">Start Here</h2>
-            <p class="cta-subtitle">This is an <span class="highlight-evaluation">evaluation.</span> Not a pitch.</p>
-            <div class="cta-questions" id="ctaQuestions">
-                <div class="cta-question-card slide-left offset-1" data-ai-quiz-trigger>
-                    <span class="question-icon icon-lead"></span>
-                    <span class="question-text">What does a qualified lead mean for your business?</span>
-                </div>
-                <div class="cta-question-card slide-right offset-2" data-ai-quiz-trigger>
-                    <span class="question-icon icon-value"></span>
-                    <span class="question-text">What is one customer actually worth?</span>
-                </div>
-                <div class="cta-question-card slide-left offset-3" data-ai-quiz-trigger>
-                    <span class="question-icon icon-systems-break"></span>
-                    <span class="question-text">Where are systems breaking today?</span>
-                </div>
-            </div>
-                        <form id="lead-form" class="cta-form" novalidate>
-                <input type="hidden" name="formId" value="byDVwHVUFrZnh146iUFS">
-                <input type="hidden" name="location_id" value="1CRkPO5O8TwTWL8msQNK">
-                <input type="text" placeholder="" name="ktpvKytJ9wXqQSJZXJiY" class="form-control" id="ktpvKytJ9wXqQSJZXJiY" data-q="single_line_73y9" data-required="false" value="home-page" hidden>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="first_name">First Name <span class="required">*</span></label>
-                        <input type="text" id="first_name" name="first_name" required autocomplete="given-name"
-                            placeholder="First Name">
-                        <span class="field-error"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="last_name">Last Name <span class="required">*</span></label>
-                        <input type="text" id="last_name" name="last_name" required autocomplete="family-name"
-                            placeholder="Last Name">
-                        <span class="field-error"></span>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" required autocomplete="email"
-                            placeholder="email@company.com">
-                        <span class="field-error"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555">
-                        <span class="field-error"></span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="business_name">Business Name</label>
-                    <input type="text" id="business_name" name="organization" autocomplete="organization"
-                        placeholder="Your Company">
-                    <span class="field-error"></span>
-                </div>
-                <div class="form-group">
-                    <label for="message">How Can We Help You?</label>
-                    <textarea id="message" name="O1ZK1afg16NtCpzq4qcr" rows="4"
-                        placeholder="Tell us about your business and what you're looking for..."></textarea>
-                    <span class="field-error"></span>
-                </div>
-                <div class="form-consent">
-                    <label class="consent-label">
-                        <input type="checkbox" name="terms_and_conditions_1_wuby79s3yh" id="sms_consent">
-                        <span>I agree to receive text messages. Message &amp; data rates may apply. Reply STOP to opt
-                            out.</span>
-                    </label>
-                    <label class="consent-label">
-                        <input type="checkbox" name="terms_and_conditions_2_wuby79s3yh" id="email_consent">
-                        <span>I agree to receive emails about services, updates, and offers.</span>
-                    </label>
-                    <p class="consent-legal">By submitting this form, you agree to our <a href="/privacy">Privacy Policy</a>
-                        and <a href="/terms">Terms of Service</a>.</p>
-                </div>
-                <button type="submit" class="cta-button" id="ctaButton">
-                    <span class="btn-text">Send a Message</span>
-                    <span class="btn-loading" aria-hidden="true">
-                        <svg class="spinner" width="20" height="20" viewBox="0 0 20 20">
-                            <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" fill="none"
-                                stroke-dasharray="40" stroke-dashoffset="10" stroke-linecap="round" />
-                        </svg>
-                        Sending...
-                    </span>
-                </button>
-                <p class="recaptcha-notice">This site is protected by reCAPTCHA and the Google <a
-                        href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a> and <a
-                        href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.
-                </p>
-            </form>
-
-            <div id="formSuccess" class="form-message form-success" style="display: none;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 6L9 17l-5-5" />
-                </svg>
-                <div>
-                    <strong>Message sent.</strong>
-                    <p>We'll be in touch within one business day.</p>
-                </div>
-            </div>
-
-            <div id="formError" class="form-message form-error" style="display: none;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="15" y1="9" x2="9" y2="15" />
-                    <line x1="9" y1="9" x2="15" y2="15" />
-                </svg>
-                <div>
-                    <strong>Something went wrong.</strong>
-                    <p>Please try again or email <a href="mailto:hello@vantagemethod.com">hello@vantagemethod.com</a></p>
-                </div>
-            </div>
+        <div class="v">
+          <h3>Cancel whenever</h3>
+          <p>Monthly plans run month to month through Stripe; annual plans run for the year. Manage or cancel your subscription any time from your <a href="https://agent.vantagemethod.com/account">customer sign-in</a>.</p>
         </div>
-    </section>
+      </div>
+      <div class="addon">
+        <b>Need more hands? Extra agents — $500/mo each.</b>
+        <p>Add a second or third agent from your account at any time on Base or Pro. Each one is its own operator with its own conversation.</p>
+      </div>
+    </div>
+  </section>
 
-        <footer class="site-footer">
-        <div class="site-footer-inner">
-            <div class="site-footer-brand">
-                <a href="/" class="site-footer-logo">Vantage Method</a>
-                <p class="site-footer-tagline">Marketing systems that work.</p>
-            </div>
-            <div class="site-footer-nav">
-                <div class="site-footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="/app/">The Vantage Agent</a></li>
-                        <li><a href="/book/">Book a Call</a></li>
-                        <li><a href="/custom-website/">Custom Website</a></li>
-                        <li><a href="/google-ads/">Google Ads</a></li>
-                        <li><a href="/facebook-ads/">Facebook &amp; Instagram Ads</a></li>
-                        <li><a href="/google-meta-ads/">Google &amp; Meta Ads</a></li>
-                        <li><a href="/starter-pack/">Starter Pack</a></li>
-                        <li><a href="/partnerships/">Partnerships</a></li>
-                    </ul>
-                </div>
-                <div class="site-footer-col">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/privacy/">Privacy Policy</a></li>
-                        <li><a href="/terms/">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
+    <section id="faq">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="kicker">Can it actually…</p>
+        <h2>Yes. And yes.</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Does it really run my ads, or just write them?</summary>
+          <p><strong>It really runs them.</strong> Connect your Meta account once and your agent builds the campaigns, launches them, checks performance on a schedule, shifts budget away from what's losing, and writes and posts new creative when a winner starts to fatigue. You approve the direction; it does the clicking.</p>
+        </details>
+        <details>
+          <summary>Can it help me rank on Google?</summary>
+          <p><strong>Yes.</strong> It researches the keywords worth chasing, writes and publishes the pages, fixes titles, metadata and internal linking, cleans up the technical issues holding your site back, and watches Search Console so it can tell you what moved. SEO fails from inconsistency more than from ignorance — this is the part it's built for.</p>
+        </details>
+        <details>
+          <summary>Can it build me a website or a funnel?</summary>
+          <p><strong>Yes — a real one, live.</strong> Describe the offer and you get a working page deployed to your hosting with the domain pointed and the code saved in your GitHub. Lead magnets, opt-in forms, thank-you pages and the follow-up email sequence included. Then ask for changes in plain English and they ship in minutes.</p>
+        </details>
+        <details>
+          <summary>Will it email my list and follow up on leads?</summary>
+          <p><strong>Yes.</strong> It sends from your own domain, writes the sequences, and can pull your numbers back into the conversation so you can ask "which email actually got replies?" and get a real answer instead of a dashboard export.</p>
+        </details>
+        <details>
+          <summary>Do I have to know anything technical?</summary>
+          <p><strong>No.</strong> You text it like you'd text a capable employee. On Base, setup is: subscribe, follow the two-minute walkthrough in your dashboard, scan a code with your phone — then connecting an account is signing in and clicking Allow. On Pro and Enterprise we do every technical part for you. Either way, everything after setup is a conversation.</p>
+        </details>
+        <details>
+          <summary>How is this different from an AI chatbot?</summary>
+          <p>Those give you words. <strong>This one has hands.</strong> It runs on a real computer of its own with your real logins, so it can deploy a site, launch a campaign, push code and run tomorrow morning's work without you. The chat window is where you ask — the work happens on a machine that never sleeps.</p>
+        </details>
+        <details>
+          <summary>What does it cost, and what if I need more than one?</summary>
+          <p>Three ways in. <strong>$500/month for Base</strong> (in beta) — turnkey: you connect your accounts with one-tap sign-ins and your agent runs on your own Claude subscription. <strong>$1,000/month for Pro when you pay annually</strong> ($12,000 a year, launch build included), or $1,300 month to month plus a one-time $2,500 launch build — our team hand-builds and tests every connection, including custom API integrations, with guided onboarding. <strong>Enterprise is priced per company</strong> — agents across your teams, internal integrations and dedicated support; <a href="/book/">book a call</a> and we'll scope it with you. Extra agents are $500/month each on Base and Pro. Cancel anytime. Your Claude subscription (~$100/mo) is the one thing paid separately, straight to Anthropic.</p>
+        </details>
+        <details>
+          <summary>What do I need on my end?</summary>
+          <p>Three things: an iPhone, the logins for the accounts you want your agent working in, and your own Claude subscription — that's the AI your agent thinks with. On Base your dashboard walks you through connecting it in a couple of minutes; on Pro and Enterprise we set it up with you on your onboarding call. No Mac to leave running and nothing to install: we build and host the agent. Your keys go into your own agent's environment and are never shared with anyone else's — the details of what we do and don't store are on the <a href="https://agent.vantagemethod.com/privacy">privacy page</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+    <section style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Put an operator on your team today.</h2>
+        <p>Subscribe and we'll build your agent. Most are live the same day — you just scan a code and start talking.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href="/book/">Book a call <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost btn-lg" href="#pricing">Get your agent — from $500/mo</a>
         </div>
-        <div class="site-footer-bottom">
-            <span>&copy; <script>document.write(new Date().getFullYear())</script> Vantage Method. All rights reserved.</span>
-        </div>
-    </footer>
+      </div>
+    </div>
+  </section>
+</main>
 
-        <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M9 14V4M4 8l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-        </svg>
-    </button>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="brand" href="#top">
+        <img class="logo-mark on-light" src="assets/vantage-logo.png" alt="">
+        <img class="logo-mark on-dark" src="assets/vantage-logo-dark.png" alt="">
+        <span class="name">Vantage <em>Method</em></span>
+      </a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="/book/">Book a call</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://agent.vantagemethod.com/privacy">Privacy &amp; data handling</a>
+        <a href="/terms/">Terms</a>
+        <a href="https://agent.vantagemethod.com/contact">Contact</a>
+        <a class="foot-signin" href="https://agent.vantagemethod.com/account">Customer sign-in&nbsp;→</a>
+      </nav>
+    </div>
+    <p class="copyright">© Vantage Method LLC · Lindale, TX · vantagemethod.com</p>
+  </div>
+</footer>
 
-            <script src="shared/global.js?v=fb2b03a3"></script>
+<script>
+// If the screenshot ever fails to load, hide it so the styled mock
+// conversation sitting behind it shows through instead of a broken image.
+function heroFallback() {
+  var shot = document.getElementById('heroShot');
+  if (shot) shot.style.display = 'none';
+}
 
-        <script src="sections/hero/hero.js?v=fb2b03a3"></script>
-    <script src="sections/mountains/mountains.js?v=fb2b03a3"></script>
-    <script src="sections/principles/principles.js?v=fb2b03a3"></script>
-    <script src="sections/how-we-work/how-we-work.js?v=fb2b03a3"></script>
-    <script src="sections/what-we-do/what-we-do.js?v=fb2b03a3"></script>
-    <script src="sections/team/team.js?v=fb2b03a3"></script>
-    <script src="sections/portfolio/portfolio.js?v=fb2b03a3"></script>
-    <script src="shared/form-validation.js?v=fb2b03a3"></script>
-    <script src="sections/cta/cta.js?v=fb2b03a3"></script>
-
-        <script src="https://www.google.com/recaptcha/api.js?render=6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX"
-        async></script>
-
-        <link rel="stylesheet" href="shared/ai-quiz-modal.css">
-    <script src="shared/ai-quiz-config.js?v=fb2b03a3"></script>
-    <script src="shared/ai-quiz-modal.js?v=fb2b03a3"></script>
-
-        <script>
-        (function () {
-            var splash = document.getElementById('loadingSplash');
-            var fill = splash ? splash.querySelector('.loading-bar-fill') : null;
-            var pctEl = document.getElementById('loadingPct');
-            if (!splash) return;
-
-            var displayPct = 0;
-            var targetPct = 30;
-            var animFrame;
-            var dismissed = false;
-
-            function animatePct() {
-                if (displayPct < targetPct) {
-                    displayPct = Math.min(displayPct + 1, targetPct);
-                    if (pctEl) pctEl.textContent = displayPct + '%';
-                    if (fill) fill.style.width = displayPct + '%';
-                    animFrame = requestAnimationFrame(animatePct);
-                }
-            }
-
-            function bump(pct) {
-                targetPct = Math.min(pct, 100);
-                cancelAnimationFrame(animFrame);
-                animatePct();
-            }
-
-            bump(30);
-            bump(70);
-
-            function dismiss() {
-                if (dismissed) return;
-                dismissed = true;
-                bump(100);
-                setTimeout(function () {
-                    splash.classList.add('hidden');
-                    setTimeout(function () { splash.remove(); }, 700);
-                }, 400);
-            }
-
-            /* Dismiss on full load if it happens quickly */
-            if (document.readyState === 'complete') {
-                dismiss();
-            } else {
-                window.addEventListener('load', dismiss);
-            }
-
-            /* Hard ceiling: dismiss after 3s no matter what */
-            setTimeout(dismiss, 3000);
-        })();
-    </script>
-
+(function () {
+  const nav = document.getElementById('nav');
+  const hero = document.querySelector('.hero');
+  // The nav is transparent over the dark hero and only turns light once the
+  // hero has scrolled past it — otherwise it flips to white while still
+  // sitting on the dark section.
+  const onScroll = () => {
+    const past = hero
+      ? hero.getBoundingClientRect().bottom <= nav.offsetHeight
+      : window.scrollY > 8;
+    nav.classList.toggle('scrolled', past);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+})();
+</script>
 </body>
-
 </html>

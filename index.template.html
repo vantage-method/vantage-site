@@ -1,268 +1,964 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vantage Method - Marketing Systems That Work</title>
-    <meta name="description" content="Vantage Method designs and operates agentic marketing systems that automate lead generation, measure what matters, and deliver results within your operating margins.">
-    <link rel="canonical" href="https://vantagemethod.com/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vantage Method — Your Marketing Engine</title>
+<meta name="description" content="An AI operator that connects to your ads, website, email and CRM — and runs your marketing for you, every day. Turnkey from $500/mo, or white-glove where we set up everything.">
+<meta name="theme-color" content="#137576">
+<link rel="canonical" href="https://vantagemethod.com/">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Vantage Method — Your Marketing Engine">
+<meta property="og:description" content="An AI operator that builds your funnels, runs your ads, works your SEO and follows up with your leads — every day. We set it up and run it for you.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vantagemethod.com/">
+<style>
+  :root {
+    --teal: #137576;
+    --teal-deep: #0C4E4F;
+    --teal-bright: #1FA5A6;
+    --accent: #137576;
+    --accent-soft: rgba(19, 117, 118, 0.10);
+    --ink: #0A0A0A;
+    --body: #3C464E;
+    --muted: #5C6670;
+    --bg: #F7F8F8;
+    --surface: #FFFFFF;
+    --surface-2: #FBFCFC;
+    --stroke: #E3E7E9;
+    --stroke-strong: #D3D9DC;
+    --shadow-sm: 0 1px 2px rgba(10, 20, 25, 0.05), 0 2px 8px rgba(10, 20, 25, 0.04);
+    --shadow-lg: 0 24px 70px rgba(10, 20, 25, 0.10), 0 4px 14px rgba(10, 20, 25, 0.05);
+    --nav-bg: rgba(247, 248, 248, 0.82);
+    --logo-light: block;
+    --logo-dark: none;
+    --radius: 18px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --accent: #35BDBE;
+      --accent-soft: rgba(53, 189, 190, 0.12);
+      --ink: #F2F5F6;
+      --body: #B9C3C9;
+      --muted: #94A0A7;
+      --bg: #0B0E0F;
+      --surface: #14181A;
+      --surface-2: #171C1E;
+      --stroke: #242A2E;
+      --stroke-strong: #313A3F;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 30px 80px rgba(0, 0, 0, 0.55);
+      --nav-bg: rgba(11, 14, 15, 0.78);
+      --logo-light: none;
+      --logo-dark: block;
+    }
+  }
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Vantage Method - Marketing Systems That Work">
-    <meta property="og:description" content="Agentic marketing systems that automate lead generation, measure what matters, and deliver results within your operating margins.">
-    <meta property="og:url" content="https://vantagemethod.com/">
-    <meta property="og:site_name" content="Vantage Method">
-    <meta property="og:image" content="https://vantagemethod.com/assets/images/brand/Vantage-Method-Dark.png">
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .wrap { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  @media (max-width: 520px) { .wrap { padding: 0 20px; } }
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Vantage Method - Marketing Systems That Work">
-    <meta name="twitter:description" content="Agentic marketing systems that automate lead generation, measure what matters, and deliver results within your operating margins.">
-    <meta name="twitter:image" content="https://vantagemethod.com/assets/images/brand/Vantage-Method-Dark.png">
+  a { color: var(--accent); }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .logo-mark { height: 30px; width: auto; }
+  .logo-mark.on-light { display: var(--logo-light); }
+  .logo-mark.on-dark { display: var(--logo-dark); }
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/brand/favicon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/brand/apple-touch-icon.png">
+  /* ---------- nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 50; margin-bottom: -64px;
+    background: var(--nav-bg);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .nav.scrolled { border-bottom-color: var(--stroke); }
+  .nav-inner { display: flex; align-items: center; gap: 28px; height: 64px; }
+  .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
+  .brand .name { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; white-space: nowrap; }
+  .brand .name em { font-style: normal; color: var(--accent); }
+  .nav-links { display: flex; gap: 26px; margin-left: auto; }
+  .nav-links a {
+    text-decoration: none; color: var(--body); font-size: 14.5px; font-weight: 500;
+    transition: color 0.15s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { display: flex; align-items: center; gap: 18px; }
+  .nav-signin {
+    text-decoration: none; color: var(--body); font-size: 14.5px; font-weight: 500;
+    transition: color 0.15s ease; white-space: nowrap;
+  }
+  .nav-signin:hover { color: var(--ink); }
+  @media (max-width: 820px) {
+    /* Not enough room for every section link, but Pricing and FAQ are the two
+       people come back for — keep those, drop the rest. */
+    .nav-inner { gap: 16px; }
+    .nav-links { gap: 16px; }
+    .nav-links a { display: none; }
+    .nav-links a[href="#pricing"], .nav-links a[href="#faq"] { display: inline-block; }
+    .brand .name { font-size: 14.5px; }
+  }
+  @media (max-width: 560px) {
+    .brand .name { display: none; }
+  }
 
-    <!-- Preload critical above-fold images -->
-    <link rel="preload" href="assets/images/brand/Vantage-Method-Dark.png" as="image">
-    <link rel="preload" href="assets/images/mountains/center-mountain-front.webp" as="image">
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: inherit; font-weight: 600; font-size: 15px; line-height: 1;
+    text-decoration: none; cursor: pointer; border: 1px solid transparent;
+    padding: 13px 20px; border-radius: 999px; white-space: nowrap;
+    transition: transform 0.12s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-primary {
+    color: #fff; background: linear-gradient(135deg, #188E8F 0%, var(--teal) 45%, var(--teal-deep) 100%);
+    box-shadow: 0 6px 20px rgba(15, 88, 89, 0.28);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(15, 88, 89, 0.34); }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-primary[disabled] { opacity: 0.7; cursor: progress; transform: none; }
+  .btn-ghost {
+    color: var(--ink); background: var(--surface); border-color: var(--stroke-strong);
+    box-shadow: var(--shadow-sm);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-lg { padding: 16px 26px; font-size: 16px; }
+  .btn-sm { padding: 10px 16px; font-size: 14px; }
+  .arrow { transition: transform 0.15s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
+  /* ---------- hero ---------- */
+  .hero { position: relative; padding: 132px 0 52px; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: -240px -10% auto -10%; height: 780px; z-index: 0;
+    background:
+      radial-gradient(46% 46% at 78% 26%, rgba(31, 165, 166, 0.20), transparent 70%),
+      radial-gradient(40% 40% at 18% 12%, rgba(19, 117, 118, 0.16), transparent 70%),
+      radial-gradient(36% 36% at 52% 62%, rgba(12, 78, 79, 0.09), transparent 72%);
+    filter: blur(6px);
+    pointer-events: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    .hero::before {
+      background:
+        radial-gradient(46% 46% at 78% 26%, rgba(31, 165, 166, 0.20), transparent 70%),
+        radial-gradient(42% 42% at 16% 10%, rgba(19, 117, 118, 0.24), transparent 72%);
+    }
+  }
+  .hero-grid {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+    gap: 48px; align-items: center;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: 0.02em;
+    color: var(--accent); background: var(--surface);
+    border: 1px solid var(--stroke); box-shadow: var(--shadow-sm);
+    padding: 7px 14px 7px 11px; border-radius: 999px; margin-bottom: 24px;
+  }
+  .eyebrow .dot {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--teal-bright);
+    box-shadow: 0 0 0 3px rgba(31, 165, 166, 0.18);
+  }
+  h1 {
+    font-size: clamp(32px, 4.6vw, 54px);
+    line-height: 1.06; letter-spacing: -0.035em; font-weight: 700;
+  }
+  h1 .grad {
+    background: linear-gradient(100deg, var(--teal-bright) 0%, var(--teal) 42%, var(--teal-deep) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  @media (prefers-color-scheme: dark) {
+    h1 .grad { background: linear-gradient(100deg, #6FD9DA 0%, #2BB3B4 55%, #12908F 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  }
+  .lede {
+    margin-top: 22px; font-size: clamp(16.5px, 1.6vw, 19px); color: var(--body);
+    max-width: 540px; line-height: 1.6;
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .hero-meta {
+    margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px 18px;
+    font-size: 13.5px; color: var(--muted);
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 7px; }
+  .tick { color: var(--accent); font-weight: 700; }
 
-    <!-- Compiled CSS (all sections concatenated and minified by build.js) -->
-    <link rel="stylesheet" href="assets/compiled.css">
-    <!-- Inline splash screen styles (must load before anything else) -->
-    <style>
-        .loading-splash {
-            position: fixed;
-            inset: 0;
-            z-index: 99999;
-            background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-        }
+  /* ---------- dark hero ----------
+     The hero is always dark, in either theme: it makes the product shot glow
+     and gives the page a clear "above the fold" moment. Everything below it
+     stays on the normal light/dark surfaces. */
+  .hero {
+    background: radial-gradient(120% 130% at 72% 8%, #0C3234 0%, #08222736 40%, transparent 72%), #06171A;
+    color: #F2F5F6;
+  }
+  .hero::before {
+    background:
+      radial-gradient(46% 46% at 78% 26%, rgba(31, 165, 166, 0.26), transparent 70%),
+      radial-gradient(42% 42% at 16% 10%, rgba(19, 117, 118, 0.30), transparent 72%),
+      radial-gradient(36% 36% at 52% 66%, rgba(12, 78, 79, 0.22), transparent 74%);
+    filter: blur(8px);
+  }
+  .hero h1 { color: #FFFFFF; }
+  .hero h1 .grad {
+    background: linear-gradient(100deg, #6FD9DA 0%, #31BEBF 52%, #159C9C 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .hero .lede { color: #B7C6CA; }
+  .hero .eyebrow {
+    color: #7EDEDF; background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.16); box-shadow: none;
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  }
+  .hero .hero-meta { color: #90A4AA; }
+  .hero .tick { color: #31BEBF; }
+  .hero .btn-ghost {
+    color: #EAF2F3; background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.20); box-shadow: none;
+  }
+  .hero .btn-ghost:hover { border-color: #31BEBF; color: #7EDEDF; background: rgba(255,255,255,0.11); }
+  /* the phone's ground shadow needs more weight on a dark backdrop */
+  .hero .phone-stage::after { background: rgba(0, 0, 0, 0.55); }
+  .hero :focus-visible { outline-color: #7EDEDF; }
 
-        .loading-splash.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
+  /* Nav sits on the hero, so it has to read as dark until you scroll past it. */
+  .nav {
+    background: rgba(6, 23, 26, 0.30);
+    border-bottom-color: transparent;
+  }
+  .nav .brand { color: #F2F5F6; }
+  .nav .brand .name em { color: #31BEBF; }
+  .nav .logo-mark.on-light { display: none; }
+  .nav .logo-mark.on-dark { display: block; }
+  .nav-links a, .nav-signin { color: #A9BCC1; }
+  .nav-links a:hover, .nav-signin:hover { color: #FFFFFF; }
+  .nav.scrolled {
+    background: var(--nav-bg);
+    border-bottom-color: var(--stroke);
+  }
+  .nav.scrolled .brand { color: var(--ink); }
+  .nav.scrolled .brand .name em { color: var(--accent); }
+  .nav.scrolled .logo-mark.on-light { display: var(--logo-light); }
+  .nav.scrolled .logo-mark.on-dark { display: var(--logo-dark); }
+  .nav.scrolled .nav-links a, .nav.scrolled .nav-signin { color: var(--body); }
+  .nav.scrolled .nav-links a:hover, .nav.scrolled .nav-signin:hover { color: var(--ink); }
 
-        .loading-inner {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 28px;
-        }
+  /* ---------- phone ---------- */
+  .phone-stage { display: flex; justify-content: center; position: relative; }
+  .phone-stage::after {
+    content: ""; position: absolute; bottom: -6%; left: 50%; transform: translateX(-50%);
+    width: 78%; height: 42px; border-radius: 50%;
+    background: rgba(0, 60, 66, 0.22); filter: blur(26px); z-index: 0;
+  }
 
-        .loading-logo {
-            width: 60px;
-            height: auto;
-            animation: loadPulse 1.8s ease-in-out infinite;
-        }
+  /* Animated backdrop: slow drifting light behind the phone, plus rings that
+     pulse outward — the sense of an agent working in the background. */
+  .stage-fx {
+    position: absolute; inset: -34% -42%; z-index: 0; pointer-events: none;
+    display: grid; place-items: center;
+  }
+  .stage-fx .orb {
+    position: absolute; border-radius: 50%; filter: blur(52px); opacity: 0.85;
+    will-change: transform;
+  }
+  .stage-fx .orb.a {
+    width: 66%; aspect-ratio: 1; background: radial-gradient(circle, rgba(0,180,198,0.62), transparent 66%);
+    top: 2%; left: 0%; animation: drift-a 17s ease-in-out infinite;
+  }
+  .stage-fx .orb.b {
+    width: 58%; aspect-ratio: 1; background: radial-gradient(circle, rgba(0,124,135,0.58), transparent 66%);
+    bottom: 0%; right: 0%; animation: drift-b 21s ease-in-out infinite;
+  }
+  .stage-fx .orb.c {
+    width: 46%; aspect-ratio: 1; background: radial-gradient(circle, rgba(0,201,180,0.45), transparent 68%);
+    top: 40%; right: 26%; animation: drift-c 25s ease-in-out infinite;
+  }
+  .stage-fx .ring {
+    position: absolute; width: 46%; aspect-ratio: 1; border-radius: 50%;
+    border: 1.5px solid rgba(0, 150, 163, 0.5); opacity: 0;
+    animation: pulse-ring 6s ease-out infinite;
+  }
+  .stage-fx .ring:nth-of-type(5) { animation-delay: 2s; }
+  .stage-fx .ring:nth-of-type(6) { animation-delay: 4s; }
+  @keyframes drift-a {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(14%, 10%, 0) scale(1.12); }
+  }
+  @keyframes drift-b {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1.06); }
+    50%      { transform: translate3d(-12%, -12%, 0) scale(0.94); }
+  }
+  @keyframes drift-c {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(0.95); }
+    50%      { transform: translate3d(-10%, 12%, 0) scale(1.15); }
+  }
+  @keyframes pulse-ring {
+    0%   { transform: scale(0.72); opacity: 0; }
+    18%  { opacity: 0.5; }
+    100% { transform: scale(1.55); opacity: 0; }
+  }
+  @media (prefers-color-scheme: dark) {
+    .stage-fx .orb { opacity: 0.42; }
+    .stage-fx .ring { border-color: rgba(53, 189, 190, 0.3); }
+  }
+  .phone {
+    position: relative; z-index: 1;
+    width: min(272px, 68vw); aspect-ratio: 1179 / 2556;
+    padding: 9px; border-radius: 44px;
+    background: linear-gradient(160deg, #4A5257 0%, #16191B 34%, #0B0D0E 70%, #33393D 100%);
+    box-shadow:
+      0 2px 3px rgba(255, 255, 255, 0.18) inset,
+      0 40px 80px -22px rgba(4, 32, 36, 0.48),
+      0 12px 28px -12px rgba(4, 32, 36, 0.35);
+  }
+  @media (max-height: 820px) and (min-width: 900px) { .phone { width: 244px; } }
+  .phone-screen {
+    position: relative; width: 100%; height: 100%; border-radius: 36px; overflow: hidden;
+    background: #05171A; display: block;
+  }
+  .phone-screen video, .phone-screen img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; display: block; z-index: 2; background: #05171A;
+  }
+  .phone-notch {
+    position: absolute; top: 9px; left: 50%; transform: translateX(-50%);
+    width: 33%; height: 22px; border-radius: 999px; background: #050708; z-index: 4;
+  }
+  /* graceful fallback: a calm, on-brand mock of the app, sitting under the video */
+  .mock { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, #062A2F 0%, #04191D 55%, #041416 100%); padding: 42px 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .mock-head { display: flex; align-items: center; gap: 8px; padding: 0 4px 10px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .mock-avatar { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(140deg, var(--teal-bright), var(--teal-deep)); flex: none; }
+  .mock-title { font-size: 11.5px; font-weight: 700; color: #EAF6F7; line-height: 1.25; }
+  .mock-title small { display: block; font-size: 9.5px; font-weight: 500; color: #63D6E0; }
+  .bubble { max-width: 82%; padding: 8px 10px; border-radius: 13px; font-size: 10.5px; line-height: 1.4; }
+  .bubble.you { align-self: flex-end; background: linear-gradient(135deg, #188E8F, #00636D); color: #fff; border-bottom-right-radius: 4px; }
+  .bubble.agent { align-self: flex-start; background: rgba(255,255,255,0.09); color: #DCEBED; border-bottom-left-radius: 4px; }
+  .mock-task { margin-top: auto; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.05); border-radius: 11px; padding: 9px 10px; }
+  .mock-task b { display: block; font-size: 10px; color: #EAF6F7; }
+  .mock-task span { font-size: 9px; color: #7FB6BD; }
+  .mock-bar { height: 3px; border-radius: 3px; background: rgba(255,255,255,0.12); margin-top: 7px; overflow: hidden; }
+  .mock-bar i { display: block; height: 100%; width: 68%; background: linear-gradient(90deg, var(--teal-bright), #6FD9DA); }
 
-        .loading-bar {
-            width: 160px;
-            height: 3px;
-            background: rgba(0, 124, 135, 0.12);
-            border-radius: 3px;
-            overflow: hidden;
-        }
+  /* ---------- sections ---------- */
+  section { padding: 76px 0; }
+  .section-head { max-width: 660px; margin-bottom: 44px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kicker {
+    font-size: 12.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 12px;
+  }
+  h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.12; letter-spacing: -0.028em; font-weight: 700; }
+  .section-head p { margin-top: 14px; color: var(--body); font-size: 17px; }
+  h3 { font-size: 17px; letter-spacing: -0.012em; font-weight: 650; }
 
-        .loading-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #007c87, #00b4c6);
-            border-radius: 3px;
-            transition: width 0.3s ease;
-        }
+  .rule { height: 1px; background: var(--stroke); }
 
-        .loading-pct {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            color: rgba(0, 124, 135, 0.6);
-        }
+  /* ---------- steps ---------- */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .step {
+    background: var(--surface); border: 1px solid var(--stroke); border-radius: var(--radius);
+    padding: 26px 24px 24px; box-shadow: var(--shadow-sm); position: relative;
+  }
+  .step .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 9px; margin-bottom: 16px;
+    font-size: 13px; font-weight: 700; color: var(--accent);
+    background: var(--accent-soft); border: 1px solid var(--stroke);
+  }
+  .step p { color: var(--muted); font-size: 14.5px; margin-top: 7px; }
 
-        @keyframes loadPulse {
+  /* ---------- bento ---------- */
+  .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--stroke); border-radius: var(--radius);
+    padding: 28px 26px; box-shadow: var(--shadow-sm);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .card:hover { border-color: var(--stroke-strong); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+  .card p { color: var(--muted); font-size: 14.5px; margin-top: 9px; }
+  .card .glyph {
+    width: 56px; height: 56px; border-radius: 15px; display: grid; place-items: center;
+    background: var(--accent-soft); color: var(--accent); margin-bottom: 18px;
+    border: 1px solid rgba(19, 117, 118, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    .card .glyph { border-color: rgba(53, 189, 190, 0.2); }
+  }
+  .card .glyph svg { width: 28px; height: 28px; display: block; }
+  .card.feature-lead .glyph { width: 62px; height: 62px; border-radius: 17px; }
+  .card.feature-lead .glyph svg { width: 32px; height: 32px; }
+  .span-3 { grid-column: span 3; }
+  .span-2 { grid-column: span 2; }
+  .card.feature-lead { background: linear-gradient(150deg, var(--surface) 0%, var(--surface-2) 60%, rgba(19, 117, 118, 0.06) 100%); }
+  .mini-list { list-style: none; margin-top: 18px; display: grid; gap: 9px; }
+  .mini-list li { display: flex; gap: 10px; font-size: 14.5px; color: var(--body); }
+  .mini-list li::before { content: "→"; color: var(--accent); font-weight: 700; }
 
-            0%,
-            100% {
-                opacity: 0.4;
-                transform: scale(0.96);
-            }
+  /* ---------- connections ---------- */
+  .conn-panel {
+    background: var(--surface); border: 1px solid var(--stroke); border-radius: 22px;
+    padding: 36px 32px; box-shadow: var(--shadow-sm);
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 9px;
+    border: 1px solid var(--stroke); background: var(--surface-2);
+    border-radius: 999px; padding: 9px 16px 9px 12px;
+    font-size: 14px; font-weight: 550; color: var(--ink);
+  }
+  .chip .d { width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); background: var(--accent); opacity: 0.85; }
+  .chip.more { color: var(--muted); font-weight: 500; border-style: dashed; }
+  .conn-note { margin-top: 20px; font-size: 13.5px; color: var(--muted); max-width: 640px; }
 
-            50% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-    </style>
+  /* ---------- pricing ---------- */
+  .pricing-head { max-width: 680px; margin: 0 auto 40px; text-align: center; }
+  .pricing-head p.sub { color: var(--muted); font-size: 16px; margin-top: 14px; }
+  .plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+  .price-card {
+    background: var(--surface); border: 1px solid var(--stroke-strong); border-radius: 24px;
+    padding: 32px 28px; box-shadow: var(--shadow-lg); position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .price-card::before {
+    content: ""; position: absolute; inset: 0 0 auto 0; height: 3px;
+    background: linear-gradient(90deg, var(--teal-bright), var(--teal), var(--teal-deep));
+  }
+  .price-card.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-lg); }
+  .plan-badge {
+    position: absolute; top: 16px; right: 16px; font-size: 11px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: var(--accent);
+    padding: 5px 10px; border-radius: 999px;
+  }
+  .price-tag { font-size: 12.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+  .price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 12px 0 4px; }
+  .price b { font-size: 46px; font-weight: 700; letter-spacing: -0.035em; line-height: 1; }
+  .price b.quote { font-size: 32px; letter-spacing: -0.025em; padding: 7px 0; }
+  .price s { color: var(--muted); font-size: 24px; font-weight: 600; letter-spacing: -0.02em; text-decoration: line-through; }
+  .price span { color: var(--muted); font-size: 15px; font-weight: 500; }
+  .price-note { font-size: 13px; color: var(--muted); line-height: 1.45; }
+  .price-note b { color: var(--body); font-weight: 600; }
+  .price-card > p.sub { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+  .incl { list-style: none; margin: 22px 0 24px; display: grid; gap: 11px; align-content: start; flex: 1; }
+  .incl li { display: flex; gap: 11px; font-size: 14.5px; color: var(--body); line-height: 1.45; }
+  .incl li::before {
+    content: "✓"; color: var(--accent); font-weight: 700; font-size: 13px; flex: none;
+    margin-top: 1px;
+  }
+  .price-card .btn { width: 100%; margin-top: auto; }
+  .alt-bill { margin-top: 12px; font-size: 13px; color: var(--muted); text-align: center; line-height: 1.5; }
+  .alt-bill button {
+    background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: var(--accent);
+    text-decoration: underline; text-underline-offset: 2px; cursor: pointer;
+  }
+  .alt-bill button:disabled { color: var(--muted); cursor: default; }
+  .fine { margin-top: 14px; font-size: 12.5px; color: var(--muted); text-align: center; line-height: 1.5; }
+  .fine a { color: var(--muted); }
+  .pricing-foot { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 28px; margin-top: 40px; }
+  .pricing-foot .v h3 { margin-bottom: 5px; }
+  .pricing-foot .v p { color: var(--muted); font-size: 14.5px; }
+  .addon {
+    margin-top: 28px; border: 1px dashed var(--stroke-strong); border-radius: 16px;
+    padding: 16px 18px; background: var(--surface-2);
+  }
+  .addon b { font-size: 14.5px; }
+  .addon p { color: var(--muted); font-size: 13.5px; margin-top: 4px; }
+  .value-list { display: grid; gap: 18px; margin-top: 26px; }
+  .value-list .v h3 { margin-bottom: 5px; }
+  .value-list .v p { color: var(--muted); font-size: 14.5px; }
+  /* ---------- faq ---------- */
+  .faq { display: grid; gap: 0; border-top: 1px solid var(--stroke); max-width: 860px; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--stroke); }
+  summary {
+    list-style: none; cursor: pointer; padding: 22px 40px 22px 2px; position: relative;
+    font-weight: 600; font-size: 16.5px; letter-spacing: -0.01em;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    font-size: 22px; font-weight: 400; color: var(--accent); line-height: 1;
+  }
+  details[open] summary::after { content: "−"; }
+  details p { padding: 0 40px 24px 2px; color: var(--body); font-size: 15.5px; max-width: 720px; }
+
+  /* ---------- final cta ---------- */
+  .cta-band {
+    position: relative; overflow: hidden; border-radius: 26px; padding: 56px 40px;
+    background: linear-gradient(140deg, #06424A 0%, var(--teal-deep) 46%, #012C31 100%);
+    color: #fff; text-align: center;
+  }
+  .cta-band::after {
+    content: ""; position: absolute; inset: auto -10% -60% -10%; height: 320px;
+    background: radial-gradient(50% 60% at 50% 50%, rgba(31, 165, 166, 0.38), transparent 70%);
+    pointer-events: none;
+  }
+  .cta-band > * { position: relative; z-index: 1; }
+  .cta-band h2 { color: #fff; }
+  .cta-band p { color: rgba(233, 246, 247, 0.82); margin: 14px auto 28px; max-width: 520px; font-size: 17px; }
+  .cta-band .btn-primary {
+    background: #fff; color: var(--teal-deep); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  }
+  .cta-band .btn-ghost {
+    background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.4); box-shadow: none;
+  }
+  .cta-band .btn-ghost:hover { border-color: #fff; color: #fff; background: rgba(255,255,255,0.08); }
+  .cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--stroke); padding: 44px 0 56px; }
+  .foot-grid { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 22px; }
+  .foot-links a { color: var(--body); text-decoration: none; font-size: 14px; }
+  .foot-links a:hover { color: var(--accent); }
+  .foot-links a.foot-signin { color: var(--accent); font-weight: 600; }
+  .copyright { color: var(--muted); font-size: 13px; margin-top: 26px; }
+
+  @media (max-width: 940px) {
+    .hero { padding: 120px 0 68px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+    .lede { max-width: none; }
+    .steps { grid-template-columns: 1fr; }
+    .bento { grid-template-columns: repeat(2, 1fr); }
+    .span-3, .span-2 { grid-column: span 2; }
+    .plans { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .pricing-foot { grid-template-columns: 1fr; }
+    section { padding: 64px 0; }
+  }
+  @media (max-width: 620px) {
+    .bento { grid-template-columns: 1fr; }
+    .span-3, .span-2 { grid-column: span 1; }
+    .hero-actions .btn, .cta-actions .btn { width: 100%; }
+    .conn-panel, .price-card, .cta-band { padding-left: 22px; padding-right: 22px; }
+    .cta-band { padding-top: 42px; padding-bottom: 42px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
 </head>
-
 <body>
 
-    <!-- Loading Splash Screen -->
-    <div id="loadingSplash" class="loading-splash">
-        <div class="loading-inner">
-            <img src="assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="loading-logo"
-                fetchpriority="high">
-            <div class="loading-bar">
-                <div class="loading-bar-fill"></div>
-            </div>
-            <span class="loading-pct" id="loadingPct">0%</span>
-        </div>
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <img class="logo-mark on-light" src="assets/vantage-logo.png" alt="">
+      <img class="logo-mark on-dark" src="assets/vantage-logo-dark.png" alt="">
+      <span class="name">Vantage <em>Method</em></span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#how">How it works</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#connections">Connections</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary btn-sm" href="/book/">Book a call</a>
     </div>
+  </div>
+</header>
 
-    <!-- Fixed Vanta.js background — persists behind hero + mountains -->
-    <div id="vantaBg"></div>
+<main id="top">
 
-    <!-- ============================================
-         HEADER
-         ============================================ -->
-    <header>
-        <div class="container">
-            <a href="#" class="logo-link" aria-label="Back to top"><img
-                    src="assets/images/brand/Vantage-Method-Dark.png" alt="Vantage Method" class="logo"
-                    fetchpriority="high"></a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <nav id="mainNav">
-                <a href="/app/">The Vantage Agent</a>
-                <a href="#outcome">Our Approach</a>
-                <a href="#how-we-work">How We Work</a>
-                <a href="#what-we-do">Services</a>
-                <a href="#team">Team</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#pricing">Pricing</a>
-                <a href="/book/" class="nav-cta">Book a Call</a>
-            </nav>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow"><span class="dot"></span> Your marketing engine</p>
+        <h1>The full power of AI,<br class="nb"><span class="grad">in the palm<br class="nb"> of your hand.</span></h1>
+        <p class="lede">
+          Vantage Agent isn't a chatbot — it's an operator that does the work. It builds and
+          launches your funnels, runs your ads, works your SEO and follows up with your leads,
+          every day, without being asked twice.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="/book/">Book a call <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost btn-lg" href="#pricing">Plans from $500/mo</a>
         </div>
-    </header>
+        <p class="hero-meta">
+          <span><span class="tick" aria-hidden="true">✓</span> We set it up for you</span>
+          <span><span class="tick" aria-hidden="true">✓</span> Nothing to install</span>
+          <span><span class="tick" aria-hidden="true">✓</span> Cancel anytime</span>
+        </p>
+      </div>
 
-    <!-- @include sections/hero/hero.html -->
+      <div class="phone-stage">
+        <div class="stage-fx" aria-hidden="true">
+          <span class="orb a"></span><span class="orb b"></span><span class="orb c"></span>
+          <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+        </div>
+        <div class="phone">
+          <div class="phone-screen">
+            <!-- Fallback art sits beneath the screenshot: if it fails to load,
+                 this shows through instead of a broken-media icon. -->
+            <div class="mock" aria-hidden="true">
+              <div class="mock-head">
+                <div class="mock-avatar"></div>
+                <div class="mock-title">Atlas<small>Working · always on</small></div>
+              </div>
+              <div class="bubble you">Put the new pricing page live and email the list.</div>
+              <div class="bubble agent">Built it, deployed to your host, DNS is pointed. Sending 1,240 emails through Resend now.</div>
+              <div class="bubble you">Nice. Same time every Monday?</div>
+              <div class="bubble agent">Scheduled. Monday 7:00am, weekly.</div>
+              <div class="bubble you">And bump the ad budget to $300/day.</div>
+              <div class="bubble agent">Updated in your Meta account. Two campaigns, live now.</div>
+              <div class="mock-task">
+                <b>Weekly campaign report</b>
+                <span>Next run · Monday 7:00am</span>
+                <div class="mock-bar"><i></i></div>
+              </div>
+            </div>
+            <img id="heroShot" src="assets/hero-shot.png?v=1785347201"
+                 alt="Vantage Agent on iPhone: the owner asks the agent to build a lead funnel, and the agent reports it built the landing page, lead magnet, thank-you page and email sequence and shipped them to GitHub."
+                 onerror="heroFallback()">
+            <div class="phone-notch" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- @include sections/mountains/mountains.html -->
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">How it works</p>
+        <h2>Working for you by tomorrow.</h2>
+        <p>No software to install, no servers to rent, nothing to keep running. We build your agent, and you talk to it from your phone.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Pick your path</h3>
+          <p>Go turnkey with one Stripe checkout and set it up yourself — or <a href="/book/">book a 30-minute call</a> and we scope the whole thing with you, white-glove.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>We set up your agent</h3>
+          <p>We build it on our own hardware, give it its brief, and connect the accounts you want it working in. Usually the same day — we email you the moment it's live.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Scan the code with your phone</h3>
+          <p>Install the iPhone app and enter the pairing code from your account page. From then on you just text your agent, like any other operator on your team.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- @include sections/principles/principles.html -->
+  <!-- CAPABILITIES -->
+  <section id="capabilities">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">What it takes off your plate</p>
+        <h2>The work you keep putting off,<br>done by Friday.</h2>
+        <p>Every one of these is a job you're either paying someone for, waiting weeks on, or quietly not doing at all.</p>
+      </div>
+      <div class="bento">
+        <article class="card feature-lead span-3">
+          <div class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 5.5A1.5 1.5 0 0 1 4.5 4h15A1.5 1.5 0 0 1 21 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18.5z"/>
+              <path d="M3 8.5h18"/><circle cx="6" cy="6.2" r=".6" fill="currentColor"/>
+              <path d="M8 12h8M8 15h5"/><path d="M14.5 17.5 17 20l4-4.5"/>
+            </svg>
+          </div>
+          <h3>Stop waiting three weeks for a landing page</h3>
+          <p>You describe the offer. You get a live page — written, deployed to your hosting, domain pointed, code in your GitHub — usually before you've finished your coffee. No agency queue, no dev ticket, no "we'll have something Thursday."</p>
+          <ul class="mini-list">
+            <li>Funnels, landing pages and lead magnets, built and live</li>
+            <li>Copy, layout, forms and follow-up email written for you</li>
+            <li>Revisions in the time it takes to ask for them</li>
+          </ul>
+        </article>
+        <article class="card feature-lead span-3">
+          <div class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 17.5 8.5 12l3.5 3.5L21 6.5"/>
+              <path d="M15.5 6.5H21v5.5"/>
+              <path d="M3 21h18"/>
+            </svg>
+          </div>
+          <h3>Yes — it actually runs your ads</h3>
+          <p>Not "drafts ad copy." It signs into your Meta account, builds the campaigns, launches them, watches the numbers daily and moves budget off what isn't working. Then it tells you what it did and what it wants to try next.</p>
+          <ul class="mini-list">
+            <li>Campaigns built, launched and adjusted in your account</li>
+            <li>New creative written and posted when performance dips</li>
+            <li>Email campaigns sent from your own domain</li>
+          </ul>
+        </article>
+        <article class="card span-2">
+          <div class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/>
+              <path d="M11 8v6M8 11h6"/>
+            </svg>
+          </div>
+          <h3>Yes — it works on your SEO</h3>
+          <p>Keyword research, pages written and published, titles and metadata fixed, site speed and structure cleaned up, Search Console watched. The unglamorous compounding work nobody on your team gets around to.</p>
+        </article>
+        <article class="card span-2">
+          <div class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="16" rx="2"/>
+              <path d="M3 10h18M8 3v4M16 3v4"/>
+              <path d="m9 15 2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>It doesn't need reminding</h3>
+          <p>"Check the ads every morning and tell me if anything's off." Booked. It runs on its own schedule, does the work while you sleep, and reports back — the follow-through you've been the bottleneck on.</p>
+        </article>
+        <article class="card span-2">
+          <div class="glyph" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                 stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10" cy="8" r="3.6"/>
+              <path d="M3.5 20a6.5 6.5 0 0 1 13 0"/>
+              <path d="M19 7v6M16 10h6"/>
+            </svg>
+          </div>
+          <h3>One hire's work, without the hire</h3>
+          <p>No recruiting, no onboarding, no payroll, no turnover — and it doesn't forget what you told it in March. Add a second agent for another lane of work whenever you're ready.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    <!-- @include sections/how-we-work/how-we-work.html -->
+  <!-- CONNECTIONS -->
+  <section id="connections">
+    <div class="wrap">
+      <div class="conn-panel">
+        <p class="kicker">Connections</p>
+        <h2 style="font-size:clamp(24px,2.6vw,30px)">Plugged into the accounts you already pay for.</h2>
+        <p style="color:var(--body); margin-top:12px; max-width:620px; font-size:16px">
+          Hand over a connection once — we'll wire it in for you — and your agent can use it for everything after that.
+        </p>
+        <div class="chips">
+          <span class="chip"><span class="d" aria-hidden="true"></span>Domain registrar</span>
+          <span class="chip"><span class="d" aria-hidden="true"></span>Web hosting</span>
+          <span class="chip"><span class="d" aria-hidden="true"></span>GitHub</span>
+          <span class="chip"><span class="d" aria-hidden="true"></span>Resend email</span>
+          <span class="chip"><span class="d" aria-hidden="true"></span>Google</span>
+          <span class="chip"><span class="d" aria-hidden="true"></span>Meta ads</span>
+          <span class="chip more">+ anything else with an API key</span>
+        </div>
+        <p class="conn-note">
+          Credentials go straight into your own agent's environment and stay there.
+          We keep the label and which service it is — never the key itself.
+          <a href="https://agent.vantagemethod.com/privacy">Read exactly what we store →</a>
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <!-- @include sections/what-we-do/what-we-do.html -->
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="pricing-head">
+        <p class="kicker">Pricing</p>
+        <h2>Start turnkey today, go white-glove,<br>or bring the whole company.</h2>
+        <p class="sub">Every plan is a dedicated AI operator, built and hosted by us, with the iPhone and Mac apps, hosting, updates and support included.</p>
+      </div>
 
-    <!-- @include-disabled sections/social-proof/social-proof.html  (not ready yet — remove "-disabled" to restore) -->
+      <div class="plans">
+        <div class="price-card">
+          <p class="price-tag">Base — turnkey · in beta</p>
+          <p class="price"><b>$500</b><span>/ month</span></p>
+          <p class="price-note">Month to month. Cancel anytime. Now in beta — early spots are limited.</p>
+          <p class="sub">Your agent, working today. You connect your accounts with one-tap sign-ins.</p>
+          <ul class="incl">
+            <li>A dedicated AI operator, built and hosted by us</li>
+            <li>iPhone and Mac apps: your agent in your pocket</li>
+            <li>Connect Meta, Google, GoHighLevel, Mailchimp, Klaviyo and Dropbox yourself — sign in, click Allow, done</li>
+            <li>Scheduled and recurring work, managed by the agent</li>
+            <li>Runs on your own Claude subscription (~$100/mo, paid to Anthropic) — your dashboard walks you through it</li>
+            <li>Hosting, updates and support included</li>
+          </ul>
+          <a class="btn btn-primary btn-lg" href="https://agent.vantagemethod.com/api/checkout/start?plan=self-serve">Join the beta — $500/mo</a>
+          <p class="fine">Secure payment via Stripe · Cancel anytime · Vantage Method LLC</p>
+        </div>
 
-    <!-- @include sections/portfolio/portfolio.html -->
+        <div class="price-card featured">
+          <span class="plan-badge">Best value</span>
+          <p class="price-tag">Pro — white-glove</p>
+          <p class="price"><s>$1,300</s><b>$1,000</b><span>/ month</span></p>
+          <p class="price-note"><b>$1,000/mo when you pay annually</b> ($12,000 a year, launch build included) — or $1,300 month to month plus a one-time $2,500 launch build.</p>
+          <p class="sub">Everything in Base, built for you — including the systems only your business uses.</p>
+          <ul class="incl">
+            <li>Every connection hand-built and tested by our team</li>
+            <li>Custom API integrations for your stack</li>
+            <li>Guided onboarding: business intake, brand-voice calibration, a tested go-live</li>
+            <li>Domain, hosting, GitHub, email and ad accounts wired by us</li>
+            <li>Claude subscription set up with you on a call</li>
+          </ul>
+          <a class="btn btn-primary btn-lg" href="https://agent.vantagemethod.com/api/checkout/start?plan=custom&amp;annual=1">Get started — $1,000/mo</a>
+          <p class="alt-bill">Billed annually · Prefer monthly? <a href="https://agent.vantagemethod.com/api/checkout/start?plan=custom">$1,300/mo + $2,500 launch build</a></p>
+          <p class="fine">Prefer to talk it through first? <a href="/book/">Book a call</a>.<br>Secure payment via Stripe · Cancel anytime · Vantage Method LLC</p>
+        </div>
 
-    <!-- @include sections/team/team.html -->
+        <div class="price-card">
+          <p class="price-tag">Enterprise</p>
+          <p class="price"><b class="quote">Call for pricing</b></p>
+          <p class="price-note">Scoped with you on a call, priced per company.</p>
+          <p class="sub">Everything in Pro, for teams that need agents across the company — and the security, procurement and support that come with it.</p>
+          <ul class="incl">
+            <li>As many agents as you need, each with its own owners and conversation</li>
+            <li>Integrations with your internal systems and data</li>
+            <li>Dedicated onboarding for every team, run by us</li>
+            <li>Priority support and a named point of contact</li>
+            <li>Invoicing, security review and procurement handled with your team</li>
+          </ul>
+          <a class="btn btn-primary btn-lg" href="/book/">Book a call</a>
+          <p class="fine">We'll scope it together and send a proposal. Or <a href="https://agent.vantagemethod.com/contact">write to us</a>.</p>
+        </div>
+      </div>
 
-    <!-- @include sections/pricing/pricing.html -->
+      <div class="pricing-foot">
+        <div class="v">
+          <h3>Priced against a hire, not an app</h3>
+          <p>An operator that builds, ships and runs campaigns for you, available every hour of the day — for less than a day of contractor time a month.</p>
+        </div>
+        <div class="v">
+          <h3>Nothing else to buy</h3>
+          <p>Setup, hosting, the apps and every update are included. Your agent thinks with Claude under your own Claude subscription (about $100/mo, paid to Anthropic like the rest of your stack) — on Base your dashboard walks you through connecting it in a couple of minutes; on Pro and Enterprise we set it up with you.</p>
+        </div>
+        <div class="v">
+          <h3>Cancel whenever</h3>
+          <p>Monthly plans run month to month through Stripe; annual plans run for the year. Manage or cancel your subscription any time from your <a href="https://agent.vantagemethod.com/account">customer sign-in</a>.</p>
+        </div>
+      </div>
+      <div class="addon">
+        <b>Need more hands? Extra agents — $500/mo each.</b>
+        <p>Add a second or third agent from your account at any time on Base or Pro. Each one is its own operator with its own conversation.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- @include sections/cta/cta.html -->
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head center">
+        <p class="kicker">Can it actually…</p>
+        <h2>Yes. And yes.</h2>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>Does it really run my ads, or just write them?</summary>
+          <p><strong>It really runs them.</strong> Connect your Meta account once and your agent builds the campaigns, launches them, checks performance on a schedule, shifts budget away from what's losing, and writes and posts new creative when a winner starts to fatigue. You approve the direction; it does the clicking.</p>
+        </details>
+        <details>
+          <summary>Can it help me rank on Google?</summary>
+          <p><strong>Yes.</strong> It researches the keywords worth chasing, writes and publishes the pages, fixes titles, metadata and internal linking, cleans up the technical issues holding your site back, and watches Search Console so it can tell you what moved. SEO fails from inconsistency more than from ignorance — this is the part it's built for.</p>
+        </details>
+        <details>
+          <summary>Can it build me a website or a funnel?</summary>
+          <p><strong>Yes — a real one, live.</strong> Describe the offer and you get a working page deployed to your hosting with the domain pointed and the code saved in your GitHub. Lead magnets, opt-in forms, thank-you pages and the follow-up email sequence included. Then ask for changes in plain English and they ship in minutes.</p>
+        </details>
+        <details>
+          <summary>Will it email my list and follow up on leads?</summary>
+          <p><strong>Yes.</strong> It sends from your own domain, writes the sequences, and can pull your numbers back into the conversation so you can ask "which email actually got replies?" and get a real answer instead of a dashboard export.</p>
+        </details>
+        <details>
+          <summary>Do I have to know anything technical?</summary>
+          <p><strong>No.</strong> You text it like you'd text a capable employee. On Base, setup is: subscribe, follow the two-minute walkthrough in your dashboard, scan a code with your phone — then connecting an account is signing in and clicking Allow. On Pro and Enterprise we do every technical part for you. Either way, everything after setup is a conversation.</p>
+        </details>
+        <details>
+          <summary>How is this different from an AI chatbot?</summary>
+          <p>Those give you words. <strong>This one has hands.</strong> It runs on a real computer of its own with your real logins, so it can deploy a site, launch a campaign, push code and run tomorrow morning's work without you. The chat window is where you ask — the work happens on a machine that never sleeps.</p>
+        </details>
+        <details>
+          <summary>What does it cost, and what if I need more than one?</summary>
+          <p>Three ways in. <strong>$500/month for Base</strong> (in beta) — turnkey: you connect your accounts with one-tap sign-ins and your agent runs on your own Claude subscription. <strong>$1,000/month for Pro when you pay annually</strong> ($12,000 a year, launch build included), or $1,300 month to month plus a one-time $2,500 launch build — our team hand-builds and tests every connection, including custom API integrations, with guided onboarding. <strong>Enterprise is priced per company</strong> — agents across your teams, internal integrations and dedicated support; <a href="/book/">book a call</a> and we'll scope it with you. Extra agents are $500/month each on Base and Pro. Cancel anytime. Your Claude subscription (~$100/mo) is the one thing paid separately, straight to Anthropic.</p>
+        </details>
+        <details>
+          <summary>What do I need on my end?</summary>
+          <p>Three things: an iPhone, the logins for the accounts you want your agent working in, and your own Claude subscription — that's the AI your agent thinks with. On Base your dashboard walks you through connecting it in a couple of minutes; on Pro and Enterprise we set it up with you on your onboarding call. No Mac to leave running and nothing to install: we build and host the agent. Your keys go into your own agent's environment and are never shared with anyone else's — the details of what we do and don't store are on the <a href="https://agent.vantagemethod.com/privacy">privacy page</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
 
-    <!-- @include shared/footer.html -->
+  <!-- FINAL CTA -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band">
+        <h2>Put an operator on your team today.</h2>
+        <p>Subscribe and we'll build your agent. Most are live the same day — you just scan a code and start talking.</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href="/book/">Book a call <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost btn-lg" href="#pricing">Get your agent — from $500/mo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-            <path d="M9 14V4M4 8l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-        </svg>
-    </button>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a class="brand" href="#top">
+        <img class="logo-mark on-light" src="assets/vantage-logo.png" alt="">
+        <img class="logo-mark on-dark" src="assets/vantage-logo-dark.png" alt="">
+        <span class="name">Vantage <em>Method</em></span>
+      </a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="/book/">Book a call</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://agent.vantagemethod.com/privacy">Privacy &amp; data handling</a>
+        <a href="/terms/">Terms</a>
+        <a href="https://agent.vantagemethod.com/contact">Contact</a>
+        <a class="foot-signin" href="https://agent.vantagemethod.com/account">Customer sign-in&nbsp;→</a>
+      </nav>
+    </div>
+    <p class="copyright">© Vantage Method LLC · Lindale, TX · vantagemethod.com</p>
+  </div>
+</footer>
 
-    <!-- ============================================
-         SCRIPTS
-         Vanta.js loaded dynamically by hero.js after first paint
-         ============================================ -->
-    <!-- Shared Global Scripts -->
-    <script src="shared/global.js"></script>
+<script>
+// If the screenshot ever fails to load, hide it so the styled mock
+// conversation sitting behind it shows through instead of a broken image.
+function heroFallback() {
+  var shot = document.getElementById('heroShot');
+  if (shot) shot.style.display = 'none';
+}
 
-    <!-- Section Scripts -->
-    <script src="sections/hero/hero.js"></script>
-    <script src="sections/mountains/mountains.js"></script>
-    <script src="sections/principles/principles.js"></script>
-    <script src="sections/how-we-work/how-we-work.js"></script>
-    <script src="sections/what-we-do/what-we-do.js"></script>
-    <script src="sections/team/team.js"></script>
-    <script src="sections/portfolio/portfolio.js"></script>
-    <script src="shared/form-validation.js"></script>
-    <script src="sections/cta/cta.js"></script>
-
-    <!-- reCAPTCHA v3 for GHL form submission — TODO: replace SITE_KEY with your GHL reCAPTCHA site key -->
-    <script src="https://www.google.com/recaptcha/api.js?render=6LeDBFwpAAAAAJe8ux9-imrqZ2ueRsEtdiWoDDpX"
-        async></script>
-
-    <!-- AI Quiz Lead Magnet Popup -->
-    <link rel="stylesheet" href="shared/ai-quiz-modal.css">
-    <script src="shared/ai-quiz-config.js"></script>
-    <script src="shared/ai-quiz-modal.js"></script>
-
-    <!-- Dismiss loading splash once ready, or after 3s max -->
-    <script>
-        (function () {
-            var splash = document.getElementById('loadingSplash');
-            var fill = splash ? splash.querySelector('.loading-bar-fill') : null;
-            var pctEl = document.getElementById('loadingPct');
-            if (!splash) return;
-
-            var displayPct = 0;
-            var targetPct = 30;
-            var animFrame;
-            var dismissed = false;
-
-            function animatePct() {
-                if (displayPct < targetPct) {
-                    displayPct = Math.min(displayPct + 1, targetPct);
-                    if (pctEl) pctEl.textContent = displayPct + '%';
-                    if (fill) fill.style.width = displayPct + '%';
-                    animFrame = requestAnimationFrame(animatePct);
-                }
-            }
-
-            function bump(pct) {
-                targetPct = Math.min(pct, 100);
-                cancelAnimationFrame(animFrame);
-                animatePct();
-            }
-
-            bump(30);
-            bump(70);
-
-            function dismiss() {
-                if (dismissed) return;
-                dismissed = true;
-                bump(100);
-                setTimeout(function () {
-                    splash.classList.add('hidden');
-                    setTimeout(function () { splash.remove(); }, 700);
-                }, 400);
-            }
-
-            /* Dismiss on full load if it happens quickly */
-            if (document.readyState === 'complete') {
-                dismiss();
-            } else {
-                window.addEventListener('load', dismiss);
-            }
-
-            /* Hard ceiling: dismiss after 3s no matter what */
-            setTimeout(dismiss, 3000);
-        })();
-    </script>
-
+(function () {
+  const nav = document.getElementById('nav');
+  const hero = document.querySelector('.hero');
+  // The nav is transparent over the dark hero and only turns light once the
+  // hero has scrolled past it — otherwise it flips to white while still
+  // sitting on the dark section.
+  const onScroll = () => {
+    const past = hero
+      ? hero.getBoundingClientRect().bottom <= nav.offsetHeight
+      : window.scrollY > 8;
+    nav.classList.toggle('scrolled', past);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+})();
+</script>
 </body>
-
 </html>

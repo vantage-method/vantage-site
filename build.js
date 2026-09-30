@@ -261,6 +261,7 @@ const PUBLISH_PATHS = [
     'index.html',
     'intake',
     'kenny',
+    'legacy',
     'llms.txt',
     'partnerships',
     'payment-setup-cancelled',

@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#14171b;--ink-2:#1d2228;--bone:#f6f3ee;--muted:#8a9099;--muted-d:#5b626b;--fire:#f4531e;--fire-dk:#d8410f;--line:#e4ded4}
+:root{--ink:#14171b;--ink-2:#1d2228;--bone:#f6f3ee;--muted:#8a9099;--muted-d:#5b626b;--fire:#0a7e9e;--fire-dk:#086a85;--line:#e4ded4}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bone);color:var(--ink);font-family:"Open Sans",system-ui,sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
@@ -72,7 +72,7 @@ section{padding:clamp(52px,7vw,100px) 0}
 /* cta band */
 .cta-band{position:relative;color:#fff;overflow:hidden}
 .cta-band img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.cta-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,23,27,.9),rgba(216,65,15,.65))}
+.cta-band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,23,27,.9),rgba(10,126,158,.65))}
 .cta-band .wrap{position:relative;z-index:2;text-align:center;padding:clamp(56px,8vw,110px) 0}
 .cta-band h2{font-size:clamp(2.4rem,6vw,4.5rem);color:#fff}
 .cta-band p{max-width:46ch;margin:16px auto 0;font-size:1.2rem;color:#f1ede6}
@@ -85,6 +85,9 @@ footer h4{color:#fff;font-weight:800;font-size:.76rem;letter-spacing:.14em;text-
 footer a{display:block;padding:5px 0}footer a:hover{color:var(--fire)}
 .foot-logo img{height:44px;margin-bottom:14px}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:34px;padding-top:20px;font-size:.85rem;color:#6b727b;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+/* lighter teal where the accent sits on dark backgrounds */
+.hero .eyebrow,.prog .k,.model .pt .b{color:#5fc6dd}
+nav.main a:hover,footer a:hover{color:#5fc6dd}
 </style>
 </head>
 <body>

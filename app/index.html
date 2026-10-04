@@ -321,7 +321,7 @@ nav.main a:not(.btn):hover::after{width:100%}
 .cost tbody tr:hover{background:rgba(30,200,217,.04)}
 
 /* ============================ PRICING ============================ */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;align-items:start}
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;align-items:start;max-width:880px;margin:0 auto}
 .price-card.enterprise{background:linear-gradient(180deg,#12191b,var(--panel-2));border-color:rgba(232,195,126,.28)}
 .price-card .amt .num.custom{font-size:2.7rem;color:var(--gold)}
 .price-card{position:relative;background:linear-gradient(180deg,var(--panel),var(--panel-2));border:1px solid var(--line);border-radius:20px;padding:2.3rem;display:flex;flex-direction:column;transition:transform .4s var(--e-out)}
@@ -1012,60 +1012,38 @@ h1 .accent,h2 .accent{
         <div class="cta-wrap"><a href="/book/" class="btn btn-ghost btn-lg">Book a Call — Join the Beta</a>
           <p class="micro">Now in beta — early spots are limited. Best for owners happy to click through setup themselves.</p></div>
       </div>
-      <div class="price-card feature reveal">
-        <div class="flags"><span class="flag pop">Most Popular</span><span class="flag val">Best Value</span></div>
-        <div class="plan">Pro — White‑Glove</div>
-        <div class="amt"><span class="num">$1,000</span><span class="per">/ month</span></div>
-        <div class="sub">Billed annually — $12,000/year</div>
-        <div class="freebadge">★ $2,500 launch build FREE when you pay annually</div>
-        <div class="econ">
-          <div class="er"><span>Annual</span><b>$1,000/mo · launch build included</b></div>
-          <div class="er"><span>Month‑to‑month</span><b>$1,300/mo + $2,500 launch build</b></div>
-        </div>
-        <div class="save-callout"><b>$300 less every month</b> than month‑to‑month — and the launch build is on us.</div>
-        <ul class="incl">
-          <li><span class="tick">✓</span> Everything in Base</li>
-          <li><span class="tick">✓</span> Every connection hand‑built &amp; tested by our team</li>
-          <li><span class="tick">✓</span> Custom API integrations for your stack</li>
-          <li><span class="tick">✓</span> Guided onboarding, brand‑voice calibration &amp; a tested go‑live</li>
-          <li><span class="tick">✓</span> Domains, hosting, email &amp; ad accounts wired by us</li>
-        </ul>
-        <div class="cta-wrap"><a href="/book/" class="btn btn-primary btn-lg" data-magnetic>Book Your Call <span class="arrow">→</span></a>
-          <p class="micro">A 30‑minute call — we scope your setup and get you started.</p></div>
-      </div>
-      <div class="price-card enterprise reveal right">
-        <div class="flags"><span class="flag val">For Organizations</span></div>
+      <div class="price-card enterprise feature reveal right">
+        <div class="flags"><span class="flag pop">White‑Glove</span><span class="flag val">For Organizations</span></div>
         <div class="plan">Enterprise</div>
         <div class="amt"><span class="per">From</span><span class="num">$1,000</span><span class="per">/ month</span></div>
-        <div class="sub">Starting at $1,000/mo — built for scale &amp; complexity</div>
+        <div class="sub">Starting at $1,000/mo — scoped with you on a call</div>
         <div class="econ">
           <div class="er"><span>Pricing</span><b>From $1,000/mo, scoped per company</b></div>
-          <div class="er"><span>Onboarding &amp; setup</span><b>Custom</b></div>
+          <div class="er"><span>Onboarding &amp; setup</span><b>Done by our team</b></div>
         </div>
         <ul class="incl">
-          <li><span class="tick">✓</span> Agents across your teams, each with its own owner</li>
-          <li><span class="tick">✓</span> Integrations with your internal systems &amp; data</li>
-          <li><span class="tick">✓</span> Advanced data reporting</li>
-          <li><span class="tick">✓</span> Multiple websites, segments &amp; audiences</li>
+          <li><span class="tick">✓</span> Everything in Base, built for you by our team</li>
+          <li><span class="tick">✓</span> Every connection hand‑built &amp; tested by our team</li>
+          <li><span class="tick">✓</span> Custom API integrations with your systems &amp; data</li>
+          <li><span class="tick">✓</span> Guided onboarding, brand‑voice calibration &amp; a tested go‑live</li>
+          <li><span class="tick">✓</span> As many agents as you need, across your teams</li>
           <li><span class="tick">✓</span> Security review, procurement &amp; invoicing handled</li>
-          <li><span class="tick">✓</span> Dedicated support &amp; a named point of contact</li>
         </ul>
-        <div class="cta-wrap"><a href="/book/" class="btn btn-ghost btn-lg">Book a Call</a>
-          <p class="micro">Best for multi‑brand, multi‑location and data‑driven organizations.</p></div>
+        <div class="cta-wrap"><a href="/book/" class="btn btn-primary btn-lg" data-magnetic>Book Your Call <span class="arrow">→</span></a>
+          <p class="micro">A 30‑minute call — we scope your build and send a proposal.</p></div>
       </div>
     </div>
     <div class="reveal" style="overflow-x:auto">
       <table class="pcompare">
-        <thead><tr><th>&nbsp;</th><th>Base (beta)</th><th class="col-feature">Pro</th><th>Enterprise</th></tr></thead>
+        <thead><tr><th>&nbsp;</th><th>Base (beta)</th><th class="col-feature">Enterprise</th></tr></thead>
         <tbody>
-          <tr><td>Monthly price</td><td>$500</td><td class="col-feature">$1,000 annual · $1,300 monthly</td><td>Custom</td></tr>
-          <tr><td>Launch build</td><td>Self‑serve</td><td class="col-feature">$2,500 — free on annual</td><td>Custom</td></tr>
-          <tr><td>Who connects your accounts</td><td>You (one‑tap sign‑ins)</td><td class="col-feature yes">Our team</td><td class="yes">Our team</td></tr>
-          <tr><td>Custom API integrations</td><td class="dash">—</td><td class="col-feature yes">Included</td><td class="yes">Internal systems too</td></tr>
-          <tr><td>Multiple websites</td><td class="dash">—</td><td class="col-feature dash">—</td><td class="yes">✓</td></tr>
-          <tr><td>Advanced data reporting</td><td class="dash">—</td><td class="col-feature dash">—</td><td class="yes">✓</td></tr>
-          <tr><td>Training &amp; onboarding</td><td>Guided in‑app</td><td class="col-feature yes">With our team</td><td class="yes">Per team, dedicated</td></tr>
-          <tr><td>Support</td><td class="yes">Included</td><td class="col-feature yes">Priority</td><td class="yes">Dedicated</td></tr>
+          <tr><td>Monthly price</td><td>$500</td><td class="col-feature">From $1,000 — scoped per company</td></tr>
+          <tr><td>Who connects your accounts</td><td>You (one‑tap sign‑ins)</td><td class="col-feature yes">Our team</td></tr>
+          <tr><td>Custom API integrations</td><td class="dash">—</td><td class="col-feature yes">Included — internal systems too</td></tr>
+          <tr><td>Multiple websites</td><td class="dash">—</td><td class="col-feature yes">✓</td></tr>
+          <tr><td>Advanced data reporting</td><td class="dash">—</td><td class="col-feature yes">✓</td></tr>
+          <tr><td>Training &amp; onboarding</td><td>Guided in‑app</td><td class="col-feature yes">Per team, dedicated</td></tr>
+          <tr><td>Support</td><td class="yes">Included</td><td class="col-feature yes">Dedicated</td></tr>
         </tbody>
       </table>
     </div>
@@ -1158,8 +1136,7 @@ h1 .accent,h2 .accent{
       <details><summary>What happens during onboarding? <span class="pm"></span></summary><p>We handle discovery, platform configuration, AI agent customization, brand training, account integrations and initial strategic setup — installing Vantage around your specific business, then training your team.</p></details>
       <details><summary>Why is there a setup fee? <span class="pm"></span></summary><p>Because the platform is configured around your individual company rather than delivered as generic software. That customization is what makes Vantage understand your market, offers and customers.</p></details>
       <details><summary>What integrations are supported? <span class="pm"></span></summary><p>Vantage connects to your key marketing accounts and platforms during onboarding. Your confirmed integrations are set up as part of your launch — we’ll walk through exactly which ones apply to you.</p></details>
-      <details><summary>Can I cancel? <span class="pm"></span></summary><p>Annual memberships carry a 12‑month agreement. The month‑to‑month subscription gives you greater flexibility with no long‑term commitment.</p></details>
-      <details><summary>Why are the last two months free on the annual plan? <span class="pm"></span></summary><p>Because we want to reward companies that commit to implementing Vantage as part of their long‑term marketing infrastructure.</p></details>
+      <details><summary>Can I cancel? <span class="pm"></span></summary><p>Yes — Base runs month to month with no long‑term commitment. Enterprise terms are scoped with you on your call.</p></details>
     </div>
   </div>
 </section>

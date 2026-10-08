@@ -254,6 +254,7 @@ const PUBLISH_PATHS = [
     'book',
     'booking',
     'custom-website',
+    'engine',
     'evaluation',
     'facebook-ads',
     'google-ads',

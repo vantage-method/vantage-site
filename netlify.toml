@@ -121,6 +121,17 @@
   to = "/kenny/"
   status = 301
 
+# Short links the team hands out: /ken and /kenny both land on Kenny's page.
+[[redirects]]
+  from = "/ken"
+  to = "/kenny/"
+  status = 301
+
+[[redirects]]
+  from = "/ken/*"
+  to = "/kenny/:splat"
+  status = 301
+
 # bethany.vantagemethod.com serves the Bethany proposal page.
 # The subdomain is a domain alias of this site, so /shared, /assets and /booking
 # resolve normally; only the root is rewritten to the proposal.

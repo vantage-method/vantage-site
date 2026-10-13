@@ -156,7 +156,7 @@
     <div class="intro">
       <p class="mono">Book a call · 30 minutes</p>
       <h1>Pick a time.<br>Then your marketing <span>runs itself.</span></h1>
-      <p>You'll meet with Kenny from our team — he'll walk you through the Vantage Agent, scope your setup, and if it's a fit, get you started the same week.</p>
+      <p id="introWho">You'll meet with Kenny from our team — he'll walk you through the Vantage Agent, scope your setup, and if it's a fit, get you started the same week.</p>
     </div>
 
     <div class="flow" data-stage="1" id="flow">
@@ -206,14 +206,22 @@
     <div class="tick">✓</div>
     <h2>You're booked.</h2>
     <p id="doneWhen"></p>
-    <p>A confirmation with a calendar invite is on its way to your inbox. Kenny will call or send a meeting link before your time. Need to change it? Just reply to that email.</p>
+    <p id="doneNote">A confirmation with a calendar invite is on its way to your inbox. Kenny will call or send a meeting link before your time. Need to change it? Just reply to that email.</p>
   </div>
 </main>
 <script>
 (() => {
   const API = 'https://agent.vantagemethod.com/api/booking';
   const $ = (id) => document.getElementById(id);
-  const plan = new URLSearchParams(location.search).get('plan') || '';
+  const params = new URLSearchParams(location.search);
+  const plan = params.get('plan') || '';
+  // ?with=ken|blaise — whose calendar this page books. Unknown names mean Kenny.
+  const HOSTS = { ken: 'Kenny', blaise: 'Blaise' };
+  const rawWith = (params.get('with') || 'ken').toLowerCase();
+  const host = HOSTS[rawWith] ? rawWith : 'ken';
+  const hostName = HOSTS[host];
+  $('introWho').textContent = `You'll meet with ${hostName} from our team — he'll walk you through the Vantage Agent, scope your setup, and if it's a fit, get you started the same week.`;
+  $('doneNote').textContent = `A confirmation with a calendar invite is on its way to your inbox. ${hostName} will call or send a meeting link before your time. Need to change it? Just reply to that email.`;
   const mobile = () => matchMedia('(max-width:860px)').matches;
 
   let byDate = new Map();   // 'YYYY-MM-DD' (local) -> [iso slots]
@@ -306,7 +314,7 @@
   // ---- data ----
   async function load() {
     try {
-      const r = await fetch(API + '/availability');
+      const r = await fetch(API + '/availability?host=' + encodeURIComponent(host));
       const data = await r.json();
       byDate = new Map();
       for (const day of data.days) {
@@ -342,7 +350,7 @@
       const r = await fetch(API + '/book', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          start: selSlot, plan,
+          start: selSlot, plan, host,
           name: $('name').value.trim(), email: $('email').value.trim(),
           company: $('company').value.trim(), phone: $('phone').value.trim(),
           notes: $('notes').value.trim(), website: $('website').value,

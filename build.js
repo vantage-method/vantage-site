@@ -275,7 +275,6 @@ const PUBLISH_PATHS = [
     'sitemap.xml',
     'starter-pack',
     'terms',
-    'website-questionnaire',
     'zach'
 ];
 

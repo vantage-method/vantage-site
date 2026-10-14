@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Vantage Method marketing website — a static single-page site built with vanilla HTML, CSS, and JavaScript. Hosted on Netlify.
+Vantage Method marketing website — a static single-page site built with vanilla HTML, CSS, and JavaScript. Hosted on Vercel.
 
 ## Build & Development
 
@@ -17,7 +17,7 @@ There is no package.json, no npm dependencies, and no dev server. The build scri
 
 For local preview, use any static server (e.g. `python3 -m http.server 3333`).
 
-Netlify runs `node build.js` on deploy with publish directory `.` (configured in `netlify.toml`).
+Vercel runs `node build.js` on deploy with publish directory `dist` (configured in `vercel.json`).
 
 ## Architecture
 

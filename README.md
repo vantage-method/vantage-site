@@ -1,6 +1,6 @@
 # Vantage Method — Marketing Website
 
-Static single-page marketing site built with vanilla HTML, CSS, and JavaScript. Hosted on Netlify.
+Static single-page marketing site built with vanilla HTML, CSS, and JavaScript. Hosted on Vercel.
 
 ## Local Development
 
@@ -22,7 +22,7 @@ node build.js
 
 **Do not edit `index.html` directly.** Edit the template or section files, then rebuild.
 
-Netlify runs `node build.js` automatically on deploy (configured in `netlify.toml`).
+Vercel runs `node build.js` on deploy, publishing the `dist/` directory (configured in `vercel.json`).
 
 ## Project Structure
 

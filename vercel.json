@@ -9,6 +9,7 @@
   "redirects": [
     { "source": "/kenny.html", "destination": "/kenny/", "statusCode": 301 },
     { "source": "/ken", "destination": "/kenny/", "statusCode": 301 },
+    { "source": "/ken/", "destination": "/kenny/", "statusCode": 301 },
     { "source": "/ken/:path*", "destination": "/kenny/:path*", "statusCode": 301 }
   ],
   "headers": [

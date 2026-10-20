@@ -10,7 +10,9 @@
     { "source": "/kenny.html", "destination": "/kenny/", "statusCode": 301 },
     { "source": "/ken", "destination": "/kenny/", "statusCode": 301 },
     { "source": "/ken/", "destination": "/kenny/", "statusCode": 301 },
-    { "source": "/ken/:path*", "destination": "/kenny/:path*", "statusCode": 301 }
+    { "source": "/ken/:path*", "destination": "/kenny/:path*", "statusCode": 301 },
+    { "source": "/book", "destination": "/booking/", "statusCode": 301 },
+    { "source": "/book/:path*", "destination": "/booking/", "statusCode": 301 }
   ],
   "headers": [
     {

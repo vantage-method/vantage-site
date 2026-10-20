@@ -119,6 +119,12 @@
   .cta-band p { color: rgba(255, 255, 255, 0.78); margin: 12px auto 26px; max-width: 480px; }
   .cta-band .btn-primary { background: #fff; color: var(--teal-deep); box-shadow: 0 8px 26px rgba(0, 0, 0, 0.25); }
 
+  .book { scroll-margin-top: 64px; }
+  .book .section-head { margin-left: auto; margin-right: auto; text-align: center; }
+  .calendar { background: var(--surface); border: 1px solid var(--stroke); border-radius: 20px; box-shadow: var(--shadow-sm); padding: 24px; min-height: 600px; }
+  .calendar iframe { display: block; width: 100%; border: none; overflow: hidden; }
+  @media (max-width: 768px) { .calendar { padding: 12px; border-radius: 16px; min-height: 400px; } }
+
   footer { padding: 36px 0 48px; color: var(--muted); font-size: 13.5px; }
   footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   footer a { color: var(--muted); }
@@ -149,7 +155,7 @@
     <a class="brand" href="/">Vantage <em>Method</em></a>
     <div class="nav-cta">
       <a class="nav-link" href="/#pricing">Pricing</a>
-      <a class="btn btn-primary btn-sm" href="/book/?with=blaise">Book a call with Blaise</a>
+      <a class="btn btn-primary btn-sm" href="#book">Book a call with Blaise</a>
     </div>
   </div>
 </nav>
@@ -162,7 +168,7 @@
         <h1>Put an AI&#8209;powered <span class="grad">marketing engine</span> on your team.</h1>
         <p class="lede">I'm Blaise. I've spent 26 years building sales teams that actually execute — and the Vantage Agent is the teammate I wish every one of them had: an AI operator that builds your funnels, runs your ads and follows up with your leads, every day. Thirty minutes with me and you'll know exactly how it fits your business.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="/book/?with=blaise">Book a call with Blaise <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn btn-primary btn-lg" href="#book">Book a call with Blaise <span class="arrow" aria-hidden="true">→</span></a>
           <a class="btn btn-ghost btn-lg" href="/">See the Vantage Agent</a>
         </div>
       </div>
@@ -230,13 +236,13 @@
           <span class="tag">Premium — turnkey · in beta</span>
           <span class="amt">$499<small> / month</small></span>
           <p>One agent for one small business. You connect your accounts with one-tap sign-ins; your agent runs on your own Claude subscription (~$100/mo, paid to Anthropic).</p>
-          <a class="btn btn-ghost" href="/book/?with=blaise">Book a call — join the beta</a>
+          <a class="btn btn-ghost" href="#book">Book a call — join the beta</a>
         </div>
         <div class="plan featured">
           <span class="tag">Enterprise — white-glove</span>
           <span class="amt">From $999<small> / month</small></span>
           <p>Three agents for $999/month — a customized build for multiple users, multiple orgs or your own agent infrastructure, hand-built and tested by our team. Pricing scales as you grow.</p>
-          <a class="btn btn-primary" href="/book/?with=blaise">Book a call — get started</a>
+          <a class="btn btn-primary" href="#book">Book a call — get started</a>
         </div>
       </div>
     </div>
@@ -247,7 +253,22 @@
       <div class="cta-band reveal">
         <h2>Thirty minutes. Your marketing, running itself.</h2>
         <p>Pick a time that works — I'll walk you through the agent live, scope your setup, and if it's a fit, get you started this week.</p>
-        <a class="btn btn-primary btn-lg" href="/book/?with=blaise">Book your call with Blaise <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-primary btn-lg" href="#book">Book your call with Blaise <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+  <section id="book" class="book">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">Book a call</p>
+        <h2>Pick a time with Blaise.</h2>
+        <p>Thirty minutes, straight onto my calendar.</p>
+      </div>
+      <div class="calendar">
+        <iframe src="https://links.wescotsolutions.com/widget/booking/wD5CHMMbUuI4nV7IN7TL"
+          style="width: 100%;border:none;overflow: hidden;" scrolling="no"
+          id="wD5CHMMbUuI4nV7IN7TL_1772477606483" title="Book a call with Blaise"></iframe>
+        <script src="https://links.wescotsolutions.com/js/form_embed.js" type="text/javascript"></script>
       </div>
     </div>
   </section>

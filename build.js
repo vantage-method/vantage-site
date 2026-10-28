@@ -291,7 +291,10 @@ const PRIVATE_PATTERNS = [
     /(^|\/)node_modules(\/|$)/i,
     /^scripts(\/|$)/i,
     /^design(\/|$)/i,
-    /^reference(\/|$)/i
+    /^reference(\/|$)/i,
+    // HTML fragments in sections/ and shared/ are build-time inputs (inlined
+    // or @included into pages), not pages. Their CSS, JS and images still ship.
+    /^(sections|shared)\/.*\.html$/i
 ];
 
 function isPrivatePath(relativePath) {

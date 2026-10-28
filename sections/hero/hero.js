@@ -27,9 +27,14 @@
 (function() {
     var effect = null;
 
-    function loadScript(src, cb) {
+    // Pinned CDN files are loaded with Subresource Integrity. If you change a
+    // version, recompute its hash:
+    //   curl -s <url> | openssl dgst -sha384 -binary | openssl base64 -A
+    function loadScript(src, integrity, cb) {
         var s = document.createElement('script');
         s.src = src;
+        s.integrity = integrity;
+        s.crossOrigin = 'anonymous';
         s.onload = cb;
         document.body.appendChild(s);
     }
@@ -60,8 +65,8 @@
 
     function start() {
         // p5 must be loaded before vanta — vanta.trunk captures p5 at parse time
-        loadScript('https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js', function() {
-            loadScript('https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.trunk.min.js', initVanta);
+        loadScript('https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js', 'sha384-Mhzoc5EVkjFUVtIW2M3h8BgXtFlUsUpu9lTCThPrV7+k6MN6vTi079rew0LkvgFb', function() {
+            loadScript('https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.trunk.min.js', 'sha384-Wqa4ks2IpJCEGLZbOK/HB8TbF9kFaPaffly0zAd2KHzqOn68ix6/B/BH/bl1zMqn', initVanta);
         });
     }
 

@@ -245,13 +245,11 @@ function buildLandingPages() {
 const PUBLISH_PATHS = [
     '404.html',
     'agent',
-    'ai-integration',
     'app',
     'assessment',
     'assets',
     'bethany',
     'blaise',
-    'book',
     'booking',
     'custom-website',
     'engine',

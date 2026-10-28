@@ -1,6 +1,6 @@
 # Vantage Method — Marketing Website
 
-Static single-page marketing site built with vanilla HTML, CSS, and JavaScript. Hosted on Vercel.
+Static marketing site built with vanilla HTML, CSS, and JavaScript. Hosted on Vercel.
 
 ## Local Development
 
@@ -14,21 +14,30 @@ Then open [http://localhost:3333](http://localhost:3333).
 
 ## Build
 
-The site uses a template system. `index.template.html` is the source file — it contains `<!-- @include path/to/file.html -->` directives that pull in each section. Run the build script to assemble the final `index.html`:
+Run the build script after editing a template or an included fragment:
 
 ```bash
 node build.js
 ```
 
-**Do not edit `index.html` directly.** Edit the template or section files, then rebuild.
+It does four things:
 
-Vercel runs `node build.js` on deploy, publishing the `dist/` directory (configured in `vercel.json`).
+- **Home page.** `index.template.html` is the source of the home page. It is a single self-contained file (CSS and JS inline, no `@include` directives), so the build only strips HTML comments and writes `index.html`. That is why the build reports "0 sections included".
+- **Service landing pages.** Each landing page folder has an `index.template.html` whose `<!-- @include path/to/file.html -->` directives pull in `shared/footer.html` and `shared/service-form.html`; the build writes the assembled `index.html` next to it.
+- **CSS.** The stylesheets of the archived old homepage are concatenated and minified into `assets/compiled.css`, which only `/legacy/` uses.
+- **Publish.** The public files are copied into `dist/`. Templates, build files and the `.html` fragments in `sections/` and `shared/` are left out, so they are not served as pages.
+
+**Do not edit `index.html` directly.** Edit the template (or an included fragment), then rebuild.
+
+Vercel runs `node build.js` on deploy, publishing the `dist/` directory (configured in `vercel.json`, which also sets the security headers and CSP).
 
 ## Project Structure
 
 ```
-shared/              Global styles (base.css) and scripts (global.js)
-sections/            Each page section has its own folder with .html, .css, .js
+index.template.html  Home page source (self-contained; built into index.html)
+legacy/              Archived old homepage (static, noindex)
+shared/              Global styles and scripts, service landing page code, footer and form partials
+sections/            Sections of the old homepage (used by /legacy/), each with .html and .css (most with .js)
   hero/              Vanta.js animated hero
   mountains/         Decorative parallax mountains
   principles/        Three principle cards
@@ -36,6 +45,7 @@ sections/            Each page section has its own folder with .html, .css, .js
   what-we-do/        Services
   team/              Interactive orbital team layout
   portfolio/         Horizontal drag-scroll gallery
+  social-proof/      Social proof band
   pricing/           Partnership & pricing
   cta/               Contact form (posts to GHL)
 kenny/               Partner page — Kenny (salesperson landing page)
@@ -60,12 +70,12 @@ There are several interactive tools that serve different purposes — don't conf
 
 | Tool | URL | What It Is | Audience |
 |------|-----|------------|----------|
-| **AI Quiz** | Homepage modal (`shared/ai-quiz-modal.*`) | 10-question popup quiz scoring AI maturity (1-4 levels). Triggered by time delay, exit intent, or CTA cards. Email gate before results. | Public visitors |
+| **AI Quiz** | `/legacy/` modal (`shared/ai-quiz-modal.*`) | 10-question popup quiz scoring AI maturity (1-4 levels). Triggered by time delay, exit intent, or CTA cards. Email gate before results. | Public visitors |
 | **Growth Ceiling Diagnostic** | `/zach/diagnostic/` | 12-question standalone page scoring 4 growth categories (Message Clarity, Funnel Simplicity, Client Retention, Lead Gen). Shows "Fix This First" recommendation. Email gate before results. | Zach's prospects |
 | **Evaluation Form** | `/evaluation/` | Multi-step application form (4 steps: about you, goals, budget, timing). No scoring or results — it's a lead qualification form. Linked from service landing pages. | Prospective clients |
 | **Intake Form** | `/intake/` | Password-gated long-form partner onboarding questionnaire. Internal use only. | New partners |
 | **Assessment** | `/assessment/` | 86-item checklist across 12 marketing categories (A/P/N/X ratings). Real-time scoring dashboard. Not yet connected to GHL. | Internal / partner workflow |
-| **CTA Contact Form** | Homepage `#contact` section (`sections/cta/`) | Simple lead capture form (name, email, phone, message). Posts to GHL. | Public visitors |
+| **CTA Contact Form** | `/legacy/` `#contact` section (`sections/cta/`) | Simple lead capture form (name, email, phone, message). Posts to GHL. | Public visitors |
 | **Partner Page Forms** | `/zach/#contact`, `/kenny/#contact` | Contact forms on individual salesperson pages. Post to GHL. | Partner prospects |
 
 All forms that submit to GHL use the same location ID (`1CRkPO5O8TwTWL8msQNK`) and reCAPTCHA v3 key.
